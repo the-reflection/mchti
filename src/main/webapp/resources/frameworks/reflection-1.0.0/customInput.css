@@ -1,0 +1,59 @@
+/* iCheck plugin Square skin, green
+----------------------------------- */
+.cb-square-green,
+.rb-square-green {
+    display: inline-block;
+    *display: inline;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 31px;
+    height: 31px;
+    background: url(green.png) no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+.cb-square-green {
+    background-position: 0 0;
+}
+.cb-square-green.hover {
+    background-position: -24px 0;
+}
+.cb-square-green.checked {
+    background-position: -48px 0;
+}
+.cb-square-green.disabled {
+    background-position: -72px 0;
+    cursor: default;
+}
+.cb-square-green.checked.disabled {
+    background-position: -96px 0;
+}
+
+.rb-square-green {
+    background-position: -120px 0;
+}
+.rb-square-green.hover {
+    background-position: -144px 0;
+}
+.rb-square-green.checked {
+    background-position: -168px 0;
+}
+.rb-square-green.disabled {
+    background-position: -192px 0;
+    cursor: default;
+}
+.rb-square-green.checked.disabled {
+    background-position: -216px 0;
+}
+
+/* HiDPI support */
+@media (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+    .cb-square-green,
+    .rb-square-green {
+        background-image: url(green%402x.png);
+        -webkit-background-size: 240px 24px;
+        background-size: 240px 24px;
+    }
+}
