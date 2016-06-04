@@ -24,7 +24,7 @@
                     <p>Lorem Ipsum is simply dummy text of the printing.</p>
                     <p>
                         <a class="btn btn-lg btn-primary" href="#" role="button">READ MORE</a>
-                        <a class="caption-link" href="#" role="button">Inspinia Theme</a>
+                        <a class="caption-link" href="#" role="button">Reflection Theme</a>
                     </p>
                 </div>
                 <div class="carousel-image wow zoomIn">
