@@ -677,13 +677,10 @@
 
         <script type="text/javascript">
             $(document).ready(function () {
-
-
                 $('body').scrollspy({
                     target: '.navbar-fixed-top',
                     offset: 80
                 });
-
                 // Page scrolling feature
                 $('a.page-scroll').bind('click', function (event) {
                     var link = $(this);
@@ -711,9 +708,9 @@
                 function scrollPage() {
                     var sy = scrollY();
                     if (sy >= changeHeaderOn) {
-                        $(header).addClass('navbar-scroll')
+                        $(header).addClass('navbar-scroll');
                     } else {
-                        $(header).removeClass('navbar-scroll')
+                        $(header).removeClass('navbar-scroll');
                     }
                     didScroll = false;
                 }
@@ -721,8 +718,6 @@
                     return window.pageYOffset || docElem.scrollTop;
                 }
                 init();
-
-
             })();
 
             // Activate WOW.js plugin for animation on scrol
