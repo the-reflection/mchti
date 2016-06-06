@@ -5,18 +5,18 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.reflection</groupId>
     <!--artifactId is used as context path of web project-->
-    <artifactId>mchti</artifactId>
+    <artifactId>MCHTI</artifactId>
     <version>1.0.0</version>
     <packaging>war</packaging>
     <name>_MCHTI</name>
-    <description>Oith Framework Advance Intelligent</description>
+    <description>Reflection Framework an Advanced in Intelligence</description>
     <licenses>
         <license>
             <name>Apache License 2.0</name>
             <url>http://www.apache.org/licenses/LICENSE-2.0</url>
         </license>
     </licenses>
-    <url>http://www.oith.org</url>
+    <url>http://www.reflection.org</url>
     
     <properties>  
  
@@ -514,9 +514,15 @@
             <version>10.12.1.1</version>
         </dependency>
         
+        <!--mvn install:install-file -Dfile=ojdbc6.jar -DgroupId=oracle -DartifactId=oracle -Dversion=6 -Dpackaging=jar-->
         <dependency>
-            <!--mvn install:install-file -Dfile=jcalendar-1.4.jar -DgroupId=jcalendar-1.4 -DartifactId=jcalendar-1.4 -Dversion=1.4 -Dpackaging=jar-->
-    
+            <groupId>oracle</groupId>
+            <artifactId>oracle</artifactId>
+            <version>6</version>
+        </dependency>
+        
+        <!--mvn install:install-file -Dfile=oith.jar -DgroupId=jcalendar-1.4 -DartifactId=jcalendar-1.4 -Dversion=1.4 -Dpackaging=jar-->
+        <dependency>
             <artifactId>oith-1.0</artifactId>
             <groupId>oith-1.0</groupId>
             <version>1.0</version>
@@ -527,6 +533,7 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
@@ -537,6 +544,12 @@
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
             <version>1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.14</version>
+            <type>jar</type>
         </dependency>
     </dependencies>
 
@@ -559,7 +572,7 @@
                 <version>2.6</version>
                 <configuration>
                     <warSourceDirectory>src/main/webapp</warSourceDirectory>
-                    <warName>mchti</warName>
+                    <warName>MCHTI</warName>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
@@ -577,9 +590,9 @@
                     </connectors>
                     <scanIntervalSeconds>5</scanIntervalSeconds>
                     <!--<port>8090</port>-->
-                    <url>http://localhost:8091/mchti/</url> 
+                    <url>http://localhost:8091/MCHTI/</url> 
                     <webApp> 
-                        <contextPath>/mchti</contextPath>
+                        <contextPath>/MCHTI</contextPath>
                     </webApp>
                 </configuration>
             </plugin>
@@ -588,7 +601,7 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-                    <!--<url>http://localhost:8090/mchti/</url>-->  
+                    <!--<url>http://localhost:8090/MCHTI/</url>-->  
                     <port>8090</port>
                     <path>/</path>
                 </configuration>

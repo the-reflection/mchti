@@ -13,36 +13,36 @@
 <link rel="shortcut icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/images/favicon.ico"/>
 
 <!-- Bootstrap 3.3.6 -->
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/frameworks/bootstrap/css/bootstrap.min.css">
-<!--<link rel="stylesheet" type="text/css" href="../../resources/frameworks/bootstrap/css/bootstrap.min.css">-->
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/plugins/bootstrap/css/bootstrap.min.css">
+<!--<link rel="stylesheet" type="text/css" href="../../resources/plugins/bootstrap/css/bootstrap.min.css">-->
 
 <!-- Font Awesome -->
 <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">-->
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/frameworks/font-awesome-4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/plugins/font-awesome-4.6.3/css/font-awesome.min.css">
 
 <!-- Ionicons -->
 <!--<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">-->
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/frameworks/ionicons-2.0.1/css/ionicons.min.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/plugins/ionicons-2.0.1/css/ionicons.min.css">
 
 <!-- DataTables -->
-<!--<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/frameworks/datatables/jquery.dataTables.css"/>-->
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/frameworks/datatables/dataTables.bootstrap.css">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/frameworks/datatables/extensions/Responsive/css/dataTables.responsive.css"/>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/frameworks/datatables/extensions/TableTools/css/dataTables.tableTools.css"/>
+<!--<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/plugins/datatables/jquery.dataTables.css"/>-->
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/plugins/datatables/dataTables.bootstrap.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css"/>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/plugins/datatables/extensions/TableTools/css/dataTables.tableTools.css"/>
 
 <!-- iCheck -->
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/frameworks/iCheck/square/blue.css"/>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/plugins/iCheck/square/blue.css"/>
 
 <!-- Theme style -->
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/frameworks/admin-lte-2.3.3/css/AdminLTE.min.css">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/frameworks/reflection-1.0.0/reflection.css">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/frameworks/reflection-1.0.0/customInput.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/plugins/admin-lte-2.3.3/css/AdminLTE.min.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/plugins/reflection-1.0.0/reflection.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/plugins/reflection-1.0.0/customInput.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/main.css">
 
 <!-- AdminLTE Skins. Choose a skin from the css/skins
      folder instead of downloading all of them to reduce the load. -->
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/frameworks/admin-lte-2.3.3/css/skins/_all-skins.min.css">
-<!--<link rel="stylesheet" type="text/css" href="< %=request.getContextPath()%>/resources/frameworks/admin-lte-2.3.3/css/skins/skin-blue.min.css">-->
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/plugins/admin-lte-2.3.3/css/skins/_all-skins.min.css">
+<!--<link rel="stylesheet" type="text/css" href="< %=request.getContextPath()%>/resources/plugins/admin-lte-2.3.3/css/skins/skin-blue.min.css">-->
 <!-- Reflection Skins. We have chosen the skin-blue for this starter
       page. However, you can choose any other skin. Make sure you
       apply the skin class to the body tag so the changes take effect.

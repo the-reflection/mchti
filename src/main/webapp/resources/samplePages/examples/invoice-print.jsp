@@ -14,14 +14,14 @@
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.6 -->
-        <link rel="stylesheet" href="../../frameworks/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap.min.css">
         <!-- Font Awesome -->
         <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">-->
-        <link rel="stylesheet" href="../../frameworks/font-awesome-4.6.3/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../../plugins/font-awesome-4.6.3/css/font-awesome.min.css">
         <!-- Ionicons -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
         <!-- Theme style -->
-        <link rel="stylesheet" href="../../frameworks/admin-lte-2.3.3/css/AdminLTE.min.css">
+        <link rel="stylesheet" href="../../plugins/admin-lte-2.3.3/css/AdminLTE.min.css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -132,10 +132,10 @@
                     <!-- accepted payments column -->
                     <div class="col-xs-6">
                         <p class="lead">Payment Methods:</p>
-                        <img src="../../frameworks/admin-lte-2.3.3/img/credit/visa.png" alt="Visa">
-                        <img src="../../frameworks/admin-lte-2.3.3/img/credit/mastercard.png" alt="Mastercard">
-                        <img src="../../frameworks/admin-lte-2.3.3/img/credit/american-express.png" alt="American Express">
-                        <img src="../../frameworks/admin-lte-2.3.3/img/credit/paypal2.png" alt="Paypal">
+                        <img src="../../plugins/admin-lte-2.3.3/img/credit/visa.png" alt="Visa">
+                        <img src="../../plugins/admin-lte-2.3.3/img/credit/mastercard.png" alt="Mastercard">
+                        <img src="../../plugins/admin-lte-2.3.3/img/credit/american-express.png" alt="American Express">
+                        <img src="../../plugins/admin-lte-2.3.3/img/credit/paypal2.png" alt="Paypal">
 
                         <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
                             Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem plugg dopplr

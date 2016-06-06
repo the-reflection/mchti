@@ -17,11 +17,11 @@
         <jsp:include page="/views/layouts/_css.jsp"/>
 
         <!-- Custom styles for this template -->
-        <link href="${pageContext.request.contextPath}/resources/site/mchti-site.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/resources/site/org.reflection-site.css" rel="stylesheet">
 
 
         <!-- Animation CSS -->
-        <link href="${pageContext.request.contextPath}/resources/frameworks/animate.css/animate.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/resources/plugins/animate.css/animate.css" rel="stylesheet">
 
     </head>
     <body id="page-top" class="landing-page">
@@ -649,9 +649,9 @@
 
         <jsp:include page="/views/layouts/_js.jsp"/>
 
-        <script src="${pageContext.request.contextPath}/resources/frameworks/metisMenu/jquery.metisMenu.js"></script>
-        <script src="${pageContext.request.contextPath}/resources/frameworks/pace/pace.min.js"></script>
-        <script src="${pageContext.request.contextPath}/resources/frameworks/wow/wow.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/plugins/metisMenu/jquery.metisMenu.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/plugins/pace/pace.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/plugins/wow/wow.min.js"></script>
 
         <!-- Custom and plugin javascript -->
         <script src="${pageContext.request.contextPath}/resources/site/inspinia.js"></script>

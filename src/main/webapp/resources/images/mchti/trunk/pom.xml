@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.reflection</groupId>
     <!--artifactId is used as context path of web project-->
-    <artifactId>mchti</artifactId>
+    <artifactId>org.reflection</artifactId>
     <version>1.0.0</version>
     <packaging>war</packaging>
     <name>_MCHTI</name>
@@ -559,7 +559,7 @@
                 <version>2.6</version>
                 <configuration>
                     <warSourceDirectory>src/main/webapp</warSourceDirectory>
-                    <warName>mchti</warName>
+                    <warName>org.reflection</warName>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
@@ -577,9 +577,9 @@
                     </connectors>
                     <scanIntervalSeconds>5</scanIntervalSeconds>
                     <!--<port>8090</port>-->
-                    <url>http://localhost:8091/mchti/</url> 
+                    <url>http://localhost:8091/org.reflection/</url> 
                     <webApp> 
-                        <contextPath>/mchti</contextPath>
+                        <contextPath>/org.reflection</contextPath>
                     </webApp>
                 </configuration>
             </plugin>
@@ -588,7 +588,7 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-                    <!--<url>http://localhost:8090/mchti/</url>-->  
+                    <!--<url>http://localhost:8090/org.reflection/</url>-->  
                     <port>8090</port>
                     <path>/</path>
                 </configuration>

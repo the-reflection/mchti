@@ -14,29 +14,29 @@
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.6 -->
-        <link rel="stylesheet" href="../../frameworks/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap.min.css">
         <!-- Font Awesome -->
         <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">-->
-        <link rel="stylesheet" href="../../frameworks/font-awesome-4.6.3/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../../plugins/font-awesome-4.6.3/css/font-awesome.min.css">
         <!-- Ionicons -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
         <!-- Theme style -->
-        <link rel="stylesheet" href="../../frameworks/admin-lte-2.3.3/css/AdminLTE.min.css">
+        <link rel="stylesheet" href="../../plugins/admin-lte-2.3.3/css/AdminLTE.min.css">
         <!-- Reflection Skins. Choose a skin from the css/skins
              folder instead of downloading all of them to reduce the load. -->
-        <link rel="stylesheet" href="../../frameworks/admin-lte-2.3.3/css/skins/_all-skins.min.css">
+        <link rel="stylesheet" href="../../plugins/admin-lte-2.3.3/css/skins/_all-skins.min.css">
         <!-- iCheck -->
-        <link rel="stylesheet" href="../../frameworks/iCheck/flat/blue.css">
+        <link rel="stylesheet" href="../../plugins/iCheck/flat/blue.css">
         <!-- Morris chart -->
-        <link rel="stylesheet" href="../../frameworks/morris/morris.css">
+        <link rel="stylesheet" href="../../plugins/morris/morris.css">
         <!-- jvectormap -->
-        <link rel="stylesheet" href="../../frameworks/jvectormap/jquery-jvectormap-1.2.2.css">
+        <link rel="stylesheet" href="../../plugins/jvectormap/jquery-jvectormap-1.2.2.css">
         <!-- Date Picker -->
-        <link rel="stylesheet" href="../../frameworks/datepicker/datepicker3.css">
+        <link rel="stylesheet" href="../../plugins/datepicker/datepicker3.css">
         <!-- Daterange picker -->
-        <link rel="stylesheet" href="../../frameworks/daterangepicker/daterangepicker-bs3.css">
+        <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker-bs3.css">
         <!-- bootstrap wysihtml5 - text editor -->
-        <link rel="stylesheet" href="../../frameworks/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+        <link rel="stylesheet" href="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -92,7 +92,7 @@
                                             <li>
                                                 <a href="#">
                                                     <div class="pull-left">
-                                                        <img src="../../frameworks/admin-lte-2.3.3/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                                        <img src="../../plugins/admin-lte-2.3.3/img/user3-128x128.jpg" class="img-circle" alt="User Image">
                                                     </div>
                                                     <h4>
                                                         Reflection Design Team
@@ -104,7 +104,7 @@
                                             <li>
                                                 <a href="#">
                                                     <div class="pull-left">
-                                                        <img src="../../frameworks/admin-lte-2.3.3/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                                        <img src="../../plugins/admin-lte-2.3.3/img/user4-128x128.jpg" class="img-circle" alt="User Image">
                                                     </div>
                                                     <h4>
                                                         Developers
@@ -116,7 +116,7 @@
                                             <li>
                                                 <a href="#">
                                                     <div class="pull-left">
-                                                        <img src="../../frameworks/admin-lte-2.3.3/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                                        <img src="../../plugins/admin-lte-2.3.3/img/user3-128x128.jpg" class="img-circle" alt="User Image">
                                                     </div>
                                                     <h4>
                                                         Sales Department
@@ -128,7 +128,7 @@
                                             <li>
                                                 <a href="#">
                                                     <div class="pull-left">
-                                                        <img src="../../frameworks/admin-lte-2.3.3/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                                        <img src="../../plugins/admin-lte-2.3.3/img/user4-128x128.jpg" class="img-circle" alt="User Image">
                                                     </div>
                                                     <h4>
                                                         Reviewers
@@ -1210,7 +1210,7 @@
         <!-- ./wrapper -->
 
         <!-- jQuery 2.2.0 -->
-        <script src="../../frameworks/jQuery/jQuery-2.2.0.min.js"></script>
+        <script src="../../plugins/jQuery/jQuery-2.2.0.min.js"></script>
         <!-- jQuery UI 1.11.4 -->
         <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
         <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -1218,33 +1218,33 @@
             $.widget.bridge('uibutton', $.ui.button);
         </script>
         <!-- Bootstrap 3.3.6 -->
-        <script src="../../frameworks/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../../plugins/bootstrap/js/bootstrap.min.js"></script>
         <!-- Morris.js charts -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-        <script src="../../frameworks/morris/morris.min.js"></script>
+        <script src="../../plugins/morris/morris.min.js"></script>
         <!-- Sparkline -->
-        <script src="../../frameworks/sparkline/jquery.sparkline.min.js"></script>
+        <script src="../../plugins/sparkline/jquery.sparkline.min.js"></script>
         <!-- jvectormap -->
-        <script src="../../frameworks/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-        <script src="../../frameworks/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+        <script src="../../plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+        <script src="../../plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
         <!-- jQuery Knob Chart -->
-        <script src="../../frameworks/knob/jquery.knob.js"></script>
+        <script src="../../plugins/knob/jquery.knob.js"></script>
         <!-- daterangepicker -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-        <script src="../../frameworks/daterangepicker/daterangepicker.js"></script>
+        <script src="../../plugins/daterangepicker/daterangepicker.js"></script>
         <!-- datepicker -->
-        <script src="../../frameworks/datepicker/bootstrap-datepicker.js"></script>
+        <script src="../../plugins/datepicker/bootstrap-datepicker.js"></script>
         <!-- Bootstrap WYSIHTML5 -->
-        <script src="../../frameworks/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+        <script src="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
         <!-- Slimscroll -->
-        <script src="../../frameworks/slimScroll/jquery.slimscroll.min.js"></script>
+        <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
         <!-- FastClick -->
-        <script src="../../frameworks/fastclick/fastclick.js"></script>
+        <script src="../../plugins/fastclick/fastclick.js"></script>
         <!-- Reflection App -->
-        <script src="../../frameworks/admin-lte-2.3.3/js/app.min.js"></script>
+        <script src="../../plugins/admin-lte-2.3.3/js/app.min.js"></script>
         <!-- Reflection dashboard demo (This is only for demo purposes) -->
-        <script src="../../frameworks/admin-lte-2.3.3/js/pages/dashboard.js"></script>
+        <script src="../../plugins/admin-lte-2.3.3/js/pages/dashboard.js"></script>
         <!-- Reflection for demo purposes -->
-        <script src="../../frameworks/admin-lte-2.3.3/js/demo.js"></script>
+        <script src="../../plugins/admin-lte-2.3.3/js/demo.js"></script>
     </body>
 </html>

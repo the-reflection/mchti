@@ -6,7 +6,7 @@ module.exports = function (grunt) {
   grunt.initConfig({
     watch: {
       // If any .less file changes in directory "resources/build/less/" run the "less"-task.
-      files: ["resources/build/less/*.less", "resources/build/less/skins/*.less", "resources/frameworks/admin-lte-2.3.3/js/app.js"],
+      files: ["resources/build/less/*.less", "resources/build/less/skins/*.less", "resources/plugins/admin-lte-2.3.3/js/app.js"],
       tasks: ["less", "uglify"]
     },
     // "less"-task configuration
@@ -20,21 +20,21 @@ module.exports = function (grunt) {
         },
         files: {
           // compilation.css  :  source.less
-          "resources/frameworks/admin-lte-2.3.3/css/AdminLTE.css": "resources/build/less/AdminLTE.less",
+          "resources/plugins/admin-lte-2.3.3/css/AdminLTE.css": "resources/build/less/AdminLTE.less",
           //Non minified skin files
-          "resources/frameworks/admin-lte-2.3.3/css/skins/skin-blue.css": "resources/build/less/skins/skin-blue.less",
-          "resources/frameworks/admin-lte-2.3.3/css/skins/skin-black.css": "resources/build/less/skins/skin-black.less",
-          "resources/frameworks/admin-lte-2.3.3/css/skins/skin-yellow.css": "resources/build/less/skins/skin-yellow.less",
-          "resources/frameworks/admin-lte-2.3.3/css/skins/skin-green.css": "resources/build/less/skins/skin-green.less",
-          "resources/frameworks/admin-lte-2.3.3/css/skins/skin-red.css": "resources/build/less/skins/skin-red.less",
-          "resources/frameworks/admin-lte-2.3.3/css/skins/skin-purple.css": "resources/build/less/skins/skin-purple.less",
-          "resources/frameworks/admin-lte-2.3.3/css/skins/skin-blue-light.css": "resources/build/less/skins/skin-blue-light.less",
-          "resources/frameworks/admin-lte-2.3.3/css/skins/skin-black-light.css": "resources/build/less/skins/skin-black-light.less",
-          "resources/frameworks/admin-lte-2.3.3/css/skins/skin-yellow-light.css": "resources/build/less/skins/skin-yellow-light.less",
-          "resources/frameworks/admin-lte-2.3.3/css/skins/skin-green-light.css": "resources/build/less/skins/skin-green-light.less",
-          "resources/frameworks/admin-lte-2.3.3/css/skins/skin-red-light.css": "resources/build/less/skins/skin-red-light.less",
-          "resources/frameworks/admin-lte-2.3.3/css/skins/skin-purple-light.css": "resources/build/less/skins/skin-purple-light.less",
-          "resources/frameworks/admin-lte-2.3.3/css/skins/_all-skins.css": "resources/build/less/skins/_all-skins.less"
+          "resources/plugins/admin-lte-2.3.3/css/skins/skin-blue.css": "resources/build/less/skins/skin-blue.less",
+          "resources/plugins/admin-lte-2.3.3/css/skins/skin-black.css": "resources/build/less/skins/skin-black.less",
+          "resources/plugins/admin-lte-2.3.3/css/skins/skin-yellow.css": "resources/build/less/skins/skin-yellow.less",
+          "resources/plugins/admin-lte-2.3.3/css/skins/skin-green.css": "resources/build/less/skins/skin-green.less",
+          "resources/plugins/admin-lte-2.3.3/css/skins/skin-red.css": "resources/build/less/skins/skin-red.less",
+          "resources/plugins/admin-lte-2.3.3/css/skins/skin-purple.css": "resources/build/less/skins/skin-purple.less",
+          "resources/plugins/admin-lte-2.3.3/css/skins/skin-blue-light.css": "resources/build/less/skins/skin-blue-light.less",
+          "resources/plugins/admin-lte-2.3.3/css/skins/skin-black-light.css": "resources/build/less/skins/skin-black-light.less",
+          "resources/plugins/admin-lte-2.3.3/css/skins/skin-yellow-light.css": "resources/build/less/skins/skin-yellow-light.less",
+          "resources/plugins/admin-lte-2.3.3/css/skins/skin-green-light.css": "resources/build/less/skins/skin-green-light.less",
+          "resources/plugins/admin-lte-2.3.3/css/skins/skin-red-light.css": "resources/build/less/skins/skin-red-light.less",
+          "resources/plugins/admin-lte-2.3.3/css/skins/skin-purple-light.css": "resources/build/less/skins/skin-purple-light.less",
+          "resources/plugins/admin-lte-2.3.3/css/skins/_all-skins.css": "resources/build/less/skins/_all-skins.less"
         }
       },
       // Production compresses version
@@ -45,21 +45,21 @@ module.exports = function (grunt) {
         },
         files: {
           // compilation.css  :  source.less
-          "resources/frameworks/admin-lte-2.3.3/css/AdminLTE.min.css": "resources/build/less/AdminLTE.less",
+          "resources/plugins/admin-lte-2.3.3/css/AdminLTE.min.css": "resources/build/less/AdminLTE.less",
           // Skins minified
-          "resources/frameworks/admin-lte-2.3.3/css/skins/skin-blue.min.css": "resources/build/less/skins/skin-blue.less",
-          "resources/frameworks/admin-lte-2.3.3/css/skins/skin-black.min.css": "resources/build/less/skins/skin-black.less",
-          "resources/frameworks/admin-lte-2.3.3/css/skins/skin-yellow.min.css": "resources/build/less/skins/skin-yellow.less",
-          "resources/frameworks/admin-lte-2.3.3/css/skins/skin-green.min.css": "resources/build/less/skins/skin-green.less",
-          "resources/frameworks/admin-lte-2.3.3/css/skins/skin-red.min.css": "resources/build/less/skins/skin-red.less",
-          "resources/frameworks/admin-lte-2.3.3/css/skins/skin-purple.min.css": "resources/build/less/skins/skin-purple.less",
-          "resources/frameworks/admin-lte-2.3.3/css/skins/skin-blue-light.min.css": "resources/build/less/skins/skin-blue-light.less",
-          "resources/frameworks/admin-lte-2.3.3/css/skins/skin-black-light.min.css": "resources/build/less/skins/skin-black-light.less",
-          "resources/frameworks/admin-lte-2.3.3/css/skins/skin-yellow-light.min.css": "resources/build/less/skins/skin-yellow-light.less",
-          "resources/frameworks/admin-lte-2.3.3/css/skins/skin-green-light.min.css": "resources/build/less/skins/skin-green-light.less",
-          "resources/frameworks/admin-lte-2.3.3/css/skins/skin-red-light.min.css": "resources/build/less/skins/skin-red-light.less",
-          "resources/frameworks/admin-lte-2.3.3/css/skins/skin-purple-light.min.css": "resources/build/less/skins/skin-purple-light.less",
-          "resources/frameworks/admin-lte-2.3.3/css/skins/_all-skins.min.css": "resources/build/less/skins/_all-skins.less"
+          "resources/plugins/admin-lte-2.3.3/css/skins/skin-blue.min.css": "resources/build/less/skins/skin-blue.less",
+          "resources/plugins/admin-lte-2.3.3/css/skins/skin-black.min.css": "resources/build/less/skins/skin-black.less",
+          "resources/plugins/admin-lte-2.3.3/css/skins/skin-yellow.min.css": "resources/build/less/skins/skin-yellow.less",
+          "resources/plugins/admin-lte-2.3.3/css/skins/skin-green.min.css": "resources/build/less/skins/skin-green.less",
+          "resources/plugins/admin-lte-2.3.3/css/skins/skin-red.min.css": "resources/build/less/skins/skin-red.less",
+          "resources/plugins/admin-lte-2.3.3/css/skins/skin-purple.min.css": "resources/build/less/skins/skin-purple.less",
+          "resources/plugins/admin-lte-2.3.3/css/skins/skin-blue-light.min.css": "resources/build/less/skins/skin-blue-light.less",
+          "resources/plugins/admin-lte-2.3.3/css/skins/skin-black-light.min.css": "resources/build/less/skins/skin-black-light.less",
+          "resources/plugins/admin-lte-2.3.3/css/skins/skin-yellow-light.min.css": "resources/build/less/skins/skin-yellow-light.less",
+          "resources/plugins/admin-lte-2.3.3/css/skins/skin-green-light.min.css": "resources/build/less/skins/skin-green-light.less",
+          "resources/plugins/admin-lte-2.3.3/css/skins/skin-red-light.min.css": "resources/build/less/skins/skin-red-light.less",
+          "resources/plugins/admin-lte-2.3.3/css/skins/skin-purple-light.min.css": "resources/build/less/skins/skin-purple-light.less",
+          "resources/plugins/admin-lte-2.3.3/css/skins/_all-skins.min.css": "resources/build/less/skins/_all-skins.less"
         }
       }
     },
@@ -71,7 +71,7 @@ module.exports = function (grunt) {
       },
       my_target: {
         files: {
-          'resources/frameworks/admin-lte-2.3.3/js/app.min.js': ['resources/frameworks/admin-lte-2.3.3/js/app.js']
+          'resources/plugins/admin-lte-2.3.3/js/app.min.js': ['resources/plugins/admin-lte-2.3.3/js/app.js']
         }
       }
     },
@@ -96,7 +96,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: 'resources/build/img/',
           src: ['**/*.{png,jpg,gif,svg,jpeg}'],
-          dest: 'resources/frameworks/admin-lte-2.3.3/img/'
+          dest: 'resources/plugins/admin-lte-2.3.3/img/'
         }]
       }
     },
@@ -107,13 +107,13 @@ module.exports = function (grunt) {
         jshintrc: '.jshintrc'
       },
       core: {
-        src: 'resources/frameworks/admin-lte-2.3.3/js/app.js'
+        src: 'resources/plugins/admin-lte-2.3.3/js/app.js'
       },
       demo: {
-        src: 'resources/frameworks/admin-lte-2.3.3/js/demo.js'
+        src: 'resources/plugins/admin-lte-2.3.3/js/demo.js'
       },
       pages: {
-        src: 'resources/frameworks/admin-lte-2.3.3/js/pages/*.js'
+        src: 'resources/plugins/admin-lte-2.3.3/js/pages/*.js'
       }
     },
 
@@ -122,8 +122,8 @@ module.exports = function (grunt) {
       options: {
         csslintrc: 'resources/build/less/.csslintrc'
       },
-      'resources/frameworks/admin-lte-2.3.3': [
-        'resources/frameworks/admin-lte-2.3.3/css/AdminLTE.css',
+      'resources/plugins/admin-lte-2.3.3': [
+        'resources/plugins/admin-lte-2.3.3/css/AdminLTE.css',
       ]
     },
 

@@ -19,7 +19,7 @@
         <!-- Custom styles for this template -->
         <link href="${pageContext.request.contextPath}/resources/site/amtl-site.css" rel="stylesheet">
         <!-- Animation CSS -->
-        <link href="${pageContext.request.contextPath}/resources/frameworks/animate.css/animate.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/resources/plugins/animate.css/animate.css" rel="stylesheet">
     </head>
     <body id="page-top" class="landing-page">
         <div class="navbar-wrapper">
@@ -189,7 +189,7 @@
                 </div>
                 <div class="col-md-6 text-center  wow zoomIn">
                     <!--<img src="${pageContext.request.contextPath}/resources/site/img/landing/perspective.png" alt="dashboard" class="img-responsive">-->
-                    <img src="${pageContext.request.contextPath}/resources/images/mchti/carousel/b12.jpg" alt="dashboard" class="img-responsive">
+                    <img src="${pageContext.request.contextPath}/resources/images/org.reflection/carousel/b12.jpg" alt="dashboard" class="img-responsive">
                 </div>
                 <div class="col-md-3 text-center wow fadeInRight">
                     <div>
@@ -220,7 +220,7 @@
                 </div>
                 <div class="col-lg-6 text-right wow fadeInRight">
                     <!--<img src="${pageContext.request.contextPath}/resources/site/img/landing/dashboard.png" alt="dashboard" class="img-responsive pull-right">-->
-                    <img src="${pageContext.request.contextPath}/resources/images/mchti/carousel/b7.jpg" alt="dashboard" class="img-responsive pull-right">
+                    <img src="${pageContext.request.contextPath}/resources/images/org.reflection/carousel/b7.jpg" alt="dashboard" class="img-responsive pull-right">
                 </div>
             </div>
         </section>
@@ -298,7 +298,7 @@
                     </div>
                     <div class="col-lg-6 text-right m-t-n-lg wow zoomIn">
                         <!--<img src="${pageContext.request.contextPath}/resources/site/img/landing/iphone.jpg" class="img-responsive" alt="dashboard">-->
-                        <img src="${pageContext.request.contextPath}/resources/images/mchti/carousel/b15.jpg" class="img-responsive" alt="dashboard">
+                        <img src="${pageContext.request.contextPath}/resources/images/org.reflection/carousel/b15.jpg" class="img-responsive" alt="dashboard">
                     </div>
                     <div class="col-lg-3 features-text text-right wow fadeInRight">
                         <small>Reflection</small>
@@ -668,9 +668,9 @@
         </section>
 
         <jsp:include page="/views/layouts/_js.jsp"/>
-        <script src="${pageContext.request.contextPath}/resources/frameworks/metisMenu/jquery.metisMenu.js"></script>
-        <script src="${pageContext.request.contextPath}/resources/frameworks/pace/pace.min.js"></script>
-        <script src="${pageContext.request.contextPath}/resources/frameworks/wow/wow.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/plugins/metisMenu/jquery.metisMenu.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/plugins/pace/pace.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/plugins/wow/wow.min.js"></script>
 
         <!-- Custom and plugin javascript -->
         <script src="${pageContext.request.contextPath}/resources/site/inspinia.js"></script>

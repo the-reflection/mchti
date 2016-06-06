@@ -14,19 +14,19 @@
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.6 -->
-        <link rel="stylesheet" href="../../frameworks/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap.min.css">
         <!-- Font Awesome -->
         <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">-->
-        <link rel="stylesheet" href="../../frameworks/font-awesome-4.6.3/css/font-awesome.css">
+        <link rel="stylesheet" href="../../plugins/font-awesome-4.6.3/css/font-awesome.css">
         <!-- Ionicons -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
         <!-- DataTables -->
-        <link rel="stylesheet" href="../../frameworks/datatables/dataTables.bootstrap.css">
+        <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
         <!-- Theme style -->
-        <link rel="stylesheet" href="../../frameworks/admin-lte-2.3.3/css/AdminLTE.min.css">
+        <link rel="stylesheet" href="../../plugins/admin-lte-2.3.3/css/AdminLTE.min.css">
         <!-- AdminLTE Skins. Choose a skin from the css/skins
              folder instead of downloading all of them to reduce the load. -->
-        <link rel="stylesheet" href="../../frameworks/admin-lte-2.3.3/css/skins/_all-skins.min.css">
+        <link rel="stylesheet" href="../../plugins/admin-lte-2.3.3/css/skins/_all-skins.min.css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -85,7 +85,7 @@
                                             <li>
                                                 <a href="#">
                                                     <div class="pull-left">
-                                                        <img src="../../frameworks/admin-lte-2.3.3/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                                        <img src="../../plugins/admin-lte-2.3.3/img/user3-128x128.jpg" class="img-circle" alt="User Image">
                                                     </div>
                                                     <h4>
                                                         AdminLTE Design Team
@@ -97,7 +97,7 @@
                                             <li>
                                                 <a href="#">
                                                     <div class="pull-left">
-                                                        <img src="../../frameworks/admin-lte-2.3.3/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                                        <img src="../../plugins/admin-lte-2.3.3/img/user4-128x128.jpg" class="img-circle" alt="User Image">
                                                     </div>
                                                     <h4>
                                                         Developers
@@ -109,7 +109,7 @@
                                             <li>
                                                 <a href="#">
                                                     <div class="pull-left">
-                                                        <img src="../../frameworks/admin-lte-2.3.3/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                                        <img src="../../plugins/admin-lte-2.3.3/img/user3-128x128.jpg" class="img-circle" alt="User Image">
                                                     </div>
                                                     <h4>
                                                         Sales Department
@@ -121,7 +121,7 @@
                                             <li>
                                                 <a href="#">
                                                     <div class="pull-left">
-                                                        <img src="../../frameworks/admin-lte-2.3.3/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                                        <img src="../../plugins/admin-lte-2.3.3/img/user4-128x128.jpg" class="img-circle" alt="User Image">
                                                     </div>
                                                     <h4>
                                                         Reviewers
@@ -1580,20 +1580,20 @@
         <!-- ./wrapper -->
 
         <!-- jQuery 2.2.0 -->
-        <script src="../../frameworks/jQuery/jQuery-2.2.0.min.js"></script>
+        <script src="../../plugins/jQuery/jQuery-2.2.0.min.js"></script>
         <!-- Bootstrap 3.3.6 -->
-        <script src="../../frameworks/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../../plugins/bootstrap/js/bootstrap.min.js"></script>
         <!-- DataTables -->
-        <script src="../../frameworks/datatables/jquery.dataTables.min.js"></script>
-        <script src="../../frameworks/datatables/dataTables.bootstrap.min.js"></script>
+        <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
         <!-- SlimScroll -->
-        <script src="../../frameworks/slimScroll/jquery.slimscroll.min.js"></script>
+        <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
         <!-- FastClick -->
-        <script src="../../frameworks/fastclick/fastclick.js"></script>
+        <script src="../../plugins/fastclick/fastclick.js"></script>
         <!-- AdminLTE App -->
-        <script src="../../frameworks/admin-lte-2.3.3/js/app.min.js"></script>
+        <script src="../../plugins/admin-lte-2.3.3/js/app.min.js"></script>
         <!-- AdminLTE for demo purposes -->
-        <script src="../../frameworks/admin-lte-2.3.3/js/demo.js"></script>
+        <script src="../../plugins/admin-lte-2.3.3/js/demo.js"></script>
         <!-- page script -->
         <script>
             $(function () {

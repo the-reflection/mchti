@@ -14,17 +14,17 @@
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.6 -->
-        <link rel="stylesheet" href="../frameworks/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
         <!-- Font Awesome -->
         <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">-->
-        <link rel="stylesheet" href="../frameworks/font-awesome-4.6.3/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../plugins/font-awesome-4.6.3/css/font-awesome.min.css">
         <!-- Ionicons -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
         <!-- Theme style -->
-        <link rel="stylesheet" href="../frameworks/admin-lte-2.3.3/css/AdminLTE.min.css">
+        <link rel="stylesheet" href="../plugins/admin-lte-2.3.3/css/AdminLTE.min.css">
         <!-- AdminLTE Skins. Choose a skin from the css/skins
              folder instead of downloading all of them to reduce the load. -->
-        <link rel="stylesheet" href="../frameworks/admin-lte-2.3.3/css/skins/_all-skins.min.css">
+        <link rel="stylesheet" href="../plugins/admin-lte-2.3.3/css/skins/_all-skins.min.css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -83,7 +83,7 @@
                                             <li>
                                                 <a href="#">
                                                     <div class="pull-left">
-                                                        <img src="../frameworks/admin-lte-2.3.3/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                                        <img src="../plugins/admin-lte-2.3.3/img/user3-128x128.jpg" class="img-circle" alt="User Image">
                                                     </div>
                                                     <h4>
                                                         Reflection It Design Team
@@ -95,7 +95,7 @@
                                             <li>
                                                 <a href="#">
                                                     <div class="pull-left">
-                                                        <img src="../frameworks/admin-lte-2.3.3/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                                        <img src="../plugins/admin-lte-2.3.3/img/user4-128x128.jpg" class="img-circle" alt="User Image">
                                                     </div>
                                                     <h4>
                                                         Developers
@@ -107,7 +107,7 @@
                                             <li>
                                                 <a href="#">
                                                     <div class="pull-left">
-                                                        <img src="../frameworks/admin-lte-2.3.3/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                                        <img src="../plugins/admin-lte-2.3.3/img/user3-128x128.jpg" class="img-circle" alt="User Image">
                                                     </div>
                                                     <h4>
                                                         Sales Department
@@ -119,7 +119,7 @@
                                             <li>
                                                 <a href="#">
                                                     <div class="pull-left">
-                                                        <img src="../frameworks/admin-lte-2.3.3/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                                        <img src="../plugins/admin-lte-2.3.3/img/user4-128x128.jpg" class="img-circle" alt="User Image">
                                                     </div>
                                                     <h4>
                                                         Reviewers
@@ -926,7 +926,7 @@
                                         <ul class="contacts-list">
                                             <li>
                                                 <a href="#">
-                                                    <img class="contacts-list-img" src="../frameworks/admin-lte-2.3.3/img/user1-128x128.jpg" alt="User Image">
+                                                    <img class="contacts-list-img" src="../plugins/admin-lte-2.3.3/img/user1-128x128.jpg" alt="User Image">
 
                                                     <div class="contacts-list-info">
                                                         <span class="contacts-list-name">
@@ -1017,7 +1017,7 @@
                                         <ul class="contacts-list">
                                             <li>
                                                 <a href="#">
-                                                    <img class="contacts-list-img" src="../frameworks/admin-lte-2.3.3/img/user1-128x128.jpg" alt="User Image">
+                                                    <img class="contacts-list-img" src="../plugins/admin-lte-2.3.3/img/user1-128x128.jpg" alt="User Image">
 
                                                     <div class="contacts-list-info">
                                                         <span class="contacts-list-name">
@@ -1108,7 +1108,7 @@
                                         <ul class="contacts-list">
                                             <li>
                                                 <a href="#">
-                                                    <img class="contacts-list-img" src="../frameworks/admin-lte-2.3.3/img/user1-128x128.jpg" alt="User Image">
+                                                    <img class="contacts-list-img" src="../plugins/admin-lte-2.3.3/img/user1-128x128.jpg" alt="User Image">
 
                                                     <div class="contacts-list-info">
                                                         <span class="contacts-list-name">
@@ -1199,7 +1199,7 @@
                                         <ul class="contacts-list">
                                             <li>
                                                 <a href="#">
-                                                    <img class="contacts-list-img" src="../frameworks/admin-lte-2.3.3/img/user1-128x128.jpg" alt="User Image">
+                                                    <img class="contacts-list-img" src="../plugins/admin-lte-2.3.3/img/user1-128x128.jpg" alt="User Image">
 
                                                     <div class="contacts-list-info">
                                                         <span class="contacts-list-name">
@@ -1311,7 +1311,7 @@
                             <!-- Widget: user widget style 1 -->
                             <div class="box box-widget widget-user">
                                 <!-- Add the bg color to the header using any of the bg-* classes -->
-                                <div class="widget-user-header bg-black" style="background: url('../frameworks/admin-lte-2.3.3/img/photo1.png') center center;">
+                                <div class="widget-user-header bg-black" style="background: url('../plugins/admin-lte-2.3.3/img/photo1.png') center center;">
                                     <h3 class="widget-user-username">Saif Khan</h3>
                                     <h5 class="widget-user-desc">Web Designer</h5>
                                 </div>
@@ -1376,7 +1376,7 @@
                                 </div>
                                 <!-- /.box-header -->
                                 <div class="box-body">
-                                    <img class="img-responsive pad" src="../frameworks/admin-lte-2.3.3/img/photo2.png" alt="Photo">
+                                    <img class="img-responsive pad" src="../../plugins/admin-lte-2.3.3/img/photo2.pnglt="Photo">
 
                                     <p>I took this photo this morning. What do you guys think?</p>
                                     <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> Share</button>
@@ -1387,7 +1387,7 @@
                                 <div class="box-footer box-comments">
                                     <div class="box-comment">
                                         <!-- User image -->
-                                        <img class="img-circle img-sm" src="../frameworks/admin-lte-2.3.3/img/user3-128x128.jpg" alt="User Image">
+                                        <img class="img-circle img-sm" src="../../plugins/admin-lte-2.3.3/img/user3-128x128.jpglt="User Image">
 
                                         <div class="comment-text">
                                             <span class="username">
@@ -1402,7 +1402,7 @@
                                     <!-- /.box-comment -->
                                     <div class="box-comment">
                                         <!-- User image -->
-                                        <img class="img-circle img-sm" src="../frameworks/admin-lte-2.3.3/img/user4-128x128.jpg" alt="User Image">
+                                        <img class="img-circle img-sm" src="../../plugins/admin-lte-2.3.3/img/user4-128x128.jpglt="User Image">
 
                                         <div class="comment-text">
                                             <span class="username">
@@ -1419,7 +1419,7 @@
                                 <!-- /.box-footer -->
                                 <div class="box-footer">
                                     <form action="#" method="post">
-                                        <img class="img-responsive img-circle img-sm" src="../frameworks/admin-lte-2.3.3/img/user4-128x128.jpg" alt="Alt Text">
+                                        <img class="img-responsive img-circle img-sm" src="../../plugins/admin-lte-2.3.3/img/user4-128x128.jpglt="Alt Text">
                                         <!-- .img-push is used to add margin to elements next to floating images -->
                                         <div class="img-push">
                                             <input type="text" class="form-control input-sm" placeholder="Press enter to post comment">
@@ -1465,7 +1465,7 @@
 
                                     <!-- Attachment -->
                                     <div class="attachment-block clearfix">
-                                        <img class="attachment-img" src="../frameworks/admin-lte-2.3.3/img/photo1.png" alt="Attachment Image">
+                                        <img class="attachment-img" src="../../plugins/admin-lte-2.3.3/img/photo1.pnglt="Attachment Image">
 
                                         <div class="attachment-pushed">
                                             <h4 class="attachment-heading"><a href="http://www.lipsum.com/">Lorem ipsum text generator</a></h4>
@@ -1489,7 +1489,7 @@
                                 <div class="box-footer box-comments">
                                     <div class="box-comment">
                                         <!-- User image -->
-                                        <img class="img-circle img-sm" src="../frameworks/admin-lte-2.3.3/img/user3-128x128.jpg" alt="User Image">
+                                        <img class="img-circle img-sm" src="../../plugins/admin-lte-2.3.3/img/user3-128x128.jpglt="User Image">
 
                                         <div class="comment-text">
                                             <span class="username">
@@ -1504,7 +1504,7 @@
                                     <!-- /.box-comment -->
                                     <div class="box-comment">
                                         <!-- User image -->
-                                        <img class="img-circle img-sm" src="../frameworks/admin-lte-2.3.3/img/user5-128x128.jpg" alt="User Image">
+                                        <img class="img-circle img-sm" src="../../plugins/admin-lte-2.3.3/img/user5-128x128.jpglt="User Image">
 
                                         <div class="comment-text">
                                             <span class="username">
@@ -1522,7 +1522,7 @@
                                 <!-- /.box-footer -->
                                 <div class="box-footer">
                                     <form action="#" method="post">
-                                        <img class="img-responsive img-circle img-sm" src="../frameworks/admin-lte-2.3.3/img/user4-128x128.jpg" alt="Alt Text">
+                                        <img class="img-responsive img-circle img-sm" src="../../plugins/admin-lte-2.3.3/img/user4-128x128.jpglt="Alt Text">
                                         <!-- .img-push is used to add margin to elements next to floating images -->
                                         <div class="img-push">
                                             <input type="text" class="form-control input-sm" placeholder="Press enter to post comment">
@@ -1747,16 +1747,16 @@
         <!-- ./wrapper -->
 
         <!-- jQuery 2.2.0 -->
-        <script src="../frameworks/jQuery/jQuery-2.2.0.min.js"></script>
+        <script src="../../plugins/jQuery/jQuery-2.2.0.min.js/script>
         <!-- Bootstrap 3.3.6 -->
-        <script src="../frameworks/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../../plugins/bootstrap/js/bootstrap.min.js/script>
         <!-- Slimscroll -->
-        <script src="../frameworks/slimScroll/jquery.slimscroll.min.js"></script>
+        <script src="../../plugins/slimScroll/jquery.slimscroll.min.js/script>
         <!-- FastClick -->
-        <script src="../frameworks/fastclick/fastclick.js"></script>
+        <script src="../../plugins/fastclick/fastclick.js/script>
         <!-- AdminLTE App -->
-        <script src="../frameworks/admin-lte-2.3.3/js/app.min.js"></script>
+        <script src="../../plugins/admin-lte-2.3.3/js/app.min.js/script>
         <!-- AdminLTE for demo purposes -->
-        <script src="../frameworks/admin-lte-2.3.3/js/demo.js"></script>
+        <script src="../../plugins/admin-lte-2.3.3/js/demo.js/script>
     </body>
 </html>

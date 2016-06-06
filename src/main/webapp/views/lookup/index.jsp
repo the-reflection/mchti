@@ -17,8 +17,8 @@
 </tiles:putAttribute>
 
 <tiles:putAttribute name="body">
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/frameworks/jquery/dataTables-1.10.10/media/css/jquery.dataTables.css"/>
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/frameworks/jquery/dataTables-1.10.10/media/css/dataTables.bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/plugins/jquery/dataTables-1.10.10/media/css/jquery.dataTables.css"/>
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/plugins/jquery/dataTables-1.10.10/media/css/dataTables.bootstrap.css"/>
 
     <title><spring:message code="project.title.index" text="Index"/></title>
 
@@ -128,12 +128,12 @@
     </tiles:putAttribute>  
 </div>
 
-<script src="<%=request.getContextPath()%>/resources/frameworks/jquery/jquery-1.11.3/jquery-1.11.3.js"></script>
-<script src="<%=request.getContextPath()%>/resources/frameworks/jquery/dataTables-1.10.10/media/js/jquery.dataTables.js"></script>
+<script src="<%=request.getContextPath()%>/resources/plugins/jquery/jquery-1.11.3/jquery-1.11.3.js"></script>
+<script src="<%=request.getContextPath()%>/resources/plugins/jquery/dataTables-1.10.10/media/js/jquery.dataTables.js"></script>
 <script type='text/javascript'>
                                                                 $(document).ready(function () {
 //        var data = '{resource(dir: 'resource/data/', file: 'data.json')}'
-//        var sSwfPath = '/resources/frameworks/jquery/dataTables-1.10.10/extensions/TableTools-2.2.4/swf/copy_csv_xls_pdf.swf'
+//        var sSwfPath = '/resources/plugins/jquery/dataTables-1.10.10/extensions/TableTools-2.2.4/swf/copy_csv_xls_pdf.swf'
                                                                     $('#example').DataTable({
 //--------------------------------------------------------------------------------------------------------------------
                                                                         order: [[1, "asc"]], //"asc" & "desc"

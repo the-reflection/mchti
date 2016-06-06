@@ -9,11 +9,11 @@
 
         <link rel="shortcut icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/images/favicon.ico"/>
 
-        <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/frameworks/bootstrap/bootstrap-3.3.6/css/bootstrap.css"/>
-        <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/frameworks/jquery/dataTables-1.10.10/media/css/jquery.dataTables.css"/>
-        <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/frameworks/jquery/dataTables-1.10.10/media/css/dataTables.bootstrap.css"/>
-        <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/frameworks/font-awesome-4.6.3/css/font-awesome.css"/>
-        <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/frameworks/reflection-1.0.0/reflection.css"/>
+        <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/plugins/bootstrap/bootstrap-3.3.6/css/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/plugins/jquery/dataTables-1.10.10/media/css/jquery.dataTables.css"/>
+        <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/plugins/jquery/dataTables-1.10.10/media/css/dataTables.bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/plugins/font-awesome-4.6.3/css/font-awesome.css"/>
+        <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/plugins/reflection-1.0.0/reflection.css"/>
     </head>
     <body>
         <fieldset>
@@ -40,11 +40,11 @@
             </div>    
         </fieldset>
 
-        <script src="<%=request.getContextPath()%>/resources/frameworks/bootstrap/bootstrap-3.3.6/js/bootstrap.js"></script>
-        <script src="<%=request.getContextPath()%>/resources/frameworks/jquery/jquery-1.11.3/jquery-1.11.3.js"></script>
-        <script src="<%=request.getContextPath()%>/resources/frameworks/jquery/dataTables-1.10.10/media/js/jquery.dataTables.js"></script>
-        <script src="<%=request.getContextPath()%>/resources/frameworks/iCheck/icheck.min.js"></script>
-        <script src="<%=request.getContextPath()%>/resources/frameworks/reflection-1.0.0/reflection.js"></script>
+        <script src="<%=request.getContextPath()%>/resources/plugins/bootstrap/bootstrap-3.3.6/js/bootstrap.js"></script>
+        <script src="<%=request.getContextPath()%>/resources/plugins/jquery/jquery-1.11.3/jquery-1.11.3.js"></script>
+        <script src="<%=request.getContextPath()%>/resources/plugins/jquery/dataTables-1.10.10/media/js/jquery.dataTables.js"></script>
+        <script src="<%=request.getContextPath()%>/resources/plugins/iCheck/icheck.min.js"></script>
+        <script src="<%=request.getContextPath()%>/resources/plugins/reflection-1.0.0/reflection.js"></script>
 
         <script type="text/javascript">
             var contextPath = "<%=request.getContextPath()%>";

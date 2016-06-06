@@ -7,7 +7,7 @@
 jQuery(document).ready(function () {
 //        alert('Your Context Path is : ' + contextPath);
 //        var data     = contextPath + "/resources/data/data.json"        
-    var sSwfPath = contextPath + "/resources/frameworks/datatables/extensions/TableTools/swf/copy_csv_xls_pdf.swf";
+    var sSwfPath = contextPath + "/resources/plugins/datatables/extensions/TableTools/swf/copy_csv_xls_pdf.swf";
 
     $("#example").DataTable();
 

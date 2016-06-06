@@ -12,11 +12,11 @@
             <sec:authentication var='displayName' property='principal.displayName'/>
             <sec:authentication var='picFile' property='principal.picFile'/>
             <c:url var='macImage' value='/authUser/getPhoto/${picFile}' />
-          
+
             <div class="pull-left image">
                 <img src="${macImage}" class="img-circle" alt="NO IMAGE">
             </div>
-            
+
             <div class="pull-left info">
 
                 <p>${displayName}</p>
@@ -48,16 +48,14 @@
                     <i class="fa fa-gears"></i> <span>Controllers (Static)</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="<%=request.getContextPath()%>/index"><i class="fa fa-circle-o"></i> index</a></li>
-                    <li class="active"><a href="<%=request.getContextPath()%>/lookupx/index"><i class="fa fa-circle-o"></i> lookupx/index</a></li>
-                    <li><a href="<%=request.getContextPath()%>/lookup/index"><i class="fa fa-circle-o"></i> lookup/index</a></li>
-                    <li><a href="<%=request.getContextPath()%>/anyObject/index"><i class="fa fa-circle-o"></i> anyObject/index</a></li>
-                    <li><a href="<%=request.getContextPath()%>/emp/index"><i class="fa fa-circle-o"></i> emp/index</a></li>
-                    <li><a href="<%=request.getContextPath()%>/empx/index"><i class="fa fa-circle-o"></i> empx/index</a></li>
-                    <li><a href="<%=request.getContextPath()%>/empxEduDtl/index"><i class="fa fa-circle-o"></i> empxEduDtl/index</a></li> 
-                    <li><a href="<%=request.getContextPath()%>/procRunner"><i class="fa fa-circle-o"></i> procRunner</a></li>
-                    <li><a href="<%=request.getContextPath()%>/queryRunner"><i class="fa fa-circle-o"></i> queryRunner</a></li>
-                    <li><a href="<%=request.getContextPath()%>/reportRunner"><i class="fa fa-circle-o"></i> reportRunner</a></li>
+                    <!--<li><a href="< %=request.getContextPath()%>/index"><i class="fa fa-circle-o"></i> index</a></li>-->
+                    <!--<li class="active"><a href="< %=request.getContextPath()%>/lookupx/index"><i class="fa fa-circle-o"></i> lookupx/index</a></li>-->
+                    <li><a href="<%=request.getContextPath()%>/proc-refresh"><i class="fa fa-refresh"></i> Refresh Employee</a></li>
+                    <li><a href="<%=request.getContextPath()%>/excelFileUpload"><i class="fa fa-file"></i> Upload Attendance Data</a></li>
+
+                    <!--<li><a href="< %=request.getContextPath()%>/procRunner"><i class="fa fa-circle-o"></i> procRunner</a></li>-->
+                    <!--<li><a href="< %=request.getContextPath()%>/queryRunner"><i class="fa fa-circle-o"></i> queryRunner</a></li>-->
+                    <li><a href="<%=request.getContextPath()%>/reportRunner"><i class="fa fa-info"></i> Report</a></li>
                 </ul>
             </li>
             <li class="treeview">
