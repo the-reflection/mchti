@@ -27,7 +27,7 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
     }
 
     private MultipartConfigElement getMultipartConfigElement() {
-        MultipartConfigElement multipartConfigElement = new MultipartConfigElement("D://org.reflection//");
+        MultipartConfigElement multipartConfigElement = new MultipartConfigElement("D://mchti//");
 
 //        MultipartConfigElement multipartConfigElement = new MultipartConfigElement( LOCATION, MAX_FILE_SIZE, MAX_REQUEST_SIZE, FILE_SIZE_THRESHOLD);
         return multipartConfigElement;
