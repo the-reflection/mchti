@@ -992,7 +992,7 @@
                                                     <span class="users-list-date">14 Jan</span>
                                                 </li>
                                                 <li>
-                                                    <img src="../../images/user_images/dq_dakua.jpg" alt="User Image">
+                                                    <img src="../../images/user_images/dk_dakua.jpg" alt="User Image">
                                                     <a class="users-list-name" href="https://www.facebook.com/debashis.dakua.75" target="_blank">Debashis</a>
                                                     <span class="users-list-date">15 Jan</span>
                                                 </li>
