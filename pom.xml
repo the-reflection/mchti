@@ -8,7 +8,7 @@
     <artifactId>MCHTI</artifactId>
     <version>1.0.0</version>
     <packaging>war</packaging>
-    <name>_MCHTI</name>
+    <name>_MCHTI desk</name>
     <description>Reflection Framework an Advanced in Intelligence</description>
     <licenses>
         <license>
