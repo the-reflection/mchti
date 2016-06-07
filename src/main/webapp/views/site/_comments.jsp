@@ -54,7 +54,7 @@
                 </div>
                 <div class="comments-avatar">
                     <a href="#" class="pull-left">
-                        <img alt="image" src="${pageContext.request.contextPath}/resources/images/user_images/dq_dakua.jpg">
+                        <img alt="image" src="${pageContext.request.contextPath}/resources/images/user_images/dk_dakua.jpg">
                     </a>
                     <div class="media-body">
                         <div class="commens-name">

@@ -17,7 +17,7 @@
         <title>Reflection - Landing Page</title>
         <jsp:include page="/views/layouts/_css.jsp"/>
         <!-- Custom styles for this template -->
-        <link href="${pageContext.request.contextPath}/resources/site/amtl-site.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/resources/site/hms/css/hms.css" rel="stylesheet">
         <!-- Animation CSS -->
         <link href="${pageContext.request.contextPath}/resources/plugins/animate.css/animate.css" rel="stylesheet">
     </head>
@@ -189,7 +189,7 @@
                 </div>
                 <div class="col-md-6 text-center  wow zoomIn">
                     <!--<img src="${pageContext.request.contextPath}/resources/site/img/landing/perspective.png" alt="dashboard" class="img-responsive">-->
-                    <img src="${pageContext.request.contextPath}/resources/images/org.reflection/carousel/b12.jpg" alt="dashboard" class="img-responsive">
+                    <img src="${pageContext.request.contextPath}/resources/site/hms/images/b12.jpg" alt="dashboard" class="img-responsive">
                 </div>
                 <div class="col-md-3 text-center wow fadeInRight">
                     <div>
@@ -220,7 +220,7 @@
                 </div>
                 <div class="col-lg-6 text-right wow fadeInRight">
                     <!--<img src="${pageContext.request.contextPath}/resources/site/img/landing/dashboard.png" alt="dashboard" class="img-responsive pull-right">-->
-                    <img src="${pageContext.request.contextPath}/resources/images/org.reflection/carousel/b7.jpg" alt="dashboard" class="img-responsive pull-right">
+                    <img src="${pageContext.request.contextPath}/resources/site/hms/images/b7.jpg" alt="dashboard" class="img-responsive pull-right">
                 </div>
             </div>
         </section>
@@ -298,7 +298,7 @@
                     </div>
                     <div class="col-lg-6 text-right m-t-n-lg wow zoomIn">
                         <!--<img src="${pageContext.request.contextPath}/resources/site/img/landing/iphone.jpg" class="img-responsive" alt="dashboard">-->
-                        <img src="${pageContext.request.contextPath}/resources/images/org.reflection/carousel/b15.jpg" class="img-responsive" alt="dashboard">
+                        <img src="${pageContext.request.contextPath}/resources/site/hms/images/b15.jpg" class="img-responsive" alt="dashboard">
                     </div>
                     <div class="col-lg-3 features-text text-right wow fadeInRight">
                         <small>Reflection</small>
@@ -409,11 +409,11 @@
                         </div>
                         <div class="comments-avatar">
                             <a href="#" class="pull-left">
-                                <img alt="image" src="${pageContext.request.contextPath}/resources/site/img/landing/avatar3.jpg">
+                                <img alt="image" src="${pageContext.request.contextPath}/resources/images/user_images/m_saifullah.jpg">
                             </a>
                             <div class="media-body">
                                 <div class="commens-name">
-                                    Andrew Williams
+                                    Muhammed Saifullah
                                 </div>
                                 <small class="text-muted">Company X from California</small>
                             </div>
@@ -426,11 +426,11 @@
                         </div>
                         <div class="comments-avatar">
                             <a href="#" class="pull-left">
-                                <img alt="image" src="${pageContext.request.contextPath}/resources/site/img/landing/avatar1.jpg">
+                                <img alt="image" src="${pageContext.request.contextPath}/resources/images/user_images/asif_mahmud.jpg">
                             </a>
                             <div class="media-body">
                                 <div class="commens-name">
-                                    Andrew Williams
+                                    Asif Mahmud
                                 </div>
                                 <small class="text-muted">Company X from California</small>
                             </div>
@@ -443,19 +443,16 @@
                         </div>
                         <div class="comments-avatar">
                             <a href="#" class="pull-left">
-                                <img alt="image" src="${pageContext.request.contextPath}/resources/site/img/landing/avatar2.jpg">
+                                <img alt="image" src="${pageContext.request.contextPath}/resources/images/user_images/dk_dakua.jpg">
                             </a>
                             <div class="media-body">
                                 <div class="commens-name">
-                                    Andrew Williams
+                                    Debashis Kumar Dakua 
                                 </div>
                                 <small class="text-muted">Company X from California</small>
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
             </div>
 
@@ -673,7 +670,7 @@
         <script src="${pageContext.request.contextPath}/resources/plugins/wow/wow.min.js"></script>
 
         <!-- Custom and plugin javascript -->
-        <script src="${pageContext.request.contextPath}/resources/site/inspinia.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/site/hms/js/hms.js"></script>
 
         <script type="text/javascript">
             $(document).ready(function () {
