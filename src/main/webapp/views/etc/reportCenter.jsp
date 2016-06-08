@@ -33,9 +33,9 @@
                                     <div class="form-group">
                                         Report Name:
                                         <form:select class="form-control" path="title" name="title" id="title" >
-                                            <form:option value="tl_daily_all_emp_dt_status.jasper" label="Daily All Emp Dt Status"/>
-                                            <form:option value="tl_daily_all_emp_punch.jasper"     label="Daily All Emp Punch"/>
-                                            <form:option value="tl_monthly_all_emp.jasper"         label="Monthly All Emp"/>
+                                            <form:option value="tl_daily_all_emp_dt_status.jrxml" label="Daily All Emp Dt Status"/>
+                                            <form:option value="tl_daily_all_emp_punch.jrxml"     label="Daily All Emp Punch"/>
+                                            <form:option value="tl_monthly_all_emp.jrxml"         label="Monthly All Emp"/>
                                         </form:select>
 
                                     </div>
