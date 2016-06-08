@@ -4,6 +4,9 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<style name="Crosstab Data Text" hAlign="Center"/>
+	<parameter name="REPORT_PATH" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[Select nvl(ATTN_DATE,cal_date) ATTN_DATE,EMPLOYEE_ID,EMP_NAME,DESG_NAME,DT_ATTN_TYPE
 from (
@@ -29,7 +32,7 @@ where ATTN_DATE(+)=cal_date]]>
 		<band height="55" splitType="Stretch">
 			<image hAlign="Center">
 				<reportElement uuid="158ef226-f19e-486e-9067-14ff1c84f843" x="0" y="0" width="802" height="55"/>
-				<imageExpression><![CDATA["logo.jpg"]]></imageExpression>
+				<imageExpression><![CDATA[$P{REPORT_PATH}+"logo.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</title>

@@ -16,6 +16,7 @@
 	<parameter name="P_ATTN_DATE" class="java.util.Date">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="REPORT_PATH" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT X.EMPLOYEE_ID, E.CODE, E.FULL_NAME, D.TITLE DEPT_NAME, TRUNC(X.TRANSACTION_TIME) ATTN_DATE,
 MIN(X.TRANSACTION_TIME) IN_TIME, MAX(X.TRANSACTION_TIME) OUT_TIME,
@@ -52,7 +53,7 @@ ORDER BY 1, 2, 3]]>
 		<band height="63" splitType="Stretch">
 			<image hAlign="Center">
 				<reportElement uuid="158ef226-f19e-486e-9067-14ff1c84f843" x="0" y="0" width="555" height="63"/>
-				<imageExpression><![CDATA["logo.jpg"]]></imageExpression>
+				<imageExpression><![CDATA[$P{REPORT_PATH}+"logo.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</title>
