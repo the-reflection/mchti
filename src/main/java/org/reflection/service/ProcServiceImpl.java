@@ -476,8 +476,8 @@ public class ProcServiceImpl implements ProcService {
             authUser2.setAuthRoles(authRoles);
             authUser2.setDisplayName("Saif");
             authUser2.setGender(AuthGender.MALE);
-            authUser2.setFullName("Mohammad Saif Kumar Khan");
-            authUser2.setEmail("saif_hmk@gmail.com");
+            authUser2.setFullName("MD. HOSHEN MAHMUD KHAN");
+            authUser2.setEmail("saif_hmk@live.com");
             session.saveOrUpdate(authUser2);
 
             AuthUser authUser3 = new AuthUser();
