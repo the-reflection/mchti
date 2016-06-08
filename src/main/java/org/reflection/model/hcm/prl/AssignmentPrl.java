@@ -1,7 +1,6 @@
 package org.reflection.model.hcm.prl;
 
 import org.reflection.model.com.Employee;
-import org.reflection.model.hcm.cr.*;
 import com.oith.annotation.MacSearchable;
 import java.io.Serializable;
 import java.util.Date;
@@ -24,7 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.validator.constraints.Range;
 
 @Entity
-@Table(name = "Assignment_PRL")
+@Table(name = "ASSIGNMENT_PRL")
 @XmlRootElement
 public class AssignmentPrl implements Serializable {
 
@@ -58,15 +57,18 @@ public class AssignmentPrl implements Serializable {
     @Column(precision = 10, scale = 2)
     @Range(min = 1, max = 100000)
     private Double basic;
+    @Column(name = "HOUSE_RENT", precision = 10, scale = 2)
+    @Range(min = 1, max = 100000)
+    private Double houseRent;
     @Column(precision = 10, scale = 2)
     @Range(min = 1, max = 100000)
-    private Double hr;
+    private Double medical;
     @Column(precision = 10, scale = 2)
     @Range(min = 1, max = 100000)
-    private Double med;
-    @Column(precision = 10, scale = 2)
+    private Double convance;
+    @Column(name = "OTHER_ALLOWANCE", precision = 10, scale = 2)
     @Range(min = 1, max = 100000)
-    private Double conv;
+    private Double otherAllowance;
     @Column(precision = 10, scale = 2)
     @Range(min = 1, max = 100000)
     private Double gross;
@@ -122,28 +124,36 @@ public class AssignmentPrl implements Serializable {
         this.basic = basic;
     }
 
-    public Double getHr() {
-        return hr;
+    public Employee getEmployee() {
+        return employee;
     }
 
-    public void setHr(Double hr) {
-        this.hr = hr;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
-    public Double getMed() {
-        return med;
+    public Double getHouseRent() {
+        return houseRent;
     }
 
-    public void setMed(Double med) {
-        this.med = med;
+    public void setHouseRent(Double houseRent) {
+        this.houseRent = houseRent;
     }
 
-    public Double getConv() {
-        return conv;
+    public Double getMedical() {
+        return medical;
     }
 
-    public void setConv(Double conv) {
-        this.conv = conv;
+    public void setMedical(Double medical) {
+        this.medical = medical;
+    }
+
+    public Double getConvance() {
+        return convance;
+    }
+
+    public void setConvance(Double convance) {
+        this.convance = convance;
     }
 
     public Double getGross() {
@@ -154,12 +164,12 @@ public class AssignmentPrl implements Serializable {
         this.gross = gross;
     }
 
-    public Employee getEmployee() {
-        return employee;
+    public Double getOtherAllowance() {
+        return otherAllowance;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setOtherAllowance(Double otherAllowance) {
+        this.otherAllowance = otherAllowance;
     }
 
 }

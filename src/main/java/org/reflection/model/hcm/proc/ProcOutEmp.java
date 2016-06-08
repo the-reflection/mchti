@@ -2,7 +2,6 @@ package org.reflection.model.hcm.proc;
 
 import org.reflection.model.com.Employee;
 import org.reflection.model.com.Department;
-import org.reflection.model.hcm.cr.*;
 import org.reflection.model.hcm.enums.Day;
 import org.reflection.model.hcm.enums.EmpGroup;
 import org.reflection.model.com.Gender;
@@ -23,6 +22,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -34,33 +34,30 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.reflection.model.com.Address;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.reflection.model.hcm.cr.Designation;
 
 @Entity
 @Table(name = "PROC_OUT_EMP")
 @XmlRootElement
 public class ProcOutEmp implements Serializable {
 
+    //@Id
+    //private BigInteger id;
     @Id
-    //@Column(name = "ID")
-    //@GeneratedValue(strategy = GenerationType.TABLE)
-    //@Basic(optional = false)
-    //    @SequenceGenerator(name = "HIBERNATE_SEQUENCE", sequenceName = "HIBERNATE_SEQUENCE")
-    //    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "HIBERNATE_SEQUENCE")
-    //    @GeneratedValue(strategy = GenerationType.TABLE)
-    //    @GeneratedValue(strategy = GenerationType.AUTO)
-    //    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private BigInteger id;
+    @OneToOne
+    @JoinColumn(name = "EMPLOYEE_ID")
+    private Employee employee;
+
     @Version
     private Integer version;
     @MacSearchable
     @Basic(optional = false)
     @Column(name = "CODE", length = 20, nullable = false, unique = true)
     private String code;
-    @NotNull
-    @JoinColumn(name = "EMPLOYEE_ID", nullable = false, unique = true)
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Employee employee;
+//    @NotNull
+//    @JoinColumn(name = "EMPLOYEE_ID", nullable = false, unique = true)
+//    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+//    private Employee employee;
 
     @MacImagable
     @Column(name = "PIC_FILE", length = 255)
@@ -116,14 +113,6 @@ public class ProcOutEmp implements Serializable {
     private Boolean isOvertime;
 
     public ProcOutEmp() {
-    }
-
-    public BigInteger getId() {
-        return id;
-    }
-
-    public void setId(BigInteger id) {
-        this.id = id;
     }
 
     public Integer getVersion() {

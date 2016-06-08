@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import java.math.BigInteger;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -59,6 +61,7 @@ public class Period implements Serializable {
     @Temporal(TemporalType.DATE)
     //@DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date endDate;
+    @Enumerated(EnumType.STRING)
     @Column(name = "PERIOD_TYPE", length = 30, nullable = false)
     private PeriodType periodType;
 

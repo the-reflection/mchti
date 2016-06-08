@@ -6,19 +6,12 @@ import org.reflection.model.hcm.tl.Roster;
 import org.reflection.model.hcm.tl.Shift;
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import java.math.BigInteger;
-import javax.persistence.Id;
+import javax.persistence.EmbeddedId;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -27,35 +20,31 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class ProcOutRoster implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    //@SequenceGenerator(name="HIBERNATE_SEQUENCE", sequenceName="HIBERNATE_SEQUENCE")
-    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "HIBERNATE_SEQUENCE")
-    @Basic(optional = false)
-    private BigInteger id;
+    @EmbeddedId
+    private ProcOutRosterPK procOutRosterPK;
+
     @NotNull
-    @JoinColumn(name = "EMPLOYEE_ID",  nullable = false)
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Employee employee;
-    @NotNull
-    @JoinColumn(name = "PERIOD_ID",  nullable = false)
+    @JoinColumn(name = "PERIOD_ID", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Period period;
 
     @NotNull
-    @JoinColumn(name = "ROSTER_ID",  nullable = false)
+    @JoinColumn(name = "ROSTER_ID", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Roster roster;
 
     @NotNull
-    @JoinColumn(name = "SHIFT_ID",  nullable = false)
+    @JoinColumn(name = "SHIFT_ID", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Shift shift;
 
-    @NotNull
-    @Column(name = "CALC_DATE")
-    @Temporal(TemporalType.DATE)
-    private Date calcDate;
+    public ProcOutRoster() {
+
+    }
+
+    public ProcOutRoster(Employee employee, Date calcDate) {
+        this.procOutRosterPK = new ProcOutRosterPK(employee, calcDate);
+    }
 
     public Roster getRoster() {
         return roster;
@@ -64,16 +53,6 @@ public class ProcOutRoster implements Serializable {
     public void setRoster(Roster roster) {
         this.roster = roster;
     }
-
-    public BigInteger getId() {
-        return id;
-    }
-
-    public void setId(BigInteger id) {
-        this.id = id;
-    }
-
-  
 
     public Period getPeriod() {
         return period;
@@ -91,20 +70,12 @@ public class ProcOutRoster implements Serializable {
         this.shift = shift;
     }
 
-    public Date getCalcDate() {
-        return calcDate;
+    public ProcOutRosterPK getProcOutRosterPK() {
+        return procOutRosterPK;
     }
 
-    public void setCalcDate(Date calcDate) {
-        this.calcDate = calcDate;
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setProcOutRosterPK(ProcOutRosterPK procOutRosterPK) {
+        this.procOutRosterPK = procOutRosterPK;
     }
 
 }

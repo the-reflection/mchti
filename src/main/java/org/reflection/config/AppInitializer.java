@@ -1,5 +1,6 @@
 package org.reflection.config;
 
+import java.io.File;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletRegistration;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
@@ -27,9 +28,14 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
     }
 
     private MultipartConfigElement getMultipartConfigElement() {
-        MultipartConfigElement multipartConfigElement = new MultipartConfigElement("D://mchti//");
+        File hh = new File(new File(".").getAbsolutePath());
 
-//        MultipartConfigElement multipartConfigElement = new MultipartConfigElement( LOCATION, MAX_FILE_SIZE, MAX_REQUEST_SIZE, FILE_SIZE_THRESHOLD);
+        //File yty = hh.getParentFile();
+        System.out.println("yuop file path yaa 785: " + hh);
+
+        MultipartConfigElement multipartConfigElement = new MultipartConfigElement("D://mchtix//");
+
+        //MultipartConfigElement multipartConfigElement = new MultipartConfigElement( LOCATION, MAX_FILE_SIZE, MAX_REQUEST_SIZE, FILE_SIZE_THRESHOLD);
         return multipartConfigElement;
     }
 }

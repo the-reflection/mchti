@@ -2,17 +2,12 @@ package org.reflection.model.hcm.proc;
 
 import org.reflection.model.hcm.enums.HolidayType;
 import java.io.Serializable;
-import java.util.Date;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import java.math.BigInteger;
-import javax.persistence.Id;
+import javax.persistence.EmbeddedId;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
@@ -20,28 +15,21 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class ProcOutCalender implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    //@SequenceGenerator(name="HIBERNATE_SEQUENCE", sequenceName="HIBERNATE_SEQUENCE")
-    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "HIBERNATE_SEQUENCE")
-    @Basic(optional = false)
-    private BigInteger id;
-    @Column(name = "CAL_DATE", nullable = false)
-    @Temporal(TemporalType.DATE)
-    private Date calDate;
+    @EmbeddedId
+    private ProcOutCalenderPK procOutCalenderPK;
     @Column(name = "HOLIDAY_TYPE", length = 30)
+    @Enumerated(EnumType.STRING)
     private HolidayType holidayType;
     @Column(name = "IS_APPLICABLE")
     private Boolean isApplicable;
     @Column(name = "REMARKS", length = 500)
     private String remarks;
 
-    public Date getCalDate() {
-        return calDate;
+    public ProcOutCalender() {
     }
 
-    public void setCalDate(Date calDate) {
-        this.calDate = calDate;
+    public ProcOutCalender(ProcOutCalenderPK procOutCalenderPK) {
+        this.procOutCalenderPK = procOutCalenderPK;
     }
 
     public HolidayType getHolidayType() {
@@ -68,12 +56,12 @@ public class ProcOutCalender implements Serializable {
         this.remarks = remarks;
     }
 
-    public BigInteger getId() {
-        return id;
+    public ProcOutCalenderPK getProcOutCalenderPK() {
+        return procOutCalenderPK;
     }
 
-    public void setId(BigInteger id) {
-        this.id = id;
+    public void setProcOutCalenderPK(ProcOutCalenderPK procOutCalenderPK) {
+        this.procOutCalenderPK = procOutCalenderPK;
     }
 
 }

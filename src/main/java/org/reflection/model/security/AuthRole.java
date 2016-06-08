@@ -17,13 +17,13 @@ import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name = "Auth_Role")
+@Table(name = "AUTH_ROLE")
 @XmlRootElement
 public class AuthRole implements Serializable {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Basic(optional = false)
     private BigInteger id;
     @Version

@@ -2,8 +2,11 @@ package org.reflection.model.hcm.enums;
 
 public enum Day {
 
-   SAT,
-   FRI,
-   SUN,
-   MON
+    FRIDAY,
+    SATURDAY,
+    SUNDAY,
+    MONDAY,
+    TUESDAY,
+    WEDNESDAY,
+    THURSDAY
 }

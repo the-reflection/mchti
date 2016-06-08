@@ -36,7 +36,7 @@ public class AuthUser extends User {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Basic(optional = false)
     //    @SequenceGenerator(name = "HIBERNATE_SEQUENCE", sequenceName = "HIBERNATE_SEQUENCE")
     //    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "HIBERNATE_SEQUENCE")
@@ -108,6 +108,14 @@ public class AuthUser extends User {
 
     public AuthUser() {
         super("NA", "NA", Arrays.asList(new SimpleGrantedAuthority("ROLE_USER")));
+    }
+
+    public AuthUser(String username, String password, String role) {
+        super(username, password, Arrays.asList(new SimpleGrantedAuthority(role)));
+        enabled = true;
+        accountNonExpired = false;
+        accountNonLocked = false;
+        credentialsNonExpired = false;
     }
 
     public AuthUser(String username, String password, Boolean enabled, Boolean accountNonExpired, Boolean credentialsNonExpired, Boolean accountNonLocked, Set< GrantedAuthority> authorities) {

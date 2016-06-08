@@ -33,27 +33,45 @@ public class _OithHomeController {
     @Autowired
     private PersistentTokenBasedRememberMeServices persistentTokenBasedRememberMeServices;
     @Autowired
-    private ProcService proc;
+    private ProcService procService;
 
     private final SortedSet<String> list = new TreeSet<>();
 
     @RequestMapping(value = {"/proc-refresh"}, method = RequestMethod.GET)
     public String procRefresh(ModelMap model) {
-        proc.refresh();
+        procService.refresh();
         return "redirect:homeSecure";
     }
 
+    //   proc-daily/20-05-2016
     @RequestMapping(value = {"/proc-daily/{day}"}, method = RequestMethod.GET)
     public String procDaily(@PathVariable("day") String day, ModelMap model) {
-        proc.daily(day);
-        return "redirect:/homeSecure";
+        procService.daily(day);
+        return "redirect:/proc-daily/" + day;
     }
 
     @RequestMapping(value = {"/proc-daily"}, method = RequestMethod.GET)
     public String procDaily(ModelMap model) {
-        proc.daily("09-05-2016");
-        proc.daily("23-05-2016");
-        return "redirect:homeSecure";
+        procService.daily("08-05-2016");
+        procService.daily("09-05-2016");
+        procService.daily("10-05-2016");
+        procService.daily("11-05-2016");
+        procService.daily("12-05-2016");
+        procService.daily("13-05-2016");
+        procService.daily("14-05-2016");
+        procService.daily("15-05-2016");
+        procService.daily("16-05-2016");
+        procService.daily("17-05-2016");
+        procService.daily("18-05-2016");
+        procService.daily("19-05-2016");
+        procService.daily("20-05-2016");
+        procService.daily("21-05-2016");
+        procService.daily("22-05-2016");
+        procService.daily("23-05-2016");
+        procService.daily("24-05-2016");
+        procService.daily("25-05-2016");
+        procService.daily("26-05-2016");
+        return "redirect:/proc-daily";
     }
 
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
@@ -128,7 +146,9 @@ public class _OithHomeController {
 
     @PostConstruct
     public void init() {
-
+        
+        procService.dummyUserData();
+        
         Map<RequestMappingInfo, HandlerMethod> handlerMethods
                 = this.requestMappingHandlerMapping.getHandlerMethods();
 

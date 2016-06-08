@@ -8,39 +8,25 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.EmbeddedId;
 import java.math.BigInteger;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.UniqueConstraint;
-import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name = "PROC_OUT_ATTN_DT", uniqueConstraints = {
-    @UniqueConstraint(name = "emp_attn_date_uq", columnNames = {"EMPLOYEE_ID", "ATTN_DATE"})})
+@Table(name = "PROC_OUT_ATTN_DT")
 @XmlRootElement
 public class ProcOutAttnDt implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    //@SequenceGenerator(name="HIBERNATE_SEQUENCE", sequenceName="HIBERNATE_SEQUENCE")
-    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "HIBERNATE_SEQUENCE")
-    private BigInteger id;
-    @Column(name = "ATTN_DATE", nullable = false)
-    @Temporal(TemporalType.DATE)
-    private Date attnDate;
-    @NotNull
-    @JoinColumn(name = "EMPLOYEE_ID", nullable = false)
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Employee employee;
+    @EmbeddedId
+    private ProcOutAttnDtPK procOutAttnDtPK;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "DT_ATTN_TYPE", nullable = false, length = 30)
     private DtAttnType dtAttnType;
@@ -56,6 +42,13 @@ public class ProcOutAttnDt implements Serializable {
     private Double ot;
     @Column(name = "REMARKS", length = 500)
     private String remarks;
+
+    public ProcOutAttnDt() {
+    }
+
+    public ProcOutAttnDt(Employee employee, Date attnDate) {
+        procOutAttnDtPK = new ProcOutAttnDtPK(employee, attnDate);
+    }
 
     public Date getInTime() {
         return inTime;
@@ -97,22 +90,6 @@ public class ProcOutAttnDt implements Serializable {
         this.shift = shift;
     }
 
-    public BigInteger getId() {
-        return id;
-    }
-
-    public void setId(BigInteger id) {
-        this.id = id;
-    }
-
-    public Date getAttnDate() {
-        return attnDate;
-    }
-
-    public void setAttnDate(Date attnDate) {
-        this.attnDate = attnDate;
-    }
-
     public DtAttnType getDtAttnType() {
         return dtAttnType;
     }
@@ -121,12 +98,12 @@ public class ProcOutAttnDt implements Serializable {
         this.dtAttnType = dtAttnType;
     }
 
-    public Employee getEmployee() {
-        return employee;
+    public ProcOutAttnDtPK getProcOutAttnDtPK() {
+        return procOutAttnDtPK;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setProcOutAttnDtPK(ProcOutAttnDtPK procOutAttnDtPK) {
+        this.procOutAttnDtPK = procOutAttnDtPK;
     }
 
 }

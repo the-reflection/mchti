@@ -1,4 +1,3 @@
-
 package org.reflection.model.hcm.enums;
 
 /**
@@ -7,6 +6,7 @@ package org.reflection.model.hcm.enums;
  */
 public enum HolidayType {
 
+    WEEKEND,
     GOVERNMENT,
     INTERNATIONAL,
     OFFICIAL
