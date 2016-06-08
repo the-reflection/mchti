@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="tl_monthly_all_emp" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a557c423-4776-4b8c-a85d-2f18a8a9903a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<queryString>
+		<![CDATA[SELECT trunc(ATTN_DATE) ATTN_DATE, E.EMPLOYEE_ID,E.FULL_NAME EMP_NAME, P.TITLE DESG_NAME, substr(DT_ATTN_TYPE,1,1) DT_ATTN_TYPE
+FROM PROC_OUT_ATTN_DT D, PROC_OUT_EMP E, DESIGNATION P
+WHERE 1=1
+AND E.EMPLOYEE_ID=D.EMPLOYEE_ID
+AND E.DESIGNATION_ID=P.ID]]>
+	</queryString>
+	<field name="ATTN_DATE" class="java.sql.Timestamp"/>
+	<field name="EMPLOYEE_ID" class="java.math.BigDecimal"/>
+	<field name="EMP_NAME" class="java.lang.String"/>
+	<field name="DESG_NAME" class="java.lang.String"/>
+	<field name="DT_ATTN_TYPE" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="55" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="25" splitType="Stretch"/>
+	</pageHeader>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<crosstab>
+				<reportElement uuid="33fae83b-3d53-42ed-99bb-fa9e0b53a173" x="0" y="0" width="802" height="42"/>
+				<rowGroup name="EMPLOYEE_ID" width="210">
+					<bucket class="java.math.BigDecimal">
+						<bucketExpression><![CDATA[$F{EMPLOYEE_ID}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents backcolor="#F0F8FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField>
+								<reportElement uuid="0d42e114-4d73-4105-a078-128cd21c1d6e" style="Crosstab Data Text" x="0" y="0" width="16" height="12"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement verticalAlignment="Middle">
+									<font size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{EMPLOYEE_ID}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement uuid="090c4037-886b-4cbb-814c-262e72cb2ef4" style="Crosstab Data Text" x="16" y="0" width="114" height="12"/>
+								<box leftPadding="2" rightPadding="2">
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{name}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement uuid="01bd5a9d-0952-42a5-adbd-aab0adef27eb" style="Crosstab Data Text" x="130" y="0" width="80" height="12"/>
+								<box leftPadding="2" rightPadding="2">
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{desig}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="ATTN_DATE" height="12">
+					<bucket class="java.sql.Timestamp">
+						<bucketExpression><![CDATA[$F{ATTN_DATE}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents backcolor="#F0F8FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField pattern="dd">
+								<reportElement uuid="65eb0570-946a-4c53-9edd-13df16f9871c" style="Crosstab Data Text" x="0" y="0" width="19" height="12"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement verticalAlignment="Middle">
+									<font size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{ATTN_DATE}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents/>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="DT_ATTN_TYPEMeasure" class="java.lang.String">
+					<measureExpression><![CDATA[$F{DT_ATTN_TYPE}]]></measureExpression>
+				</measure>
+				<measure name="name" class="java.lang.String">
+					<measureExpression><![CDATA[$F{EMP_NAME}]]></measureExpression>
+				</measure>
+				<measure name="desig" class="java.lang.String">
+					<measureExpression><![CDATA[$F{DESG_NAME}]]></measureExpression>
+				</measure>
+				<crosstabCell width="19" height="12">
+					<cellContents>
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement uuid="c68bb8bf-31bd-4e57-bcd6-da524d9d9a11" style="Crosstab Data Text" x="0" y="0" width="19" height="12"/>
+							<box>
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement verticalAlignment="Middle" markup="html">
+								<font size="5"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{DT_ATTN_TYPEMeasure}=='A' ?
+"<span style='color:red;'>"+$V{DT_ATTN_TYPEMeasure}+"</span>":
+$V{DT_ATTN_TYPEMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell height="25" rowTotalGroup="EMPLOYEE_ID">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement uuid="036ce958-8d7f-4cb6-ba19-f52538cdab51" style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textElement/>
+							<textFieldExpression><![CDATA[$V{DT_ATTN_TYPEMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="50" columnTotalGroup="ATTN_DATE">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement uuid="c26b6506-4f7b-44ce-ad39-347df911d975" style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textElement/>
+							<textFieldExpression><![CDATA[$V{DT_ATTN_TYPEMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="EMPLOYEE_ID" columnTotalGroup="ATTN_DATE">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement uuid="c17dd8a5-b4db-40e8-85b9-4e7898844d40" style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textElement/>
+							<textFieldExpression><![CDATA[$V{DT_ATTN_TYPEMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+			</crosstab>
+		</band>
+	</summary>
+</jasperReport>
