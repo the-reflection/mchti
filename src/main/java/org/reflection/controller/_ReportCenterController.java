@@ -67,6 +67,8 @@ public class _ReportCenterController {
         // Compile our report layout
         JasperReport jr = JasperCompileManager.compileReport(jd);
 
+        params.put("REPORT_PATH", file + "/reports/");
+
         // It needs a JasperReport layout and a datasource
         JasperPrint jp = JasperFillManager.fillReport(jr, params, dataSource.getConnection());
 
