@@ -28,9 +28,8 @@ public class AuthRole implements Serializable {
     private BigInteger id;
     @Version
     private Integer version;
-
+    @Column(unique = true)
     private String authority;
-
     @ManyToMany(mappedBy = "authRoles")
     private Set<AuthUser> authUsers = new HashSet<>();
 

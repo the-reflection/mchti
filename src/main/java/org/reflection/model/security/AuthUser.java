@@ -1,7 +1,6 @@
 package org.reflection.model.security;
 
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -164,7 +164,9 @@ public class ProcServiceImpl implements ProcService {
 
             if (shift == null) {
                 System.out.println("warning shift not assigned: " + poe.getFullName());
+                continue;
             }
+            
             try {
 
                 Object[] ppx = (Object[]) session
