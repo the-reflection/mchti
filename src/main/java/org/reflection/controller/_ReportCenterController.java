@@ -3,6 +3,7 @@ package org.reflection.controller;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import org.reflection.model.sample.ZxLookup;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,8 +26,10 @@ import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class _ReportCenterController {
@@ -35,21 +38,19 @@ public class _ReportCenterController {
     private DataSource dataSource;
 
     @RequestMapping(value = "/reportCenter", method = RequestMethod.GET)
-    public String reportCenter() {
+    public String reportCenter(ModelMap model) {
+
+        // model.addAttribute(MODEL, new ZxLookup());
+        // Map<String, String> jjj = new LinkedHashMap<>();
+        // jjj.put("title", "");
+        model.addAttribute("rrr", new ZxLookup());
+        // model.addAttribute("reportName", "");
         return "etc/reportCenter";
     }
 
-    @RequestMapping(value = "/reportCenter/all", method = RequestMethod.GET)
-    public void doReportPdf(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException,
+    @RequestMapping(value = "/reportCenter", method = RequestMethod.POST)
+    public void doReportPdf(@RequestParam(value = "title") String title, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException,
             ClassNotFoundException, SQLException, JRException {
-
-        List<Map<String, String>> collDS = new ArrayList<>();//.findAll();
-        for (int i = 0; i < 10; i++) {
-            Map<String, String> m1 = new HashMap<>();
-            m1.put("code", "00" + i);
-            m1.put("title", "oith title " + i);
-            collDS.add(m1);
-        }
 
         //JRDataSource ds = new JRBeanCollectionDataSource(collDS);
         // params is used for passing extra parameters
@@ -57,11 +58,11 @@ public class _ReportCenterController {
 
         File file = new File(request.getServletContext().getRealPath("/"));
 
-        System.out.println("report path yaaa: " + file);
+        System.out.println("report path yaaa: " + file + " bbb:" + title);
 
         // Create a JasperDesign object from the JRXMl file
         // You can also load the template by directly adding the actual path, i.e.
-        JasperDesign jd = JRXmlLoader.load(file + "/reports/tl_monthly_all_emp.jrxml");
+        JasperDesign jd = JRXmlLoader.load(file + "/reports/" + title);
 
         // Compile our report layout
         JasperReport jr = JasperCompileManager.compileReport(jd);
