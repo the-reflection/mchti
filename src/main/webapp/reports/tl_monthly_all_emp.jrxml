@@ -5,11 +5,17 @@
 	<property name="ireport.y" value="0"/>
 	<style name="Crosstab Data Text" hAlign="Center"/>
 	<queryString>
-		<![CDATA[SELECT trunc(ATTN_DATE) ATTN_DATE, E.EMPLOYEE_ID,E.FULL_NAME EMP_NAME, P.TITLE DESG_NAME, substr(DT_ATTN_TYPE,1,1) DT_ATTN_TYPE
+		<![CDATA[Select nvl(ATTN_DATE,cal_date) ATTN_DATE,EMPLOYEE_ID,EMP_NAME,DESG_NAME,DT_ATTN_TYPE
+from (
+SELECT ATTN_DATE, E.EMPLOYEE_ID,E.FULL_NAME EMP_NAME, P.TITLE DESG_NAME, substr(DT_ATTN_TYPE,1,2) DT_ATTN_TYPE
 FROM PROC_OUT_ATTN_DT D, PROC_OUT_EMP E, DESIGNATION P
 WHERE 1=1
+and e.EMPloyee_ID<>0
 AND E.EMPLOYEE_ID=D.EMPLOYEE_ID
-AND E.DESIGNATION_ID=P.ID]]>
+AND E.DESIGNATION_ID=P.ID
+) x,
+PROC_OUT_CALENDER c
+where ATTN_DATE(+)=cal_date]]>
 	</queryString>
 	<field name="ATTN_DATE" class="java.sql.Timestamp"/>
 	<field name="EMPLOYEE_ID" class="java.math.BigDecimal"/>
@@ -20,16 +26,100 @@ AND E.DESIGNATION_ID=P.ID]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="55" splitType="Stretch"/>
+		<band height="55" splitType="Stretch">
+			<image hAlign="Center">
+				<reportElement uuid="158ef226-f19e-486e-9067-14ff1c84f843" x="0" y="0" width="802" height="55"/>
+				<imageExpression><![CDATA["logo.jpg"]]></imageExpression>
+			</image>
+		</band>
 	</title>
 	<pageHeader>
-		<band height="25" splitType="Stretch"/>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="699963f3-c84a-4b50-8baf-5592ee15ee18" x="0" y="0" width="802" height="25"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<text><![CDATA[Monthly All Employee Attendance Status]]></text>
+			</staticText>
+		</band>
 	</pageHeader>
+	<pageFooter>
+		<band height="20" splitType="Immediate">
+			<staticText>
+				<reportElement uuid="840f9762-5acc-4b87-a1d5-9b91cc1f1584" x="0" y="0" width="244" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Powered by Reflection]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="d445b2b4-1a23-4045-82cc-aeb3ae93942e" x="606" y="0" width="133" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="ad4b965a-876e-4443-be10-4d1709367e4d" x="739" y="0" width="63" height="20"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
 	<summary>
 		<band height="42" splitType="Stretch">
 			<crosstab>
 				<reportElement uuid="33fae83b-3d53-42ed-99bb-fa9e0b53a173" x="0" y="0" width="802" height="42"/>
-				<rowGroup name="EMPLOYEE_ID" width="210">
+				<crosstabHeaderCell>
+					<cellContents>
+						<staticText>
+							<reportElement uuid="9bcd6fe5-8941-4b25-af3c-0f1aaf5476a6" style="Crosstab Data Text" x="0" y="0" width="16" height="48"/>
+							<box leftPadding="0" bottomPadding="3">
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement textAlignment="Left" verticalAlignment="Middle" rotation="Left">
+								<font fontName="Tahoma" size="5" isBold="true"/>
+							</textElement>
+							<text><![CDATA[Employee No]]></text>
+						</staticText>
+						<staticText>
+							<reportElement uuid="9bcd6fe5-8941-4b25-af3c-0f1aaf5476a6" style="Crosstab Data Text" x="16" y="0" width="80" height="48"/>
+							<box>
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Tahoma" size="5" isBold="true"/>
+							</textElement>
+							<text><![CDATA[Employee Name]]></text>
+						</staticText>
+						<staticText>
+							<reportElement uuid="9bcd6fe5-8941-4b25-af3c-0f1aaf5476a6" style="Crosstab Data Text" x="96" y="0" width="60" height="48"/>
+							<box>
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Tahoma" size="5" isBold="true"/>
+							</textElement>
+							<text><![CDATA[Designation]]></text>
+						</staticText>
+					</cellContents>
+				</crosstabHeaderCell>
+				<rowGroup name="EMPLOYEE_ID" width="156">
 					<bucket class="java.math.BigDecimal">
 						<bucketExpression><![CDATA[$F{EMPLOYEE_ID}]]></bucketExpression>
 					</bucket>
@@ -39,7 +129,7 @@ AND E.DESIGNATION_ID=P.ID]]>
 								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
 							</box>
 							<textField>
-								<reportElement uuid="0d42e114-4d73-4105-a078-128cd21c1d6e" style="Crosstab Data Text" x="0" y="0" width="16" height="12"/>
+								<reportElement uuid="0d42e114-4d73-4105-a078-128cd21c1d6e" style="Crosstab Data Text" x="0" y="0" width="16" height="10"/>
 								<box>
 									<pen lineWidth="0.5"/>
 									<topPen lineWidth="0.5"/>
@@ -48,12 +138,12 @@ AND E.DESIGNATION_ID=P.ID]]>
 									<rightPen lineWidth="0.5"/>
 								</box>
 								<textElement verticalAlignment="Middle">
-									<font size="5"/>
+									<font fontName="Tahoma" size="5"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$V{EMPLOYEE_ID}]]></textFieldExpression>
 							</textField>
 							<textField>
-								<reportElement uuid="090c4037-886b-4cbb-814c-262e72cb2ef4" style="Crosstab Data Text" x="16" y="0" width="114" height="12"/>
+								<reportElement uuid="090c4037-886b-4cbb-814c-262e72cb2ef4" style="Crosstab Data Text" x="16" y="0" width="80" height="10"/>
 								<box leftPadding="2" rightPadding="2">
 									<pen lineWidth="0.5"/>
 									<topPen lineWidth="0.5"/>
@@ -62,12 +152,12 @@ AND E.DESIGNATION_ID=P.ID]]>
 									<rightPen lineWidth="0.5"/>
 								</box>
 								<textElement textAlignment="Left" verticalAlignment="Middle">
-									<font size="5"/>
+									<font fontName="Tahoma" size="5" isBold="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$V{name}]]></textFieldExpression>
 							</textField>
 							<textField>
-								<reportElement uuid="01bd5a9d-0952-42a5-adbd-aab0adef27eb" style="Crosstab Data Text" x="130" y="0" width="80" height="12"/>
+								<reportElement uuid="01bd5a9d-0952-42a5-adbd-aab0adef27eb" style="Crosstab Data Text" x="96" y="0" width="60" height="10"/>
 								<box leftPadding="2" rightPadding="2">
 									<pen lineWidth="0.5"/>
 									<topPen lineWidth="0.5"/>
@@ -76,7 +166,7 @@ AND E.DESIGNATION_ID=P.ID]]>
 									<rightPen lineWidth="0.5"/>
 								</box>
 								<textElement textAlignment="Left" verticalAlignment="Middle">
-									<font size="5"/>
+									<font fontName="Tahoma" size="5"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$V{desig}]]></textFieldExpression>
 							</textField>
@@ -86,7 +176,7 @@ AND E.DESIGNATION_ID=P.ID]]>
 						<cellContents/>
 					</crosstabTotalRowHeader>
 				</rowGroup>
-				<columnGroup name="ATTN_DATE" height="12">
+				<columnGroup name="ATTN_DATE" height="48">
 					<bucket class="java.sql.Timestamp">
 						<bucketExpression><![CDATA[$F{ATTN_DATE}]]></bucketExpression>
 					</bucket>
@@ -95,8 +185,22 @@ AND E.DESIGNATION_ID=P.ID]]>
 							<box>
 								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
 							</box>
+							<textField pattern="EEEEE">
+								<reportElement uuid="65eb0570-946a-4c53-9edd-13df16f9871c" style="Crosstab Data Text" x="0" y="0" width="19" height="38"/>
+								<box bottomPadding="3">
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Left" verticalAlignment="Middle" rotation="Left" markup="html">
+									<font fontName="Tahoma" size="5" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{ATTN_DATE}]]></textFieldExpression>
+							</textField>
 							<textField pattern="dd">
-								<reportElement uuid="65eb0570-946a-4c53-9edd-13df16f9871c" style="Crosstab Data Text" x="0" y="0" width="19" height="12"/>
+								<reportElement uuid="65eb0570-946a-4c53-9edd-13df16f9871c" style="Crosstab Data Text" x="0" y="38" width="19" height="10"/>
 								<box>
 									<pen lineWidth="0.5"/>
 									<topPen lineWidth="0.5"/>
@@ -105,7 +209,7 @@ AND E.DESIGNATION_ID=P.ID]]>
 									<rightPen lineWidth="0.5"/>
 								</box>
 								<textElement verticalAlignment="Middle">
-									<font size="5"/>
+									<font fontName="Tahoma" size="5" isBold="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$V{ATTN_DATE}]]></textFieldExpression>
 							</textField>
@@ -124,13 +228,13 @@ AND E.DESIGNATION_ID=P.ID]]>
 				<measure name="desig" class="java.lang.String">
 					<measureExpression><![CDATA[$F{DESG_NAME}]]></measureExpression>
 				</measure>
-				<crosstabCell width="19" height="12">
+				<crosstabCell width="19" height="10">
 					<cellContents>
 						<box>
 							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
 						</box>
-						<textField>
-							<reportElement uuid="c68bb8bf-31bd-4e57-bcd6-da524d9d9a11" style="Crosstab Data Text" x="0" y="0" width="19" height="12"/>
+						<textField isBlankWhenNull="true">
+							<reportElement uuid="c68bb8bf-31bd-4e57-bcd6-da524d9d9a11" style="Crosstab Data Text" x="0" y="0" width="19" height="10"/>
 							<box>
 								<pen lineWidth="0.5"/>
 								<topPen lineWidth="0.5"/>
@@ -139,10 +243,14 @@ AND E.DESIGNATION_ID=P.ID]]>
 								<rightPen lineWidth="0.5"/>
 							</box>
 							<textElement verticalAlignment="Middle" markup="html">
-								<font size="5"/>
+								<font fontName="Tahoma" size="5"/>
 							</textElement>
-							<textFieldExpression><![CDATA[$V{DT_ATTN_TYPEMeasure}=='A' ?
+							<textFieldExpression><![CDATA[$V{DT_ATTN_TYPEMeasure}.equals("AB") ?
 "<span style='color:red;'>"+$V{DT_ATTN_TYPEMeasure}+"</span>":
+$V{DT_ATTN_TYPEMeasure}.equals("UN") ?
+"<span style='color:blue;'>"+$V{DT_ATTN_TYPEMeasure}+"</span>":
+$V{DT_ATTN_TYPEMeasure}.equals("PR") ?
+"<span style='color:green;'>"+$V{DT_ATTN_TYPEMeasure}+"</span>":
 $V{DT_ATTN_TYPEMeasure}]]></textFieldExpression>
 						</textField>
 					</cellContents>
