@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import org.reflection.model.sample.ZxLookup;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -49,62 +50,77 @@ public class _ReportCenterController {
     }
 
     @RequestMapping(value = "/reportCenter", method = RequestMethod.POST)
-    public void doReportPdf(@RequestParam(value = "title") String title, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException,
-            ClassNotFoundException, SQLException, JRException {
+    public void doReportPdf(@RequestParam(value = "title") String title,
+            @RequestParam(value = "P_ATTN_DATE") String P_ATTN_DATE, HttpServletRequest request, HttpServletResponse response) {
 
         //JRDataSource ds = new JRBeanCollectionDataSource(collDS);
         // params is used for passing extra parameters
+        File file = new File(request.getServletContext().getRealPath("/"));
+
         Map params = new HashMap();
 
-        File file = new File(request.getServletContext().getRealPath("/"));
+        params.put("REPORT_PATH", file + "/reports/");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+
+        try {
+            params.put("P_ATTN_DATE", dateFormat.parse(P_ATTN_DATE));
+        } catch (Exception e) {
+
+            System.out.println("err in report calling date format : " + e);
+        }
 
         System.out.println("report path yaaa: " + file + " bbb:" + title);
 
-        // Create a JasperDesign object from the JRXMl file
-        // You can also load the template by directly adding the actual path, i.e.
-        JasperDesign jd = JRXmlLoader.load(file + "/reports/" + title);
-
-        // Compile our report layout
-        JasperReport jr = JasperCompileManager.compileReport(jd);
-
-        params.put("REPORT_PATH", file + "/reports/");
-
-        // It needs a JasperReport layout and a datasource
-        JasperPrint jp = JasperFillManager.fillReport(jr, params, dataSource.getConnection());
-
-        // Create our output byte stream
-        // This is the stream where the data will be written
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-
-        // Export to output stream
-        // The data will be exported to the ByteArrayOutputStream baos
-        // We delegate the exporting  to a custom Exporter instance
-        // The Exporter is a wrapper class I made. Feel free to remove or modify it
-        // Create a JRXlsExporter instance
-        JRAbstractExporter exporter = new JRPdfExporter();
-
-        // Here we assign the parameters jp and baos to the exporter
-        exporter.setParameter(JRExporterParameter.JASPER_PRINT, jp);
-        exporter.setParameter(JRExporterParameter.OUTPUT_STREAM, baos);
-
-        // Retrieve the exported report in XLS format
-        exporter.exportReport();
-
-        response.setHeader("Content-disposition", "attachment; filename=oith.pdf");
-        // Make sure to set the correct content type
-        // Each format has its own content type
-        //response.setContentType("application/pdf");
-        response.setContentType("application/x-download");
-
-        response.setContentLength(baos.size());
-
+        ByteArrayOutputStream baos = null;
         try {
-            // Write to reponse stream
-            ServletOutputStream outputStream = response.getOutputStream();
-            baos.writeTo(outputStream);
-            outputStream.flush();
-        } catch (Exception e) {
 
+            // Create a JasperDesign object from the JRXMl file
+            // You can also load the template by directly adding the actual path, i.e.
+            JasperDesign jd = JRXmlLoader.load(file + "/reports/" + title + ".jrxml");
+
+            // Compile our report layout
+            JasperReport jr = JasperCompileManager.compileReport(jd);
+
+            // It needs a JasperReport layout and a datasource
+            JasperPrint jp = JasperFillManager.fillReport(jr, params, dataSource.getConnection());
+
+            // Create our output byte stream
+            // This is the stream where the data will be written
+            baos = new ByteArrayOutputStream();
+
+            // Export to output stream
+            // The data will be exported to the ByteArrayOutputStream baos
+            // We delegate the exporting  to a custom Exporter instance
+            // The Exporter is a wrapper class I made. Feel free to remove or modify it
+            // Create a JRXlsExporter instance
+            JRAbstractExporter exporter = new JRPdfExporter();
+
+            // Here we assign the parameters jp and baos to the exporter
+            exporter.setParameter(JRExporterParameter.JASPER_PRINT, jp);
+            exporter.setParameter(JRExporterParameter.OUTPUT_STREAM, baos);
+
+            // Retrieve the exported report in XLS format
+            exporter.exportReport();
+
+            response.setHeader("Content-disposition", "attachment; filename=" + title + ".pdf");
+            // Make sure to set the correct content type
+            // Each format has its own content type
+            //response.setContentType("application/pdf");
+            response.setContentType("application/x-download");
+
+            response.setContentLength(baos.size());
+        } catch (Exception e) {
+        }
+
+        if (baos != null) {
+            try {
+                // Write to reponse stream
+                ServletOutputStream outputStream = response.getOutputStream();
+                baos.writeTo(outputStream);
+                outputStream.flush();
+            } catch (Exception e) {
+
+            }
         }
     }
 }

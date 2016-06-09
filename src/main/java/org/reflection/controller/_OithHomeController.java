@@ -43,6 +43,7 @@ public class _OithHomeController {
         return "redirect:homeSecure";
     }
 
+    /*
     //   proc-daily/20-05-2016
     @RequestMapping(value = {"/proc-daily/{day}"}, method = RequestMethod.GET)
     public String procDaily(@PathVariable("day") String day, ModelMap model) {
@@ -72,7 +73,7 @@ public class _OithHomeController {
         procService.daily("25-05-2016");
         procService.daily("26-05-2016");
         return "redirect:/proc-daily";
-    }
+    }*/
 
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
     public String index(ModelMap model) {
@@ -81,8 +82,8 @@ public class _OithHomeController {
 
     @RequestMapping(value = {"/homeSecure"}, method = RequestMethod.GET)
     public String homeSecure(ModelMap model) {
-        model.addAttribute("controllerList", list);
-        model.addAttribute("loggedinuser", getPrincipal());
+        //model.addAttribute("controllerList", list);
+        //model.addAttribute("loggedinuser", getPrincipal());
         return "homeSecure";
     }
 
