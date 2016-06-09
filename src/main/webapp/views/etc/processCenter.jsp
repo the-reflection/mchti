@@ -13,7 +13,7 @@
 
         <div class="content-wrapper"><!-- Content Wrapper. Contains page content -->
             <section class="content-header"><!-- Content Header (Page header) -->
-                <h1>Report</h1>
+                <h1>Process</h1>
 
             </section><!-- /.content-header -->
 
@@ -23,7 +23,7 @@
 
             <section class="content"><!-- Main content -->
                 <div id="create-zxLookup" class="box box-primary" role="main">
-                    <form:form action="${pageContext.request.contextPath}/reportCenter" commandName="rrr" method="POST">
+                    <form:form action="${pageContext.request.contextPath}/processCenter" commandName="rrr" method="POST">
                         <div class="box-body">
 
                             <div class="box-body">
@@ -31,11 +31,11 @@
 
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
                                     <div class="form-group">
-                                        Report Name:
+                                        Process Name:
                                         <form:select class="form-control" path="title" name="title" id="title" >
-                                            <form:option value="tl_daily_all_emp_dt_status" label="Daily All Emp Dt Status"/>
-                                            <form:option value="tl_daily_all_emp_punch"     label="Daily All Emp Punch"/>
-                                            <form:option value="tl_monthly_all_emp"         label="Monthly All Emp"/>
+                                            <form:option value="daily" label="Daily Status Process"/>
+                                            <form:option value="refresh"     label="Employee Refresh Process"/>
+
                                         </form:select>
 
                                     </div>
@@ -54,7 +54,7 @@
                                 </div><!-- /.form-group -->
 
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-save"></i> Report
+                                    <i class="fa fa-save"></i> Process
                                 </button>
 
 

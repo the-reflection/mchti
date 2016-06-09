@@ -52,7 +52,7 @@
                     <!--<li class="active"><a href="< %=request.getContextPath()%>/lookupx/index"><i class="fa fa-circle-o"></i> lookupx/index</a></li>-->
                     <li><a href="<%=request.getContextPath()%>/proc-refresh"><i class="fa fa-refresh"></i> Refresh Employee</a></li>
                     <li><a href="<%=request.getContextPath()%>/excelFileUpload"><i class="fa fa-file"></i> Upload Attendance Data</a></li>
-                    <li><a href="<%=request.getContextPath()%>/proc-daily"><i class="fa fa-gears"></i> Process Daily Data</a></li>
+                    <li><a href="<%=request.getContextPath()%>/processCenter"><i class="fa fa-gears"></i> Process</a></li>
 
                     <!--<li><a href="< %=request.getContextPath()%>/procRunner"><i class="fa fa-circle-o"></i> procRunner</a></li>-->
                     <!--<li><a href="< %=request.getContextPath()%>/queryRunner"><i class="fa fa-circle-o"></i> queryRunner</a></li>-->
