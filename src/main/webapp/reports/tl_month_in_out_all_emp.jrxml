@@ -17,7 +17,7 @@ AND E.EMPLOYEE_ID=X.EMPLOYEE_ID
 AND D.ID=E.DEPARTMENT_ID
 And TRUNC(X.TRANSACTION_TIME) between '01-MAY-2016' and '31-MAY-2016'
 GROUP BY X.EMPLOYEE_ID,E.CODE,FULL_NAME,D.TITLE,TRUNC(X.TRANSACTION_TIME)
-ORDER BY 1, 2, 3]]>
+ORDER BY to_number(X.EMPLOYEE_ID), 2, 3]]>
 	</queryString>
 	<field name="EMPLOYEE_ID" class="java.math.BigDecimal"/>
 	<field name="CODE" class="java.lang.String"/>
@@ -66,28 +66,31 @@ ORDER BY 1, 2, 3]]>
 		<band height="63" splitType="Stretch">
 			<crosstab>
 				<reportElement uuid="6d9fc8d6-25c3-4178-9d1f-ed59babba666" x="0" y="0" width="802" height="63"/>
-				<rowGroup name="CODE" width="138">
+				<crosstabHeaderCell>
+					<cellContents/>
+				</crosstabHeaderCell>
+				<rowGroup name="CODE" width="116">
 					<bucket class="java.lang.String">
 						<bucketExpression><![CDATA[$F{CODE}]]></bucketExpression>
 					</bucket>
 					<crosstabRowHeader>
 						<cellContents backcolor="#F0F8FF" mode="Opaque">
 							<textField isBlankWhenNull="true">
-								<reportElement uuid="1587fde9-50db-460b-b2ce-9d2e50cdc700" style="Crosstab Data Text" x="0" y="0" width="33" height="20"/>
+								<reportElement uuid="1587fde9-50db-460b-b2ce-9d2e50cdc700" style="Crosstab Data Text" x="0" y="0" width="18" height="20"/>
 								<box leftPadding="2" rightPadding="2">
 									<pen lineWidth="0.25"/>
 									<topPen lineWidth="0.25"/>
 									<leftPen lineWidth="0.25"/>
-									<bottomPen lineWidth="0.25"/>
+									<bottomPen lineWidth="1.0"/>
 									<rightPen lineWidth="0.25"/>
 								</box>
 								<textElement textAlignment="Left" verticalAlignment="Middle">
-									<font fontName="Arial" size="6"/>
+									<font fontName="Arial" size="5" isBold="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$V{CODE}]]></textFieldExpression>
 							</textField>
 							<textField isBlankWhenNull="true">
-								<reportElement uuid="ff1f43f3-6f40-4c05-960d-979ba1b8c993" style="Crosstab Data Text" x="33" y="0" width="105" height="20"/>
+								<reportElement uuid="ff1f43f3-6f40-4c05-960d-979ba1b8c993" style="Crosstab Data Text" x="18" y="0" width="98" height="10"/>
 								<box leftPadding="2" rightPadding="2">
 									<pen lineWidth="0.25"/>
 									<topPen lineWidth="0.25"/>
@@ -96,9 +99,23 @@ ORDER BY 1, 2, 3]]>
 									<rightPen lineWidth="0.25"/>
 								</box>
 								<textElement textAlignment="Left" verticalAlignment="Middle">
-									<font fontName="Arial" size="6"/>
+									<font fontName="Arial" size="5" isBold="true"/>
 								</textElement>
-								<textFieldExpression><![CDATA[$V{measure1}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$V{emp_name}]]></textFieldExpression>
+							</textField>
+							<textField isBlankWhenNull="true">
+								<reportElement uuid="ff1f43f3-6f40-4c05-960d-979ba1b8c993" style="Crosstab Data Text" x="18" y="10" width="98" height="10"/>
+								<box leftPadding="2" rightPadding="2">
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="1.0"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font fontName="Arial" size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{deptName}]]></textFieldExpression>
 							</textField>
 						</cellContents>
 					</crosstabRowHeader>
@@ -106,14 +123,14 @@ ORDER BY 1, 2, 3]]>
 						<cellContents/>
 					</crosstabTotalRowHeader>
 				</rowGroup>
-				<columnGroup name="ATTN_DATE" height="42">
+				<columnGroup name="ATTN_DATE" height="46">
 					<bucket class="java.sql.Timestamp">
 						<bucketExpression><![CDATA[$F{ATTN_DATE}]]></bucketExpression>
 					</bucket>
 					<crosstabColumnHeader>
 						<cellContents backcolor="#F0F8FF" mode="Opaque">
 							<textField pattern="EEEEE" isBlankWhenNull="true">
-								<reportElement uuid="f46c9877-9ecc-4261-a0a9-df0462dddc1a" style="Crosstab Data Text" x="0" y="0" width="21" height="32"/>
+								<reportElement uuid="f46c9877-9ecc-4261-a0a9-df0462dddc1a" style="Crosstab Data Text" x="0" y="0" width="21" height="36"/>
 								<box leftPadding="2" bottomPadding="2" rightPadding="2">
 									<pen lineWidth="0.25"/>
 									<topPen lineWidth="0.25"/>
@@ -122,12 +139,12 @@ ORDER BY 1, 2, 3]]>
 									<rightPen lineWidth="0.25"/>
 								</box>
 								<textElement textAlignment="Left" verticalAlignment="Middle" rotation="Left">
-									<font fontName="Arial" size="6"/>
+									<font fontName="Arial" size="6" isBold="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$V{ATTN_DATE}]]></textFieldExpression>
 							</textField>
 							<textField pattern="dd" isBlankWhenNull="true">
-								<reportElement uuid="f46c9877-9ecc-4261-a0a9-df0462dddc1a" style="Crosstab Data Text" x="0" y="32" width="21" height="10"/>
+								<reportElement uuid="f46c9877-9ecc-4261-a0a9-df0462dddc1a" style="Crosstab Data Text" x="0" y="36" width="21" height="10"/>
 								<box leftPadding="2" rightPadding="2">
 									<pen lineWidth="0.25"/>
 									<topPen lineWidth="0.25"/>
@@ -136,7 +153,7 @@ ORDER BY 1, 2, 3]]>
 									<rightPen lineWidth="0.25"/>
 								</box>
 								<textElement verticalAlignment="Middle">
-									<font fontName="Arial" size="6"/>
+									<font fontName="Arial" size="6" isBold="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$V{ATTN_DATE}]]></textFieldExpression>
 							</textField>
@@ -149,11 +166,14 @@ ORDER BY 1, 2, 3]]>
 				<measure name="IN_TIMEMeasure" class="java.lang.String">
 					<measureExpression><![CDATA[$F{IN_TIME}]]></measureExpression>
 				</measure>
-				<measure name="measure1" class="java.lang.String">
+				<measure name="emp_name" class="java.lang.String">
 					<measureExpression><![CDATA[$F{FULL_NAME}]]></measureExpression>
 				</measure>
 				<measure name="meout" class="java.lang.String">
 					<measureExpression><![CDATA[$F{OUT_TIME}]]></measureExpression>
+				</measure>
+				<measure name="deptName" class="java.lang.String">
+					<measureExpression><![CDATA[$F{DEPT_NAME}]]></measureExpression>
 				</measure>
 				<crosstabCell width="21" height="20">
 					<cellContents>
@@ -177,13 +197,13 @@ ORDER BY 1, 2, 3]]>
 								<pen lineWidth="0.25"/>
 								<topPen lineWidth="0.25"/>
 								<leftPen lineWidth="0.25"/>
-								<bottomPen lineWidth="0.25"/>
+								<bottomPen lineWidth="1.0"/>
 								<rightPen lineWidth="0.25"/>
 							</box>
 							<textElement verticalAlignment="Middle">
 								<font fontName="Arial" size="6"/>
 							</textElement>
-							<textFieldExpression><![CDATA[$V{meout}]]></textFieldExpression>
+							<textFieldExpression><![CDATA[$V{meout}!=null && $V{meout}.equals($V{IN_TIMEMeasure})?"-":$V{meout}]]></textFieldExpression>
 						</textField>
 					</cellContents>
 				</crosstabCell>
