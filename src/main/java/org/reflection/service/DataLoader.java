@@ -12,21 +12,20 @@ public class DataLoader {
     private Connection connDest;
     private Connection connSrc;
     /*
-    java -classpath "MCHTI.war" org.reflection.service.DataLoader -DsleepMin=10 -DdriverDest=oracle.jdbc.OracleDriver -DurlDest=jdbc:oracle:thin:@localhost:1521:xe -DuserDest=mchti -DpasswordDest=mchti321# -DdriverSrc=sun.jdbc.odbc.JdbcOdbcDriver -DurlSrc=jdbc:odbc:Driver={Microsoft Access Driver (*.mdb, .accdb)};DBQ=C:\\Users\\mbadiuzzaman\\Desktop\\prog_support\\attBackup.mdb -DuserSrc= -DpasswordSrc=
-    
- java org.reflection.service.DataLoader
- -DsleepMin=10
- -DdriverDest=oracle.jdbc.OracleDriver
- -DurlDest=jdbc:oracle:thin:@localhost:1521:xe
- -DuserDest=mchti
- -DpasswordDest=mchti321#
- -DdriverSrc=sun.jdbc.odbc.JdbcOdbcDriver
- -DurlSrc=jdbc:odbc:Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=C:\\Users\\mbadiuzzaman\\Desktop\\prog_support\\attBackup.mdb
- -DuserSrc=
- -DpasswordSrc=
-    
-    wwwwwwjdbc:odbc:Driver={Microsoft Access Driver (*.mdb, .accdb)};DBQ=C:\\Users\\mbadiuzzaman\\Desktop\\prog_support\\attBackup.mdb
-     */
+    java -DsleepMin=10 -DdriverDest=oracle.jdbc.OracleDriver -DurlDest="jdbc:oracle:thin:@localhost:1521:xe" -DuserDest=mchti -DpasswordDest="mchti321#" -DdriverSrc=sun.jdbc.odbc.JdbcOdbcDriver -DurlSrc="jdbc:odbc:Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=C:\\Users\\mbadiuzzaman\\Desktop\\prog_support\\attBackup.mdb" -DuserSrc= -DpasswordSrc= -classpath "lib/*;classes/" org.reflection.service.DataLoader 
+
+    java
+    -DsleepMin=10
+    -DdriverDest=oracle.jdbc.OracleDriver
+    -DurlDest=jdbc:oracle:thin:@localhost:1521:xe
+    -DuserDest=mchti
+    -DpasswordDest=mchti321#
+    -DdriverSrc=sun.jdbc.odbc.JdbcOdbcDriver
+    -DurlSrc=jdbc:odbc:Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=C:\\Users\\mbadiuzzaman\\Desktop\\prog_support\\attBackup.mdb
+    -DuserSrc=
+    -DpasswordSrc=
+    -classpath "lib/*;classes/" org.reflection.service.DataLoader 
+    */
     private static final int SLEEP_MIN = Integer.parseInt(System.getProperty("sleepMin"));
 
     private static final String DRIVER_DEST = System.getProperty("driverDest");
