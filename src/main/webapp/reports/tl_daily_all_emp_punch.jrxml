@@ -16,7 +16,7 @@
 	<parameter name="P_ATTN_DATE" class="java.util.Date">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
-	<parameter name="REPORT_PATH" class="java.lang.String"/>
+	<parameter name="REPORT_PATH" class="java.lang.String" isForPrompting="false"/>
 	<queryString>
 		<![CDATA[SELECT X.EMPLOYEE_ID, E.CODE, E.FULL_NAME, D.TITLE DEPT_NAME, TRUNC(X.TRANSACTION_TIME) ATTN_DATE,
 MIN(X.TRANSACTION_TIME) IN_TIME, MAX(X.TRANSACTION_TIME) OUT_TIME,
