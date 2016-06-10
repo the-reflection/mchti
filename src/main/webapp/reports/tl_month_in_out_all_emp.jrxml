@@ -81,7 +81,7 @@ ORDER BY to_number(X.EMPLOYEE_ID), 2, 3]]>
 				<crosstabHeaderCell>
 					<cellContents>
 						<staticText>
-							<reportElement uuid="4f7d37b8-ca7e-43a9-9364-9ae45fe33e69" style="Crosstab Data Text" x="0" y="0" width="15" height="46"/>
+							<reportElement uuid="4f7d37b8-ca7e-43a9-9364-9ae45fe33e69" style="Crosstab Data Text" x="0" y="0" width="15" height="56"/>
 							<box>
 								<pen lineWidth="0.25"/>
 								<topPen lineWidth="0.25"/>
@@ -95,7 +95,7 @@ ORDER BY to_number(X.EMPLOYEE_ID), 2, 3]]>
 							<text><![CDATA[Employee  No]]></text>
 						</staticText>
 						<staticText>
-							<reportElement uuid="4f7d37b8-ca7e-43a9-9364-9ae45fe33e69" style="Crosstab Data Text" x="15" y="0" width="85" height="46"/>
+							<reportElement uuid="4f7d37b8-ca7e-43a9-9364-9ae45fe33e69" style="Crosstab Data Text" x="15" y="0" width="85" height="56"/>
 							<box>
 								<pen lineWidth="0.25"/>
 								<topPen lineWidth="0.25"/>
@@ -109,7 +109,7 @@ ORDER BY to_number(X.EMPLOYEE_ID), 2, 3]]>
 							<text><![CDATA[Employee Name/Department]]></text>
 						</staticText>
 						<staticText>
-							<reportElement uuid="4f7d37b8-ca7e-43a9-9364-9ae45fe33e69" style="Crosstab Data Text" x="100" y="0" width="16" height="46"/>
+							<reportElement uuid="4f7d37b8-ca7e-43a9-9364-9ae45fe33e69" style="Crosstab Data Text" x="100" y="0" width="16" height="56"/>
 							<box>
 								<pen lineWidth="0.25"/>
 								<topPen lineWidth="0.25"/>
@@ -206,14 +206,14 @@ ORDER BY to_number(X.EMPLOYEE_ID), 2, 3]]>
 						<cellContents/>
 					</crosstabTotalRowHeader>
 				</rowGroup>
-				<columnGroup name="ATTN_DATE" height="46">
+				<columnGroup name="ATTN_DATE" height="56">
 					<bucket class="java.sql.Timestamp">
 						<bucketExpression><![CDATA[$F{ATTN_DATE}]]></bucketExpression>
 					</bucket>
 					<crosstabColumnHeader>
 						<cellContents backcolor="#F0F8FF" mode="Opaque">
 							<textField pattern="EEEEE" isBlankWhenNull="true">
-								<reportElement uuid="f46c9877-9ecc-4261-a0a9-df0462dddc1a" style="Crosstab Data Text" x="0" y="0" width="21" height="36"/>
+								<reportElement uuid="f46c9877-9ecc-4261-a0a9-df0462dddc1a" style="Crosstab Data Text" x="0" y="10" width="21" height="36"/>
 								<box leftPadding="2" bottomPadding="2" rightPadding="2">
 									<pen lineWidth="0.25"/>
 									<topPen lineWidth="0.25"/>
@@ -222,12 +222,12 @@ ORDER BY to_number(X.EMPLOYEE_ID), 2, 3]]>
 									<rightPen lineWidth="0.25"/>
 								</box>
 								<textElement textAlignment="Left" verticalAlignment="Middle" rotation="Left">
-									<font fontName="Arial Narrow" size="6" isBold="true"/>
+									<font fontName="Arial Narrow" size="7" isBold="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$V{ATTN_DATE}]]></textFieldExpression>
 							</textField>
-							<textField pattern="dd" isBlankWhenNull="true">
-								<reportElement uuid="f46c9877-9ecc-4261-a0a9-df0462dddc1a" style="Crosstab Data Text" x="0" y="36" width="21" height="10"/>
+							<textField pattern="MMM" isBlankWhenNull="true">
+								<reportElement uuid="f46c9877-9ecc-4261-a0a9-df0462dddc1a" style="Crosstab Data Text" x="0" y="0" width="21" height="10"/>
 								<box leftPadding="2" rightPadding="2">
 									<pen lineWidth="0.25"/>
 									<topPen lineWidth="0.25"/>
@@ -236,7 +236,21 @@ ORDER BY to_number(X.EMPLOYEE_ID), 2, 3]]>
 									<rightPen lineWidth="0.25"/>
 								</box>
 								<textElement verticalAlignment="Middle">
-									<font fontName="Arial Narrow" size="6" isBold="true"/>
+									<font fontName="Arial Narrow" size="7" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{ATTN_DATE}]]></textFieldExpression>
+							</textField>
+							<textField pattern="dd" isBlankWhenNull="true">
+								<reportElement uuid="f46c9877-9ecc-4261-a0a9-df0462dddc1a" style="Crosstab Data Text" x="0" y="46" width="21" height="10"/>
+								<box leftPadding="2" rightPadding="2">
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial Narrow" size="7" isBold="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$V{ATTN_DATE}]]></textFieldExpression>
 							</textField>
