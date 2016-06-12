@@ -1,10 +1,8 @@
 package org.reflection.controller;
 
 import org.reflection.model.sample.ZxLookup;
-import org.reflection.dto._SearchDTO;
 import org.reflection.exception.ZxLookupNotFoundException;
 import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
