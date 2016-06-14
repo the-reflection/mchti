@@ -1,8 +1,5 @@
-Command for compiling:
-mvn compile
-
 Command for executing the code:
+mvn clean install tomcat7:run
 
-mvn exec:java -Dexec.mainClass="net.AppTest"
 
 
