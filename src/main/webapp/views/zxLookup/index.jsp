@@ -80,9 +80,8 @@
                                                         </sec:access>
                                                         <sec:access url="/zxLookup/delete">
                                                             <li>
-                                                                <a class="btn btn-block btn-danger btn-xs" href="${pageContext.request.contextPath}/zxLookup/delete/${zxLookup.id}" onclick="return confirm('Are you sure to delete?');">
-                                                                    <i class="fa fa-remove"></i> <spring:message code="delete.link.label"/>
-                                                                </a>
+                                                                <!--<a class="btn btn-block btn-danger btn-xs" href="${pageContext.request.contextPath}/zxLookup/delete/${zxLookup.id}" onclick="return confirm('Are you sure to delete?');"><i class="fa fa-remove"></i> <spring:message code="delete.link.label"/></a>-->
+                                                                <a class="btn btn-block btn-danger btn-xs confirm-delete" href="${pageContext.request.contextPath}/zxLookup/delete/${zxLookup.id}"><i class="fa fa-remove"></i> <spring:message code="delete.link.label"/></a>
                                                             </li>
                                                         </sec:access>
                                                     </ul>

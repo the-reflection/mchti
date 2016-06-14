@@ -9,12 +9,15 @@
 
 <tiles:insertDefinition name="main" >
 
+    <tiles:putAttribute name="header">
+        <title><spring:message code="report.reportCenter.label" text="Report Center"/></title>
+    </tiles:putAttribute>
+
     <tiles:putAttribute name="body">
 
         <div class="content-wrapper"><!-- Content Wrapper. Contains page content -->
             <section class="content-header"><!-- Content Header (Page header) -->
-                <h1>Report</h1>
-
+                <h1><spring:message code="default.button.report.label" text="Report"/></h1>
             </section><!-- /.content-header -->
 
             <section class="content-messages">
@@ -29,7 +32,7 @@
                             <div class="box-body">
 
 
-                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group">
                                         Report Name:
                                         <form:select class="form-control" path="title" name="title" id="title" >
@@ -42,21 +45,17 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                     Date:
                                     <div class="input-group date" data-provide="datepicker">
                                         <input name="P_ATTN_DATE" id="P_ATTN_DATE"
-                                               value="" class="form-control input-sm datepicker"/>
+                                               value="" class="form-control dtp-date"/>
                                         <div class="input-group-addon">
                                             <span class="glyphicon glyphicon-th"></span>
                                         </div>
                                     </div>
 
                                 </div><!-- /.form-group -->
-
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-save"></i> Report
-                                </button>
 
 
 
@@ -71,14 +70,11 @@
 
                             </div><!-- /.box-body -->
                             <div class="box-footer">
-                                <!--                            <button type="reset" class="btn btn-danger">
-                                                                <i class="fa fa-refresh"></i> < spring:message code="default.button.reset.label" text="Reset"/>
-                                                            </button>
-                                                            <sec:access url="/zxLookup/create">
-                                                                <button type="submit" class="btn btn-primary">
-                                                                    <i class="fa fa-save"></i> < spring:message code="default.button.save.label" text="Save"/>
-                                                                </button>
-                                                            </sec:access>-->
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <!--<sec:access url="/reportCenter">-->
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> <spring:message code="default.button.report.label" text="Report"/></button>
+                                    <!--</sec:access>-->
+                                </div>
                             </div><!-- /.box-footer -->
                         </form:form>
                     </div><!-- /.create-zxLookup -->

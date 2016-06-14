@@ -11,7 +11,18 @@
 
 <!-- Bootstrap 3.3.6 -->
 <script src="<%=request.getContextPath()%>/resources/plugins/bootstrap/js/bootstrap.min.js"></script>
-<!--<script src="../../resources/plugins/bootstrap/js/bootstrap.min.js"></script>-->
+<!-- date-range-picker -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<!--<script src="../../resources/plugins/moment.js-2.11.2/moment.min.js"></script>-->
+<script src="<%=request.getContextPath()%>/resources/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap datepicker -->
+<script src="<%=request.getContextPath()%>/resources/plugins/datepicker/bootstrap-datepicker.js"></script>
+<!-- bootstrap color picker -->
+<script src="<%=request.getContextPath()%>/resources/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
+<!-- bootstrap time picker -->
+<script src="<%=request.getContextPath()%>/resources/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+<!-- SlimScroll 1.3.0 -->
+<script src="<%=request.getContextPath()%>/resources/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 
 <!-- DataTables -->
 <script src="<%=request.getContextPath()%>/resources/plugins/datatables/jquery.dataTables.min.js"></script>
@@ -34,11 +45,18 @@
 <!--<script src="< %=request.getContextPath()%>/resources/plugins/reflection-1.0.0/reflection.js"></script>-->
 <script src="<%=request.getContextPath()%>/resources/plugins/reflection-1.0.0/customInput.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/main.js"></script>
+<script src="<%=request.getContextPath()%>/resources/plugins/jquery-confirm/jquery-confirm.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/custom-confirm.js"></script>
 
 <!-- AdminLTE for demo purposes -->
 <script src="<%=request.getContextPath()%>/resources/plugins/admin-lte-2.3.3/js/demo.js"></script>
 
 <script type="text/javascript">
     var contextPath = "<%=request.getContextPath()%>";
+
+    //Date picker
+    $('.dtp-date').datepicker({
+        autoclose: true
+    });
 </script>
 
