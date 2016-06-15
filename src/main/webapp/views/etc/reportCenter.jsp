@@ -8,11 +8,12 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <tiles:insertDefinition name="main" >
-
+    <%--
     <tiles:putAttribute name="header">
         <title><spring:message code="report.reportCenter.label" text="Report Center"/></title>
     </tiles:putAttribute>
-
+    --%>
+    
     <tiles:putAttribute name="body">
 
         <div class="content-wrapper"><!-- Content Wrapper. Contains page content -->

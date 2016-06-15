@@ -9,10 +9,12 @@
 
 <tiles:insertDefinition name="main" >
 
+    <%--
     <tiles:putAttribute name="header">
         <title><spring:message code="process.processCenter.label" text="Process Center"/></title>
     </tiles:putAttribute>
-        
+    --%>
+
     <tiles:putAttribute name="body">
 
         <div class="content-wrapper"><!-- Content Wrapper. Contains page content -->
@@ -63,7 +65,7 @@
                         <div class="box-footer">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <!--<sec:access url="/processCenter">-->
-                                    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> <spring:message code="default.button.process.label" text="Process"/></button>
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> <spring:message code="default.button.process.label" text="Process"/></button>
                                 <!--</sec:access>-->
                             </div>
                         </div><!-- /.box-footer -->
