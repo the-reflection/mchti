@@ -53,9 +53,13 @@
 
 <script type="text/javascript">
     var contextPath = "<%=request.getContextPath()%>";
+    var DATE_FORMAT = "dd-mm-yyyy";
 
+    $('.dtp-date').prop('placeholder', DATE_FORMAT);
+    
     //Date picker
     $('.dtp-date').datepicker({
+        format: DATE_FORMAT,
         autoclose: true
     });
 </script>
