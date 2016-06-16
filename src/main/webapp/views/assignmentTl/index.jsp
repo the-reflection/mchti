@@ -13,7 +13,7 @@
 
         <div class="content-wrapper"><!-- Content Wrapper. Contains page content -->
             <section class="content-header"><!-- Content Header (Page header) -->
-                <h1><spring:message code="default.button.list.label" text="List"/> AssignmentTl</h1>
+                <h1><spring:message code="default.button.list.label" text="List"/> Assignment Tl</h1>
                 <ul class="top-links">
                     <sec:access url="/assignmentTl/create">
                         <li>
@@ -34,23 +34,21 @@
 
                             <!--<table class="table table-bordered table-striped table-hover table-condensed dt-responsive display nowrap th-center">-->
                             <thead>
-                        <th><spring:message code="version" text="Version"/></th>
-                    <th><spring:message code="code" text="Code"/></th>
-                    <th><spring:message code="employee" text="Employee"/></th>
-                    <th><spring:message code="startDate" text="Start Date"/></th>
-                    <th><spring:message code="endDate" text="End Date"/></th>
-                    <th><spring:message code="shiftOffDay" text="Shift Off Day"/></th>
-                    <th><spring:message code="shift" text="Shift"/></th>
-                    <th><spring:message code="roster" text="Roster"/></th>
-                    <th><spring:message code="isOvertime" text="Is Overtime"/></th>
+                        <th class='center bold'><spring:message code="code" text="Code"/></th>
+                    <th class='center bold'><spring:message code="employee" text="Employee"/></th>
+                    <th class='center bold'><spring:message code="startDate" text="Start Date"/></th>
+                    <th class='center bold'><spring:message code="endDate" text="End Date"/></th>
+                    <th class='center bold'><spring:message code="shiftOffDay" text="Shift Off Day"/></th>
+                    <th class='center bold'><spring:message code="shift" text="Shift"/></th>
+                    <th class='center bold'><spring:message code="roster" text="Roster"/></th>
+                    <th class='center bold'><spring:message code="isOvertime" text="Is Overtime"/></th>
 
-    <th><spring:message code="default.button.action.label" text="Action"/></th> 
+    <th class='center bold'><spring:message code="default.button.action.label" text="Action"/></th> 
             </thead>
             <tbody>
             <c:if test="${not empty assignmentTls}">
                 <c:forEach items="${assignmentTls}" var="assignmentTl"  varStatus="loopStatus">
                     <tr class="${loopStatus.index % 2 == 0 ? 'odd' : 'even'}">
-                        <td><c:out value="${assignmentTl.version}"/></td>
                         <td><c:out value="${assignmentTl.code}"/></td>
                         <td><c:out value="${assignmentTl.employee!=null ? assignmentTl.employee :'N/A'}"/></td>
                         <td><fmt:formatDate value="${assignmentTl.startDate}" type="date" pattern="dd/MM/yyyy"/></td>

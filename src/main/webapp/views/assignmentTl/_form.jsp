@@ -56,14 +56,20 @@
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="form-group">
             <form:label class="required" path="startDate"><spring:message code="startDate" text="Start Date"/></form:label>
-            <form:input class="form-control date" path="startDate" required="true"  placeholder="DD/MM/YYYY" />
+            <div class='input-group'>
+                <div class='input-group-addon'><i class='fa fa-calendar'></i></div>
+                <form:input class='form-control dtp-date' path='startDate' required="true"  />
+             </div>
             <form:errors path="startDate" cssClass="error" element="div"/>
         </div>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="form-group">
             <form:label path="endDate"><spring:message code="endDate" text="End Date"/></form:label>
-            <form:input class="form-control date" path="endDate"  placeholder="DD/MM/YYYY" />
+            <div class='input-group'>
+                <div class='input-group-addon'><i class='fa fa-calendar'></i></div>
+                <form:input class='form-control dtp-date' path='endDate'  />
+             </div>
             <form:errors path="endDate" cssClass="error" element="div"/>
         </div>
     </div>
@@ -105,7 +111,7 @@
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="form-group">
             <form:label path="isOvertime"><spring:message code="isOvertime" text="Is Overtime"/></form:label>
-            <br><form:checkbox class="cb" path="isOvertime"/>
+            <br><form:checkbox class='cb' path='isOvertime'/>
             <form:errors path="isOvertime" cssClass="error" element="div"/>
         </div>
     </div>
