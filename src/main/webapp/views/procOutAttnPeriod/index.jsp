@@ -13,7 +13,7 @@
 
         <div class="content-wrapper"><!-- Content Wrapper. Contains page content -->
             <section class="content-header"><!-- Content Header (Page header) -->
-                <h1><spring:message code="default.button.list.label" text="List"/> ProcOutAttnPeriod</h1>
+                <h1><spring:message code="default.button.list.label" text="List"/> Proc Out Attn Period</h1>
                 <ul class="top-links">
                     <sec:access url="/procOutAttnPeriod/create">
                         <li>
@@ -34,28 +34,28 @@
 
                             <!--<table class="table table-bordered table-striped table-hover table-condensed dt-responsive display nowrap th-center">-->
                             <thead>
-                        <th><spring:message code="genType" text="Gen Type"/></th>
-                    <th><spring:message code="attnSts" text="Attn Sts"/></th>
-                    <th><spring:message code="period" text="Period"/></th>
-                    <th><spring:message code="employee" text="Employee"/></th>
-                    <th><spring:message code="dayPresent" text="Day Present"/></th>
-                    <th><spring:message code="dayAbsent" text="Day Absent"/></th>
-                    <th><spring:message code="dayLate" text="Day Late"/></th>
-                    <th><spring:message code="dayEarlyOut" text="Day Early Out"/></th>
-                    <th><spring:message code="dayLateInEarlyOut" text="Day Late In Early Out"/></th>
-                    <th><spring:message code="dayCl" text="Day Cl"/></th>
-                    <th><spring:message code="daySl" text="Day Sl"/></th>
-                    <th><spring:message code="dayEl" text="Day El"/></th>
-                    <th><spring:message code="dayMl" text="Day Ml"/></th>
-                    <th><spring:message code="dayLwp" text="Day Lwp"/></th>
-                    <th><spring:message code="otHourNormal" text="Ot Hour Normal"/></th>
-                    <th><spring:message code="otHourSro" text="Ot Hour Sro"/></th>
-                    <th><spring:message code="otHourExtra" text="Ot Hour Extra"/></th>
-                    <th><spring:message code="otHourHoliday" text="Ot Hour Holiday"/></th>
-                    <th><spring:message code="dayHolidayWork" text="Day Holiday Work"/></th>
-                    <th><spring:message code="dayHoliday" text="Day Holiday"/></th>
+                        <th class='center bold'><spring:message code="genType" text="Gen Type"/></th>
+                    <th class='center bold'><spring:message code="attnSts" text="Attn Sts"/></th>
+                    <th class='center bold'><spring:message code="period" text="Period"/></th>
+                    <th class='center bold'><spring:message code="employee" text="Employee"/></th>
+                    <th class='center bold'><spring:message code="dayPresent" text="Day Present"/></th>
+                    <th class='center bold'><spring:message code="dayAbsent" text="Day Absent"/></th>
+                    <th class='center bold'><spring:message code="dayLate" text="Day Late"/></th>
+                    <th class='center bold'><spring:message code="dayEarlyOut" text="Day Early Out"/></th>
+                    <th class='center bold'><spring:message code="dayLateInEarlyOut" text="Day Late In Early Out"/></th>
+                    <th class='center bold'><spring:message code="dayCl" text="Day Cl"/></th>
+                    <th class='center bold'><spring:message code="daySl" text="Day Sl"/></th>
+                    <th class='center bold'><spring:message code="dayEl" text="Day El"/></th>
+                    <th class='center bold'><spring:message code="dayMl" text="Day Ml"/></th>
+                    <th class='center bold'><spring:message code="dayLwp" text="Day Lwp"/></th>
+                    <th class='center bold'><spring:message code="otHourNormal" text="Ot Hour Normal"/></th>
+                    <th class='center bold'><spring:message code="otHourSro" text="Ot Hour Sro"/></th>
+                    <th class='center bold'><spring:message code="otHourExtra" text="Ot Hour Extra"/></th>
+                    <th class='center bold'><spring:message code="otHourHoliday" text="Ot Hour Holiday"/></th>
+                    <th class='center bold'><spring:message code="dayHolidayWork" text="Day Holiday Work"/></th>
+                    <th class='center bold'><spring:message code="dayHoliday" text="Day Holiday"/></th>
 
-    <th><spring:message code="default.button.action.label" text="Action"/></th> 
+    <th class='center bold'><spring:message code="default.button.action.label" text="Action"/></th> 
             </thead>
             <tbody>
             <c:if test="${not empty procOutAttnPeriods}">

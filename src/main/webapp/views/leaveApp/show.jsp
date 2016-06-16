@@ -13,7 +13,7 @@
         
         <div class="content-wrapper"><!-- Content Wrapper. Contains page content -->
             <section class="content-header"><!-- Content Header (Page header) -->
-                <h1><spring:message code="default.button.show.label" text="Show"/> LeaveApp</h1>
+                <h1><spring:message code="default.button.show.label" text="Show"/> Leave App</h1>
                 <ul class="top-links">
                     <sec:access url="/leaveApp/create">
                         <li>
@@ -37,18 +37,7 @@
                     <div class="box-body">
                         <fieldset class="show-page">
                              <form:hidden path="id"/>
-        <ol class="property-list hrIrGrdScr">
-    
-        <c:if test="${leaveApp.version!=null}">
-            <li class="fieldcontain first_item">
-                <span id="title" class="property-label">
-                    <spring:message code="version" text="Version"/>: 
-                </span>
-                <span class="property-value" aria-labelledby="version">
-                    <c:out value="${leaveApp.version}"/>
-                </span>
-            </li>
-        </c:if>
+        <ol class="property-list">
 
         <c:if test="${leaveApp.code!=null && !leaveApp.code.isEmpty()}">
             <li class="fieldcontain first_item">
@@ -150,7 +139,7 @@
         </c:if>
 
         </ol>
-    
+
     
       </fieldset>     <!--.show-page-->
                         </div>      <!--.box-body-->

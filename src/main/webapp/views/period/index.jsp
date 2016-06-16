@@ -34,20 +34,18 @@
 
                             <!--<table class="table table-bordered table-striped table-hover table-condensed dt-responsive display nowrap th-center">-->
                             <thead>
-                        <th><spring:message code="version" text="Version"/></th>
-                    <th><spring:message code="code" text="Code"/></th>
-                    <th><spring:message code="title" text="Title"/></th>
-                    <th><spring:message code="startDate" text="Start Date"/></th>
-                    <th><spring:message code="endDate" text="End Date"/></th>
-                    <th><spring:message code="periodType" text="Period Type"/></th>
+                        <th class='center bold'><spring:message code="code" text="Code"/></th>
+                    <th class='center bold'><spring:message code="title" text="Title"/></th>
+                    <th class='center bold'><spring:message code="startDate" text="Start Date"/></th>
+                    <th class='center bold'><spring:message code="endDate" text="End Date"/></th>
+                    <th class='center bold'><spring:message code="periodType" text="Period Type"/></th>
 
-    <th><spring:message code="default.button.action.label" text="Action"/></th> 
+    <th class='center bold'><spring:message code="default.button.action.label" text="Action"/></th> 
             </thead>
             <tbody>
             <c:if test="${not empty periods}">
                 <c:forEach items="${periods}" var="period"  varStatus="loopStatus">
                     <tr class="${loopStatus.index % 2 == 0 ? 'odd' : 'even'}">
-                        <td><c:out value="${period.version}"/></td>
                         <td><c:out value="${period.code}"/></td>
                         <td><c:out value="${period.title}"/></td>
                         <td><fmt:formatDate value="${period.startDate}" type="date" pattern="dd/MM/yyyy"/></td>

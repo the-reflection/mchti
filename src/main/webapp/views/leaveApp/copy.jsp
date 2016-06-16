@@ -12,7 +12,7 @@
     <tiles:putAttribute name="body">
         <div class="content-wrapper"><!-- Content Wrapper. Contains page content -->
             <section class="content-header"><!-- Content Header (Page header) -->
-                <h1><spring:message code="default.button.copy.label" text="Copy"/> LeaveApp</h1>
+                <h1><spring:message code="default.button.copy.label" text="Copy"/> Leave App</h1>
                 <ul class="top-links">
                     <ul class="top-links">
                         <sec:access url="/leaveApp/create">

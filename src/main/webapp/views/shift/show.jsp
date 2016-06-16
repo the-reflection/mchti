@@ -37,18 +37,7 @@
                     <div class="box-body">
                         <fieldset class="show-page">
                              <form:hidden path="id"/>
-        <ol class="property-list hrIrGrdScr">
-    
-        <c:if test="${shift.version!=null}">
-            <li class="fieldcontain first_item">
-                <span id="title" class="property-label">
-                    <spring:message code="version" text="Version"/>: 
-                </span>
-                <span class="property-value" aria-labelledby="version">
-                    <c:out value="${shift.version}"/>
-                </span>
-            </li>
-        </c:if>
+        <ol class="property-list">
 
         <c:if test="${shift.code!=null && !shift.code.isEmpty()}">
             <li class="fieldcontain first_item">
@@ -205,7 +194,7 @@
         </c:if>
 
         </ol>
-    
+
     
       </fieldset>     <!--.show-page-->
                         </div>      <!--.box-body-->

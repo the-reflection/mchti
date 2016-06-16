@@ -34,29 +34,27 @@
 
                             <!--<table class="table table-bordered table-striped table-hover table-condensed dt-responsive display nowrap th-center">-->
                             <thead>
-                        <th><spring:message code="version" text="Version"/></th>
-                    <th><spring:message code="code" text="Code"/></th>
-                    <th><spring:message code="title" text="Title"/></th>
-                    <th><spring:message code="titleBng" text="Title Bng"/></th>
-                    <th><spring:message code="startHr" text="Start Hr"/></th>
-                    <th><spring:message code="endHr" text="End Hr"/></th>
-                    <th><spring:message code="startMin" text="Start Min"/></th>
-                    <th><spring:message code="endMin" text="End Min"/></th>
-                    <th><spring:message code="startBufMin" text="Start Buf Min"/></th>
-                    <th><spring:message code="endBufMin" text="End Buf Min"/></th>
-                    <th><spring:message code="orientationMin" text="Orientation Min"/></th>
-                    <th><spring:message code="shiftType" text="Shift Type"/></th>
-                    <th><spring:message code="remarks" text="Remarks"/></th>
-                    <th><spring:message code="isActive" text="Is Active"/></th>
-                    <th><spring:message code="slNo" text="Sl No"/></th>
+                        <th class='center bold'><spring:message code="code" text="Code"/></th>
+                    <th class='center bold'><spring:message code="title" text="Title"/></th>
+                    <th class='center bold'><spring:message code="titleBng" text="Title Bng"/></th>
+                    <th class='center bold'><spring:message code="startHr" text="Start Hr"/></th>
+                    <th class='center bold'><spring:message code="endHr" text="End Hr"/></th>
+                    <th class='center bold'><spring:message code="startMin" text="Start Min"/></th>
+                    <th class='center bold'><spring:message code="endMin" text="End Min"/></th>
+                    <th class='center bold'><spring:message code="startBufMin" text="Start Buf Min"/></th>
+                    <th class='center bold'><spring:message code="endBufMin" text="End Buf Min"/></th>
+                    <th class='center bold'><spring:message code="orientationMin" text="Orientation Min"/></th>
+                    <th class='center bold'><spring:message code="shiftType" text="Shift Type"/></th>
+                    <th class='center bold'><spring:message code="remarks" text="Remarks"/></th>
+                    <th class='center bold'><spring:message code="isActive" text="Is Active"/></th>
+                    <th class='center bold'><spring:message code="slNo" text="Sl No"/></th>
 
-    <th><spring:message code="default.button.action.label" text="Action"/></th> 
+    <th class='center bold'><spring:message code="default.button.action.label" text="Action"/></th> 
             </thead>
             <tbody>
             <c:if test="${not empty shifts}">
                 <c:forEach items="${shifts}" var="shift"  varStatus="loopStatus">
                     <tr class="${loopStatus.index % 2 == 0 ? 'odd' : 'even'}">
-                        <td><c:out value="${shift.version}"/></td>
                         <td><c:out value="${shift.code}"/></td>
                         <td><c:out value="${shift.title}"/></td>
                         <td><c:out value="${shift.titleBng}"/></td>

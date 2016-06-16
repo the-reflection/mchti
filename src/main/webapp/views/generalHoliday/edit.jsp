@@ -12,7 +12,7 @@
     <tiles:putAttribute name="body">
         <div class="content-wrapper"><!-- Content Wrapper. Contains page content -->
             <section class="content-header"><!-- Content Header (Page header) -->
-                <h1><spring:message code="default.button.edit.label" text="Edit"/> GeneralHoliday</h1>
+                <h1><spring:message code="default.button.edit.label" text="Edit"/> General Holiday</h1>
                 <ul class="top-links">
                     <sec:access url="/generalHoliday/create">
                         <li>
