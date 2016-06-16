@@ -16,7 +16,7 @@
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     </head>
-    <body class="hold-transition skin-blue sidebar-mini sidebar-collapse">
+    <body class="hold-transition skin-blue sidebar-mini sidebar-collapse fixed">
         <div class="wrapper">
 
             <div class="styleSheet">
