@@ -53,7 +53,7 @@ public class _ProcessCenterController {
             @RequestParam(value = "P_ATTN_DATE") String P_ATTN_DATE) throws ServletException, IOException,
             ClassNotFoundException, SQLException, JRException {
 
-//SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+
 //        try {
 //            //params.put("P_ATTN_DATE", dateFormat.parse(P_ATTN_DATE));
 //        } catch (Exception e) {

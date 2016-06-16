@@ -60,7 +60,7 @@ public class _ReportCenterController {
         Map params = new HashMap();
 
         params.put("REPORT_PATH", file + "/reports/");
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
         try {
             params.put("P_ATTN_DATE", dateFormat.parse(P_ATTN_DATE));
