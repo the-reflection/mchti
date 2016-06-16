@@ -13,7 +13,7 @@
 
         <div class="content-wrapper"><!-- Content Wrapper. Contains page content -->
             <section class="content-header"><!-- Content Header (Page header) -->
-                <h1><spring:message code="default.button.list.label" text="List"/> AuthUserAuthQuestion</h1>
+                <h1><spring:message code="default.button.list.label" text="List"/> Auth User Auth Question</h1>
                 <ul class="top-links">
                     <sec:access url="/authUserAuthQuestion/create">
                         <li>
@@ -34,10 +34,10 @@
 
                             <!--<table class="table table-bordered table-striped table-hover table-condensed dt-responsive display nowrap th-center">-->
                             <thead>
-                        <th><spring:message code="id" text="Id"/></th>
-                    <th><spring:message code="answer" text="Answer"/></th>
+                        <th class='center bold'><spring:message code="id" text="Id"/></th>
+                    <th class='center bold'><spring:message code="answer" text="Answer"/></th>
 
-    <th><spring:message code="default.button.action.label" text="Action"/></th> 
+    <th class='center bold'><spring:message code="default.button.action.label" text="Action"/></th> 
             </thead>
             <tbody>
             <c:if test="${not empty authUserAuthQuestions}">

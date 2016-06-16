@@ -13,7 +13,7 @@
 
         <div class="content-wrapper"><!-- Content Wrapper. Contains page content -->
             <section class="content-header"><!-- Content Header (Page header) -->
-                <h1><spring:message code="default.button.list.label" text="List"/> AuthUser</h1>
+                <h1><spring:message code="default.button.list.label" text="List"/> Auth User</h1>
                 <ul class="top-links">
                     <sec:access url="/authUser/create">
                         <li>
@@ -34,33 +34,34 @@
 
                             <!--<table class="table table-bordered table-striped table-hover table-condensed dt-responsive display nowrap th-center">-->
                             <thead>
-                    <th><spring:message code="username" text="Username"/></th>
-                    <th><spring:message code="authorities" text="Authorities"/></th>
-                    <th><spring:message code="accountNonExpired" text="Account Non Expired"/></th>
-                    <th><spring:message code="accountNonLocked" text="Account Non Locked"/></th>
-                    <th><spring:message code="credentialsNonExpired" text="Credentials Non Expired"/></th>
-                    <th><spring:message code="enabled" text="Enabled"/></th>
-                    <th><spring:message code="displayName" text="Display Name"/></th>
-                    <th><spring:message code="fullName" text="Full Name"/></th>
-                    <th><spring:message code="gender" text="Gender"/></th>
-                    <th><spring:message code="dob" text="Dob"/></th>
-                    <th><spring:message code="doj" text="Doj"/></th>
-                    <th><spring:message code="email" text="Email"/></th>
-                    <th><spring:message code="picFile" text="Pic File"/></th>
-                    <th><spring:message code="username" text="Username"/></th>
-                    <th><spring:message code="password" text="Password"/></th>
-                    <th><spring:message code="enabled" text="Enabled"/></th>
-                    <th><spring:message code="accountNonExpired" text="Account Non Expired"/></th>
-                    <th><spring:message code="accountNonLocked" text="Account Non Locked"/></th>
-                    <th><spring:message code="credentialsNonExpired" text="Credentials Non Expired"/></th>
+                        <th class='center bold'><spring:message code="password" text="Password"/></th>
+                    <th class='center bold'><spring:message code="username" text="Username"/></th>
+                    <th class='center bold'><spring:message code="authorities" text="Authorities"/></th>
+                    <th class='center bold'><spring:message code="accountNonExpired" text="Account Non Expired"/></th>
+                    <th class='center bold'><spring:message code="accountNonLocked" text="Account Non Locked"/></th>
+                    <th class='center bold'><spring:message code="credentialsNonExpired" text="Credentials Non Expired"/></th>
+                    <th class='center bold'><spring:message code="enabled" text="Enabled"/></th>
+                    <th class='center bold'><spring:message code="displayName" text="Display Name"/></th>
+                    <th class='center bold'><spring:message code="fullName" text="Full Name"/></th>
+                    <th class='center bold'><spring:message code="gender" text="Gender"/></th>
+                    <th class='center bold'><spring:message code="dob" text="Dob"/></th>
+                    <th class='center bold'><spring:message code="doj" text="Doj"/></th>
+                    <th class='center bold'><spring:message code="email" text="Email"/></th>
+                    <th class='center bold'><spring:message code="picFile" text="Pic File"/></th>
+                    <th class='center bold'><spring:message code="username" text="Username"/></th>
+                    <th class='center bold'><spring:message code="password" text="Password"/></th>
+                    <th class='center bold'><spring:message code="enabled" text="Enabled"/></th>
+                    <th class='center bold'><spring:message code="accountNonExpired" text="Account Non Expired"/></th>
+                    <th class='center bold'><spring:message code="accountNonLocked" text="Account Non Locked"/></th>
+                    <th class='center bold'><spring:message code="credentialsNonExpired" text="Credentials Non Expired"/></th>
 
-    <th><spring:message code="default.button.action.label" text="Action"/></th> 
+    <th class='center bold'><spring:message code="default.button.action.label" text="Action"/></th> 
             </thead>
             <tbody>
             <c:if test="${not empty authUsers}">
                 <c:forEach items="${authUsers}" var="authUser"  varStatus="loopStatus">
                     <tr class="${loopStatus.index % 2 == 0 ? 'odd' : 'even'}">
-                    
+                        <td><c:out value="${authUser.password}"/></td>
                         <td><c:out value="${authUser.username}"/></td>
                         <td><c:out value="${authUser.authorities}"/></td>
                         <td><c:out value="${authUser.accountNonExpired}"/></td>

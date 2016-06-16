@@ -34,21 +34,19 @@
 
                             <!--<table class="table table-bordered table-striped table-hover table-condensed dt-responsive display nowrap th-center">-->
                             <thead>
-                        <th><spring:message code="version" text="Version"/></th>
-                    <th><spring:message code="code" text="Code"/></th>
-                    <th><spring:message code="title" text="Title"/></th>
-                    <th><spring:message code="titleBng" text="Title Bng"/></th>
-                    <th><spring:message code="remarks" text="Remarks"/></th>
-                    <th><spring:message code="isActive" text="Is Active"/></th>
-                    <th><spring:message code="slNo" text="Sl No"/></th>
+                        <th class='center bold'><spring:message code="code" text="Code"/></th>
+                    <th class='center bold'><spring:message code="title" text="Title"/></th>
+                    <th class='center bold'><spring:message code="titleBng" text="Title Bng"/></th>
+                    <th class='center bold'><spring:message code="remarks" text="Remarks"/></th>
+                    <th class='center bold'><spring:message code="isActive" text="Is Active"/></th>
+                    <th class='center bold'><spring:message code="slNo" text="Sl No"/></th>
 
-    <th><spring:message code="default.button.action.label" text="Action"/></th> 
+    <th class='center bold'><spring:message code="default.button.action.label" text="Action"/></th> 
             </thead>
             <tbody>
             <c:if test="${not empty departments}">
                 <c:forEach items="${departments}" var="department"  varStatus="loopStatus">
                     <tr class="${loopStatus.index % 2 == 0 ? 'odd' : 'even'}">
-                        <td><c:out value="${department.version}"/></td>
                         <td><c:out value="${department.code}"/></td>
                         <td><c:out value="${department.title}"/></td>
                         <td><c:out value="${department.titleBng}"/></td>

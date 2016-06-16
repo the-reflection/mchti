@@ -13,7 +13,7 @@
         
         <div class="content-wrapper"><!-- Content Wrapper. Contains page content -->
             <section class="content-header"><!-- Content Header (Page header) -->
-                <h1><spring:message code="default.button.show.label" text="Show"/> AuthRole</h1>
+                <h1><spring:message code="default.button.show.label" text="Show"/> Auth Role</h1>
                 <ul class="top-links">
                     <sec:access url="/authRole/create">
                         <li>
@@ -37,18 +37,7 @@
                     <div class="box-body">
                         <fieldset class="show-page">
                              <form:hidden path="id"/>
-        <ol class="property-list hrIrGrdScr">
-    
-        <c:if test="${authRole.version!=null}">
-            <li class="fieldcontain first_item">
-                <span id="title" class="property-label">
-                    <spring:message code="version" text="Version"/>: 
-                </span>
-                <span class="property-value" aria-labelledby="version">
-                    <c:out value="${authRole.version}"/>
-                </span>
-            </li>
-        </c:if>
+        <ol class="property-list">
 
         <c:if test="${authRole.authority!=null && !authRole.authority.isEmpty()}">
             <li class="fieldcontain first_item">
@@ -62,7 +51,7 @@
         </c:if>
 
         </ol>
-    
+
     
       </fieldset>     <!--.show-page-->
                         </div>      <!--.box-body-->

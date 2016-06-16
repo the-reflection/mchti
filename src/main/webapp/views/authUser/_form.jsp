@@ -66,14 +66,20 @@
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="form-group">
             <form:label path="dob"><spring:message code="dob" text="Dob"/></form:label>
-            <form:input class="form-control date" path="dob"  placeholder="DD/MM/YYYY" />
+            <div class='input-group'>
+                <div class='input-group-addon'><i class='fa fa-calendar'></i></div>
+                <form:input class='form-control dtp-date' path='dob'  />
+             </div>
             <form:errors path="dob" cssClass="error" element="div"/>
         </div>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="form-group">
             <form:label path="doj"><spring:message code="doj" text="Doj"/></form:label>
-            <form:input class="form-control date" path="doj"  placeholder="DD/MM/YYYY" />
+            <div class='input-group'>
+                <div class='input-group-addon'><i class='fa fa-calendar'></i></div>
+                <form:input class='form-control dtp-date' path='doj'  />
+             </div>
             <form:errors path="doj" cssClass="error" element="div"/>
         </div>
     </div>
@@ -108,28 +114,28 @@
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="form-group">
             <form:label class="required" path="enabled"><spring:message code="enabled" text="Enabled"/></form:label>
-            <br><form:checkbox class="cb" path="enabled"/>
+            <br><form:checkbox class='cb' path='enabled'/>
             <form:errors path="enabled" cssClass="error" element="div"/>
         </div>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="form-group">
             <form:label class="required" path="accountNonExpired"><spring:message code="accountNonExpired" text="Account Non Expired"/></form:label>
-            <br><form:checkbox class="cb" path="accountNonExpired"/>
+            <br><form:checkbox class='cb' path='accountNonExpired'/>
             <form:errors path="accountNonExpired" cssClass="error" element="div"/>
         </div>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="form-group">
             <form:label class="required" path="accountNonLocked"><spring:message code="accountNonLocked" text="Account Non Locked"/></form:label>
-            <br><form:checkbox class="cb" path="accountNonLocked"/>
+            <br><form:checkbox class='cb' path='accountNonLocked'/>
             <form:errors path="accountNonLocked" cssClass="error" element="div"/>
         </div>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="form-group">
             <form:label class="required" path="credentialsNonExpired"><spring:message code="credentialsNonExpired" text="Credentials Non Expired"/></form:label>
-            <br><form:checkbox class="cb" path="credentialsNonExpired"/>
+            <br><form:checkbox class='cb' path='credentialsNonExpired'/>
             <form:errors path="credentialsNonExpired" cssClass="error" element="div"/>
         </div>
     </div>

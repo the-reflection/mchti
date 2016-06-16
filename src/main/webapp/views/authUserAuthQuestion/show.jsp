@@ -13,7 +13,7 @@
         
         <div class="content-wrapper"><!-- Content Wrapper. Contains page content -->
             <section class="content-header"><!-- Content Header (Page header) -->
-                <h1><spring:message code="default.button.show.label" text="Show"/> AuthUserAuthQuestion</h1>
+                <h1><spring:message code="default.button.show.label" text="Show"/> Auth User Auth Question</h1>
                 <ul class="top-links">
                     <sec:access url="/authUserAuthQuestion/create">
                         <li>
@@ -37,8 +37,8 @@
                     <div class="box-body">
                         <fieldset class="show-page">
                              <form:hidden path="id"/>
-        <ol class="property-list hrIrGrdScr">
-    
+        <ol class="property-list">
+
         <c:if test="${authUserAuthQuestion.id!=null}">
             <li class="fieldcontain first_item">
                 <span id="title" class="property-label">
@@ -62,7 +62,7 @@
         </c:if>
 
         </ol>
-    
+
     
       </fieldset>     <!--.show-page-->
                         </div>      <!--.box-body-->

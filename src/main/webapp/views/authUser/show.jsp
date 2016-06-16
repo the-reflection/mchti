@@ -13,7 +13,7 @@
         
         <div class="content-wrapper"><!-- Content Wrapper. Contains page content -->
             <section class="content-header"><!-- Content Header (Page header) -->
-                <h1><spring:message code="default.button.show.label" text="Show"/> AuthUser</h1>
+                <h1><spring:message code="default.button.show.label" text="Show"/> Auth User</h1>
                 <ul class="top-links">
                     <sec:access url="/authUser/create">
                         <li>
@@ -37,18 +37,7 @@
                     <div class="box-body">
                         <fieldset class="show-page">
                              <form:hidden path="id"/>
-        <ol class="property-list hrIrGrdScr">
-    
-        <c:if test="${authUser.serialVersionUID!=null}">
-            <li class="fieldcontain first_item">
-                <span id="title" class="property-label">
-                    <spring:message code="serialVersionUID" text="Serial Version U I D"/>: 
-                </span>
-                <span class="property-value" aria-labelledby="serialVersionUID">
-                    <c:out value="${authUser.serialVersionUID}"/>
-                </span>
-            </li>
-        </c:if>
+        <ol class="property-list">
 
         <c:if test="${authUser.password!=null && !authUser.password.isEmpty()}">
             <li class="fieldcontain first_item">
@@ -271,7 +260,7 @@
         </c:if>
 
         </ol>
-        <div><jsp:include page="authUserAuthQuestions.jsp" /></div>
+    <div><jsp:include page="authUserAuthQuestions.jsp" /></div>
 
     
       </fieldset>     <!--.show-page-->

@@ -34,10 +34,10 @@
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="form-group">
             <form:label path="picFile"><spring:message code="picFile" text="Pic File"/></form:label>
-            <c:url var="picFile" value="/employee/getPhoto/${employee.picFile}"/>
-            <img height="110px" width="90px" alt="${employee.picFile}" src="${picFile}"/>
-            <form:hidden path="picFile"/>
-            <input id="picFileOBJ" name="picFileOBJ" type="file" accept="image/*"/>
+                <c:url var="picFile" value="/employee/getPhoto/${employee.picFile}"/>
+                <img height="110px" width="90px" alt="${employee.picFile}" src="${picFile}"/>
+                <form:hidden path="picFile"/>
+                <input id="picFileOBJ" name="picFileOBJ" type="file" accept="image/*"/>
             <form:errors path="picFile" cssClass="error" element="div"/>
         </div>
     </div>
@@ -62,7 +62,10 @@
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="form-group">
             <form:label path="dob"><spring:message code="dob" text="Dob"/></form:label>
-            <form:input class="form-control dtp-date" path="dob"/>
+            <div class='input-group'>
+                <div class='input-group-addon'><i class='fa fa-calendar'></i></div>
+                <form:input class='form-control dtp-date' path='dob'  />
+             </div>
             <form:errors path="dob" cssClass="error" element="div"/>
         </div>
     </div>
@@ -76,10 +79,10 @@
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="form-group">
             <form:label path="doj"><spring:message code="doj" text="Doj"/></form:label>
-            <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                    <form:input class="form-control dtp-date" path="doj"/>
-            </div>
+            <div class='input-group'>
+                <div class='input-group-addon'><i class='fa fa-calendar'></i></div>
+                <form:input class='form-control dtp-date' path='doj'  />
+             </div>
             <form:errors path="doj" cssClass="error" element="div"/>
         </div>
     </div>

@@ -13,7 +13,7 @@
 
         <div class="content-wrapper"><!-- Content Wrapper. Contains page content -->
             <section class="content-header"><!-- Content Header (Page header) -->
-                <h1><spring:message code="default.button.list.label" text="List"/> AuthRole</h1>
+                <h1><spring:message code="default.button.list.label" text="List"/> Auth Role</h1>
                 <ul class="top-links">
                     <sec:access url="/authRole/create">
                         <li>
@@ -34,16 +34,14 @@
 
                             <!--<table class="table table-bordered table-striped table-hover table-condensed dt-responsive display nowrap th-center">-->
                             <thead>
-                        <th><spring:message code="version" text="Version"/></th>
-                    <th><spring:message code="authority" text="Authority"/></th>
+                        <th class='center bold'><spring:message code="authority" text="Authority"/></th>
 
-    <th><spring:message code="default.button.action.label" text="Action"/></th> 
+    <th class='center bold'><spring:message code="default.button.action.label" text="Action"/></th> 
             </thead>
             <tbody>
             <c:if test="${not empty authRoles}">
                 <c:forEach items="${authRoles}" var="authRole"  varStatus="loopStatus">
                     <tr class="${loopStatus.index % 2 == 0 ? 'odd' : 'even'}">
-                        <td><c:out value="${authRole.version}"/></td>
                         <td><c:out value="${authRole.authority}"/></td>
 
                            <td class="center action">
