@@ -77,7 +77,7 @@
                             <sec:access url="/assignmentHr/copy">
                                 <li>
                                 <a class="btn btn-block btn-warning btn-xs" href="${pageContext.request.contextPath}/assignmentHr/copy/${assignmentHr.id}">
-                                    <i class="fa fa-clone" aria-hidden="true"></i> <spring:message code="copy.link.label"/>
+                                    <i class="fa fa-clone" aria-hidden="true"></i> <spring:message code="default.button.copy.label"/>
                                 </a>
                                 </li>
                             </sec:access>

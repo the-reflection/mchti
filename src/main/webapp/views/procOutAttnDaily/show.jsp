@@ -80,7 +80,7 @@
     
                         <div class="box-footer">
                             <a href="${pageContext.request.contextPath}/procOutAttnDaily/edit/${procOutAttnDaily.id}" class="btn btn-primary"><i class="fa fa-edit"></i> <spring:message code="edit.link.label"/></a> 
-                            <a href="${pageContext.request.contextPath}/procOutAttnDaily/copy/${procOutAttnDaily.id}" class="btn btn-warning"><i class="fa fa-clone"></i> <spring:message code="copy.link.label"/></a>             
+                            <a href="${pageContext.request.contextPath}/procOutAttnDaily/copy/${procOutAttnDaily.id}" class="btn btn-warning"><i class="fa fa-clone"></i> <spring:message code="default.button.copy.label"/></a>             
                             <a href="${pageContext.request.contextPath}/procOutAttnDaily/delete/${procOutAttnDaily.id}" class="btn btn-danger" onclick="return confirm('Are you sure to delete?');"><i class="fa fa-remove"></i> <spring:message code="delete.link.label"/></a>
                         </div>      <!--.box-footer-->
                     </div>      <!--.box .box-primary-->
