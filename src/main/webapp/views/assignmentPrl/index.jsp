@@ -13,7 +13,7 @@
 
         <div class="content-wrapper"><!-- Content Wrapper. Contains page content -->
             <section class="content-header"><!-- Content Header (Page header) -->
-                <h1><spring:message code="default.button.list.label" text="List"/> AssignmentPrl</h1>
+                <h1><spring:message code="default.button.list.label" text="List"/> Assignment Prl</h1>
                 <ul class="top-links">
                     <sec:access url="/assignmentPrl/create">
                         <li>
@@ -34,25 +34,23 @@
 
                             <!--<table class="table table-bordered table-striped table-hover table-condensed dt-responsive display nowrap th-center">-->
                             <thead>
-                        <th><spring:message code="version" text="Version"/></th>
-                    <th><spring:message code="code" text="Code"/></th>
-                    <th><spring:message code="employee" text="Employee"/></th>
-                    <th><spring:message code="startDate" text="Start Date"/></th>
-                    <th><spring:message code="endDate" text="End Date"/></th>
-                    <th><spring:message code="basic" text="Basic"/></th>
-                    <th><spring:message code="houseRent" text="House Rent"/></th>
-                    <th><spring:message code="medical" text="Medical"/></th>
-                    <th><spring:message code="convance" text="Convance"/></th>
-                    <th><spring:message code="otherAllowance" text="Other Allowance"/></th>
-                    <th><spring:message code="gross" text="Gross"/></th>
+                        <th class='center bold'><spring:message code="code" text="Code"/></th>
+                    <th class='center bold'><spring:message code="employee" text="Employee"/></th>
+                    <th class='center bold'><spring:message code="startDate" text="Start Date"/></th>
+                    <th class='center bold'><spring:message code="endDate" text="End Date"/></th>
+                    <th class='center bold'><spring:message code="basic" text="Basic"/></th>
+                    <th class='center bold'><spring:message code="houseRent" text="House Rent"/></th>
+                    <th class='center bold'><spring:message code="medical" text="Medical"/></th>
+                    <th class='center bold'><spring:message code="convance" text="Convance"/></th>
+                    <th class='center bold'><spring:message code="otherAllowance" text="Other Allowance"/></th>
+                    <th class='center bold'><spring:message code="gross" text="Gross"/></th>
 
-    <th><spring:message code="default.button.action.label" text="Action"/></th> 
+    <th class='center bold'><spring:message code="default.button.action.label" text="Action"/></th> 
             </thead>
             <tbody>
             <c:if test="${not empty assignmentPrls}">
                 <c:forEach items="${assignmentPrls}" var="assignmentPrl"  varStatus="loopStatus">
                     <tr class="${loopStatus.index % 2 == 0 ? 'odd' : 'even'}">
-                        <td><c:out value="${assignmentPrl.version}"/></td>
                         <td><c:out value="${assignmentPrl.code}"/></td>
                         <td><c:out value="${assignmentPrl.employee!=null ? assignmentPrl.employee :'N/A'}"/></td>
                         <td><fmt:formatDate value="${assignmentPrl.startDate}" type="date" pattern="dd/MM/yyyy"/></td>
