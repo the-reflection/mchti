@@ -13,7 +13,7 @@
 
         <div class="content-wrapper"><!-- Content Wrapper. Contains page content -->
             <section class="content-header"><!-- Content Header (Page header) -->
-                <h1><spring:message code="default.button.list.label" text="List"/> AssignmentHr</h1>
+                <h1><spring:message code="default.button.list.label" text="List"/> Assignment Hr</h1>
                 <ul class="top-links">
                     <sec:access url="/assignmentHr/create">
                         <li>
@@ -34,22 +34,20 @@
 
                             <!--<table class="table table-bordered table-striped table-hover table-condensed dt-responsive display nowrap th-center">-->
                             <thead>
-                        <th><spring:message code="version" text="Version"/></th>
-                    <th><spring:message code="code" text="Code"/></th>
-                    <th><spring:message code="employee" text="Employee"/></th>
-                    <th><spring:message code="startDate" text="Start Date"/></th>
-                    <th><spring:message code="endDate" text="End Date"/></th>
-                    <th><spring:message code="department" text="Department"/></th>
-                    <th><spring:message code="designation" text="Designation"/></th>
-                    <th><spring:message code="empGroup" text="Emp Group"/></th>
+                        <th class='center bold'><spring:message code="code" text="Code"/></th>
+                    <th class='center bold'><spring:message code="employee" text="Employee"/></th>
+                    <th class='center bold'><spring:message code="startDate" text="Start Date"/></th>
+                    <th class='center bold'><spring:message code="endDate" text="End Date"/></th>
+                    <th class='center bold'><spring:message code="department" text="Department"/></th>
+                    <th class='center bold'><spring:message code="designation" text="Designation"/></th>
+                    <th class='center bold'><spring:message code="empGroup" text="Emp Group"/></th>
 
-    <th><spring:message code="default.button.action.label" text="Action"/></th> 
+    <th class='center bold'><spring:message code="default.button.action.label" text="Action"/></th> 
             </thead>
             <tbody>
             <c:if test="${not empty assignmentHrs}">
                 <c:forEach items="${assignmentHrs}" var="assignmentHr"  varStatus="loopStatus">
                     <tr class="${loopStatus.index % 2 == 0 ? 'odd' : 'even'}">
-                        <td><c:out value="${assignmentHr.version}"/></td>
                         <td><c:out value="${assignmentHr.code}"/></td>
                         <td><c:out value="${assignmentHr.employee!=null ? assignmentHr.employee :'N/A'}"/></td>
                         <td><fmt:formatDate value="${assignmentHr.startDate}" type="date" pattern="dd/MM/yyyy"/></td>
