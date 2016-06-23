@@ -10,7 +10,7 @@
 <tiles:insertDefinition name="main" >
 
     <tiles:putAttribute name="body">
-        
+
         <div class="content-wrapper"><!-- Content Wrapper. Contains page content -->
             <section class="content-header"><!-- Content Header (Page header) -->
                 <h1><spring:message code="default.button.show.label" text="Show"/> Auth User</h1>
@@ -36,243 +36,181 @@
                 <div class="box box-primary">
                     <div class="box-body">
                         <fieldset class="show-page">
-                             <form:hidden path="id"/>
-        <ol class="property-list">
+                            <form:hidden path="id"/>
+                            <ol class="property-list">
 
-        <c:if test="${authUser.password!=null && !authUser.password.isEmpty()}">
-            <li class="fieldcontain first_item">
-                <span id="title" class="property-label">
-                    <spring:message code="password" text="Password"/>: 
-                </span>
-                <span class="property-value" aria-labelledby="password">
-                    <c:out value="${authUser.password}"/>
-                </span>
-            </li>
-        </c:if>
 
-        <c:if test="${authUser.username!=null && !authUser.username.isEmpty()}">
-            <li class="fieldcontain first_item">
-                <span id="title" class="property-label">
-                    <spring:message code="username" text="Username"/>: 
-                </span>
-                <span class="property-value" aria-labelledby="username">
-                    <c:out value="${authUser.username}"/>
-                </span>
-            </li>
-        </c:if>
 
-        <c:if test="${authUser.authorities!=null}">
-            <li class="fieldcontain first_item">
-                <span id="title" class="property-label">
-                    <spring:message code="authorities" text="Authorities"/>: 
-                </span>
-                <span class="property-value" aria-labelledby="authorities">
-                    <c:out value="${authUser.authorities}"/>
-                </span>
-            </li>
-        </c:if>
+                                <c:if test="${authUser.authorities!=null}">
+                                    <li class="fieldcontain first_item">
+                                        <span id="title" class="property-label">
+                                            <spring:message code="authorities" text="Authorities"/>: 
+                                        </span>
+                                        <span class="property-value" aria-labelledby="authorities">
+                                            <c:out value="${authUser.authorities}"/>
+                                        </span>
+                                    </li>
+                                </c:if>
 
-        <c:if test="${authUser.accountNonExpired!=null}">
-            <li class="fieldcontain first_item">
-                <span id="title" class="property-label">
-                    <spring:message code="accountNonExpired" text="Account Non Expired"/>: 
-                </span>
-                <span class="property-value" aria-labelledby="accountNonExpired">
-                    <c:out value="${authUser.accountNonExpired}"/>
-                </span>
-            </li>
-        </c:if>
 
-        <c:if test="${authUser.accountNonLocked!=null}">
-            <li class="fieldcontain first_item">
-                <span id="title" class="property-label">
-                    <spring:message code="accountNonLocked" text="Account Non Locked"/>: 
-                </span>
-                <span class="property-value" aria-labelledby="accountNonLocked">
-                    <c:out value="${authUser.accountNonLocked}"/>
-                </span>
-            </li>
-        </c:if>
+                                <c:if test="${authUser.displayName!=null && !authUser.displayName.isEmpty()}">
+                                    <li class="fieldcontain first_item">
+                                        <span id="title" class="property-label">
+                                            <spring:message code="displayName" text="Display Name"/>: 
+                                        </span>
+                                        <span class="property-value" aria-labelledby="displayName">
+                                            <c:out value="${authUser.displayName}"/>
+                                        </span>
+                                    </li>
+                                </c:if>
 
-        <c:if test="${authUser.credentialsNonExpired!=null}">
-            <li class="fieldcontain first_item">
-                <span id="title" class="property-label">
-                    <spring:message code="credentialsNonExpired" text="Credentials Non Expired"/>: 
-                </span>
-                <span class="property-value" aria-labelledby="credentialsNonExpired">
-                    <c:out value="${authUser.credentialsNonExpired}"/>
-                </span>
-            </li>
-        </c:if>
+                                <c:if test="${authUser.fullName!=null && !authUser.fullName.isEmpty()}">
+                                    <li class="fieldcontain first_item">
+                                        <span id="title" class="property-label">
+                                            <spring:message code="fullName" text="Full Name"/>: 
+                                        </span>
+                                        <span class="property-value" aria-labelledby="fullName">
+                                            <c:out value="${authUser.fullName}"/>
+                                        </span>
+                                    </li>
+                                </c:if>
 
-        <c:if test="${authUser.enabled!=null}">
-            <li class="fieldcontain first_item">
-                <span id="title" class="property-label">
-                    <spring:message code="enabled" text="Enabled"/>: 
-                </span>
-                <span class="property-value" aria-labelledby="enabled">
-                    <c:out value="${authUser.enabled}"/>
-                </span>
-            </li>
-        </c:if>
+                                <c:if test="${authUser.gender!=null}">
+                                    <li class="fieldcontain first_item">
+                                        <span id="title" class="property-label">
+                                            <spring:message code="gender" text="Gender"/>: 
+                                        </span>
+                                        <span class="property-value" aria-labelledby="gender">
+                                            <c:out value="${authUser.gender}"/>
+                                        </span>
+                                    </li>
+                                </c:if>
 
-        <c:if test="${authUser.displayName!=null && !authUser.displayName.isEmpty()}">
-            <li class="fieldcontain first_item">
-                <span id="title" class="property-label">
-                    <spring:message code="displayName" text="Display Name"/>: 
-                </span>
-                <span class="property-value" aria-labelledby="displayName">
-                    <c:out value="${authUser.displayName}"/>
-                </span>
-            </li>
-        </c:if>
+                                <c:if test="${authUser.dob!=null}">
+                                    <li class="fieldcontain first_item">
+                                        <span id="title" class="property-label">
+                                            <spring:message code="dob" text="Dob"/>: 
+                                        </span>
+                                        <span class="property-value" aria-labelledby="dob">
+                                            <fmt:formatDate value="${authUser.dob}" type="date" pattern="dd/MM/yyyy"/>
+                                        </span>
+                                    </li>
+                                </c:if>
 
-        <c:if test="${authUser.fullName!=null && !authUser.fullName.isEmpty()}">
-            <li class="fieldcontain first_item">
-                <span id="title" class="property-label">
-                    <spring:message code="fullName" text="Full Name"/>: 
-                </span>
-                <span class="property-value" aria-labelledby="fullName">
-                    <c:out value="${authUser.fullName}"/>
-                </span>
-            </li>
-        </c:if>
+                                <c:if test="${authUser.doj!=null}">
+                                    <li class="fieldcontain first_item">
+                                        <span id="title" class="property-label">
+                                            <spring:message code="doj" text="Doj"/>: 
+                                        </span>
+                                        <span class="property-value" aria-labelledby="doj">
+                                            <fmt:formatDate value="${authUser.doj}" type="date" pattern="dd/MM/yyyy"/>
+                                        </span>
+                                    </li>
+                                </c:if>
 
-        <c:if test="${authUser.gender!=null}">
-            <li class="fieldcontain first_item">
-                <span id="title" class="property-label">
-                    <spring:message code="gender" text="Gender"/>: 
-                </span>
-                <span class="property-value" aria-labelledby="gender">
-                    <c:out value="${authUser.gender}"/>
-                </span>
-            </li>
-        </c:if>
+                                <c:if test="${authUser.email!=null && !authUser.email.isEmpty()}">
+                                    <li class="fieldcontain first_item">
+                                        <span id="title" class="property-label">
+                                            <spring:message code="email" text="Email"/>: 
+                                        </span>
+                                        <span class="property-value" aria-labelledby="email">
+                                            <c:out value="${authUser.email}"/>
+                                        </span>
+                                    </li>
+                                </c:if>
 
-        <c:if test="${authUser.dob!=null}">
-            <li class="fieldcontain first_item">
-                <span id="title" class="property-label">
-                    <spring:message code="dob" text="Dob"/>: 
-                </span>
-                <span class="property-value" aria-labelledby="dob">
-                    <fmt:formatDate value="${authUser.dob}" type="date" pattern="dd/MM/yyyy"/>
-                </span>
-            </li>
-        </c:if>
+                                <c:if test="${authUser.picFile!=null && !authUser.picFile.isEmpty()}">
+                                    <li class="fieldcontain first_item">
+                                        <span id="title" class="property-label">
+                                            <spring:message code="picFile" text="Pic File"/>: 
+                                        </span>
+                                        <span class="property-value" aria-labelledby="picFile">
+                                            <c:url var="picFile" value="/authUser/getPhoto/${authUser.picFile}"/>
+                                            <img height="110px" width="90px" alt="${authUser.picFile}" src="${picFile}"/>
+                                        </span>
+                                    </li>
+                                </c:if>
 
-        <c:if test="${authUser.doj!=null}">
-            <li class="fieldcontain first_item">
-                <span id="title" class="property-label">
-                    <spring:message code="doj" text="Doj"/>: 
-                </span>
-                <span class="property-value" aria-labelledby="doj">
-                    <fmt:formatDate value="${authUser.doj}" type="date" pattern="dd/MM/yyyy"/>
-                </span>
-            </li>
-        </c:if>
+                                <c:if test="${authUser.username!=null && !authUser.username.isEmpty()}">
+                                    <li class="fieldcontain first_item">
+                                        <span id="title" class="property-label">
+                                            <spring:message code="username" text="Username"/>: 
+                                        </span>
+                                        <span class="property-value" aria-labelledby="username">
+                                            <c:out value="${authUser.username}"/>
+                                        </span>
+                                    </li>
+                                </c:if>
 
-        <c:if test="${authUser.email!=null && !authUser.email.isEmpty()}">
-            <li class="fieldcontain first_item">
-                <span id="title" class="property-label">
-                    <spring:message code="email" text="Email"/>: 
-                </span>
-                <span class="property-value" aria-labelledby="email">
-                    <c:out value="${authUser.email}"/>
-                </span>
-            </li>
-        </c:if>
+                                <c:if test="${authUser.password!=null && !authUser.password.isEmpty()}">
+                                    <li class="fieldcontain first_item">
+                                        <span id="title" class="property-label">
+                                            <spring:message code="password" text="Password"/>: 
+                                        </span>
+                                        <span class="property-value" aria-labelledby="password">
+                                            <c:out value="${authUser.password}"/>
+                                        </span>
+                                    </li>
+                                </c:if>
 
-        <c:if test="${authUser.picFile!=null && !authUser.picFile.isEmpty()}">
-            <li class="fieldcontain first_item">
-                <span id="title" class="property-label">
-                    <spring:message code="picFile" text="Pic File"/>: 
-                </span>
-                <span class="property-value" aria-labelledby="picFile">
-                    <c:out value="${authUser.picFile}"/>
-                </span>
-            </li>
-        </c:if>
+                                <c:if test="${authUser.enabled!=null}">
+                                    <li class="fieldcontain first_item">
+                                        <span id="title" class="property-label">
+                                            <spring:message code="enabled" text="Enabled"/>: 
+                                        </span>
+                                        <span class="property-value" aria-labelledby="enabled">
+                                            <c:if test="${authUser.enabled}"><spring:message code="default.boolean.true" text="YES"/></c:if><c:if test="${!authUser.enabled}"><spring:message code="default.boolean.false" text="NO"/></c:if>
+                                            </span>
+                                        </li>
+                                </c:if>
 
-        <c:if test="${authUser.username!=null && !authUser.username.isEmpty()}">
-            <li class="fieldcontain first_item">
-                <span id="title" class="property-label">
-                    <spring:message code="username" text="Username"/>: 
-                </span>
-                <span class="property-value" aria-labelledby="username">
-                    <c:out value="${authUser.username}"/>
-                </span>
-            </li>
-        </c:if>
+                                <c:if test="${authUser.accountNonExpired!=null}">
+                                    <li class="fieldcontain first_item">
+                                        <span id="title" class="property-label">
+                                            <spring:message code="accountNonExpired" text="Account Non Expired"/>: 
+                                        </span>
+                                        <span class="property-value" aria-labelledby="accountNonExpired">
+                                            <c:if test="${authUser.accountNonExpired}"><spring:message code="default.boolean.true" text="YES"/></c:if><c:if test="${!authUser.accountNonExpired}"><spring:message code="default.boolean.false" text="NO"/></c:if>
+                                            </span>
+                                        </li>
+                                </c:if>
 
-        <c:if test="${authUser.password!=null && !authUser.password.isEmpty()}">
-            <li class="fieldcontain first_item">
-                <span id="title" class="property-label">
-                    <spring:message code="password" text="Password"/>: 
-                </span>
-                <span class="property-value" aria-labelledby="password">
-                    <c:out value="${authUser.password}"/>
-                </span>
-            </li>
-        </c:if>
+                                <c:if test="${authUser.accountNonLocked!=null}">
+                                    <li class="fieldcontain first_item">
+                                        <span id="title" class="property-label">
+                                            <spring:message code="accountNonLocked" text="Account Non Locked"/>: 
+                                        </span>
+                                        <span class="property-value" aria-labelledby="accountNonLocked">
+                                            <c:if test="${authUser.accountNonLocked}"><spring:message code="default.boolean.true" text="YES"/></c:if><c:if test="${!authUser.accountNonLocked}"><spring:message code="default.boolean.false" text="NO"/></c:if>
+                                            </span>
+                                        </li>
+                                </c:if>
 
-        <c:if test="${authUser.enabled!=null}">
-            <li class="fieldcontain first_item">
-                <span id="title" class="property-label">
-                    <spring:message code="enabled" text="Enabled"/>: 
-                </span>
-                <span class="property-value" aria-labelledby="enabled">
-                    <c:if test="${authUser.enabled}"><spring:message code="default.boolean.true" text="YES"/></c:if><c:if test="${!authUser.enabled}"><spring:message code="default.boolean.false" text="NO"/></c:if>
-                </span>
-            </li>
-        </c:if>
+                                <c:if test="${authUser.credentialsNonExpired!=null}">
+                                    <li class="fieldcontain first_item">
+                                        <span id="title" class="property-label">
+                                            <spring:message code="credentialsNonExpired" text="Credentials Non Expired"/>: 
+                                        </span>
+                                        <span class="property-value" aria-labelledby="credentialsNonExpired">
+                                            <c:if test="${authUser.credentialsNonExpired}"><spring:message code="default.boolean.true" text="YES"/></c:if><c:if test="${!authUser.credentialsNonExpired}"><spring:message code="default.boolean.false" text="NO"/></c:if>
+                                            </span>
+                                        </li>
+                                </c:if>
 
-        <c:if test="${authUser.accountNonExpired!=null}">
-            <li class="fieldcontain first_item">
-                <span id="title" class="property-label">
-                    <spring:message code="accountNonExpired" text="Account Non Expired"/>: 
-                </span>
-                <span class="property-value" aria-labelledby="accountNonExpired">
-                    <c:if test="${authUser.accountNonExpired}"><spring:message code="default.boolean.true" text="YES"/></c:if><c:if test="${!authUser.accountNonExpired}"><spring:message code="default.boolean.false" text="NO"/></c:if>
-                </span>
-            </li>
-        </c:if>
+                            </ol>
+                            <div><jsp:include page="authUserAuthQuestions.jsp" /></div>
 
-        <c:if test="${authUser.accountNonLocked!=null}">
-            <li class="fieldcontain first_item">
-                <span id="title" class="property-label">
-                    <spring:message code="accountNonLocked" text="Account Non Locked"/>: 
-                </span>
-                <span class="property-value" aria-labelledby="accountNonLocked">
-                    <c:if test="${authUser.accountNonLocked}"><spring:message code="default.boolean.true" text="YES"/></c:if><c:if test="${!authUser.accountNonLocked}"><spring:message code="default.boolean.false" text="NO"/></c:if>
-                </span>
-            </li>
-        </c:if>
 
-        <c:if test="${authUser.credentialsNonExpired!=null}">
-            <li class="fieldcontain first_item">
-                <span id="title" class="property-label">
-                    <spring:message code="credentialsNonExpired" text="Credentials Non Expired"/>: 
-                </span>
-                <span class="property-value" aria-labelledby="credentialsNonExpired">
-                    <c:if test="${authUser.credentialsNonExpired}"><spring:message code="default.boolean.true" text="YES"/></c:if><c:if test="${!authUser.credentialsNonExpired}"><spring:message code="default.boolean.false" text="NO"/></c:if>
-                </span>
-            </li>
-        </c:if>
+                        </fieldset>     <!--.show-page-->
+                    </div>      <!--.box-body-->
 
-        </ol>
-    <div><jsp:include page="authUserAuthQuestions.jsp" /></div>
-
-    
-      </fieldset>     <!--.show-page-->
-                        </div>      <!--.box-body-->
-    
-                        <div class="box-footer">
-                            <a href="${pageContext.request.contextPath}/authUser/edit/${authUser.id}" class="btn btn-primary"><i class="fa fa-edit"></i> <spring:message code="edit.link.label"/></a> 
-                            <a href="${pageContext.request.contextPath}/authUser/copy/${authUser.id}" class="btn btn-warning"><i class="fa fa-clone"></i> <spring:message code="default.button.copy.label"/></a>             
-                            <a href="${pageContext.request.contextPath}/authUser/delete/${authUser.id}" class="btn btn-danger" onclick="return confirm('Are you sure to delete?');"><i class="fa fa-remove"></i> <spring:message code="delete.link.label"/></a>
-                        </div>      <!--.box-footer-->
-                    </div>      <!--.box .box-primary-->
-                </section>      <!--.content-->
-            </div>      <!--.content-wrapper-->
-        </tiles:putAttribute>
+                    <div class="box-footer">
+                        <a href="${pageContext.request.contextPath}/authUser/edit/${authUser.id}" class="btn btn-primary"><i class="fa fa-edit"></i> <spring:message code="edit.link.label"/></a> 
+                        <a href="${pageContext.request.contextPath}/authUser/copy/${authUser.id}" class="btn btn-warning"><i class="fa fa-clone"></i> <spring:message code="default.button.copy.label"/></a>             
+                        <a href="${pageContext.request.contextPath}/authUser/delete/${authUser.id}" class="btn btn-danger" onclick="return confirm('Are you sure to delete?');"><i class="fa fa-remove"></i> <spring:message code="delete.link.label"/></a>
+                    </div>      <!--.box-footer-->
+                </div>      <!--.box .box-primary-->
+            </section>      <!--.content-->
+        </div>      <!--.content-wrapper-->
+    </tiles:putAttribute>
 </tiles:insertDefinition>

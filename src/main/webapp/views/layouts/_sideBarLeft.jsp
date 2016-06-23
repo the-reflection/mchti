@@ -64,11 +64,16 @@
                     <i class="fa fa-gears"></i> <span>Controllers (Dynamic)</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
+                    <sec:authentication var='completeMenu' property='principal.completeMenu'/>
+                    ${completeMenu}
+                </ul>
+                <%--                
+                <ul class="treeview-menu">
                     <c:forEach items="${controllerList}" begin="0" var="controllerName">
-                        <!--<li><a href="${pageContext.request.contextPath}${controllerName}"><i class="fa fa-circle-o"></i> <span>${controllerName}</span></a></li>-->  
+                        <li><a href="${pageContext.request.contextPath}${controllerName}"><i class="fa fa-circle-o"></i> <span>${controllerName}</span></a></li>  
                         <li><a href="<%=request.getContextPath()%>${controllerName}"><i class="fa fa-circle-o"></i> <span>${controllerName}</span></a></li>
                     </c:forEach>
-                </ul>
+                </ul>--%>
             </li>
             <li class="treeview">
                 <a href="#">

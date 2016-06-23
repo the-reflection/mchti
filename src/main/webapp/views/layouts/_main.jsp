@@ -67,7 +67,6 @@
                         
                         <div class="box box-primary">
                            
-                             
                            <div class="box-header">
                                <div class="bold center">
                                    <!--<h1>Available Controllers</h1>-->
@@ -75,9 +74,8 @@
                            </div>
                         
                            <div class="box-body">
-
-                            
-                            <div class="box-body no-padding">
+                           
+                              <div class="box-body no-padding">
                             
                                 <table class="table table-bordered table-striped table-hover table-condensed dt-responsive display nowrap">
                                     <c:forEach items="${controllerList}" var="controllerName">

@@ -5,5 +5,5 @@
         Everything in your plum's
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="<%=request.getContextPath()%>">Reflection Ltd.</a></strong> All rights reserved.
+    <strong>Copyright &copy; 2016 <a href="<%=request.getContextPath()%>">Reflection</a></strong> All rights reserved.
 </footer>

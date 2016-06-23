@@ -26,16 +26,16 @@
 <div>  
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="form-group">
-            <form:label path="password"><spring:message code="password" text="Password"/></form:label>
-            <form:input class="form-control" path="password" type="text" size="30" maxlength="100"/>
-            <form:errors path="password" cssClass="error" element="div"/>
+            <form:label class="required" path="username"><spring:message code="username" text="Username"/></form:label>
+            <form:input class="form-control" path="username" type="text" required="true" size="30" maxlength="30"/>
+            <form:errors path="username" cssClass="error" element="div"/>
         </div>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="form-group">
-            <form:label path="username"><spring:message code="username" text="Username"/></form:label>
-            <form:input class="form-control" path="username" type="text" size="30" maxlength="100"/>
-            <form:errors path="username" cssClass="error" element="div"/>
+            <form:label class="required" path="password"><spring:message code="password" text="Password"/></form:label>
+            <form:input class="form-control" path="password" type="password" required="true" size="30" maxlength="30"/>
+            <form:errors path="password" cssClass="error" element="div"/>
         </div>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
@@ -66,20 +66,20 @@
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="form-group">
             <form:label path="dob"><spring:message code="dob" text="Dob"/></form:label>
-            <div class='input-group'>
-                <div class='input-group-addon'><i class='fa fa-calendar'></i></div>
-                <form:input class='form-control dtp-date' path='dob'  />
-             </div>
+                <div class='input-group'>
+                    <div class='input-group-addon'><i class='fa fa-calendar'></i></div>
+                    <form:input class='form-control dtp-date' path='dob'  />
+            </div>
             <form:errors path="dob" cssClass="error" element="div"/>
         </div>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="form-group">
             <form:label path="doj"><spring:message code="doj" text="Doj"/></form:label>
-            <div class='input-group'>
-                <div class='input-group-addon'><i class='fa fa-calendar'></i></div>
-                <form:input class='form-control dtp-date' path='doj'  />
-             </div>
+                <div class='input-group'>
+                    <div class='input-group-addon'><i class='fa fa-calendar'></i></div>
+                    <form:input class='form-control dtp-date' path='doj'  />
+            </div>
             <form:errors path="doj" cssClass="error" element="div"/>
         </div>
     </div>
@@ -90,27 +90,17 @@
             <form:errors path="email" cssClass="error" element="div"/>
         </div>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="form-group">
             <form:label path="picFile"><spring:message code="picFile" text="Pic File"/></form:label>
-            <form:textarea class="form-control" path="picFile" type="text" size="30" maxlength="255"/>
+                <c:url var="picFile" value="/authUser/getPhoto/${authUser.picFile}"/>
+                <img height="110px" width="90px" alt="${authUser.picFile}" src="${picFile}"/>
+                <form:hidden path="picFile"/>
+                <input id="picFileOBJ" name="picFileOBJ" type="file" accept="image/*"/>
             <form:errors path="picFile" cssClass="error" element="div"/>
         </div>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="form-group">
-            <form:label class="required" path="username"><spring:message code="username" text="Username"/></form:label>
-            <form:textarea class="form-control" path="username" type="text" required="true" size="30" maxlength="255"/>
-            <form:errors path="username" cssClass="error" element="div"/>
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="form-group">
-            <form:label class="required" path="password"><spring:message code="password" text="Password"/></form:label>
-            <form:textarea class="form-control" path="password" type="text" required="true" size="30" maxlength="255"/>
-            <form:errors path="password" cssClass="error" element="div"/>
-        </div>
-    </div>
+
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="form-group">
             <form:label class="required" path="enabled"><spring:message code="enabled" text="Enabled"/></form:label>
