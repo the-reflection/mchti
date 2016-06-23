@@ -1,5 +1,6 @@
 package org.reflection.service;
 
+import com.oith.builder.Util;
 import java.io.IOException;
 import java.io.InputStream;
 import org.reflection.model.hcm.cr.AssignmentHr;
@@ -21,6 +22,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.SortedSet;
 import java.util.StringTokenizer;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -34,6 +36,7 @@ import org.reflection.model.hcm.enums.AttnMode;
 import org.reflection.model.hcm.proc.ProcOutCalender;
 import org.reflection.model.hcm.proc.ProcOutRoster;
 import org.reflection.model.security.AuthGender;
+import org.reflection.model.security.AuthMenu;
 import org.reflection.model.security.AuthRole;
 import org.reflection.model.security.AuthUser;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +51,42 @@ public class ProcServiceImpl implements ProcService {
 
     @Autowired
     private SessionFactory sessionFactory;
+
+    @Override
+    public void fastMenuGen(SortedSet<String> list) {
+
+        Session session = sessionFactory.openSession();
+
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+
+            for (String string : list) {
+                String dn = null;
+                try {
+                    dn = string.substring(1, string.lastIndexOf("index") - 1);
+                    if (dn != null && !dn.isEmpty()) {
+                        dn = Util.getShowTitle(dn);
+                        AuthMenu authMenu = new AuthMenu(dn, string);
+                        authMenu.setDisplayIconClass("fa fa-list");
+                        authMenu.setIsActive(Boolean.TRUE);
+                        session.save(authMenu);
+                    }
+                } catch (Exception e) {
+                }
+
+            }
+
+            tx.commit();
+        } catch (Exception e) {
+            System.out.println("macsay: err db menu create: " + e);
+            if (tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            session.close();
+        }
+    }
 
     @Override
     public void refresh() {
@@ -164,7 +203,7 @@ public class ProcServiceImpl implements ProcService {
                 System.out.println("warning shift not assigned: " + poe.getFullName());
                 continue;
             }
-            
+
             try {
 
                 Object[] ppx = (Object[]) session
@@ -439,7 +478,7 @@ public class ProcServiceImpl implements ProcService {
     @Override
     public void dummyUserData() {
         Session session = sessionFactory.openSession();
-       
+
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
@@ -455,6 +494,7 @@ public class ProcServiceImpl implements ProcService {
             //authUser1.setId(new BigInteger("1"));
             authUser1.setPassword("123");
             authUser1.setUsername("mac");
+            authUser1.setPicFile("aaaa.jpg");
             authUser1.setEnabled(true);
             authUser1.setAccountNonExpired(false);
             authUser1.setAccountNonLocked(false);
@@ -469,6 +509,7 @@ public class ProcServiceImpl implements ProcService {
             AuthUser authUser2 = new AuthUser();
             authUser2.setPassword("123");
             authUser2.setUsername("saif_hmk");
+            authUser2.setPicFile("bbbb.jpg");
             authUser2.setEnabled(true);
             authUser2.setAccountNonExpired(false);
             authUser2.setAccountNonLocked(false);
@@ -483,6 +524,7 @@ public class ProcServiceImpl implements ProcService {
             AuthUser authUser3 = new AuthUser();
             authUser3.setPassword("123");
             authUser3.setUsername("anis");
+            authUser3.setPicFile("cccc.jpg");
             authUser3.setEnabled(true);
             authUser3.setAccountNonExpired(false);
             authUser3.setAccountNonLocked(false);
@@ -496,12 +538,13 @@ public class ProcServiceImpl implements ProcService {
 
             tx.commit();
         } catch (Exception e) {
-            System.out.println(" err db usr crete: " + e);
+            System.out.println("macsay: err db user create: " + e);
             if (tx != null) {
                 tx.rollback();
             }
         }
-       
+
         session.close();
     }
+
 }

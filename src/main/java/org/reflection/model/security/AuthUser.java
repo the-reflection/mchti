@@ -82,7 +82,7 @@ public class AuthUser extends User {
     private String password;
 
     //@NotEmpty
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "AUTH_USER_AUTH_ROLE",
             joinColumns = {
                 @JoinColumn(name = "AUTH_USER_ID")},
@@ -90,20 +90,22 @@ public class AuthUser extends User {
                 @JoinColumn(name = "AUTH_ROLE_ID")})
     private Set<AuthRole> authRoles = new LinkedHashSet<>();
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id.authUser", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "id.authUser", cascade = CascadeType.ALL)
     private Set<AuthUserAuthQuestion> authUserAuthQuestions = new LinkedHashSet<>();
 
-    @Column(name = "enabled", nullable = false)
+    @Column(name = "ENABLED", nullable = false)
     private Boolean enabled;
-    @Column(name = "account_non_Expired", nullable = false)
+    @Column(name = "ACCOUNT_NON_EXPIRED", nullable = false)
     private Boolean accountNonExpired;
-    @Column(name = "account_Non_Locked", nullable = false)
+    @Column(name = "ACCOUNT_NON_LOCKED", nullable = false)
     private Boolean accountNonLocked;
-    @Column(name = "credentials_Non_Expired", nullable = false)
+    @Column(name = "CREDENTIALS_NON_EXPIRED", nullable = false)
     private Boolean credentialsNonExpired;
 
     @Transient
     private Set<GrantedAuthority> authorities;
+    @Transient
+    private String completeMenu;
 
     public AuthUser() {
         super("NA", "NA", Arrays.asList(new SimpleGrantedAuthority("ROLE_USER")));
@@ -266,6 +268,14 @@ public class AuthUser extends User {
 
     public void setAuthUserAuthQuestions(Set<AuthUserAuthQuestion> authUserAuthQuestions) {
         this.authUserAuthQuestions = authUserAuthQuestions;
+    }
+
+    public String getCompleteMenu() {
+        return completeMenu;
+    }
+
+    public void setCompleteMenu(String completeMenu) {
+        this.completeMenu = completeMenu;
     }
 
 }

@@ -13,10 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationTrustResolver;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+//import org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.method.HandlerMethod;
@@ -31,8 +31,6 @@ public class _OithHomeController {
     @Autowired
     private RequestMappingHandlerMapping requestMappingHandlerMapping;
     @Autowired
-    private PersistentTokenBasedRememberMeServices persistentTokenBasedRememberMeServices;
-    @Autowired
     private ProcService procService;
 
     private final SortedSet<String> list = new TreeSet<>();
@@ -43,37 +41,6 @@ public class _OithHomeController {
         return "redirect:homeSecure";
     }
 
-    /*
-    //   proc-daily/20-05-2016
-    @RequestMapping(value = {"/proc-daily/{day}"}, method = RequestMethod.GET)
-    public String procDaily(@PathVariable("day") String day, ModelMap model) {
-        procService.daily(day);
-        return "redirect:/proc-daily/" + day;
-    }
-
-    @RequestMapping(value = {"/proc-daily"}, method = RequestMethod.GET)
-    public String procDaily(ModelMap model) {
-        procService.daily("08-05-2016");
-        procService.daily("09-05-2016");
-        procService.daily("10-05-2016");
-        procService.daily("11-05-2016");
-        procService.daily("12-05-2016");
-        procService.daily("13-05-2016");
-        procService.daily("14-05-2016");
-        procService.daily("15-05-2016");
-        procService.daily("16-05-2016");
-        procService.daily("17-05-2016");
-        procService.daily("18-05-2016");
-        procService.daily("19-05-2016");
-        procService.daily("20-05-2016");
-        procService.daily("21-05-2016");
-        procService.daily("22-05-2016");
-        procService.daily("23-05-2016");
-        procService.daily("24-05-2016");
-        procService.daily("25-05-2016");
-        procService.daily("26-05-2016");
-        return "redirect:/proc-daily";
-    }*/
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
     public String index(ModelMap model) {
         return "index";
@@ -83,25 +50,13 @@ public class _OithHomeController {
     public String homeSecure(ModelMap model) {
         model.addAttribute("controllerList", list);
         //model.addAttribute("loggedinuser", getPrincipal());
-        return "homeSecure";
-    }
-
-    @RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public String adminPage(ModelMap model) {
-        model.addAttribute("user", getPrincipal());
-        return "admin";
-    }
-
-    @RequestMapping(value = "/db", method = RequestMethod.GET)
-    public String dbaPage(ModelMap model) {
-        model.addAttribute("user", getPrincipal());
-        return "dba";
+        return "layouts/homeSecure";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage() {
         if (isCurrentAuthenticationAnonymous()) {
-            return "login";
+            return "layouts/login";
         } else {
             return "redirect:/index";
         }
@@ -116,8 +71,8 @@ public class _OithHomeController {
     public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth != null) {
-            //new SecurityContextLogoutHandler().logout(request, response, auth);
-            persistentTokenBasedRememberMeServices.logout(request, response, auth);
+            new SecurityContextLogoutHandler().logout(request, response, auth);
+//            persistentTokenBasedRememberMeServices.logout(request, response, auth);
             SecurityContextHolder.getContext().setAuthentication(null);
         }
 //        return "redirect:/index?logout";
@@ -138,10 +93,10 @@ public class _OithHomeController {
         return userName;
     }
 
-    @RequestMapping(value = "/Access_Denied", method = RequestMethod.GET)
+    @RequestMapping(value = "/accessDenied", method = RequestMethod.GET)
     public String accessDeniedPage(ModelMap model) {
         model.addAttribute("user", getPrincipal());
-        return "accessDenied";
+        return "layouts/accessDenied";
     }
 
     @PostConstruct
@@ -173,5 +128,6 @@ public class _OithHomeController {
                 //}
             }
         }
+        procService.fastMenuGen(list);
     }
 }

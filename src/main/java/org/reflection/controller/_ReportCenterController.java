@@ -2,21 +2,15 @@ package org.reflection.controller;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.IOException;
 import org.reflection.model.sample.ZxLookup;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import net.sf.jasperreports.engine.JRAbstractExporter;
-import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -33,10 +27,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class _ReportCenterController {
+public class _ReportCenterController extends _OithController {
 
     @Autowired
     private DataSource dataSource;
+    private static final String REPORT_ROOT_DIR = "reports";
 
     @RequestMapping(value = "/reportCenter", method = RequestMethod.GET)
     public String reportCenter(ModelMap model) {
@@ -54,29 +49,30 @@ public class _ReportCenterController {
             @RequestParam(value = "P_ATTN_DATE") String P_ATTN_DATE, HttpServletRequest request, HttpServletResponse response) {
 
         //JRDataSource ds = new JRBeanCollectionDataSource(collDS);
-        // params is used for passing extra parameters
-        File file = new File(request.getServletContext().getRealPath("/"));
+        //params is used for passing extra parameters
+        //File file = new File(request.getServletContext().getRealPath("/"));
+        String parent = getOuterParentPath(request);
+        File file = new File(parent + "\\repositories\\" + REPORT_ROOT_DIR + "\\" + title + ".jrxml");
 
         Map params = new HashMap();
 
-        params.put("REPORT_PATH", file + "/reports/");
+        params.put("REPORT_PATH", file.getParent()+"\\");
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
         try {
             params.put("P_ATTN_DATE", dateFormat.parse(P_ATTN_DATE));
         } catch (Exception e) {
-
             System.out.println("err in report calling date format : " + e);
         }
 
-        System.out.println("report path yaaa: " + file + " bbb:" + title);
+        System.out.println("macsay: Report path: " + file + " name:" + title);
 
         ByteArrayOutputStream baos = null;
         try {
 
             // Create a JasperDesign object from the JRXMl file
             // You can also load the template by directly adding the actual path, i.e.
-            JasperDesign jd = JRXmlLoader.load(file + "/reports/" + title + ".jrxml");
+            JasperDesign jd = JRXmlLoader.load(file);
 
             // Compile our report layout
             JasperReport jr = JasperCompileManager.compileReport(jd);
@@ -110,6 +106,7 @@ public class _ReportCenterController {
 
             response.setContentLength(baos.size());
         } catch (Exception e) {
+            System.out.println("err report gen: " + e);
         }
 
         if (baos != null) {
@@ -119,7 +116,7 @@ public class _ReportCenterController {
                 baos.writeTo(outputStream);
                 outputStream.flush();
             } catch (Exception e) {
-
+                System.out.println("err report write to: " + e);
             }
         }
     }

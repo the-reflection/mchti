@@ -25,22 +25,11 @@ public class HibernateConfig {
 
     @Bean
     public DataSource dataSource() {
-        //org.apache.tomcat.jdbc.pool.DataSource dataSource = new org.apache.tomcat.jdbc.pool.DataSource();
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-
         dataSource.setDriverClassName(environment.getRequiredProperty("jdbc.driverClassName"));
         dataSource.setUrl(environment.getRequiredProperty("jdbc.url"));
         dataSource.setUsername(environment.getRequiredProperty("jdbc.username"));
         dataSource.setPassword(environment.getRequiredProperty("jdbc.password"));
-
-//dataSourcet.setDriverClassName("org.h2.Driver");
-//dataSourcet.setUrl("jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE");
-//dataSourcet.setUsername("sa");
-//dataSourcet.setPassword("");        
-//dataSource.setDriverClassName("org.apache.derby.jdbc.ClientDriver");
-//dataSource.setUrl("jdbc:derby://localhost:1527/app");
-//dataSource.setUsername("app");
-//dataSource.setPassword("app");
         return dataSource;
     }
 

@@ -301,7 +301,7 @@ public abstract class _OithController {
         return builder.toString();
     }
 
-    private String getOuterParentPath(HttpServletRequest request) {
+    protected String getOuterParentPath(HttpServletRequest request) {
         File root = new File(request.getServletContext().getRealPath("/"));
         File rootUp = new File(root.getParentFile() + File.separator + root.getName() + "_repo");
 

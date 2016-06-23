@@ -2,6 +2,7 @@ package org.reflection.service;
 
 import java.io.InputStream;
 import java.util.Map;
+import java.util.SortedSet;
 
 /**
  *
@@ -16,4 +17,6 @@ public interface ProcService {
     public Map doUploadExcelFile(InputStream fis);
 
     public void dummyUserData();
+
+    public void fastMenuGen(SortedSet<String> list);
 }
