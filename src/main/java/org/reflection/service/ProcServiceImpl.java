@@ -1,6 +1,5 @@
 package org.reflection.service;
 
-import com.oith.builder.Util;
 import java.io.IOException;
 import java.io.InputStream;
 import org.reflection.model.hcm.cr.AssignmentHr;
@@ -66,7 +65,7 @@ public class ProcServiceImpl implements ProcService {
                 try {
                     dn = string.substring(1, string.lastIndexOf("index") - 1);
                     if (dn != null && !dn.isEmpty()) {
-                        dn = Util.getShowTitle(dn);
+                        dn = getShowTitle(dn);
                         AuthMenu authMenu = new AuthMenu(dn, string);
                         authMenu.setDisplayIconClass("fa fa-list");
                         authMenu.setIsActive(Boolean.TRUE);
@@ -547,4 +546,28 @@ public class ProcServiceImpl implements ProcService {
         session.close();
     }
 
+    private static String getShowTitle(String fdf) {
+
+        if (fdf == null) {
+            return "";
+        }
+
+        String uuu = "";
+        for (int i = 0; i < fdf.length(); i++) {
+            char hhh = fdf.charAt(i);
+
+            if (i == 0) {
+                uuu += ("" + hhh).toUpperCase();
+                continue;
+            }
+
+            if (hhh >= 65 && hhh <= (65 + 26)) {
+                uuu += " " + hhh;
+            } else {
+                uuu += "" + hhh;
+            }
+        }
+
+        return uuu;
+    }
 }
