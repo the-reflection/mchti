@@ -1,1 +1,1 @@
-mvn install
+cmd /k mvn install
