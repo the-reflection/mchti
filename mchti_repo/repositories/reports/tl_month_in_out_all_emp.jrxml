@@ -7,23 +7,23 @@
 	<parameter name="REPORT_PATH" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
 	</parameter>
-	<parameter name="P_ATTN_DATE" class="java.util.Date">
+	<parameter name="P_MONTH_DATE" class="java.util.Date">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT X.EMPLOYEE_ID, E.CODE, E.FULL_NAME, D.TITLE DEPT_NAME, TRUNC(X.TRANSACTION_TIME) ATTN_DATE,
+		<![CDATA[SELECT to_number(E.CODE) CODE, E.FULL_NAME, D.TITLE DEPT_NAME, TRUNC(X.TRANSACTION_TIME) ATTN_DATE,
 TO_CHAR(MIN(X.TRANSACTION_TIME),'HH24:MI') IN_TIME, TO_CHAR(MAX(X.TRANSACTION_TIME) ,'HH24:MI') OUT_TIME
 FROM PROC_OUT_ATTN_DAILY X, PROC_OUT_EMP E, DEPARTMENT D
 WHERE 1=1
 AND E.EMPLOYEE_ID<>0
 AND E.EMPLOYEE_ID=X.EMPLOYEE_ID
 AND D.ID=E.DEPARTMENT_ID
-And TRUNC(X.TRANSACTION_TIME) between $P{P_ATTN_DATE} and $P{P_ATTN_DATE}+30
-GROUP BY X.EMPLOYEE_ID,E.CODE,FULL_NAME,D.TITLE,TRUNC(X.TRANSACTION_TIME)
-ORDER BY to_number(X.EMPLOYEE_ID), 2, 3]]>
+And TRUNC(X.TRANSACTION_TIME) between to_date('01-'||to_char($P{P_MONTH_DATE},'MM-RRRR'),'DD-MM-RRRR') and
+LAST_DAY(to_date('01-'||to_char($P{P_MONTH_DATE},'MM-RRRR'),'DD-MM-RRRR'))
+GROUP BY to_number(E.CODE), FULL_NAME, D.TITLE, TRUNC(X.TRANSACTION_TIME)
+ORDER BY to_number(E.CODE), 2, 3]]>
 	</queryString>
-	<field name="EMPLOYEE_ID" class="java.math.BigDecimal"/>
-	<field name="CODE" class="java.lang.String"/>
+	<field name="CODE" class="java.lang.Long"/>
 	<field name="FULL_NAME" class="java.lang.String"/>
 	<field name="DEPT_NAME" class="java.lang.String"/>
 	<field name="ATTN_DATE" class="java.sql.Timestamp"/>
@@ -41,12 +41,24 @@ ORDER BY to_number(X.EMPLOYEE_ID), 2, 3]]>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="20">
+		<band height="39">
 			<staticText>
 				<reportElement uuid="84158248-6242-4841-8621-e61e913ef0cb" x="0" y="0" width="802" height="20"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[In/Out Employee Finger Punch]]></text>
 			</staticText>
+			<staticText>
+				<reportElement uuid="25e8a9af-cc2a-4239-a02f-818a9ad99088" x="0" y="22" width="61" height="16"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Month/Year: ]]></text>
+			</staticText>
+			<textField pattern="MMMMM yyyy">
+				<reportElement uuid="d5d6d796-e64c-4fd6-9556-8e2d83a0a4fc" x="61" y="22" width="114" height="16"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{P_MONTH_DATE}]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageHeader>
 	<pageFooter>
@@ -125,7 +137,7 @@ ORDER BY to_number(X.EMPLOYEE_ID), 2, 3]]>
 					</cellContents>
 				</crosstabHeaderCell>
 				<rowGroup name="CODE" width="116">
-					<bucket class="java.lang.String">
+					<bucket class="java.lang.Long">
 						<bucketExpression><![CDATA[$F{CODE}]]></bucketExpression>
 					</bucket>
 					<crosstabRowHeader>

@@ -16,7 +16,9 @@
 	<parameter name="P_ATTN_DATE" class="java.util.Date">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
-	<parameter name="REPORT_PATH" class="java.lang.String"/>
+	<parameter name="REPORT_PATH" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT X.EMPloyee_ID, e.code, E.FULL_NAME, d.title dept_name, s.title shift_name,
 ATTN_DATE, IN_TIME, OUT_TIME, DT_ATTN_TYPE
@@ -26,7 +28,6 @@ and X.EMPloyee_ID=e.EMPloyee_ID
 and d.ID=e.department_ID
 and s.ID=x.shift_ID
 and ATTN_DATE=$P{P_ATTN_DATE}
-and e.EMPloyee_ID<>0
 ORDER BY to_number(X.EMPloyee_ID), 2, 3]]>
 	</queryString>
 	<field name="EMPLOYEE_ID" class="java.math.BigDecimal"/>
@@ -98,7 +99,7 @@ ORDER BY to_number(X.EMPloyee_ID), 2, 3]]>
 				<text><![CDATA[Emp No]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="492ec116-b1d1-4e8a-bc5f-441893a8d3f3" mode="Opaque" x="54" y="0" width="168" height="20" backcolor="#C0C0C0"/>
+				<reportElement uuid="492ec116-b1d1-4e8a-bc5f-441893a8d3f3" mode="Opaque" x="54" y="0" width="156" height="20" backcolor="#C0C0C0"/>
 				<box leftPadding="2" rightPadding="2">
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -154,7 +155,7 @@ ORDER BY to_number(X.EMPloyee_ID), 2, 3]]>
 				<text><![CDATA[Status]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="492ec116-b1d1-4e8a-bc5f-441893a8d3f3" mode="Opaque" x="222" y="0" width="100" height="20" backcolor="#C0C0C0"/>
+				<reportElement uuid="492ec116-b1d1-4e8a-bc5f-441893a8d3f3" mode="Opaque" x="210" y="0" width="112" height="20" backcolor="#C0C0C0"/>
 				<box leftPadding="2" rightPadding="2">
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -200,7 +201,7 @@ ORDER BY to_number(X.EMPloyee_ID), 2, 3]]>
 				<textFieldExpression><![CDATA[$F{CODE}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="85bbfd72-8784-4f42-a830-43c9bffcc538" x="54" y="0" width="168" height="17"/>
+				<reportElement uuid="85bbfd72-8784-4f42-a830-43c9bffcc538" x="54" y="0" width="156" height="17"/>
 				<box leftPadding="2" rightPadding="2">
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -256,7 +257,7 @@ ORDER BY to_number(X.EMPloyee_ID), 2, 3]]>
 				<textFieldExpression><![CDATA[$F{DT_ATTN_TYPE}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="85bbfd72-8784-4f42-a830-43c9bffcc538" x="222" y="0" width="100" height="17"/>
+				<reportElement uuid="85bbfd72-8784-4f42-a830-43c9bffcc538" x="210" y="0" width="112" height="17"/>
 				<box leftPadding="2" rightPadding="2">
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
