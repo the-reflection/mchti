@@ -6,7 +6,7 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import java.math.BigInteger;
-import org.reflection.model.hcm.tl.Lookup;
+import org.reflection.model.com.Lookup;
 
 @Repository("lookupRepo")
 public class LookupRepoImpl extends AbstractRepo<BigInteger, Lookup> implements LookupRepo {

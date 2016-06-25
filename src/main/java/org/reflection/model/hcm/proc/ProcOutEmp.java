@@ -101,8 +101,8 @@ public class ProcOutEmp implements Serializable {
 
     //tl
     @Enumerated(EnumType.STRING)
-    @Column(name = "SHIFT_OFF_DAY", length = 9)
-    private Day shiftOffDay;
+    @Column(name = "WEEKEND_SHIFT_OFF_DAY", length = 9)
+    private Day weekendShiftOffDay;
     @JoinColumn(name = "SHIFT_ID", nullable = true)
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
     private Shift shift;
@@ -145,14 +145,6 @@ public class ProcOutEmp implements Serializable {
 
     public void setDesignation(Designation designation) {
         this.designation = designation;
-    }
-
-    public Day getShiftOffDay() {
-        return shiftOffDay;
-    }
-
-    public void setShiftOffDay(Day shiftOffDay) {
-        this.shiftOffDay = shiftOffDay;
     }
 
     public Shift getShift() {
@@ -249,6 +241,14 @@ public class ProcOutEmp implements Serializable {
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
+    }
+
+    public Day getWeekendShiftOffDay() {
+        return weekendShiftOffDay;
+    }
+
+    public void setWeekendShiftOffDay(Day weekendShiftOffDay) {
+        this.weekendShiftOffDay = weekendShiftOffDay;
     }
 
 }

@@ -1,6 +1,6 @@
 package org.reflection.controller;
 
-import org.reflection.model.hcm.tl.Lookup;
+import org.reflection.model.com.Lookup;
 import org.reflection.dto._SearchDTO;
 import org.reflection.exception.LookupNotFoundException;
 import org.reflection.service.LookupService;

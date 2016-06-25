@@ -1,6 +1,6 @@
 package org.reflection.service;
 
-import org.reflection.model.hcm.tl.Lookup;
+import org.reflection.model.com.Lookup;
 import org.reflection.dto._SearchDTO;
 import org.reflection.exception.LookupNotFoundException;
 import java.lang.reflect.InvocationTargetException;

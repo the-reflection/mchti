@@ -1,4 +1,4 @@
-package org.reflection.model.hcm.tl;
+package org.reflection.model.com;
 
 import org.reflection.model.hcm.enums.LookupKeyword;
 import com.oith.annotation.MacSearchable;

@@ -142,7 +142,7 @@ public class ProcServiceImpl implements ProcService {
                 if (assignmentTl != null) {
                     pp.setRoster(assignmentTl.getRoster());
                     pp.setShift(assignmentTl.getShift());
-                    pp.setShiftOffDay(assignmentTl.getShiftOffDay());
+                    pp.setWeekendShiftOffDay(assignmentTl.getWeekendShiftOffDay());
                     pp.setIsOvertime(assignmentTl.getIsOvertime());
                 }
             } catch (Exception e) {

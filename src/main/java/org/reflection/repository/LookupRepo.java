@@ -1,7 +1,7 @@
 package org.reflection.repository;
 
 import java.util.List;
-import org.reflection.model.hcm.tl.Lookup;
+import org.reflection.model.com.Lookup;
 import java.math.BigInteger;
 
 public interface LookupRepo {

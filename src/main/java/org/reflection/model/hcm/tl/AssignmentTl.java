@@ -32,12 +32,6 @@ public class AssignmentTl implements Serializable {
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.TABLE)
     @Basic(optional = false)
-    //    @SequenceGenerator(name = "HIBERNATE_SEQUENCE", sequenceName = "HIBERNATE_SEQUENCE")
-    //    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "HIBERNATE_SEQUENCE")
-    //    @GeneratedValue(strategy = GenerationType.TABLE)
-    //    @GeneratedValue(strategy = GenerationType.AUTO)
-    //    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private BigInteger id;
     @Version
     private Integer version;
@@ -60,8 +54,8 @@ public class AssignmentTl implements Serializable {
     //@DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date endDate;
     @Enumerated(EnumType.STRING)
-    @Column(name = "SHIFT_OFF_DAY", length = 9)
-    private Day shiftOffDay;
+    @Column(name = "WEEKEND_SHIFT_OFF_DAY", length = 9)
+    private Day weekendShiftOffDay;
     @JoinColumn(name = "SHIFT_ID", nullable = true)
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
     private Shift shift;
@@ -114,14 +108,6 @@ public class AssignmentTl implements Serializable {
         this.endDate = endDate;
     }
 
-    public Day getShiftOffDay() {
-        return shiftOffDay;
-    }
-
-    public void setShiftOffDay(Day shiftOffDay) {
-        this.shiftOffDay = shiftOffDay;
-    }
-
     public Shift getShift() {
         return shift;
     }
@@ -152,6 +138,14 @@ public class AssignmentTl implements Serializable {
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
+    }
+
+    public Day getWeekendShiftOffDay() {
+        return weekendShiftOffDay;
+    }
+
+    public void setWeekendShiftOffDay(Day weekendShiftOffDay) {
+        this.weekendShiftOffDay = weekendShiftOffDay;
     }
 
 }
