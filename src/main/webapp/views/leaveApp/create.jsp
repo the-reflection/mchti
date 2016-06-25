@@ -35,7 +35,7 @@
                             <jsp:include page="_form.jsp" />
                         </div><!-- /.box-body -->
                         <div class="box-footer">                            
-                            <button type="reset" class="btn btn-warning" onclick="return confirm('Are you sure you want to reset all value...?');"><i class="fa fa-refresh"></i> <spring:message code="default.button.reset.label" text="Reset"/></button>
+                            <button type="reset" class="btn btn-warning" onclick="return confirm('Are you sure you want to reset all value...?');"><i class="fa fa-refresh"></i><spring:message code="default.button.reset.label" text="Reset"/></button>
                             <sec:access url="/leaveApp/create">
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-save"></i> <spring:message code="default.button.save.label" text="Save"/>
