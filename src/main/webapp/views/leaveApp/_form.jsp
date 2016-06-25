@@ -23,13 +23,13 @@
             type : "GET",
             url: '${pageContext.request.contextPath}/employee/getCodableDTO',
             data: {code: code},
-            success: function(d) {
+            success: function(response) {
                 //alert("ok:"+d)
-                $('#'+lblCaption).text(d)
+                $('#'+lblCaption).text(response);
             },
-            error: function(err) {
+            error: function(exception) {
                 //alert("err mac:"+err)
-                $('#'+lblCaption).text(err)
+                $('#'+lblCaption).text(exception);
             }
         });
     }
@@ -37,7 +37,7 @@
 
 <form:errors path="*" cssClass="errorblock" element="div" />
 <form:hidden path="id"/>
-<div>  
+<fieldset>  
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="form-group">
             <form:label class="required" path="code"><spring:message code="code" text="Code"/></form:label>
@@ -122,4 +122,4 @@
         </div>
     </div>
 
-</div>   
+</fieldset>   
