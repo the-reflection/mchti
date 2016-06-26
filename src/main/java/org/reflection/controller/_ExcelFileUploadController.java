@@ -1,7 +1,7 @@
 package org.reflection.controller;
 
 import java.util.Map;
-import org.reflection.service.ProcService;
+import org.reflection.service.ProcServiceDef;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -16,7 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class _ExcelFileUploadController {
 
     @Autowired
-    private ProcService procService;
+    private ProcServiceDef procServiceDef;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String getQueryRunnerPage() {
@@ -36,7 +36,7 @@ public class _ExcelFileUploadController {
 
             System.out.println("ok file got" + multipartFile);
             try {
-                hhh = procService.doUploadExcelFile(multipartFile.getInputStream());
+                hhh = procServiceDef.doUploadExcelFile(multipartFile.getInputStream());
             } catch (Exception e) {
                 System.out.println("ok file err" + e);
             }

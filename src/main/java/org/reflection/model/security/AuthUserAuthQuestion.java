@@ -1,5 +1,6 @@
 package org.reflection.model.security;
 
+import com.oith.annotation.MacCareless;
 import java.io.Serializable;
 import javax.persistence.AssociationOverride;
 import javax.persistence.AssociationOverrides;
@@ -9,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
+@MacCareless
 @Entity
 @Table(name = "AUTH_USER_AUTH_QUESTION")
 @AssociationOverrides({
@@ -19,7 +21,7 @@ public class AuthUserAuthQuestion implements Serializable {
     @EmbeddedId
     private AuthUserAuthQuestionPK id = new AuthUserAuthQuestionPK();
 
-    @Column(name = "answer", length = 30, nullable = false)
+    @Column(name = "ANSWER", length = 30, nullable = false)
     private String answer;
 
     public AuthUserAuthQuestionPK getId() {

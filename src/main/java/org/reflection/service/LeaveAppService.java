@@ -3,7 +3,6 @@ package org.reflection.service;
 import org.reflection.model.hcm.tl.LeaveApp;
 import org.reflection.exception.LeaveAppNotFoundException;
 import org.reflection.dto._SearchDTO;
-import java.util.List;
 import java.math.BigInteger;
 
 public interface LeaveAppService {
@@ -20,9 +19,9 @@ public interface LeaveAppService {
     
     public LeaveApp delete(BigInteger id) throws LeaveAppNotFoundException;
    
-    public List<LeaveApp> search(_SearchDTO pageable);
+    public Iterable<LeaveApp> search(_SearchDTO pageable);
     
-    public List<LeaveApp> findAll(_SearchDTO pageable);
+    public Iterable<LeaveApp> findAll(_SearchDTO pageable);
     
-    public List<LeaveApp> findAll();
+    public Iterable<LeaveApp> findAll();
 }

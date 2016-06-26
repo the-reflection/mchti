@@ -5,6 +5,7 @@ import org.reflection.dto._SearchDTO;
 import org.reflection.exception.LeaveAppNotFoundException;
 import org.reflection.service.LeaveAppService;
 import org.reflection.service.EmployeeService;
+import org.reflection.model.com.Employee;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +19,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping(value = "/leaveApp")
+ 
 public class LeaveAppController extends _OithController {
 
     protected static final String MODEL = "leaveApp";
@@ -35,28 +41,32 @@ public class LeaveAppController extends _OithController {
 
     @Autowired
     private LeaveAppService leaveAppService;
+
     @Autowired
     private EmployeeService employeeService;
 
-    private void commonGet(ModelMap model) {
+
+
+
  
-    }
-    
+
     private void commonPost(LeaveApp currObject) {
         currObject.setEmployee(employeeService.findByCode(currObject.getEmployee().getCode()));
+
     }
-    
+
     @RequestMapping(value = "/create", method = RequestMethod.GET)
     public String create(ModelMap model) { 
         model.addAttribute(MODEL, new LeaveApp());
-        commonGet(model); 
         return CREATE;
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String save(@ModelAttribute(MODEL) @Valid LeaveApp currObject, BindingResult bindingResult, ModelMap model, RedirectAttributes attributes ) {
 
-        commonPost(currObject);
+
+
+    commonPost(currObject);
 
         if (!bindingResult.hasErrors()) {
             try {
@@ -67,7 +77,6 @@ public class LeaveAppController extends _OithController {
                 errorHandler(bindingResult, e);
             }
         } 
-        commonGet(model);
         return CREATE;
     }
 
@@ -81,14 +90,15 @@ public class LeaveAppController extends _OithController {
             return createRedirectViewPath(REQUEST_MAPPING_LIST);
         }
         model.addAttribute(MODEL, leaveApp);
-        commonGet(model); 
         return EDIT;
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public String update(@ModelAttribute(MODEL) @Valid LeaveApp currObject, BindingResult bindingResult, ModelMap model, RedirectAttributes attributes ) {
 
-        commonPost(currObject);
+
+
+    commonPost(currObject);
 
         if (!bindingResult.hasErrors()){
             try {
@@ -99,7 +109,6 @@ public class LeaveAppController extends _OithController {
                 errorHandler(bindingResult, e);
             }
         }
-        commonGet(model); 
         return EDIT;
     }
     
@@ -113,14 +122,15 @@ public class LeaveAppController extends _OithController {
             return createRedirectViewPath(REQUEST_MAPPING_LIST);
         }
         model.addAttribute(MODEL, leaveApp);
-        commonGet(model);
         return COPY;
     }
 
     @RequestMapping(value = "/copy", method = RequestMethod.POST)
     public String copied(@ModelAttribute(MODEL) @Valid LeaveApp currObject, BindingResult bindingResult, ModelMap model, RedirectAttributes attributes ) {
 
-        commonPost(currObject);
+
+
+    commonPost(currObject);
 
         if (!bindingResult.hasErrors()) {
             try {
@@ -130,14 +140,13 @@ public class LeaveAppController extends _OithController {
             } catch (Exception e) {
                errorHandler(bindingResult, e);
             }
-        }
-        commonGet(model); 
+        } 
         return COPY;
     }
     
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.POST)
     public String search(@ModelAttribute(SEARCH_CRITERIA) _SearchDTO searchCriteria, ModelMap model) {
-        
+        /*
         String searchTerm = searchCriteria.getSearchTerm();
         List<LeaveApp> leaveApps;
    
@@ -154,16 +163,19 @@ public class LeaveAppController extends _OithController {
             pages.add(i);
         }
         model.addAttribute("pages", pages);
+        */
+        Iterable<LeaveApp> leaveApps = leaveAppService.findAll();
+        model.addAttribute(MODELS, leaveApps);
         return INDEX;
     }
 
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
     public String index(ModelMap model) {
-        _SearchDTO searchCriteria = new _SearchDTO();
+        /*_SearchDTO searchCriteria = new _SearchDTO();
         searchCriteria.setPage(1);
         searchCriteria.setPageSize(5);
         
-        List<LeaveApp> leaveApps = leaveAppService.findAll();
+        List<LeaveApp> leaveApps = leaveAppService.findAll(searchCriteria);
 
         model.addAttribute(MODELS, leaveApps);
         model.addAttribute(SEARCH_CRITERIA, searchCriteria);
@@ -173,6 +185,9 @@ public class LeaveAppController extends _OithController {
             pages.add(i);
         }
         model.addAttribute("pages", pages);
+        */
+        Iterable<LeaveApp> leaveApps = leaveAppService.findAll();
+        model.addAttribute(MODELS, leaveApps);
         return INDEX;
     }
 

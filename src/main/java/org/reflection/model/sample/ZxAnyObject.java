@@ -1,15 +1,10 @@
 package org.reflection.model.sample;
 
 import com.oith.annotation.MacSearchable;
-import java.io.Serializable;
-import java.math.BigInteger;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import java.math.BigInteger; import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -19,6 +14,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.reflection.model.com.AbstractEntity;
 
 /**
  *
@@ -28,14 +24,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Table(name = "ZX_ANY_OBJECT", catalog = "", uniqueConstraints = {
     @UniqueConstraint(columnNames = {"TITLE"})})
 @XmlRootElement
-public class ZxAnyObject implements Serializable {
+public class ZxAnyObject extends AbstractEntity {
 
-    @Id
-    // @SequenceGenerator(name = "HIBERNATE_SEQUENCE", sequenceName = "HIBERNATE_SEQUENCE")
-    // @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "HIBERNATE_SEQUENCE")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "ID")
-    private BigInteger id;
     @Basic(optional = false)
     @Column(nullable = false, unique = true, length = 20)
     private String code;
@@ -60,14 +50,6 @@ public class ZxAnyObject implements Serializable {
     private Integer slNo;
 
     public ZxAnyObject() {
-    }
-
-    public BigInteger getId() {
-        return id;
-    }
-
-    public void setId(BigInteger id) {
-        this.id = id;
     }
 
     public String getCode() {

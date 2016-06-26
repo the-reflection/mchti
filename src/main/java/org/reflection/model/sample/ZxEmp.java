@@ -5,7 +5,6 @@ import com.oith.annotation.MacFile;
 import com.oith.annotation.MacImagable;
 import com.oith.annotation.MacPassword;
 import com.oith.annotation.MacSearchable;
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
@@ -16,10 +15,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import java.math.BigInteger;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -29,7 +25,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
-import javax.persistence.Version;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.Past;
@@ -39,27 +34,14 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
 import org.hibernate.validator.constraints.URL;
+import org.reflection.model.com.AbstractEntity;
 
 @Entity
-@Table(name = "ZX_EMP", uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"FULL_NAME"})})
+@Table(name = "ZX_EMP")
 @XmlRootElement
 @MacCodable(id = "id", code = "code", caption = "fullName")
-public class ZxEmp implements Serializable {
+public class ZxEmp extends AbstractEntity {
 
-    @Id
-    @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.TABLE)
-    @Basic(optional = false)
-    //    @SequenceGenerator(name = "HIBERNATE_SEQUENCE", sequenceName = "HIBERNATE_SEQUENCE")
-    //    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "HIBERNATE_SEQUENCE")
-    //    @GeneratedValue(strategy = GenerationType.TABLE)
-    //    @GeneratedValue(strategy = GenerationType.AUTO)
-    //    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private BigInteger id;
-    @Version
-    private Integer version;
     @MacSearchable
     @Basic(optional = false)
     @Column(name = "CODE", length = 20, nullable = false)
@@ -118,22 +100,20 @@ public class ZxEmp implements Serializable {
     @Transient
     @Column(name = "MODIFICATION_TIME")
     private Date modificationTime;
-    @JoinColumn(name = "ZX_LOOKUP_BLOOD_GROUP_ID",  nullable = true)
+    @JoinColumn(name = "ZX_DEPT_ID")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private ZxDept zxDept;
+    @JoinColumn(name = "ZX_DESG_ID")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private ZxDesg zxDesg;
+    @JoinColumn(name = "ZX_LOOKUP_BLOOD_GROUP_ID", nullable = true)
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
     private ZxLookup zxLookupBloodGroup;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "zxEmp", fetch = FetchType.LAZY)
-    @OrderBy(value = "slNo DESC, code ASC")
+    @OrderBy(value = "slNo DESC")
     private List<ZxEmpEduDtl> zxEmpEduDtls;
 
     public ZxEmp() {
-    }
-
-    public BigInteger getId() {
-        return id;
-    }
-
-    public void setId(BigInteger id) {
-        this.id = id;
     }
 
     public String getCode() {
@@ -280,18 +260,25 @@ public class ZxEmp implements Serializable {
         this.zxEmpEduDtls = zxEmpEduDtls;
     }
 
-    public Integer getVersion() {
-        return version;
-    }
-
-    public void setVersion(Integer version) {
-        this.version = version;
-    }
-
     @Override
     public String toString() {
         //return ToStringBuilder.reflectionToString(this);
         return code + "-" + fullName;
     }
 
+    public ZxDept getZxDept() {
+        return zxDept;
+    }
+
+    public void setZxDept(ZxDept zxDept) {
+        this.zxDept = zxDept;
+    }
+
+    public ZxDesg getZxDesg() {
+        return zxDesg;
+    }
+
+    public void setZxDesg(ZxDesg zxDesg) {
+        this.zxDesg = zxDesg;
+    }
 }

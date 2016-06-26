@@ -1,36 +1,25 @@
 package org.reflection.model.security;
 
-import java.io.Serializable;
+import com.oith.annotation.MacCareless;
 import java.util.HashSet;
 import java.util.Set;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import java.math.BigInteger;
-import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.reflection.model.com.AbstractEntity;
 
 @Entity
 @Table(name = "AUTH_ROLE")
 @XmlRootElement
-public class AuthRole implements Serializable {
+public class AuthRole extends AbstractEntity {
 
-    @Id
-    @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Basic(optional = false)
-    private BigInteger id;
-    @Version
-    private Integer version;
-    @Column(unique = true)
+    @Column(name = "authority", length = 128, unique = true)
     private String authority;
+    @MacCareless
     @ManyToMany(mappedBy = "authRoles")
-    private Set<AuthUser> authUsers = new HashSet<>();
+    private Set<AuthUser> authUsers = new HashSet();
 
     public AuthRole() {
     }
@@ -47,28 +36,17 @@ public class AuthRole implements Serializable {
         this.authority = authority;
     }
 
-    public BigInteger getId() {
-        return id;
-    }
-
-    public void setId(BigInteger id) {
-        this.id = id;
-    }
-
-    public Integer getVersion() {
-        return version;
-    }
-
-    public void setVersion(Integer version) {
-        this.version = version;
-    }
-
     public Set<AuthUser> getAuthUsers() {
         return authUsers;
     }
 
     public void setAuthUsers(Set<AuthUser> authUsers) {
         this.authUsers = authUsers;
+    }
+
+    @Override
+    public String toString() {
+        return authority;
     }
 
 }

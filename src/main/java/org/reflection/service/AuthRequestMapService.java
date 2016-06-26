@@ -3,7 +3,6 @@ package org.reflection.service;
 import org.reflection.model.security.AuthRequestMap;
 import org.reflection.exception.AuthRequestMapNotFoundException;
 import org.reflection.dto._SearchDTO;
-import java.util.List;
 import java.math.BigInteger;
 
 public interface AuthRequestMapService {
@@ -20,9 +19,9 @@ public interface AuthRequestMapService {
     
     public AuthRequestMap delete(BigInteger id) throws AuthRequestMapNotFoundException;
    
-    public List<AuthRequestMap> search(_SearchDTO pageable);
+    public Iterable<AuthRequestMap> search(_SearchDTO pageable);
     
-    public List<AuthRequestMap> findAll(_SearchDTO pageable);
+    public Iterable<AuthRequestMap> findAll(_SearchDTO pageable);
     
-    public List<AuthRequestMap> findAll();
+    public Iterable<AuthRequestMap> findAll();
 }

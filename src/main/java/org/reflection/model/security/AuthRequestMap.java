@@ -7,30 +7,24 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import java.math.BigInteger; import javax.persistence.Id;
+import java.math.BigInteger;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.reflection.model.com.AbstractEntity;
 import org.springframework.http.HttpMethod;
 
 @Entity
 @Table(name = "AUTH_REQUEST_MAP")
 @XmlRootElement
-public class AuthRequestMap implements Serializable {
-
-    @Id
-    @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.TABLE)
-    @Basic(optional = false)
-    private BigInteger id;
-    @Version
-    private Integer version;
-
-    @Column(name = "config_Attribute")
+public class AuthRequestMap extends AbstractEntity {
+    
+    @Column(name = "CONFIG_ATTRIBUTE")
     private String configAttribute;
-    @Column(name = "http_Method")
+    @Column(name = "HTTP_METHOD")
     private HttpMethod httpMethod;
-    @Column(name = "url")
+    @Column(name = "URL")
     private String url;
 
     public AuthRequestMap() {
@@ -65,22 +59,6 @@ public class AuthRequestMap implements Serializable {
 
     public void setHttpMethod(HttpMethod httpMethod) {
         this.httpMethod = httpMethod;
-    }
-
-    public BigInteger getId() {
-        return id;
-    }
-
-    public void setId(BigInteger id) {
-        this.id = id;
-    }
-
-    public Integer getVersion() {
-        return version;
-    }
-
-    public void setVersion(Integer version) {
-        this.version = version;
     }
 
 }

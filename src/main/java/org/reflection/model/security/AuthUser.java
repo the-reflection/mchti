@@ -1,5 +1,6 @@
 package org.reflection.model.security;
 
+import com.oith.annotation.MacImagable;
 import java.util.Arrays;
 import java.util.Set;
 import javax.persistence.Column;
@@ -10,8 +11,6 @@ import javax.persistence.GenerationType;
 import java.math.BigInteger;
 import java.util.Date;
 import java.util.LinkedHashSet;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
@@ -35,53 +34,38 @@ public class AuthUser extends User {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Basic(optional = false)
-    //    @SequenceGenerator(name = "HIBERNATE_SEQUENCE", sequenceName = "HIBERNATE_SEQUENCE")
-    //    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "HIBERNATE_SEQUENCE")
-    //    @GeneratedValue(strategy = GenerationType.TABLE)
-    //    @GeneratedValue(strategy = GenerationType.AUTO)
-    //    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private BigInteger id;
-
+    @NotEmpty
+    @Column(name = "USERNAME", length = 30, unique = true, nullable = false)
+    private String username;
+    @NotEmpty
+    @Column(name = "PASSWORD", length = 128, nullable = false)
+    private String password;
     @NotEmpty
     @Column(name = "DISPLAY_NAME", length = 9, nullable = false)
     private String displayName;
-
     @NotEmpty
     @Column(name = "FULL_NAME", length = 50, nullable = false)
     private String fullName;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "GENDER", length = 6)
     private AuthGender gender;
-
     @Column(name = "DOB")
     @Temporal(TemporalType.DATE)
     @Past
     private Date dob;
-
     @Column(name = "DOJ")
     @Temporal(TemporalType.DATE)
     @Past
     private Date doj;
-
     @Column(name = "EMAIL", length = 30)
     private String email;
-
+    @MacImagable
     @Column(name = "PIC_FILE", length = 255)
     private String picFile;
 
     @NotEmpty
-    @Column(name = "USERNAME", unique = true, nullable = false)
-    private String username;
-
-    @NotEmpty
-    @Column(name = "PASSWORD", nullable = false)
-    private String password;
-
-    //@NotEmpty
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "AUTH_USER_AUTH_ROLE",
             joinColumns = {
@@ -90,20 +74,21 @@ public class AuthUser extends User {
                 @JoinColumn(name = "AUTH_ROLE_ID")})
     private Set<AuthRole> authRoles = new LinkedHashSet<>();
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "id.authUser", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "id.authUser")
     private Set<AuthUserAuthQuestion> authUserAuthQuestions = new LinkedHashSet<>();
 
-    @Column(name = "ENABLED", nullable = false)
-    private Boolean enabled;
-    @Column(name = "ACCOUNT_NON_EXPIRED", nullable = false)
-    private Boolean accountNonExpired;
-    @Column(name = "ACCOUNT_NON_LOCKED", nullable = false)
-    private Boolean accountNonLocked;
-    @Column(name = "CREDENTIALS_NON_EXPIRED", nullable = false)
-    private Boolean credentialsNonExpired;
+    @Column(name = "ENABLED")
+    private Boolean enabled=Boolean.TRUE;
+    @Column(name = "ACCOUNT_NON_EXPIRED")
+    private Boolean accountNonExpired=Boolean.FALSE;
+    @Column(name = "ACCOUNT_NON_LOCKED")
+    private Boolean accountNonLocked=Boolean.FALSE;
+    @Column(name = "CREDENTIALS_NON_EXPIRED")
+    private Boolean credentialsNonExpired=Boolean.FALSE;
 
     @Transient
     private Set<GrantedAuthority> authorities;
+
     @Transient
     private String completeMenu;
 
@@ -113,10 +98,6 @@ public class AuthUser extends User {
 
     public AuthUser(String username, String password, String role) {
         super(username, password, Arrays.asList(new SimpleGrantedAuthority(role)));
-        enabled = true;
-        accountNonExpired = false;
-        accountNonLocked = false;
-        credentialsNonExpired = false;
     }
 
     public AuthUser(String username, String password, Boolean enabled, Boolean accountNonExpired, Boolean credentialsNonExpired, Boolean accountNonLocked, Set< GrantedAuthority> authorities) {
@@ -278,4 +259,8 @@ public class AuthUser extends User {
         this.completeMenu = completeMenu;
     }
 
+    @Override
+    public String toString() {
+        return username;
+    }
 }

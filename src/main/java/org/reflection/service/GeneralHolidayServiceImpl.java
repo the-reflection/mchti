@@ -3,17 +3,10 @@ package org.reflection.service;
 import org.reflection.model.hcm.tl.GeneralHoliday;
 import org.reflection.dto._SearchDTO;
 import org.reflection.exception.GeneralHolidayNotFoundException;
-import java.lang.reflect.InvocationTargetException;
-import java.util.Date;
-import java.util.List;
-import org.apache.commons.beanutils.PropertyUtils;
-import org.hibernate.Criteria;
+import org.reflection.repositories.GeneralHolidayRepository;
 import java.math.BigInteger;
 import org.hibernate.Hibernate;
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,161 +16,86 @@ import org.springframework.transaction.annotation.Transactional;
 public class GeneralHolidayServiceImpl implements GeneralHolidayService {
 
     @Autowired
-    private SessionFactory sessionFactory;
-    
-    private Session getCurrentSession() {
-        return sessionFactory.getCurrentSession();
-    }
+    private GeneralHolidayRepository generalHolidayRepository;
 
 
 
     @Transactional
     @Override
-    public GeneralHoliday create(GeneralHoliday generalHoliday) {
-        getCurrentSession().save(generalHoliday);
-        return generalHoliday;
+    public GeneralHoliday create(GeneralHoliday lookup) {
+        return generalHolidayRepository.save(lookup);
     }
-    
+
     @Override
     @Transactional
     public GeneralHoliday findById(BigInteger id) {
-        GeneralHoliday generalHoliday = (GeneralHoliday) getCurrentSession().get(GeneralHoliday.class, id);
-        
+        GeneralHoliday generalHoliday=generalHolidayRepository.findOne(id);
 
-        //Hibernate.initialize(generalHoliday.getHrTlShftDtlId());
-        //Hibernate.initialize(generalHoliday.getPersonEduDtlList());
+        //Hibernate.initialize(lookup.getPersonEduDtlList());
         return generalHoliday;
     }
-    
+
     @Override
     @Transactional(rollbackFor = GeneralHolidayNotFoundException.class)
-    public GeneralHoliday delete(BigInteger generalHolidayId) throws GeneralHolidayNotFoundException {
-           
-        GeneralHoliday generalHoliday = (GeneralHoliday) getCurrentSession().get(GeneralHoliday.class, generalHolidayId);
-            
+    public GeneralHoliday delete(BigInteger id) throws GeneralHolidayNotFoundException {
+
+        GeneralHoliday generalHoliday = generalHolidayRepository.findOne(id);
+
         if (generalHoliday == null) {
             throw new GeneralHolidayNotFoundException();
         }
-    
-        getCurrentSession().delete(generalHoliday);
+        generalHolidayRepository.delete(id);
         return generalHoliday;
     }
-    
+
     @Override
     @Transactional
-    public List<GeneralHoliday> findAll() {
-        List<GeneralHoliday> generalHolidays =getCurrentSession().createQuery("FROM " + GeneralHoliday.class.getName()).list();
-            
+    public Iterable<GeneralHoliday> findAll() {
+        Iterable<GeneralHoliday> generalHolidays=generalHolidayRepository.findAll();
+        
         for (GeneralHoliday generalHoliday : generalHolidays) {
 
-            //Hibernate.initialize(generalHoliday.getHrTlShftDtlId());
-            //Hibernate.initialize(generalHoliday.getPersonEduDtlList());
+        //Hibernate.initialize(generalHoliday.getA());
+        //Hibernate.initialize(generalHoliday.getZs());
         }
+        
         return generalHolidays;
     }
-      
+
     @Transactional(rollbackFor = GeneralHolidayNotFoundException.class)
     @Override
     public GeneralHoliday update(GeneralHoliday updated) throws GeneralHolidayNotFoundException {
 
-        GeneralHoliday generalHoliday = (GeneralHoliday) getCurrentSession().get(GeneralHoliday.class, updated.getId());
+        GeneralHoliday generalHoliday = generalHolidayRepository.findOne(updated.getId());
 
         if (generalHoliday == null) {
             throw new GeneralHolidayNotFoundException();
         }
 
-        try {
-            PropertyUtils.copyProperties(generalHoliday, updated);
-        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-            System.out.println("err: mac must see 144 GeneralHoliday update: "+ e);
-        }
-
-        getCurrentSession().save(generalHoliday);
-        return updated;
+        BeanUtils.copyProperties(updated, generalHoliday);
+        return generalHolidayRepository.save(generalHoliday);
     }
-    
+
     @Transactional(rollbackFor = GeneralHolidayNotFoundException.class)
     @Override
     public GeneralHoliday copy(final GeneralHoliday copied) {
-    
-        GeneralHoliday generalHoliday = new GeneralHoliday();//(GeneralHoliday) getCurrentSession().get(GeneralHoliday.class, copied.getId());
-    
-        try {
-            PropertyUtils.copyProperties(generalHoliday, copied);
-        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-            System.out.println("err: mac must see 144 GeneralHoliday copy: "+ e);
-        }
-    
-        getCurrentSession().save(generalHoliday);
-        return generalHoliday;
+
+        GeneralHoliday generalHoliday = new GeneralHoliday();
+        BeanUtils.copyProperties(copied, generalHoliday);
+        generalHoliday.setId(null);
+
+        return generalHolidayRepository.save(generalHoliday);
     }
-    
+
     @Transactional
     @Override
-    public List<GeneralHoliday> findAll(_SearchDTO pageable) {
-
-        Session session = getCurrentSession();
-
-        Query query = session.createQuery("FROM GeneralHoliday m");
-        query.setFirstResult((pageable.getPage() - 1) * pageable.getPageSize());
-        query.setMaxResults(pageable.getPageSize());
-
-        List<GeneralHoliday> generalHolidays = (List<GeneralHoliday>) query.list();
-        for (GeneralHoliday generalHoliday : generalHolidays) {
-
-        //Hibernate.initialize(generalHoliday.getHrTlShftDtlId());
-        //Hibernate.initialize(generalHoliday.getPersonEduDtlList());
-        }
-
-        Long totRecs = (Long) session.createQuery("SELECT count(m) FROM GeneralHoliday m").uniqueResult();
-
-        pageable.setTotalPages((int) (totRecs / pageable.getPageSize() + 1));
-        pageable.setTotalRecs(totRecs);
-        return generalHolidays;
-
-    //Criteria criteria = getCurrentSession().createCriteria(GeneralHoliday.class);
-    //criteria.setFirstResult((pageable.getPage() - 1) * pageable.getPageSize());
-    //criteria.setMaxResults(pageable.getPageSize());
-    //
-    //List<GeneralHoliday> generalHolidays = (List<GeneralHoliday>) criteria.list();
-    //
-    //int totRecs = 27;
-    //
-    //pageable.setTotalPages(totRecs / pageable.getPageSize() + 1);
-    //pageable.setTotalRecs(totRecs);  
+    public Iterable<GeneralHoliday> findAll(_SearchDTO pageable) {
+        return findAll();
     }
-    
+
     @Transactional
     @Override
-    public List<GeneralHoliday> search(_SearchDTO pageable) {
-        
-        String searchTerm = pageable.getSearchTerm().toUpperCase();
-        Session session = getCurrentSession();
-
-        //String qu = "FROM GeneralHoliday m WHERE 1=1 AND UPPER(m.title) LIKE UPPER(CONCAT('%',:search,'%'))";
-        String qu = "FROM GeneralHoliday m WHERE 1=1  AND UPPER(CONCAT(m.title)) LIKE CONCAT('%',:search,'%')";
-
-        Query queryCount = session.createQuery("SELECT count(m) " + qu);
-        queryCount.setParameter("search", searchTerm);
-        Long totRecs = (Long) queryCount.uniqueResult();
-        
-        Query query = session.createQuery(qu);
-        query.setParameter("search", searchTerm);
-
-        query.setFirstResult((pageable.getPage() - 1) * pageable.getPageSize());
-        query.setMaxResults(pageable.getPageSize());
-
-        List<GeneralHoliday> generalHolidays = (List<GeneralHoliday>) query.list();
-
-        for (GeneralHoliday generalHoliday : generalHolidays) {
-
-            //Hibernate.initialize(generalHoliday.getHrTlShftDtlId());
-            //Hibernate.initialize(generalHoliday.getPersonEduDtlList());
-        }
-        
-        pageable.setTotalPages((int) (totRecs / pageable.getPageSize() + 1));
-        pageable.setTotalRecs(totRecs);
-
-        return generalHolidays;
+    public Iterable<GeneralHoliday> search(_SearchDTO pageable) {
+        return findAll();
     }
 }

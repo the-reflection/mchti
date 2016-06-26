@@ -1,5 +1,6 @@
 package org.reflection.model.hcm.proc;
 
+import com.oith.annotation.MacCareless;
 import org.reflection.model.hcm.enums.HolidayType;
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -10,6 +11,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
+@MacCareless
 @Entity
 @Table(name = "PROC_OUT_CALENDER")
 @XmlRootElement

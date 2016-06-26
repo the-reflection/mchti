@@ -1,5 +1,6 @@
 package org.reflection.model.security;
 
+import com.oith.annotation.MacCareless;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
@@ -9,6 +10,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+@MacCareless
 @Entity
 @Table(name = "PERSISTENT_LOGINS")
 public class AuthToken implements Serializable {

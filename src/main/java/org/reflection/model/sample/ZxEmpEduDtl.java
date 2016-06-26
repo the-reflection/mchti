@@ -3,51 +3,27 @@ package org.reflection.model.sample;
 import com.oith.annotation.MacFile;
 import com.oith.annotation.MacImagable;
 import com.oith.annotation.MacSearchable;
-import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import java.math.BigInteger;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
-import javax.persistence.Version;
 import javax.validation.constraints.Past;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.reflection.model.com.AbstractEntity;
 
 @Entity
 @Table(name = "ZX_EMP_EDU_DTL", catalog = "", uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"CODE"}),
     @UniqueConstraint(columnNames = {"ZX_EMP_ID", "EXAM"})})
 @XmlRootElement
-public class ZxEmpEduDtl implements Serializable {
+public class ZxEmpEduDtl extends AbstractEntity {
 
-    @Id
-    @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.TABLE)
-    @Basic(optional = false)
-    //    @SequenceGenerator(name = "HIBERNATE_SEQUENCE", sequenceName = "HIBERNATE_SEQUENCE")
-    //    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "HIBERNATE_SEQUENCE")
-    //    @GeneratedValue(strategy = GenerationType.TABLE)
-    //    @GeneratedValue(strategy = GenerationType.AUTO)
-    //    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private BigInteger id;
-
-    @Version
-    private Integer version;
-
-    @Basic(optional = false)
-    @Column(name = "CODE", length = 20, nullable = false)
-    private String code;
     @Basic(optional = false)
     @Column(name = "EXAM", nullable = false, length = 20)
     private String exam;
@@ -74,22 +50,6 @@ public class ZxEmpEduDtl implements Serializable {
     private ZxEmp zxEmpWhoCheckedBy;
 
     public ZxEmpEduDtl() {
-    }
-
-    public BigInteger getId() {
-        return id;
-    }
-
-    public void setId(BigInteger id) {
-        this.id = id;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
     }
 
     public String getExam() {
@@ -154,14 +114,6 @@ public class ZxEmpEduDtl implements Serializable {
 
     public void setZxEmpWhoCheckedBy(ZxEmp zxEmpWhoCheckedBy) {
         this.zxEmpWhoCheckedBy = zxEmpWhoCheckedBy;
-    }
-
-    public Integer getVersion() {
-        return version;
-    }
-
-    public void setVersion(Integer version) {
-        this.version = version;
     }
 
 }

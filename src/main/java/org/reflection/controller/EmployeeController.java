@@ -19,11 +19,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping(value = "/employee")
+ 
 public class EmployeeController extends _OithController {
 
     protected static final String MODEL = "employee";
@@ -51,18 +53,15 @@ public class EmployeeController extends _OithController {
         return "Not Found";
     }
 
-    private void commonGet(ModelMap model) {
  
-    }
-    
+
     private void commonPost(Employee currObject) {
 
     }
-    
+
     @RequestMapping(value = "/create", method = RequestMethod.GET)
     public String create(ModelMap model) { 
         model.addAttribute(MODEL, new Employee());
-        commonGet(model); 
         return CREATE;
     }
 
@@ -75,7 +74,7 @@ public class EmployeeController extends _OithController {
         }
 
 
-        commonPost(currObject);
+    commonPost(currObject);
 
         if (!bindingResult.hasErrors()) {
             try {
@@ -86,7 +85,6 @@ public class EmployeeController extends _OithController {
                 errorHandler(bindingResult, e);
             }
         } 
-        commonGet(model);
         return CREATE;
     }
 
@@ -100,7 +98,6 @@ public class EmployeeController extends _OithController {
             return createRedirectViewPath(REQUEST_MAPPING_LIST);
         }
         model.addAttribute(MODEL, employee);
-        commonGet(model); 
         return EDIT;
     }
 
@@ -113,7 +110,7 @@ public class EmployeeController extends _OithController {
         }
 
 
-        commonPost(currObject);
+    commonPost(currObject);
 
         if (!bindingResult.hasErrors()){
             try {
@@ -124,7 +121,6 @@ public class EmployeeController extends _OithController {
                 errorHandler(bindingResult, e);
             }
         }
-        commonGet(model); 
         return EDIT;
     }
     
@@ -138,7 +134,6 @@ public class EmployeeController extends _OithController {
             return createRedirectViewPath(REQUEST_MAPPING_LIST);
         }
         model.addAttribute(MODEL, employee);
-        commonGet(model);
         return COPY;
     }
 
@@ -151,7 +146,7 @@ public class EmployeeController extends _OithController {
         }
 
 
-        commonPost(currObject);
+    commonPost(currObject);
 
         if (!bindingResult.hasErrors()) {
             try {
@@ -161,21 +156,20 @@ public class EmployeeController extends _OithController {
             } catch (Exception e) {
                errorHandler(bindingResult, e);
             }
-        }
-        commonGet(model); 
+        } 
         return COPY;
     }
     
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.POST)
     public String search(@ModelAttribute(SEARCH_CRITERIA) _SearchDTO searchCriteria, ModelMap model) {
-        
+        /*
         String searchTerm = searchCriteria.getSearchTerm();
         List<Employee> employees;
    
         if (searchTerm != null && !searchTerm.trim().isEmpty()) {
             employees = employeeService.search(searchCriteria);
         } else {
-            employees = employeeService.findAll();
+            employees = employeeService.findAll(searchCriteria);
         }
         model.addAttribute(MODELS, employees);
         model.addAttribute(SEARCH_CRITERIA, searchCriteria);
@@ -185,16 +179,19 @@ public class EmployeeController extends _OithController {
             pages.add(i);
         }
         model.addAttribute("pages", pages);
+        */
+        Iterable<Employee> employees = employeeService.findAll();
+        model.addAttribute(MODELS, employees);
         return INDEX;
     }
 
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
     public String index(ModelMap model) {
-        _SearchDTO searchCriteria = new _SearchDTO();
+        /*_SearchDTO searchCriteria = new _SearchDTO();
         searchCriteria.setPage(1);
         searchCriteria.setPageSize(5);
         
-        List<Employee> employees = employeeService.findAll();
+        List<Employee> employees = employeeService.findAll(searchCriteria);
 
         model.addAttribute(MODELS, employees);
         model.addAttribute(SEARCH_CRITERIA, searchCriteria);
@@ -204,6 +201,9 @@ public class EmployeeController extends _OithController {
             pages.add(i);
         }
         model.addAttribute("pages", pages);
+        */
+        Iterable<Employee> employees = employeeService.findAll();
+        model.addAttribute(MODELS, employees);
         return INDEX;
     }
 

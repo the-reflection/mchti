@@ -3,17 +3,12 @@ package org.reflection.service;
 import org.reflection.model.security.AuthUser;
 import org.reflection.dto._SearchDTO;
 import org.reflection.exception.AuthUserNotFoundException;
-import org.reflection.repository.AuthUserRepo;
-import java.lang.reflect.InvocationTargetException;
+import org.reflection.repositories.AuthUserRepository;
 import java.math.BigInteger;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
-import org.apache.commons.beanutils.PropertyUtils;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -27,160 +22,88 @@ import org.springframework.transaction.annotation.Transactional;
 public class AuthUserServiceImpl implements AuthUserService {
 
     @Autowired
-    private AuthUserRepo authUserRepo;
-    @Autowired
-    private SessionFactory sessionFactory;
-
-    private Session getCurrentSession() {
-        return sessionFactory.getCurrentSession();
-    }
+    private AuthUserRepository authUserRepository;
 
     @Transactional
     @Override
     public AuthUser create(AuthUser lookup) {
-        getCurrentSession().save(lookup);
-        return lookup;
+        return authUserRepository.save(lookup);
     }
 
     @Override
     @Transactional
     public AuthUser findById(BigInteger id) {
-        AuthUser lookup = (AuthUser) getCurrentSession().get(AuthUser.class, id);
 
         //Hibernate.initialize(lookup.getHrTlShftDtlId());
         //Hibernate.initialize(lookup.getPersonEduDtlList());
-        return lookup;
+        return authUserRepository.findOne(id);
     }
 
     @Override
     @Transactional(rollbackFor = AuthUserNotFoundException.class)
-    public AuthUser delete(BigInteger lookupId) throws AuthUserNotFoundException {
+    public AuthUser delete(BigInteger id) throws AuthUserNotFoundException {
 
-        AuthUser lookup = (AuthUser) getCurrentSession().get(AuthUser.class, lookupId);
+        AuthUser authUser = authUserRepository.findOne(id);
 
-        if (lookup == null) {
+        if (authUser == null) {
             throw new AuthUserNotFoundException();
         }
-
-        getCurrentSession().delete(lookup);
-        return lookup;
+        authUserRepository.delete(id);
+        return authUser;
     }
 
     @Override
     @Transactional
-    public List<AuthUser> findAll() {
-        List<AuthUser> lookups = getCurrentSession().createQuery("FROM " + AuthUser.class.getName()).list();
-
-        for (AuthUser lookup : lookups) {
-
-            //Hibernate.initialize(lookup.getHrTlShftDtlId());
-            //Hibernate.initialize(lookup.getPersonEduDtlList());
-        }
-        return lookups;
+    public Iterable<AuthUser> findAll() {
+        return authUserRepository.findAll();
     }
 
     @Transactional(rollbackFor = AuthUserNotFoundException.class)
     @Override
     public AuthUser update(AuthUser updated) throws AuthUserNotFoundException {
 
-        AuthUser lookup = (AuthUser) getCurrentSession().get(AuthUser.class, updated.getId());
+        AuthUser authUser = authUserRepository.findOne(updated.getId());
 
-        if (lookup == null) {
+        if (authUser == null) {
             throw new AuthUserNotFoundException();
         }
 
-        try {
-            PropertyUtils.copyProperties(lookup, updated);
-        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-
-        }
-
-        getCurrentSession().save(lookup);
-        return updated;
+        BeanUtils.copyProperties(updated, authUser);
+        return authUserRepository.save(authUser);
     }
 
     @Transactional(rollbackFor = AuthUserNotFoundException.class)
-    public AuthUser copy(final AuthUser updated) {
+    @Override
+    public AuthUser copy(final AuthUser copied) {
 
-        AuthUser lookup = null;//new AuthUser();//(AuthUser) getCurrentSession().get(AuthUser.class, updated.getId());
+        AuthUser authUser = new AuthUser();
+        BeanUtils.copyProperties(copied, authUser);
+        authUser.setId(null);
+        //PropertyUtils.copyProperties(lookup, updated);
 
-        try {
-            PropertyUtils.copyProperties(lookup, updated);
-        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-
-        }
-
-        getCurrentSession().save(lookup);
-        return lookup;
+        return authUserRepository.save(authUser);
     }
 
     @Transactional
     @Override
-    public List<AuthUser> findAll(_SearchDTO pageable) {
-
-        Session session = getCurrentSession();
-
-        Query query = session.createQuery("FROM AuthUser m");
-        query.setFirstResult((pageable.getPage() - 1) * pageable.getPageSize());
-        query.setMaxResults(pageable.getPageSize());
-
-        List<AuthUser> lookups = (List<AuthUser>) query.list();
-        for (AuthUser lookup : lookups) {
-
-            //Hibernate.initialize(lookup.getHrTlShftDtlId());
-            //Hibernate.initialize(lookup.getPersonEduDtlList());
-        }
-
-        Long totRecs = (Long) session.createQuery("SELECT COUNT(m) FROM AuthUser m").uniqueResult();
-
-        pageable.setTotalPages((int) (totRecs / pageable.getPageSize() + 1));
-        pageable.setTotalRecs(totRecs);
-        return lookups; 
+    public Iterable<AuthUser> findAll(_SearchDTO pageable) {
+        return findAll();
     }
 
     @Transactional
     @Override
-    public List<AuthUser> search(_SearchDTO pageable) {
-
-        String searchTerm = pageable.getSearchTerm().toUpperCase();
-        Session session = getCurrentSession();
-
-        //String qu = "FROM AuthUser m WHERE 1=1 AND UPPER(m.title) LIKE UPPER(CONCAT('%',:search,'%'))";
-        String qu = "FROM AuthUser m WHERE 1=1 AND UPPER(CONCAT(m.remarks, m.title)) LIKE CONCAT('%',:search,'%')";
-
-        Query queryCount = session.createQuery("SELECT COUNT(m) " + qu);
-        queryCount.setParameter("search", searchTerm);
-        Long totRecs = (Long) queryCount.uniqueResult();
-
-        Query query = session.createQuery(qu);
-        query.setParameter("search", searchTerm);
-
-        query.setFirstResult((pageable.getPage() - 1) * pageable.getPageSize());
-        query.setMaxResults(pageable.getPageSize());
-
-        List<AuthUser> lookups = (List<AuthUser>) query.list();
-
-        for (AuthUser lookup : lookups) {
-
-            //Hibernate.initialize(lookup.getHrTlShftDtlId());
-            //Hibernate.initialize(lookup.getPersonEduDtlList());
-        }
-
-        pageable.setTotalPages((int) (totRecs / pageable.getPageSize() + 1));
-        pageable.setTotalRecs(totRecs);
-
-        return lookups;
+    public Iterable<AuthUser> search(_SearchDTO pageable) {
+        return findAll();
     }
 
     @Override
     public AuthUser findByUsername(String username) throws UsernameNotFoundException {
-        return authUserRepo.findByUsername(username);
+        return authUserRepository.findByUsername(username);
     }
 
     @Override
     public void deleteByUsername(String username) {
-        authUserRepo.deleteByUsername(username);
-
+        authUserRepository.deleteByUsername(username);
     }
 
     @Override

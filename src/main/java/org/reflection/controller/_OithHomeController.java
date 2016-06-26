@@ -9,6 +9,7 @@ import java.util.TreeSet;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.reflection.service.ProcServiceDef;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationTrustResolver;
 import org.springframework.security.core.Authentication;
@@ -32,6 +33,8 @@ public class _OithHomeController {
     private RequestMappingHandlerMapping requestMappingHandlerMapping;
     @Autowired
     private ProcService procService;
+    @Autowired
+    private ProcServiceDef procServiceDef;
 
     private final SortedSet<String> list = new TreeSet<>();
 
@@ -102,7 +105,7 @@ public class _OithHomeController {
     @PostConstruct
     public void init() {
 
-        procService.dummyUserData();
+        procServiceDef.dummyUserData();
 
         Map<RequestMappingInfo, HandlerMethod> handlerMethods
                 = this.requestMappingHandlerMapping.getHandlerMethods();
@@ -128,6 +131,6 @@ public class _OithHomeController {
                 //}
             }
         }
-        procService.fastMenuGen(list);
+        procServiceDef.fastMenuGen(list);
     }
 }

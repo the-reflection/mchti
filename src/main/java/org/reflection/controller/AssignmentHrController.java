@@ -25,11 +25,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping(value = "/assignmentHr")
+@SessionAttributes({"departments","designations"}) 
 public class AssignmentHrController extends _OithController {
 
     protected static final String MODEL = "assignmentHr";
@@ -54,31 +56,34 @@ public class AssignmentHrController extends _OithController {
 
 
 
-    private void commonGet(ModelMap model) {
-            List<Department> departments = departmentService.findAll();
-            model.addAttribute("departments", departments);
-            List<Designation> designations = designationService.findAll();
-            model.addAttribute("designations", designations);
- 
+    @ModelAttribute("departments")
+    public Iterable<Department> departments() {
+        return departmentService.findAll();
     }
-    
+    @ModelAttribute("designations")
+    public Iterable<Designation> designations() {
+        return designationService.findAll();
+    }
+ 
+
     private void commonPost(AssignmentHr currObject) {
         currObject.setEmployee(employeeService.findByCode(currObject.getEmployee().getCode()));
-        try {
-currObject.setDepartment(departmentService.findById(currObject.getDepartment().getId()));
+            try {
+                currObject.setDepartment(departmentService.findById(currObject.getDepartment().getId()));
             } catch (Exception e) {
-currObject.setDepartment(null);
-}        try {
-currObject.setDesignation(designationService.findById(currObject.getDesignation().getId()));
+                currObject.setDepartment(null);
+            }
+            try {
+                currObject.setDesignation(designationService.findById(currObject.getDesignation().getId()));
             } catch (Exception e) {
-currObject.setDesignation(null);
-}
+                currObject.setDesignation(null);
+            }
+
     }
-    
+
     @RequestMapping(value = "/create", method = RequestMethod.GET)
     public String create(ModelMap model) { 
         model.addAttribute(MODEL, new AssignmentHr());
-        commonGet(model); 
         return CREATE;
     }
 
@@ -87,7 +92,7 @@ currObject.setDesignation(null);
 
 
 
-        commonPost(currObject);
+    commonPost(currObject);
 
         if (!bindingResult.hasErrors()) {
             try {
@@ -98,7 +103,6 @@ currObject.setDesignation(null);
                 errorHandler(bindingResult, e);
             }
         } 
-        commonGet(model);
         return CREATE;
     }
 
@@ -112,7 +116,6 @@ currObject.setDesignation(null);
             return createRedirectViewPath(REQUEST_MAPPING_LIST);
         }
         model.addAttribute(MODEL, assignmentHr);
-        commonGet(model); 
         return EDIT;
     }
 
@@ -121,7 +124,7 @@ currObject.setDesignation(null);
 
 
 
-        commonPost(currObject);
+    commonPost(currObject);
 
         if (!bindingResult.hasErrors()){
             try {
@@ -132,7 +135,6 @@ currObject.setDesignation(null);
                 errorHandler(bindingResult, e);
             }
         }
-        commonGet(model); 
         return EDIT;
     }
     
@@ -146,7 +148,6 @@ currObject.setDesignation(null);
             return createRedirectViewPath(REQUEST_MAPPING_LIST);
         }
         model.addAttribute(MODEL, assignmentHr);
-        commonGet(model);
         return COPY;
     }
 
@@ -155,7 +156,7 @@ currObject.setDesignation(null);
 
 
 
-        commonPost(currObject);
+    commonPost(currObject);
 
         if (!bindingResult.hasErrors()) {
             try {
@@ -165,21 +166,20 @@ currObject.setDesignation(null);
             } catch (Exception e) {
                errorHandler(bindingResult, e);
             }
-        }
-        commonGet(model); 
+        } 
         return COPY;
     }
     
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.POST)
     public String search(@ModelAttribute(SEARCH_CRITERIA) _SearchDTO searchCriteria, ModelMap model) {
-        
+        /*
         String searchTerm = searchCriteria.getSearchTerm();
         List<AssignmentHr> assignmentHrs;
    
         if (searchTerm != null && !searchTerm.trim().isEmpty()) {
             assignmentHrs = assignmentHrService.search(searchCriteria);
         } else {
-            assignmentHrs = assignmentHrService.findAll();
+            assignmentHrs = assignmentHrService.findAll(searchCriteria);
         }
         model.addAttribute(MODELS, assignmentHrs);
         model.addAttribute(SEARCH_CRITERIA, searchCriteria);
@@ -189,16 +189,19 @@ currObject.setDesignation(null);
             pages.add(i);
         }
         model.addAttribute("pages", pages);
+        */
+        Iterable<AssignmentHr> assignmentHrs = assignmentHrService.findAll();
+        model.addAttribute(MODELS, assignmentHrs);
         return INDEX;
     }
 
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
     public String index(ModelMap model) {
-        _SearchDTO searchCriteria = new _SearchDTO();
+        /*_SearchDTO searchCriteria = new _SearchDTO();
         searchCriteria.setPage(1);
         searchCriteria.setPageSize(5);
         
-        List<AssignmentHr> assignmentHrs = assignmentHrService.findAll();
+        List<AssignmentHr> assignmentHrs = assignmentHrService.findAll(searchCriteria);
 
         model.addAttribute(MODELS, assignmentHrs);
         model.addAttribute(SEARCH_CRITERIA, searchCriteria);
@@ -208,6 +211,9 @@ currObject.setDesignation(null);
             pages.add(i);
         }
         model.addAttribute("pages", pages);
+        */
+        Iterable<AssignmentHr> assignmentHrs = assignmentHrService.findAll();
+        model.addAttribute(MODELS, assignmentHrs);
         return INDEX;
     }
 

@@ -1,7 +1,7 @@
 package org.reflection.exception;
 /**
  *
- * @author mbadiuzzaman
+ * @author reflection
  */
 public class ProcOutRosterNotFoundException extends ObjectNotFoundException {
 }

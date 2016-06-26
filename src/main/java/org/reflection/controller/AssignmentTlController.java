@@ -25,11 +25,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping(value = "/assignmentTl")
+@SessionAttributes({"shifts","rosters"}) 
 public class AssignmentTlController extends _OithController {
 
     protected static final String MODEL = "assignmentTl";
@@ -54,31 +56,34 @@ public class AssignmentTlController extends _OithController {
 
 
 
-    private void commonGet(ModelMap model) {
-            List<Shift> shifts = shiftService.findAll();
-            model.addAttribute("shifts", shifts);
-            List<Roster> rosters = rosterService.findAll();
-            model.addAttribute("rosters", rosters);
- 
+    @ModelAttribute("shifts")
+    public Iterable<Shift> shifts() {
+        return shiftService.findAll();
     }
-    
+    @ModelAttribute("rosters")
+    public Iterable<Roster> rosters() {
+        return rosterService.findAll();
+    }
+ 
+
     private void commonPost(AssignmentTl currObject) {
         currObject.setEmployee(employeeService.findByCode(currObject.getEmployee().getCode()));
-        try {
-currObject.setShift(shiftService.findById(currObject.getShift().getId()));
+            try {
+                currObject.setShift(shiftService.findById(currObject.getShift().getId()));
             } catch (Exception e) {
-currObject.setShift(null);
-}        try {
-currObject.setRoster(rosterService.findById(currObject.getRoster().getId()));
+                currObject.setShift(null);
+            }
+            try {
+                currObject.setRoster(rosterService.findById(currObject.getRoster().getId()));
             } catch (Exception e) {
-currObject.setRoster(null);
-}
+                currObject.setRoster(null);
+            }
+
     }
-    
+
     @RequestMapping(value = "/create", method = RequestMethod.GET)
     public String create(ModelMap model) { 
         model.addAttribute(MODEL, new AssignmentTl());
-        commonGet(model); 
         return CREATE;
     }
 
@@ -87,7 +92,7 @@ currObject.setRoster(null);
 
 
 
-        commonPost(currObject);
+    commonPost(currObject);
 
         if (!bindingResult.hasErrors()) {
             try {
@@ -98,7 +103,6 @@ currObject.setRoster(null);
                 errorHandler(bindingResult, e);
             }
         } 
-        commonGet(model);
         return CREATE;
     }
 
@@ -112,7 +116,6 @@ currObject.setRoster(null);
             return createRedirectViewPath(REQUEST_MAPPING_LIST);
         }
         model.addAttribute(MODEL, assignmentTl);
-        commonGet(model); 
         return EDIT;
     }
 
@@ -121,7 +124,7 @@ currObject.setRoster(null);
 
 
 
-        commonPost(currObject);
+    commonPost(currObject);
 
         if (!bindingResult.hasErrors()){
             try {
@@ -132,7 +135,6 @@ currObject.setRoster(null);
                 errorHandler(bindingResult, e);
             }
         }
-        commonGet(model); 
         return EDIT;
     }
     
@@ -146,7 +148,6 @@ currObject.setRoster(null);
             return createRedirectViewPath(REQUEST_MAPPING_LIST);
         }
         model.addAttribute(MODEL, assignmentTl);
-        commonGet(model);
         return COPY;
     }
 
@@ -155,7 +156,7 @@ currObject.setRoster(null);
 
 
 
-        commonPost(currObject);
+    commonPost(currObject);
 
         if (!bindingResult.hasErrors()) {
             try {
@@ -165,14 +166,13 @@ currObject.setRoster(null);
             } catch (Exception e) {
                errorHandler(bindingResult, e);
             }
-        }
-        commonGet(model); 
+        } 
         return COPY;
     }
     
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.POST)
     public String search(@ModelAttribute(SEARCH_CRITERIA) _SearchDTO searchCriteria, ModelMap model) {
-        
+        /*
         String searchTerm = searchCriteria.getSearchTerm();
         List<AssignmentTl> assignmentTls;
    
@@ -189,16 +189,19 @@ currObject.setRoster(null);
             pages.add(i);
         }
         model.addAttribute("pages", pages);
+        */
+        Iterable<AssignmentTl> assignmentTls = assignmentTlService.findAll();
+        model.addAttribute(MODELS, assignmentTls);
         return INDEX;
     }
 
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
     public String index(ModelMap model) {
-        _SearchDTO searchCriteria = new _SearchDTO();
+        /*_SearchDTO searchCriteria = new _SearchDTO();
         searchCriteria.setPage(1);
         searchCriteria.setPageSize(5);
         
-        List<AssignmentTl> assignmentTls = assignmentTlService.findAll();
+        List<AssignmentTl> assignmentTls = assignmentTlService.findAll(searchCriteria);
 
         model.addAttribute(MODELS, assignmentTls);
         model.addAttribute(SEARCH_CRITERIA, searchCriteria);
@@ -208,6 +211,9 @@ currObject.setRoster(null);
             pages.add(i);
         }
         model.addAttribute("pages", pages);
+        */
+        Iterable<AssignmentTl> assignmentTls = assignmentTlService.findAll();
+        model.addAttribute(MODELS, assignmentTls);
         return INDEX;
     }
 

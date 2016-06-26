@@ -11,7 +11,6 @@ public class AuthUserAuthQuestionPK implements Serializable {
 
     @ManyToOne
     private AuthUser authUser;
-
     @ManyToOne
     private AuthQuestion authQuestion;
 

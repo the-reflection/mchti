@@ -1,7 +1,7 @@
 package org.reflection.config;
 
-import javax.sql.DataSource;
 import org.reflection.service.AuthUserService;
+import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -51,22 +51,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginProcessingUrl("/login")
                 //.defaultSuccessUrl("/homeSecure", false)
                 .usernameParameter("username")
-                .passwordParameter("password").successHandler(authenticationSuccessHandler)
-                .and()
+                .passwordParameter("password")
+                .successHandler(authenticationSuccessHandler)
                 //.logout()
                 //.permitAll()
                 //.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).and()
+                .and()
                 .rememberMe().rememberMeParameter("rememberMe").tokenRepository(persistentTokenRepository()).tokenValiditySeconds(86400)
                 .and()
                 .csrf()
                 .and()
                 .exceptionHandling().accessDeniedPage("/accessDenied");
-
-//    http.rememberMe(). 
-//                key("rem-me-key").
-//                rememberMeParameter("remember-me-param").
-//                rememberMeCookieName("my-remember-me").
-//                tokenValiditySeconds(86400);
     }
 
     @Bean

@@ -1,5 +1,6 @@
 package org.reflection.model.hcm.proc;
 
+import com.oith.annotation.MacCareless;
 import org.reflection.model.hcm.enums.AttnMode;
 import java.io.Serializable;
 import java.util.Date;
@@ -12,6 +13,7 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.reflection.model.com.Employee;
 
+@MacCareless
 @Entity
 @Table(name = "PROC_OUT_ATTN_DAILY")
 //@Table(name = "PROC_OUT_ATTN_DAILY", uniqueConstraints = {

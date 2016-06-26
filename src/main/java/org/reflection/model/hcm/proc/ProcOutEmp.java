@@ -1,5 +1,6 @@
 package org.reflection.model.hcm.proc;
 
+import com.oith.annotation.MacCareless;
 import org.reflection.model.com.Employee;
 import org.reflection.model.com.Department;
 import org.reflection.model.hcm.enums.Day;
@@ -36,6 +37,7 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.reflection.model.hcm.cr.Designation;
 
+@MacCareless
 @Entity
 @Table(name = "PROC_OUT_EMP")
 @XmlRootElement

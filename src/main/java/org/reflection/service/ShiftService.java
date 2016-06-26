@@ -3,7 +3,6 @@ package org.reflection.service;
 import org.reflection.model.hcm.tl.Shift;
 import org.reflection.exception.ShiftNotFoundException;
 import org.reflection.dto._SearchDTO;
-import java.util.List;
 import java.math.BigInteger;
 
 public interface ShiftService {
@@ -20,9 +19,9 @@ public interface ShiftService {
     
     public Shift delete(BigInteger id) throws ShiftNotFoundException;
    
-    public List<Shift> search(_SearchDTO pageable);
+    public Iterable<Shift> search(_SearchDTO pageable);
     
-    public List<Shift> findAll(_SearchDTO pageable);
+    public Iterable<Shift> findAll(_SearchDTO pageable);
     
-    public List<Shift> findAll();
+    public Iterable<Shift> findAll();
 }

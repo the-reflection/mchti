@@ -1,5 +1,6 @@
 package org.reflection.model.hcm.proc;
 
+import com.oith.annotation.MacCareless;
 import org.reflection.model.com.Employee;
 import org.reflection.model.hcm.enums.DtAttnType;
 import org.reflection.model.hcm.tl.Shift;
@@ -19,6 +20,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+@MacCareless
 @Entity
 @Table(name = "PROC_OUT_ATTN_DT")
 @XmlRootElement

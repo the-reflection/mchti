@@ -1,92 +1,92 @@
-<page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<page language='java' contentType='text/html; charset=UTF-8' pageEncoding='UTF-8'%>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/fmt' prefix='fmt'%>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/functions' prefix='fn'%>
+<%@ taglib uri='http://tiles.apache.org/tags-tiles' prefix='tiles'%>
+<%@ taglib uri='http://www.springframework.org/tags' prefix='spring'%>
+<%@ taglib uri='http://www.springframework.org/tags/form' prefix='form'%>
 
-<tiles:insertDefinition name="main" >
+<tiles:insertDefinition name='main' >
 
-    <tiles:putAttribute name="body">
+    <tiles:putAttribute name='body'>
 
-        <div class="content-wrapper"><!-- Content Wrapper. Contains page content -->
-            <section class="content-header"><!-- Content Header (Page header) -->
-                <h1><spring:message code="default.button.list.label" text="List"/> Leave App</h1>
-                <ul class="top-links">
-                    <sec:access url="/leaveApp/create">
+        <div class='content-wrapper'><!-- Content Wrapper. Contains page content -->
+            <section class='content-header'><!-- Content Header (Page header) -->
+                <h1><spring:message code='default.button.list.label' text='List'/> Leave App</h1>
+                <ul class='top-links'>
+                    <sec:access url='/leaveApp/create'>
                         <li>
-                            <a href="${pageContext.request.contextPath}/leaveApp/create" class="btn btn-block btn-primary btn-xs"><i class="fa fa-plus-circle"></i> <spring:message code="default.button.create.label" text="New"/></a>
+                            <a href='${pageContext.request.contextPath}/leaveApp/create' class='btn btn-block btn-primary btn-xs'><i class='fa fa-plus-circle'></i> <spring:message code='default.button.create.label' text='New'/></a>
                         </li>
                     </sec:access>
                 </ul>
             </section><!-- /.content-header -->
 
-            <section class="content-messages">
-                <%--<jsp:include page="../layouts/_flashMessage.jsp"/>--%>
+            <section class='content-messages'>
+                <%--<jsp:include page='../layouts/_flashMessage.jsp'/>--%>
             </section><!-- /.flesh-message -->
 
-            <section class="content"><!-- Main content -->
-                <div class="box box-primary">   
-                    <div class="box-body" style="overflow-x: auto">
-                        <table class="dt-default table table-bordered table-striped table-hover table-condensed">
+            <section class='content'><!-- Main content -->
+                <div class='box box-primary'>   
+                    <div class='box-body' style='overflow-x: auto'>
+                        <table class='dt-default table table-bordered table-striped table-hover table-condensed'>
 
-                            <!--<table class="table table-bordered table-striped table-hover table-condensed dt-responsive display nowrap th-center">-->
+                            <!--<table class='table table-bordered table-striped table-hover table-condensed dt-responsive display nowrap th-center'>-->
                             <thead>
-                        <th class='center bold'><spring:message code="code" text="Code"/></th>
-                    <th class='center bold'><spring:message code="appDate" text="App Date"/></th>
-                    <th class='center bold'><spring:message code="employee" text="Employee"/></th>
-                    <th class='center bold'><spring:message code="leaveType" text="Leave Type"/></th>
-                    <th class='center bold'><spring:message code="startDate" text="Start Date"/></th>
-                    <th class='center bold'><spring:message code="endDate" text="End Date"/></th>
-                    <th class='center bold'><spring:message code="addressDuringLeave" text="Address During Leave"/></th>
-                    <th class='center bold'><spring:message code="contactNo" text="Contact No"/></th>
-                    <th class='center bold'><spring:message code="reasonForLeave" text="Reason For Leave"/></th>
+                        <th class='center bold'><spring:message code='code' text='Code'/></th>
+                    <th class='center bold'><spring:message code='appDate' text='App Date'/></th>
+                    <th class='center bold'><spring:message code='employee' text='Employee'/></th>
+                    <th class='center bold'><spring:message code='leaveType' text='Leave Type'/></th>
+                    <th class='center bold'><spring:message code='startDate' text='Start Date'/></th>
+                    <th class='center bold'><spring:message code='endDate' text='End Date'/></th>
+                    <th class='center bold'><spring:message code='addressDuringLeave' text='Address During Leave'/></th>
+                    <th class='center bold'><spring:message code='contactNo' text='Contact No'/></th>
+                    <th class='center bold'><spring:message code='reasonForLeave' text='Reason For Leave'/></th>
 
-    <th class='center bold'><spring:message code="default.button.action.label" text="Action"/></th> 
+    <th class='center bold'><spring:message code='default.button.action.label' text='Action'/></th> 
             </thead>
             <tbody>
-            <c:if test="${not empty leaveApps}">
-                <c:forEach items="${leaveApps}" var="leaveApp"  varStatus="loopStatus">
-                    <tr class="${loopStatus.index % 2 == 0 ? 'odd' : 'even'}">
-                        <td><c:out value="${leaveApp.code}"/></td>
-                        <td><fmt:formatDate value="${leaveApp.appDate}" type="date" pattern="dd/MM/yyyy"/></td>
-                        <td><c:out value="${leaveApp.employee!=null ? leaveApp.employee :'N/A'}"/></td>
-                        <td><c:out value="${leaveApp.leaveType}"/></td>
-                        <td><fmt:formatDate value="${leaveApp.startDate}" type="date" pattern="dd/MM/yyyy"/></td>
-                        <td><fmt:formatDate value="${leaveApp.endDate}" type="date" pattern="dd/MM/yyyy"/></td>
-                        <td><c:out value="${leaveApp.addressDuringLeave}"/></td>
-                        <td><c:out value="${leaveApp.contactNo}"/></td>
-                        <td><c:out value="${leaveApp.reasonForLeave}"/></td>
+            <c:if test='${not empty leaveApps}'>
+                <c:forEach items='${leaveApps}' var='leaveApp'  varStatus='loopStatus'>
+                    <tr class='${loopStatus.index % 2 == 0 ? 'odd' : 'even'}'>
+                        <td><c:out value='${leaveApp.code}'/></td>
+                        <td><fmt:formatDate value='${leaveApp.appDate}' type='date' pattern='dd/MM/yyyy'/></td>
+                        <td><c:out value='${leaveApp.employee!=null ? leaveApp.employee :"N/A"}'/></td>
+                        <td><c:out value='${leaveApp.leaveType}'/></td>
+                        <td><fmt:formatDate value='${leaveApp.startDate}' type='date' pattern='dd/MM/yyyy'/></td>
+                        <td><fmt:formatDate value='${leaveApp.endDate}' type='date' pattern='dd/MM/yyyy'/></td>
+                        <td><c:out value='${leaveApp.addressDuringLeave}'/></td>
+                        <td><c:out value='${leaveApp.contactNo}'/></td>
+                        <td><c:out value='${leaveApp.reasonForLeave}'/></td>
 
-                           <td class="center action">
-                            <ul class="top-links">
-                            <sec:access url="/leaveApp/show">
+                           <td class='center action'>
+                            <ul class='top-links'>
+                            <sec:access url='/leaveApp/show'>
                                 <li>
-                                <a class="btn btn-block btn-info btn-xs" href="${pageContext.request.contextPath}/leaveApp/show/${leaveApp.id}">
-                                    <i class="fa fa-info-circle"></i> <spring:message code="show.link.label"/>
+                                <a class='btn btn-block btn-info btn-xs' href='${pageContext.request.contextPath}/leaveApp/show/${leaveApp.id}'>
+                                    <i class='fa fa-info-circle'></i> <spring:message code='show.link.label'/>
                                 </a>
                                 </li>
                             </sec:access>
-                            <sec:access url="/leaveApp/edit">
+                            <sec:access url='/leaveApp/edit'>
                                 <li>
-                                <a class="btn btn-block btn-primary btn-xs" href="${pageContext.request.contextPath}/leaveApp/edit/${leaveApp.id}">
-                                    <i class="fa fa-edit"></i> <spring:message code="edit.link.label"/>
+                                <a class='btn btn-block btn-primary btn-xs' href='${pageContext.request.contextPath}/leaveApp/edit/${leaveApp.id}'>
+                                    <i class='fa fa-edit'></i> <spring:message code='edit.link.label'/>
                                 </a>
                                 </li>
                             </sec:access>
-                            <sec:access url="/leaveApp/copy">
+                            <sec:access url='/leaveApp/copy'>
                                 <li>
-                                <a class="btn btn-block btn-warning btn-xs" href="${pageContext.request.contextPath}/leaveApp/copy/${leaveApp.id}">
-                                    <i class="fa fa-clone" aria-hidden="true"></i> <spring:message code="default.button.copy.label"/>
+                                <a class='btn btn-block btn-warning btn-xs' href='${pageContext.request.contextPath}/leaveApp/copy/${leaveApp.id}'>
+                                    <i class='fa fa-clone' aria-hidden='true'></i> <spring:message code='default.button.copy.label'/>
                                 </a>
                                 </li>
                             </sec:access>
-                            <sec:access url="/leaveApp/delete">
+                            <sec:access url='/leaveApp/delete'>
                                 <li>
-                                <a class="btn btn-block btn-danger btn-xs" href="${pageContext.request.contextPath}/leaveApp/delete/${leaveApp.id}" onclick="return confirm('Are you sure to delete?');">
-                                    <i class="fa fa-remove"></i> <spring:message code="delete.link.label"/>
+                                <a class='btn btn-block btn-danger btn-xs' href='${pageContext.request.contextPath}/leaveApp/delete/${leaveApp.id}' onclick='return confirm('Are you sure to delete?');'>
+                                    <i class='fa fa-remove'></i> <spring:message code='delete.link.label'/>
                                 </a>
                                 </li>
                             </sec:access>
@@ -97,8 +97,8 @@
                     </c:if> 
                 </tbody>
             </table>
-            <div class="pagination">
-                <!--<g:paginate total="{testInstanceCount ?: 0}"/>-->
+            <div class='pagination'>
+                <!--<g:paginate total='{testInstanceCount ?: 0}'/>-->
             </div>
             </div><!-- /.box-body table-responsive no-padding -->
         </div><!-- /.box box-primary -->

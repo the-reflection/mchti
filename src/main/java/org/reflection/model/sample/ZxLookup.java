@@ -14,7 +14,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -28,13 +27,6 @@ public class ZxLookup implements Serializable {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.TABLE)
-    @Basic(optional = false)
-    //    @SequenceGenerator(name = "HIBERNATE_SEQUENCE", sequenceName = "HIBERNATE_SEQUENCE")
-    //    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "HIBERNATE_SEQUENCE")
-    //    @GeneratedValue(strategy = GenerationType.TABLE)
-    //    @GeneratedValue(strategy = GenerationType.AUTO)
-    //    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private BigInteger id;
 
     @Basic(optional = false)
@@ -50,7 +42,6 @@ public class ZxLookup implements Serializable {
     @NotNull
     @Size(min = 1, max = 100)
     @NotEmpty
-    @Pattern(regexp = "[A-Za-z ]*", message = "Must contain only letters and spaces")
     private String title;
     @Column(name = "TITLE_BNG", length = 500)
     private String titleBng;

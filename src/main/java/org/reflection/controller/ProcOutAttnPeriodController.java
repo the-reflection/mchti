@@ -23,11 +23,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping(value = "/procOutAttnPeriod")
+@SessionAttributes({"periods"}) 
 public class ProcOutAttnPeriodController extends _OithController {
 
     protected static final String MODEL = "procOutAttnPeriod";
@@ -50,25 +52,25 @@ public class ProcOutAttnPeriodController extends _OithController {
 
 
 
-    private void commonGet(ModelMap model) {
-            List<Period> periods = periodService.findAll();
-            model.addAttribute("periods", periods);
- 
+    @ModelAttribute("periods")
+    public Iterable<Period> periods() {
+        return periodService.findAll();
     }
-    
+ 
+
     private void commonPost(ProcOutAttnPeriod currObject) {
-        try {
-currObject.setPeriod(periodService.findById(currObject.getPeriod().getId()));
+            try {
+                currObject.setPeriod(periodService.findById(currObject.getPeriod().getId()));
             } catch (Exception e) {
-currObject.setPeriod(null);
-}        currObject.setEmployee(employeeService.findByCode(currObject.getEmployee().getCode()));
+                currObject.setPeriod(null);
+            }
+        currObject.setEmployee(employeeService.findByCode(currObject.getEmployee().getCode()));
 
     }
-    
+
     @RequestMapping(value = "/create", method = RequestMethod.GET)
     public String create(ModelMap model) { 
         model.addAttribute(MODEL, new ProcOutAttnPeriod());
-        commonGet(model); 
         return CREATE;
     }
 
@@ -77,7 +79,7 @@ currObject.setPeriod(null);
 
 
 
-        commonPost(currObject);
+    commonPost(currObject);
 
         if (!bindingResult.hasErrors()) {
             try {
@@ -88,7 +90,6 @@ currObject.setPeriod(null);
                 errorHandler(bindingResult, e);
             }
         } 
-        commonGet(model);
         return CREATE;
     }
 
@@ -102,7 +103,6 @@ currObject.setPeriod(null);
             return createRedirectViewPath(REQUEST_MAPPING_LIST);
         }
         model.addAttribute(MODEL, procOutAttnPeriod);
-        commonGet(model); 
         return EDIT;
     }
 
@@ -111,7 +111,7 @@ currObject.setPeriod(null);
 
 
 
-        commonPost(currObject);
+    commonPost(currObject);
 
         if (!bindingResult.hasErrors()){
             try {
@@ -122,7 +122,6 @@ currObject.setPeriod(null);
                 errorHandler(bindingResult, e);
             }
         }
-        commonGet(model); 
         return EDIT;
     }
     
@@ -136,7 +135,6 @@ currObject.setPeriod(null);
             return createRedirectViewPath(REQUEST_MAPPING_LIST);
         }
         model.addAttribute(MODEL, procOutAttnPeriod);
-        commonGet(model);
         return COPY;
     }
 
@@ -145,7 +143,7 @@ currObject.setPeriod(null);
 
 
 
-        commonPost(currObject);
+    commonPost(currObject);
 
         if (!bindingResult.hasErrors()) {
             try {
@@ -155,14 +153,13 @@ currObject.setPeriod(null);
             } catch (Exception e) {
                errorHandler(bindingResult, e);
             }
-        }
-        commonGet(model); 
+        } 
         return COPY;
     }
     
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.POST)
     public String search(@ModelAttribute(SEARCH_CRITERIA) _SearchDTO searchCriteria, ModelMap model) {
-        
+        /*
         String searchTerm = searchCriteria.getSearchTerm();
         List<ProcOutAttnPeriod> procOutAttnPeriods;
    
@@ -179,12 +176,15 @@ currObject.setPeriod(null);
             pages.add(i);
         }
         model.addAttribute("pages", pages);
+        */
+        Iterable<ProcOutAttnPeriod> procOutAttnPeriods = procOutAttnPeriodService.findAll();
+        model.addAttribute(MODELS, procOutAttnPeriods);
         return INDEX;
     }
 
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
     public String index(ModelMap model) {
-        _SearchDTO searchCriteria = new _SearchDTO();
+        /*_SearchDTO searchCriteria = new _SearchDTO();
         searchCriteria.setPage(1);
         searchCriteria.setPageSize(5);
         
@@ -198,6 +198,9 @@ currObject.setPeriod(null);
             pages.add(i);
         }
         model.addAttribute("pages", pages);
+        */
+        Iterable<ProcOutAttnPeriod> procOutAttnPeriods = procOutAttnPeriodService.findAll();
+        model.addAttribute(MODELS, procOutAttnPeriods);
         return INDEX;
     }
 

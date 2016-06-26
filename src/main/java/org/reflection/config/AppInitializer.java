@@ -14,7 +14,7 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return null;
+        return new Class<?>[]{WebAppConfig.class};
     }
 
     @Override
@@ -41,13 +41,11 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
                     substring(0, absolutePath.lastIndexOf(File.separator));
 
             System.out.println("Temp file path : " + tempFilePath);
-            
-            
+
 //            String property = "java.io.tmpdir";
 //
 //            String tempDir = System.getProperty(property);
 //            System.out.println("OS current temporary directory is " + tempDir);
-            
         } catch (Exception e) {
         }
 

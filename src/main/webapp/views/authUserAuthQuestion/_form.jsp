@@ -1,8 +1,8 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ page contentType='text/html; charset=UTF-8' language='java' %>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
+<%@ taglib prefix='spring' uri='http://www.springframework.org/tags' %>
+<%@ taglib prefix='form' uri='http://www.springframework.org/tags/form' %>
 
 <style>
     .error {
@@ -17,18 +17,18 @@
     }
 </style>
 
-<script type="text/javascript">
+<script type='text/javascript'>
 
 </script>
 
-<form:errors path="*" cssClass="errorblock" element="div" />
-<form:hidden path="id"/>
+<form:errors path='*' cssClass='errorblock' element='div' />
+<form:hidden path='id'/>
 <div>  
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="form-group">
-            <form:label class="required" path="answer"><spring:message code="answer" text="Answer"/></form:label>
-            <form:input class="form-control" path="answer" type="text" required="true" size="30" maxlength="30"/>
-            <form:errors path="answer" cssClass="error" element="div"/>
+    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+        <div class='form-group'>
+            <form:label class='required' path='answer'><spring:message code='answer' text='Answer'/></form:label>
+            <form:input class='form-control' path='answer' type='text' required='true' size='30' maxlength='30'/>
+            <form:errors path='answer' cssClass='error' element='div'/>
         </div>
     </div>
 

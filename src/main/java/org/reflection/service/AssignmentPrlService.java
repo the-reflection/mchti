@@ -3,7 +3,6 @@ package org.reflection.service;
 import org.reflection.model.hcm.prl.AssignmentPrl;
 import org.reflection.exception.AssignmentPrlNotFoundException;
 import org.reflection.dto._SearchDTO;
-import java.util.List;
 import java.math.BigInteger;
 
 public interface AssignmentPrlService {
@@ -20,9 +19,9 @@ public interface AssignmentPrlService {
     
     public AssignmentPrl delete(BigInteger id) throws AssignmentPrlNotFoundException;
    
-    public List<AssignmentPrl> search(_SearchDTO pageable);
+    public Iterable<AssignmentPrl> search(_SearchDTO pageable);
     
-    public List<AssignmentPrl> findAll(_SearchDTO pageable);
+    public Iterable<AssignmentPrl> findAll(_SearchDTO pageable);
     
-    public List<AssignmentPrl> findAll();
+    public Iterable<AssignmentPrl> findAll();
 }

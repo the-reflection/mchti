@@ -1,5 +1,6 @@
 package org.reflection.model.hcm.proc;
 
+import com.oith.annotation.MacCareless;
 import org.reflection.model.com.Employee;
 import org.reflection.model.hcm.tl.Period;
 import org.reflection.model.hcm.tl.Roster;
@@ -15,6 +16,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
+@MacCareless
 @Entity
 @Table(name = "PROC_OUT_ROSTER")
 @XmlRootElement

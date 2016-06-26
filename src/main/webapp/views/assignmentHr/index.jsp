@@ -1,88 +1,88 @@
-<page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<page language='java' contentType='text/html; charset=UTF-8' pageEncoding='UTF-8'%>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/fmt' prefix='fmt'%>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/functions' prefix='fn'%>
+<%@ taglib uri='http://tiles.apache.org/tags-tiles' prefix='tiles'%>
+<%@ taglib uri='http://www.springframework.org/tags' prefix='spring'%>
+<%@ taglib uri='http://www.springframework.org/tags/form' prefix='form'%>
 
-<tiles:insertDefinition name="main" >
+<tiles:insertDefinition name='main' >
 
-    <tiles:putAttribute name="body">
+    <tiles:putAttribute name='body'>
 
-        <div class="content-wrapper"><!-- Content Wrapper. Contains page content -->
-            <section class="content-header"><!-- Content Header (Page header) -->
-                <h1><spring:message code="default.button.list.label" text="List"/> Assignment Hr</h1>
-                <ul class="top-links">
-                    <sec:access url="/assignmentHr/create">
+        <div class='content-wrapper'><!-- Content Wrapper. Contains page content -->
+            <section class='content-header'><!-- Content Header (Page header) -->
+                <h1><spring:message code='default.button.list.label' text='List'/> Assignment Hr</h1>
+                <ul class='top-links'>
+                    <sec:access url='/assignmentHr/create'>
                         <li>
-                            <a href="${pageContext.request.contextPath}/assignmentHr/create" class="btn btn-block btn-primary btn-xs"><i class="fa fa-plus-circle"></i> <spring:message code="default.button.create.label" text="New"/></a>
+                            <a href='${pageContext.request.contextPath}/assignmentHr/create' class='btn btn-block btn-primary btn-xs'><i class='fa fa-plus-circle'></i> <spring:message code='default.button.create.label' text='New'/></a>
                         </li>
                     </sec:access>
                 </ul>
             </section><!-- /.content-header -->
 
-            <section class="content-messages">
-                <%--<jsp:include page="../layouts/_flashMessage.jsp"/>--%>
+            <section class='content-messages'>
+                <%--<jsp:include page='../layouts/_flashMessage.jsp'/>--%>
             </section><!-- /.flesh-message -->
 
-            <section class="content"><!-- Main content -->
-                <div class="box box-primary">   
-                    <div class="box-body" style="overflow-x: auto">
-                        <table class="dt-default table table-bordered table-striped table-hover table-condensed">
+            <section class='content'><!-- Main content -->
+                <div class='box box-primary'>   
+                    <div class='box-body' style='overflow-x: auto'>
+                        <table class='dt-default table table-bordered table-striped table-hover table-condensed'>
 
-                            <!--<table class="table table-bordered table-striped table-hover table-condensed dt-responsive display nowrap th-center">-->
+                            <!--<table class='table table-bordered table-striped table-hover table-condensed dt-responsive display nowrap th-center'>-->
                             <thead>
-                        <th class='center bold'><spring:message code="code" text="Code"/></th>
-                    <th class='center bold'><spring:message code="employee" text="Employee"/></th>
-                    <th class='center bold'><spring:message code="startDate" text="Start Date"/></th>
-                    <th class='center bold'><spring:message code="endDate" text="End Date"/></th>
-                    <th class='center bold'><spring:message code="department" text="Department"/></th>
-                    <th class='center bold'><spring:message code="designation" text="Designation"/></th>
-                    <th class='center bold'><spring:message code="empGroup" text="Emp Group"/></th>
+                        <th class='center bold'><spring:message code='code' text='Code'/></th>
+                    <th class='center bold'><spring:message code='employee' text='Employee'/></th>
+                    <th class='center bold'><spring:message code='startDate' text='Start Date'/></th>
+                    <th class='center bold'><spring:message code='endDate' text='End Date'/></th>
+                    <th class='center bold'><spring:message code='department' text='Department'/></th>
+                    <th class='center bold'><spring:message code='designation' text='Designation'/></th>
+                    <th class='center bold'><spring:message code='empGroup' text='Emp Group'/></th>
 
-    <th class='center bold'><spring:message code="default.button.action.label" text="Action"/></th> 
+    <th class='center bold'><spring:message code='default.button.action.label' text='Action'/></th> 
             </thead>
             <tbody>
-            <c:if test="${not empty assignmentHrs}">
-                <c:forEach items="${assignmentHrs}" var="assignmentHr"  varStatus="loopStatus">
-                    <tr class="${loopStatus.index % 2 == 0 ? 'odd' : 'even'}">
-                        <td><c:out value="${assignmentHr.code}"/></td>
-                        <td><c:out value="${assignmentHr.employee!=null ? assignmentHr.employee :'N/A'}"/></td>
-                        <td><fmt:formatDate value="${assignmentHr.startDate}" type="date" pattern="dd/MM/yyyy"/></td>
-                        <td><fmt:formatDate value="${assignmentHr.endDate}" type="date" pattern="dd/MM/yyyy"/></td>
-                        <td><c:out value="${assignmentHr.department}"/></td>
-                        <td><c:out value="${assignmentHr.designation}"/></td>
-                        <td><c:out value="${assignmentHr.empGroup}"/></td>
+            <c:if test='${not empty assignmentHrs}'>
+                <c:forEach items='${assignmentHrs}' var='assignmentHr'  varStatus='loopStatus'>
+                    <tr class='${loopStatus.index % 2 == 0 ? 'odd' : 'even'}'>
+                        <td><c:out value='${assignmentHr.code}'/></td>
+                        <td><c:out value='${assignmentHr.employee!=null ? assignmentHr.employee :"N/A"}'/></td>
+                        <td><fmt:formatDate value='${assignmentHr.startDate}' type='date' pattern='dd/MM/yyyy'/></td>
+                        <td><fmt:formatDate value='${assignmentHr.endDate}' type='date' pattern='dd/MM/yyyy'/></td>
+                        <td><c:out value='${assignmentHr.department}'/></td>
+                        <td><c:out value='${assignmentHr.designation}'/></td>
+                        <td><c:out value='${assignmentHr.empGroup}'/></td>
 
-                           <td class="center action">
-                            <ul class="top-links">
-                            <sec:access url="/assignmentHr/show">
+                           <td class='center action'>
+                            <ul class='top-links'>
+                            <sec:access url='/assignmentHr/show'>
                                 <li>
-                                <a class="btn btn-block btn-info btn-xs" href="${pageContext.request.contextPath}/assignmentHr/show/${assignmentHr.id}">
-                                    <i class="fa fa-info-circle"></i> <spring:message code="show.link.label"/>
+                                <a class='btn btn-block btn-info btn-xs' href='${pageContext.request.contextPath}/assignmentHr/show/${assignmentHr.id}'>
+                                    <i class='fa fa-info-circle'></i> <spring:message code='show.link.label'/>
                                 </a>
                                 </li>
                             </sec:access>
-                            <sec:access url="/assignmentHr/edit">
+                            <sec:access url='/assignmentHr/edit'>
                                 <li>
-                                <a class="btn btn-block btn-primary btn-xs" href="${pageContext.request.contextPath}/assignmentHr/edit/${assignmentHr.id}">
-                                    <i class="fa fa-edit"></i> <spring:message code="edit.link.label"/>
+                                <a class='btn btn-block btn-primary btn-xs' href='${pageContext.request.contextPath}/assignmentHr/edit/${assignmentHr.id}'>
+                                    <i class='fa fa-edit'></i> <spring:message code='edit.link.label'/>
                                 </a>
                                 </li>
                             </sec:access>
-                            <sec:access url="/assignmentHr/copy">
+                            <sec:access url='/assignmentHr/copy'>
                                 <li>
-                                <a class="btn btn-block btn-warning btn-xs" href="${pageContext.request.contextPath}/assignmentHr/copy/${assignmentHr.id}">
-                                    <i class="fa fa-clone" aria-hidden="true"></i> <spring:message code="default.button.copy.label"/>
+                                <a class='btn btn-block btn-warning btn-xs' href='${pageContext.request.contextPath}/assignmentHr/copy/${assignmentHr.id}'>
+                                    <i class='fa fa-clone' aria-hidden='true'></i> <spring:message code='default.button.copy.label'/>
                                 </a>
                                 </li>
                             </sec:access>
-                            <sec:access url="/assignmentHr/delete">
+                            <sec:access url='/assignmentHr/delete'>
                                 <li>
-                                <a class="btn btn-block btn-danger btn-xs" href="${pageContext.request.contextPath}/assignmentHr/delete/${assignmentHr.id}" onclick="return confirm('Are you sure to delete?');">
-                                    <i class="fa fa-remove"></i> <spring:message code="delete.link.label"/>
+                                <a class='btn btn-block btn-danger btn-xs' href='${pageContext.request.contextPath}/assignmentHr/delete/${assignmentHr.id}' onclick='return confirm('Are you sure to delete?');'>
+                                    <i class='fa fa-remove'></i> <spring:message code='delete.link.label'/>
                                 </a>
                                 </li>
                             </sec:access>
@@ -93,8 +93,8 @@
                     </c:if> 
                 </tbody>
             </table>
-            <div class="pagination">
-                <!--<g:paginate total="{testInstanceCount ?: 0}"/>-->
+            <div class='pagination'>
+                <!--<g:paginate total='{testInstanceCount ?: 0}'/>-->
             </div>
             </div><!-- /.box-body table-responsive no-padding -->
         </div><!-- /.box box-primary -->

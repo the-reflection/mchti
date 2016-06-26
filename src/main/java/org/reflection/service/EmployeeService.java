@@ -3,7 +3,6 @@ package org.reflection.service;
 import org.reflection.model.com.Employee;
 import org.reflection.exception.EmployeeNotFoundException;
 import org.reflection.dto._SearchDTO;
-import java.util.List;
 import java.math.BigInteger;
 
 public interface EmployeeService {
@@ -20,9 +19,9 @@ public interface EmployeeService {
     
     public Employee delete(BigInteger id) throws EmployeeNotFoundException;
    
-    public List<Employee> search(_SearchDTO pageable);
+    public Iterable<Employee> search(_SearchDTO pageable);
     
-    public List<Employee> findAll(_SearchDTO pageable);
+    public Iterable<Employee> findAll(_SearchDTO pageable);
     
-    public List<Employee> findAll();
+    public Iterable<Employee> findAll();
 }

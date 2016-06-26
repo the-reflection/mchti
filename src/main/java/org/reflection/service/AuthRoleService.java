@@ -3,7 +3,6 @@ package org.reflection.service;
 import org.reflection.model.security.AuthRole;
 import org.reflection.exception.AuthRoleNotFoundException;
 import org.reflection.dto._SearchDTO;
-import java.util.List;
 import java.math.BigInteger;
 
 public interface AuthRoleService {
@@ -20,9 +19,9 @@ public interface AuthRoleService {
     
     public AuthRole delete(BigInteger id) throws AuthRoleNotFoundException;
    
-    public List<AuthRole> search(_SearchDTO pageable);
+    public Iterable<AuthRole> search(_SearchDTO pageable);
     
-    public List<AuthRole> findAll(_SearchDTO pageable);
+    public Iterable<AuthRole> findAll(_SearchDTO pageable);
     
-    public List<AuthRole> findAll();
+    public Iterable<AuthRole> findAll();
 }

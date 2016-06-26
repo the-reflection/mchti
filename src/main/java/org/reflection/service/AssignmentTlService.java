@@ -3,7 +3,6 @@ package org.reflection.service;
 import org.reflection.model.hcm.tl.AssignmentTl;
 import org.reflection.exception.AssignmentTlNotFoundException;
 import org.reflection.dto._SearchDTO;
-import java.util.List;
 import java.math.BigInteger;
 
 public interface AssignmentTlService {
@@ -20,9 +19,9 @@ public interface AssignmentTlService {
     
     public AssignmentTl delete(BigInteger id) throws AssignmentTlNotFoundException;
    
-    public List<AssignmentTl> search(_SearchDTO pageable);
+    public Iterable<AssignmentTl> search(_SearchDTO pageable);
     
-    public List<AssignmentTl> findAll(_SearchDTO pageable);
+    public Iterable<AssignmentTl> findAll(_SearchDTO pageable);
     
-    public List<AssignmentTl> findAll();
+    public Iterable<AssignmentTl> findAll();
 }

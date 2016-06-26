@@ -3,7 +3,6 @@ package org.reflection.service;
 import org.reflection.model.hcm.cr.Designation;
 import org.reflection.exception.DesignationNotFoundException;
 import org.reflection.dto._SearchDTO;
-import java.util.List;
 import java.math.BigInteger;
 
 public interface DesignationService {
@@ -20,9 +19,9 @@ public interface DesignationService {
     
     public Designation delete(BigInteger id) throws DesignationNotFoundException;
    
-    public List<Designation> search(_SearchDTO pageable);
+    public Iterable<Designation> search(_SearchDTO pageable);
     
-    public List<Designation> findAll(_SearchDTO pageable);
+    public Iterable<Designation> findAll(_SearchDTO pageable);
     
-    public List<Designation> findAll();
+    public Iterable<Designation> findAll();
 }

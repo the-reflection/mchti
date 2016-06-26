@@ -21,11 +21,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping(value = "/assignmentPrl")
+ 
 public class AssignmentPrlController extends _OithController {
 
     protected static final String MODEL = "assignmentPrl";
@@ -46,19 +48,16 @@ public class AssignmentPrlController extends _OithController {
 
 
 
-    private void commonGet(ModelMap model) {
  
-    }
-    
+
     private void commonPost(AssignmentPrl currObject) {
         currObject.setEmployee(employeeService.findByCode(currObject.getEmployee().getCode()));
 
     }
-    
+
     @RequestMapping(value = "/create", method = RequestMethod.GET)
     public String create(ModelMap model) { 
         model.addAttribute(MODEL, new AssignmentPrl());
-        commonGet(model); 
         return CREATE;
     }
 
@@ -67,7 +66,7 @@ public class AssignmentPrlController extends _OithController {
 
 
 
-        commonPost(currObject);
+    commonPost(currObject);
 
         if (!bindingResult.hasErrors()) {
             try {
@@ -78,7 +77,6 @@ public class AssignmentPrlController extends _OithController {
                 errorHandler(bindingResult, e);
             }
         } 
-        commonGet(model);
         return CREATE;
     }
 
@@ -92,7 +90,6 @@ public class AssignmentPrlController extends _OithController {
             return createRedirectViewPath(REQUEST_MAPPING_LIST);
         }
         model.addAttribute(MODEL, assignmentPrl);
-        commonGet(model); 
         return EDIT;
     }
 
@@ -101,7 +98,7 @@ public class AssignmentPrlController extends _OithController {
 
 
 
-        commonPost(currObject);
+    commonPost(currObject);
 
         if (!bindingResult.hasErrors()){
             try {
@@ -112,7 +109,6 @@ public class AssignmentPrlController extends _OithController {
                 errorHandler(bindingResult, e);
             }
         }
-        commonGet(model); 
         return EDIT;
     }
     
@@ -126,7 +122,6 @@ public class AssignmentPrlController extends _OithController {
             return createRedirectViewPath(REQUEST_MAPPING_LIST);
         }
         model.addAttribute(MODEL, assignmentPrl);
-        commonGet(model);
         return COPY;
     }
 
@@ -135,7 +130,7 @@ public class AssignmentPrlController extends _OithController {
 
 
 
-        commonPost(currObject);
+    commonPost(currObject);
 
         if (!bindingResult.hasErrors()) {
             try {
@@ -145,14 +140,13 @@ public class AssignmentPrlController extends _OithController {
             } catch (Exception e) {
                errorHandler(bindingResult, e);
             }
-        }
-        commonGet(model); 
+        } 
         return COPY;
     }
     
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.POST)
     public String search(@ModelAttribute(SEARCH_CRITERIA) _SearchDTO searchCriteria, ModelMap model) {
-        
+        /*
         String searchTerm = searchCriteria.getSearchTerm();
         List<AssignmentPrl> assignmentPrls;
    
@@ -169,12 +163,15 @@ public class AssignmentPrlController extends _OithController {
             pages.add(i);
         }
         model.addAttribute("pages", pages);
+        */
+        Iterable<AssignmentPrl> assignmentPrls = assignmentPrlService.findAll();
+        model.addAttribute(MODELS, assignmentPrls);
         return INDEX;
     }
 
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
     public String index(ModelMap model) {
-        _SearchDTO searchCriteria = new _SearchDTO();
+        /*_SearchDTO searchCriteria = new _SearchDTO();
         searchCriteria.setPage(1);
         searchCriteria.setPageSize(5);
         
@@ -188,6 +185,9 @@ public class AssignmentPrlController extends _OithController {
             pages.add(i);
         }
         model.addAttribute("pages", pages);
+        */
+        Iterable<AssignmentPrl> assignmentPrls = assignmentPrlService.findAll();
+        model.addAttribute(MODELS, assignmentPrls);
         return INDEX;
     }
 

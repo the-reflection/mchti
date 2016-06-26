@@ -19,11 +19,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping(value = "/authQuestion")
+ 
 public class AuthQuestionController extends _OithController {
 
     protected static final String MODEL = "authQuestion";
@@ -42,18 +44,15 @@ public class AuthQuestionController extends _OithController {
 
 
 
-    private void commonGet(ModelMap model) {
  
-    }
-    
+
     private void commonPost(AuthQuestion currObject) {
 
     }
-    
+
     @RequestMapping(value = "/create", method = RequestMethod.GET)
     public String create(ModelMap model) { 
         model.addAttribute(MODEL, new AuthQuestion());
-        commonGet(model); 
         return CREATE;
     }
 
@@ -62,7 +61,7 @@ public class AuthQuestionController extends _OithController {
 
 
 
-        commonPost(currObject);
+    commonPost(currObject);
 
         if (!bindingResult.hasErrors()) {
             try {
@@ -73,7 +72,6 @@ public class AuthQuestionController extends _OithController {
                 errorHandler(bindingResult, e);
             }
         } 
-        commonGet(model);
         return CREATE;
     }
 
@@ -87,7 +85,6 @@ public class AuthQuestionController extends _OithController {
             return createRedirectViewPath(REQUEST_MAPPING_LIST);
         }
         model.addAttribute(MODEL, authQuestion);
-        commonGet(model); 
         return EDIT;
     }
 
@@ -96,7 +93,7 @@ public class AuthQuestionController extends _OithController {
 
 
 
-        commonPost(currObject);
+    commonPost(currObject);
 
         if (!bindingResult.hasErrors()){
             try {
@@ -107,7 +104,6 @@ public class AuthQuestionController extends _OithController {
                 errorHandler(bindingResult, e);
             }
         }
-        commonGet(model); 
         return EDIT;
     }
     
@@ -121,7 +117,6 @@ public class AuthQuestionController extends _OithController {
             return createRedirectViewPath(REQUEST_MAPPING_LIST);
         }
         model.addAttribute(MODEL, authQuestion);
-        commonGet(model);
         return COPY;
     }
 
@@ -130,7 +125,7 @@ public class AuthQuestionController extends _OithController {
 
 
 
-        commonPost(currObject);
+    commonPost(currObject);
 
         if (!bindingResult.hasErrors()) {
             try {
@@ -140,14 +135,13 @@ public class AuthQuestionController extends _OithController {
             } catch (Exception e) {
                errorHandler(bindingResult, e);
             }
-        }
-        commonGet(model); 
+        } 
         return COPY;
     }
     
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.POST)
     public String search(@ModelAttribute(SEARCH_CRITERIA) _SearchDTO searchCriteria, ModelMap model) {
-        
+        /*
         String searchTerm = searchCriteria.getSearchTerm();
         List<AuthQuestion> authQuestions;
    
@@ -164,12 +158,15 @@ public class AuthQuestionController extends _OithController {
             pages.add(i);
         }
         model.addAttribute("pages", pages);
+        */
+        Iterable<AuthQuestion> authQuestions = authQuestionService.findAll();
+        model.addAttribute(MODELS, authQuestions);
         return INDEX;
     }
 
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
     public String index(ModelMap model) {
-        _SearchDTO searchCriteria = new _SearchDTO();
+        /*_SearchDTO searchCriteria = new _SearchDTO();
         searchCriteria.setPage(1);
         searchCriteria.setPageSize(5);
         
@@ -183,6 +180,9 @@ public class AuthQuestionController extends _OithController {
             pages.add(i);
         }
         model.addAttribute("pages", pages);
+        */
+        Iterable<AuthQuestion> authQuestions = authQuestionService.findAll();
+        model.addAttribute(MODELS, authQuestions);
         return INDEX;
     }
 

@@ -4,7 +4,6 @@ import org.reflection.model.security.AuthUser;
 import org.reflection.dto._SearchDTO;
 import org.reflection.exception.AuthUserNotFoundException;
 import java.math.BigInteger;
-import java.util.List;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 public interface AuthUserService extends UserDetailsService{
@@ -23,11 +22,11 @@ public interface AuthUserService extends UserDetailsService{
 
     public void deleteByUsername(String username);
 
-    public List<AuthUser> search(_SearchDTO pageable);
+    public Iterable<AuthUser> search(_SearchDTO pageable);
 
-    public List<AuthUser> findAll(_SearchDTO pageable);
+    public Iterable<AuthUser> findAll(_SearchDTO pageable);
 
-    public List<AuthUser> findAll();
+    public Iterable<AuthUser> findAll();
 
     public boolean isUsernameUnique(BigInteger id, String username);
 }

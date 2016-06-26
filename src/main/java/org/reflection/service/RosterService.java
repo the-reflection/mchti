@@ -3,7 +3,6 @@ package org.reflection.service;
 import org.reflection.model.hcm.tl.Roster;
 import org.reflection.exception.RosterNotFoundException;
 import org.reflection.dto._SearchDTO;
-import java.util.List;
 import java.math.BigInteger;
 
 public interface RosterService {
@@ -20,9 +19,9 @@ public interface RosterService {
     
     public Roster delete(BigInteger id) throws RosterNotFoundException;
    
-    public List<Roster> search(_SearchDTO pageable);
+    public Iterable<Roster> search(_SearchDTO pageable);
     
-    public List<Roster> findAll(_SearchDTO pageable);
+    public Iterable<Roster> findAll(_SearchDTO pageable);
     
-    public List<Roster> findAll();
+    public Iterable<Roster> findAll();
 }
