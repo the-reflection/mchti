@@ -1,0 +1,9 @@
+package org.reflection.repositories;
+
+import org.reflection.model.com.Company;
+import java.math.BigInteger;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CompanyRepository extends JpaRepository<Company, BigInteger> {
+
+}
