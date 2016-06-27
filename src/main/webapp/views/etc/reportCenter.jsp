@@ -8,12 +8,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <tiles:insertDefinition name="main" >
-    <%--
-    <tiles:putAttribute name="header">
-        <title><spring:message code="report.reportCenter.label" text="Report Center"/></title>
-    </tiles:putAttribute>
-    --%>
-    
+
     <tiles:putAttribute name="body">
 
         <div class="content-wrapper"><!-- Content Wrapper. Contains page content -->
@@ -32,25 +27,86 @@
                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-group">
                                     <label><spring:message code="report.reportName.label" text="Report Name"/>:</label>
-                                    <form:select class="form-control" path="title" name="title" id="title">
-                                        <form:option value="tl_daily_all_emp_dt_status" label="Daily All Emp Dt Status"/>
-                                        <form:option value="tl_daily_all_emp_punch" label="Daily All Emp Punch"/>
-                                        <form:option value="tl_month_in_out_all_emp" label="Daily All Emp Punch (Cross Tab)"/>
-                                        <form:option value="tl_monthly_all_emp" label="Monthly All Emp"/>
+                                    <form:select class="form-control" path="title">
+                                        <form:options items="${admReports}" itemValue="id"/>
                                     </form:select>
+
+
                                 </div><!-- /.form-group -->
                             </div><!-- /.col-xs-12 col-sm-6 col-md-6 col-lg-6-->
 
                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-group">
-                                    <label><spring:message code="default.date.label" text="Date"/>:</label>
+                                    <label><spring:message code="default.date.labeln" text="Attendance Date"/>:</label>
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
                                         <input name="P_ATTN_DATE" class="form-control dtp-date"/>
                                     </div><!-- /.input group -->
                                 </div><!-- /.form-group -->
-                            </div><!-- /.col-xs-12 col-sm-6 col-md-6 col-lg-6-->
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label><spring:message code="default.date.labelx" text="From Date"/>:</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                                        <input name="P_FROM_DATE" class="form-control dtp-date"/>
+                                    </div><!-- /.input group -->
+                                </div><!-- /.form-group -->
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label><spring:message code="default.date.labelx" text="To Date"/>:</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                                        <input name="P_TO_DATE" class="form-control dtp-date"/>
+                                    </div><!-- /.input group -->
+                                </div><!-- /.form-group -->
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label><spring:message code="default.date.labelx" text="Month Date"/>:</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                                        <input name="P_MONTH_DATE" class="form-control dtp-date"/>
+                                    </div><!-- /.input group -->
+                                </div><!-- /.form-group -->
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label><spring:message code="default.date.labelx" text="Employee ID"/>:</label>
+                                    <div class="input-group">
+                                        <input name="P_EMPLOYEE_CODE" class="form-control"/>
+                                    </div><!-- /.input group -->
+                                </div><!-- /.form-group -->
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label><spring:message code="default.date.labelx" text="Department"/>:</label>
+                                    <div class="input-group">
 
+                                        <select class="form-control" name="P_DEPARTMENT_ID" id="P_DEPARTMENT_ID">
+                                            <option value='${null}' label='--- Select ---'/>
+                                            <c:forEach items='${departments}' var='department'  varStatus='loopStatus'>
+                                                <option value='${department.id}' >${department}</option>
+                                            </c:forEach>
+                                        </select>
+                                    </div><!-- /.input group -->
+                                </div><!-- /.form-group -->
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label><spring:message code="default.date.labelx" text="Designation"/>:</label>
+                                    <div class="input-group">
+
+                                        <select class="form-control" name="P_DESIGNATION_ID" id="P_DESIGNATION_ID">
+                                            <option value='${null}' >--- Select ---</option>
+                                            <c:forEach items='${designations}' var='designation'  varStatus='loopStatus'>
+                                                <option value='${designation.id}' >${designation}</option>
+                                            </c:forEach>
+                                        </select>
+                                    </div><!-- /.input group -->
+                                </div><!-- /.form-group -->
+                            </div>
                             <%--
                                 <c:url value="/reportCenter/all" var="downloadXls"/>
                                 <a href="${downloadXls}">Download All</a>
@@ -66,7 +122,7 @@
                         <div class="box-footer">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <!--<sec:access url="/reportCenter">-->
-                                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> <spring:message code="default.button.report.label" text="Report"/></button>
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-info"></i> <spring:message code="default.button.report.label" text="Report"/></button>
                                 <!--</sec:access>-->
                             </div>
                         </div><!-- /.box-footer -->
@@ -77,3 +133,4 @@
     </tiles:putAttribute>
 
 </tiles:insertDefinition>
+

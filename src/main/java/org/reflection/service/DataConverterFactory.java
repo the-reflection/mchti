@@ -36,7 +36,6 @@ public class DataConverterFactory implements ConverterFactory<String, AbstractEn
         public T convert(String text) {
             if (text != null && !text.isEmpty() && !text.equalsIgnoreCase("-1")) {//Ignore - to be determined later
                 try {
-
                     return (T) em.find(targetType, new BigInteger(text.trim()));
                 } catch (Exception e) {
                 }

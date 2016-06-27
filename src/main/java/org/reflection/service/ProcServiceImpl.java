@@ -17,6 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.TemporalType;
 import org.reflection.model.hcm.proc.ProcOutCalender;
 import org.reflection.model.hcm.proc.ProcOutRoster;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,16 +38,16 @@ public class ProcServiceImpl implements ProcService {
 
         EntityManager em = entityManagerFactory.createEntityManager();
 
-     List<Employee> emps =   em.createQuery("SELECT c FROM " + Employee.class.getName() + " c ", Employee.class).getResultList();
+        List<Employee> emps = em.createQuery("SELECT c FROM " + Employee.class.getName() + " c ", Employee.class).getResultList();
 
         for (Employee emp : emps) {
             ProcOutEmp pp;
             try {
-                
-               pp = (ProcOutEmp)   em.createQuery(
-    "SELECT m FROM " + ProcOutEmp.class.getName() + " m WHERE m.employee=:employee")
-    .setParameter("employee", emp)
-    .getResultList().get(0);
+
+                pp = (ProcOutEmp) em.createQuery(
+                        "SELECT m FROM " + ProcOutEmp.class.getName() + " m WHERE m.employee=:employee")
+                        .setParameter("employee", emp)
+                        .getResultList().get(0);
 
             } catch (Exception e) {
                 pp = null;
@@ -57,7 +58,7 @@ public class ProcServiceImpl implements ProcService {
             }
 
             //pp.setId(emp.getId());
-            pp.setEmployee( emp);
+            pp.setEmployee(emp);
             pp.setDob(emp.getDob());
             pp.setDoj(emp.getDoj());
             pp.setGender(emp.getGender());
@@ -68,8 +69,8 @@ public class ProcServiceImpl implements ProcService {
             pp.setFullName(emp.getFullName());
 
             try {
-                AssignmentHr assignmentHr = em.createQuery("FROM " + AssignmentHr.class.getName() + " m WHERE m.employee=:employee",AssignmentHr.class).setParameter("employee", emp).getSingleResult();//uniqueResult();//list().get(0);
-              //  AssignmentHr assignmentHr = (AssignmentHr) session.createQuery("FROM " + AssignmentHr.class.getName() + " m WHERE m.employee=:employee").setParameter("employee", emp).uniqueResult();//list().get(0);
+                AssignmentHr assignmentHr = em.createQuery("FROM " + AssignmentHr.class.getName() + " m WHERE m.employee=:employee", AssignmentHr.class).setParameter("employee", emp).getSingleResult();//uniqueResult();//list().get(0);
+                //  AssignmentHr assignmentHr = (AssignmentHr) session.createQuery("FROM " + AssignmentHr.class.getName() + " m WHERE m.employee=:employee").setParameter("employee", emp).uniqueResult();//list().get(0);
 
                 if (assignmentHr != null) {
 
@@ -82,7 +83,7 @@ public class ProcServiceImpl implements ProcService {
             }
 
             try {
-                AssignmentTl assignmentTl = em.createQuery("FROM " + AssignmentTl.class.getName() + " m WHERE m.employee=:employee",AssignmentTl.class).setParameter("employee", emp).getSingleResult();//list().get(0);
+                AssignmentTl assignmentTl = em.createQuery("FROM " + AssignmentTl.class.getName() + " m WHERE m.employee=:employee", AssignmentTl.class).setParameter("employee", emp).getSingleResult();//list().get(0);
 
                 if (assignmentTl != null) {
                     pp.setRoster(assignmentTl.getRoster());
@@ -93,7 +94,7 @@ public class ProcServiceImpl implements ProcService {
             } catch (Exception e) {
             }
 
-             EntityTransaction tx = null;
+            EntityTransaction tx = null;
             try {
                 tx = em.getTransaction();
                 tx.begin();
@@ -123,7 +124,7 @@ public class ProcServiceImpl implements ProcService {
 
         EntityManager em = entityManagerFactory.createEntityManager();
 
-        List<ProcOutEmp> emps = em.createQuery("FROM " + ProcOutEmp.class.getName() + " m",ProcOutEmp.class).getResultList();
+        List<ProcOutEmp> emps = em.createQuery("FROM " + ProcOutEmp.class.getName() + " m", ProcOutEmp.class).getResultList();
 
         for (ProcOutEmp poe : emps) {
 
@@ -133,9 +134,9 @@ public class ProcServiceImpl implements ProcService {
             Shift shift = poe.getShift();//(Shift) session.get(Shift.class, new BigInteger("1"));
 
             try {
-                ProcOutRoster hh =  em.createQuery("FROM " + ProcOutRoster.class.getName() + " m WHERE m.procOutRosterPK.employee=:employee AND TRUNC(m.procOutRosterPK.calcDate)=:calcDate",ProcOutRoster.class)
+                ProcOutRoster hh = em.createQuery("FROM " + ProcOutRoster.class.getName() + " m WHERE m.procOutRosterPK.employee=:employee AND TRUNC(m.procOutRosterPK.calcDate)=:calcDate", ProcOutRoster.class)
                         .setParameter("employee", poe.getEmployee())
-                        .setParameter("calcDate", attnDate)
+                        .setParameter("calcDate", attnDate, TemporalType.DATE)
                         .getSingleResult();
                 shift = hh.getShift();//(Shift) session.get(Shift.class, new BigInteger("1"));
 
@@ -155,7 +156,7 @@ public class ProcServiceImpl implements ProcService {
                                 + ProcOutAttnDaily.class.getName()
                                 + " m WHERE m.procOutAttnDailyPK.employee=:employee AND TRUNC(m.procOutAttnDailyPK.transactionTime)=:transactionTime")
                         .setParameter("employee", poe.getEmployee())
-                        .setParameter("transactionTime", attnDate)
+                        .setParameter("transactionTime", attnDate, TemporalType.DATE)
                         .getSingleResult();
                 inTime = (Date) ppx[0];
                 outTime = (Date) ppx[1];
@@ -166,7 +167,7 @@ public class ProcServiceImpl implements ProcService {
 
             DtAttnType dtAttnType;
             if (inTime == null && outTime == null) {
-                dtAttnType = getDtAttnTypeOnNoPunch(em,poe.getEmployee(), attnDate);// DtAttnType.ABSENT;
+                dtAttnType = getDtAttnTypeOnNoPunch(em, poe.getEmployee(), attnDate);// DtAttnType.ABSENT;
             } else if (punchCount == 1) {//inTime.equals(outTime)
                 dtAttnType = DtAttnType.UNDEFINED;
             } else {
@@ -176,9 +177,9 @@ public class ProcServiceImpl implements ProcService {
             ProcOutAttnDt pp;
             try {
                 pp = em
-                        .createQuery("FROM " + ProcOutAttnDt.class.getName() + " m WHERE m.employee=:employee AND m.attnDate=:attnDate",ProcOutAttnDt.class)
+                        .createQuery("FROM " + ProcOutAttnDt.class.getName() + " m WHERE m.employee=:employee AND m.attnDate=:attnDate", ProcOutAttnDt.class)
                         .setParameter("employee", poe.getEmployee())
-                        .setParameter("attnDate", attnDate)
+                        .setParameter("attnDate", attnDate, TemporalType.DATE)
                         .getSingleResult();
             } catch (Exception e) {
                 pp = null;
@@ -196,9 +197,7 @@ public class ProcServiceImpl implements ProcService {
             EntityTransaction tx = null;
             try {
                 tx = em.getTransaction();
-                tx .begin();
-                //ProcOutRoster dfd=new ProcOutRoster(poe.getEmployee(), attnDate);
-                //session.saveOrUpdate(dfd);
+                tx.begin();
                 em.merge(pp);
                 tx.commit();
             } catch (Exception e) {
@@ -214,9 +213,9 @@ public class ProcServiceImpl implements ProcService {
     private DtAttnType getDtAttnTypeOnNoPunch(EntityManager em, Employee employee, Date attnDate) {
 
         try {
-            ProcOutCalender pp =  em
-                    .createQuery("FROM " + ProcOutCalender.class.getName() + " m WHERE trunc(m.procOutCalenderPK.calDate)=:calDate",ProcOutCalender.class)
-                    .setParameter("calDate", attnDate)
+            ProcOutCalender pp = em
+                    .createQuery("FROM " + ProcOutCalender.class.getName() + " m WHERE trunc(m.procOutCalenderPK.calDate)=:calDate", ProcOutCalender.class)
+                    .setParameter("calDate", attnDate, TemporalType.DATE)
                     .getSingleResult();
 
             if (pp != null && pp.getIsApplicable() != null && Objects.equals(pp.getIsApplicable(), Boolean.TRUE)) {
@@ -227,10 +226,10 @@ public class ProcServiceImpl implements ProcService {
         }
 
         try {
-            List<LeaveApp> pp =  em
-                    .createQuery("FROM " + LeaveApp.class.getName() + " m WHERE m.employee=:employee AND :attnDate BETWEEN trunc(m.startDate) AND trunc(m.endDate)",LeaveApp.class)
+            List<LeaveApp> pp = em
+                    .createQuery("FROM " + LeaveApp.class.getName() + " m WHERE m.employee=:employee AND :attnDate BETWEEN trunc(m.startDate) AND trunc(m.endDate)", LeaveApp.class)
                     .setParameter("employee", employee)
-                    .setParameter("attnDate", attnDate)
+                    .setParameter("attnDate", attnDate, TemporalType.DATE)
                     .getResultList();
 
             if (pp != null && !pp.isEmpty()) {
@@ -275,6 +274,5 @@ public class ProcServiceImpl implements ProcService {
 
         return ret;
     }
-
 
 }
