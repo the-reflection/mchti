@@ -6,11 +6,11 @@ Insert into EMPLOYEE
    (3, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'Dr. Nazia Ahmed', 'FEMALE', '3', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
-   (ID, VERSION, DOB, FULL_NAME, GENDER, 
-    PIC_FILE, CODE, DOJ)
+   (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
+    FULL_NAME, GENDER, CODE, DOJ)
  Values
-   (1, 2, TO_DATE('01/01/1980 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'Dr. Ishrat Jahan', 'FEMALE', 
-    'e278d1e6-1752-4a6c-afb7-79f03d6b5d9f.jpg', '1', TO_DATE('04/09/2014 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
+   (1, 0, 'n/a', 'n/a', TO_DATE('01/01/1980 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
+    'Dr. Ishrat Jahan', 'FEMALE', '1', TO_DATE('04/09/2014 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
    (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
     FULL_NAME, GENDER, CODE, DOJ)
@@ -76,7 +76,7 @@ Insert into EMPLOYEE
     FULL_NAME, GENDER, CODE, DOJ)
  Values
    (13, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'Md. Abdur Based', 'MALE', '13', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
+    'Md. Abdul Based', 'MALE', '13', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
    (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
     FULL_NAME, GENDER, CODE, DOJ)
@@ -126,11 +126,11 @@ Insert into EMPLOYEE
    (21, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'Forida Akter', 'FEMALE', '21', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
-   (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
-    FULL_NAME, GENDER, CODE, DOJ)
+   (ID, VERSION, DOB, FULL_NAME, GENDER, 
+    CODE, DOJ)
  Values
-   (22, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'Hajaira Begum', 'FEMALE', '22', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
+   (22, 1, TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'Hajara Begum', 'FEMALE', 
+    '22', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
    (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
     FULL_NAME, GENDER, CODE, DOJ)
@@ -420,11 +420,11 @@ Insert into EMPLOYEE
    (71, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'Dr. Nazma Kamal', 'FEMALE', '71', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
-   (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
-    FULL_NAME, GENDER, CODE, DOJ)
+   (ID, VERSION, DOB, FULL_NAME, GENDER, 
+    CODE, DOJ)
  Values
-   (72, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'Sabita rani', 'FEMALE', '72', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
+   (72, 1, TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'Sabita Rani', 'FEMALE', 
+    '72', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
    (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
     FULL_NAME, GENDER, CODE, DOJ)
@@ -480,11 +480,11 @@ Insert into EMPLOYEE
    (81, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'Jayeda Begum', 'FEMALE', '81', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
-   (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
-    FULL_NAME, GENDER, CODE, DOJ)
+   (ID, VERSION, DOB, FULL_NAME, GENDER, 
+    CODE, DOJ)
  Values
-   (82, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'Hayatur Nesa', 'FEMALE', '82', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
+   (82, 1, TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'Hayatun Nesa', 'FEMALE', 
+    '82', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
    (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
     FULL_NAME, GENDER, CODE, DOJ)
@@ -492,11 +492,11 @@ Insert into EMPLOYEE
    (83, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'Md.Abdul Kashem', 'MALE', '83', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
-   (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
-    FULL_NAME, GENDER, CODE, DOJ)
+   (ID, VERSION, DOB, FULL_NAME, GENDER, 
+    CODE, DOJ)
  Values
-   (84, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'Md. Rahdul Islam', 'MALE', '84', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
+   (84, 1, TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'Md. Rahidul Islam', 'MALE', 
+    '84', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
    (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
     FULL_NAME, GENDER, CODE, DOJ)
@@ -732,11 +732,11 @@ Insert into EMPLOYEE
    (123, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'Sufia Khatun', 'FEMALE', '123', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
-   (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
-    FULL_NAME, GENDER, CODE, DOJ)
+   (ID, VERSION, DOB, FULL_NAME, GENDER, 
+    CODE, DOJ)
  Values
-   (124, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'Chauna rani', 'FEMALE', '124', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
+   (124, 1, TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'Chanu Rani', 'FEMALE', 
+    '124', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
    (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
     FULL_NAME, GENDER, CODE, DOJ)
@@ -816,11 +816,11 @@ Insert into EMPLOYEE
    (137, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'Mossamat Jahanra Begum', 'FEMALE', '137', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
-   (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
-    FULL_NAME, GENDER, CODE, DOJ)
+   (ID, VERSION, DOB, FULL_NAME, GENDER, 
+    CODE, DOJ)
  Values
-   (138, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'Orpona Rani Das', 'FEMALE', '138', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
+   (138, 1, TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'Aporna Rani Das', 'FEMALE', 
+    '138', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
    (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
     FULL_NAME, GENDER, CODE, DOJ)
@@ -1050,11 +1050,11 @@ Insert into EMPLOYEE
    (176, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'Bondhona Rani Das', 'FEMALE', '176', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
-   (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
-    FULL_NAME, GENDER, CODE, DOJ)
+   (ID, VERSION, DOB, FULL_NAME, GENDER, 
+    CODE, DOJ)
  Values
-   (177, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'Most. momtaz Begum', 'FEMALE', '177', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
+   (177, 1, TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'Most. Momtaz Begum', 'FEMALE', 
+    '177', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
    (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
     FULL_NAME, GENDER, CODE, DOJ)
@@ -1098,23 +1098,23 @@ Insert into EMPLOYEE
    (184, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'Koruna Rani Bissas', 'FEMALE', '184', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
-   (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
-    FULL_NAME, GENDER, CODE, DOJ)
+   (ID, VERSION, DOB, FULL_NAME, GENDER, 
+    CODE, DOJ)
  Values
-   (185, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'Missis Sufia Begum', 'FEMALE', '185', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
+   (185, 1, TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'Mst Sufia Begum', 'FEMALE', 
+    '185', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
-   (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
-    FULL_NAME, GENDER, CODE, DOJ)
+   (ID, VERSION, DOB, FULL_NAME, GENDER, 
+    CODE, DOJ)
  Values
-   (186, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'Misses Forida Easmin', 'FEMALE', '186', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
+   (186, 1, TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'Mst Forida Easmin', 'FEMALE', 
+    '186', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
-   (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
-    FULL_NAME, GENDER, CODE, DOJ)
+   (ID, VERSION, DOB, FULL_NAME, GENDER, 
+    CODE, DOJ)
  Values
-   (187, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'Misses Jahanara Begum', 'FEMALE', '187', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
+   (187, 1, TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'Mrs Jahanara Begum', 'FEMALE', 
+    '187', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
    (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
     FULL_NAME, GENDER, CODE, DOJ)
@@ -1284,11 +1284,11 @@ Insert into EMPLOYEE
    (215, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'Dr. Md. Rashidul Hoq', 'MALE', '215', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
-   (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
-    FULL_NAME, GENDER, CODE, DOJ)
+   (ID, VERSION, DOB, FULL_NAME, GENDER, 
+    CODE, DOJ)
  Values
-   (216, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'Dr. Khodiya Parvin', 'FEMALE', '216', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
+   (216, 1, TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'Dr. Khodeza Parvin', 'FEMALE', 
+    '216', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
    (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
     FULL_NAME, GENDER, CODE, DOJ)
@@ -1302,11 +1302,11 @@ Insert into EMPLOYEE
    (218, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'Dr. Quamrul Hasan', 'MALE', '218', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
-   (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
-    FULL_NAME, GENDER, CODE, DOJ)
+   (ID, VERSION, DOB, FULL_NAME, GENDER, 
+    CODE, DOJ)
  Values
-   (219, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'Dr. Halim Khanom', 'FEMALE', '219', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
+   (219, 1, TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'Dr. Halima Khanom', 'FEMALE', 
+    '219', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
    (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
     FULL_NAME, GENDER, CODE, DOJ)
@@ -1320,11 +1320,11 @@ Insert into EMPLOYEE
    (221, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'Dr. Shamim Akhtar', 'FEMALE', '221', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
-   (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
-    FULL_NAME, GENDER, CODE, DOJ)
+   (ID, VERSION, DOB, FULL_NAME, GENDER, 
+    CODE, DOJ)
  Values
-   (222, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'Mahmuda Khanem', 'FEMALE', '222', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
+   (222, 1, TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'Mahmuda Khanam', 'FEMALE', 
+    '222', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
    (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
     FULL_NAME, GENDER, CODE, DOJ)
@@ -1350,11 +1350,11 @@ Insert into EMPLOYEE
    (226, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'Dr.Md. Lutfur Kabir Khan', 'MALE', '226', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
-   (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
-    FULL_NAME, GENDER, CODE, DOJ)
+   (ID, VERSION, DOB, FULL_NAME, GENDER, 
+    CODE, DOJ)
  Values
-   (227, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'Md.Md.Lutful Kabir Khan', 'MALE', '227', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
+   (227, 1, TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'Dr.Md.Lutful Kabir Khan', 'MALE', 
+    '227', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
    (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
     FULL_NAME, GENDER, CODE, DOJ)
@@ -1374,15 +1374,9 @@ Insert into EMPLOYEE
    (30, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'Samsuddin Ahmed', 'MALE', '30', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 Insert into EMPLOYEE
-   (ID, VERSION, DOB, EMAIL, FULL_NAME, 
-    GENDER, CODE, DOJ)
+   (ID, VERSION, LINE_ONE, LINE_TWO, DOB, 
+    FULL_NAME, GENDER, CODE, DOJ)
  Values
-   (57273, 0, TO_DATE('12/28/1990 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'fdsfsd@hh.com', 'gdfgdfg', 
-    'FEMALE', 'ff', TO_DATE('04/09/2013 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
-Insert into EMPLOYEE
-   (ID, VERSION, DOB, EMAIL, FULL_NAME, 
-    GENDER, PIC_FILE, CODE, DOJ)
- Values
-   (57274, 0, TO_DATE('06/01/2010 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'manikmonirs@gmail.com', 'Mohammad Badiuzzaman Manik55', 
-    'MALE', '61c373a1-275e-4d93-8e43-407f004fd7a4.jpg', '5345', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
+   (57273, 0, 'n/a', 'n/a', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
+    'Kaniza Ferdous', 'FEMALE', '230', TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
 COMMIT;

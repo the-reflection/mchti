@@ -10,13 +10,15 @@ Insert into PROC_OUT_EMP
     3, 11, 26, 3, 1, 
     1);
 Insert into PROC_OUT_EMP
-   (CODE, DOB, DOJ, EMP_GROUP, FULL_NAME, 
-    GENDER, IS_OVERTIME, PIC_FILE, WEEKEND_SHIFT_OFF_DAY, VERSION, 
-    DEPARTMENT_ID, DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, SHIFT_ID)
+   (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
+    EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
+    VERSION, DEPARTMENT_ID, DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, 
+    SHIFT_ID)
  Values
-   ('1', TO_DATE('01/01/1980 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('04/09/2014 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'ACTIVE', 'Dr. Ishrat Jahan', 
-    'FEMALE', 0, 'e278d1e6-1752-4a6c-afb7-79f03d6b5d9f.jpg', 'SUNDAY', 5, 
-    27, 59, 1, 1, 1);
+   ('n/a', 'n/a', '1', TO_DATE('01/01/1980 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('04/09/2014 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
+    'ACTIVE', 'Dr. Ishrat Jahan', 'FEMALE', 0, 'SUNDAY', 
+    4, 27, 59, 1, 1, 
+    1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -108,15 +110,13 @@ Insert into PROC_OUT_EMP
     2, 1, 9, 21, 1, 
     1);
 Insert into PROC_OUT_EMP
-   (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
-    EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
-    VERSION, DEPARTMENT_ID, DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, 
-    SHIFT_ID)
+   (CODE, DOB, DOJ, EMP_GROUP, FULL_NAME, 
+    GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, VERSION, DEPARTMENT_ID, 
+    DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, SHIFT_ID)
  Values
-   ('n/a', 'n/a', '22', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'ACTIVE', 'Hajaira Begum', 'FEMALE', 0, 'SUNDAY', 
-    3, 12, 9, 22, 1, 
-    1);
+   ('22', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'ACTIVE', 'Hajara Begum', 
+    'FEMALE', 0, 'SUNDAY', 4, 1, 
+    3, 22, 1, 1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -125,16 +125,18 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '23', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Putul Rani', 'FEMALE', 0, 'SUNDAY', 
-    3, 12, 55, 23, 1, 
+    4, 23, 55, 23, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
-    VERSION, DEPARTMENT_ID, EMPLOYEE_ID, ROSTER_ID, SHIFT_ID)
+    VERSION, DEPARTMENT_ID, DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, 
+    SHIFT_ID)
  Values
    ('n/a', 'n/a', '24', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Hamida Begum', 'FEMALE', 0, 'SUNDAY', 
-    3, 12, 24, 1, 1);
+    4, 1, 3, 24, 1, 
+    1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -143,7 +145,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '25', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Rehena Akter', 'FEMALE', 0, 'SUNDAY', 
-    3, 12, 16, 25, 1, 
+    4, 119, 17, 25, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -163,7 +165,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '27', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Fahima Haque', 'FEMALE', 0, 'SUNDAY', 
-    3, 12, 47, 27, 1, 
+    4, 21, 47, 27, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -173,7 +175,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '28', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Most. Kohinur Khatun', 'FEMALE', 0, 'SUNDAY', 
-    3, 12, 52, 28, 1, 
+    4, 23, 52, 28, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -193,7 +195,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '31', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Md. Anower Hossain', 'MALE', 0, 'SUNDAY', 
-    4, 4, 8, 31, 1, 
+    5, 18, 40, 31, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -203,7 +205,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '32', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Shahana Parvin', 'FEMALE', 0, 'SUNDAY', 
-    3, 12, 54, 32, 1, 
+    4, 23, 54, 32, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -263,8 +265,8 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '38', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Amesh Chakma', 'MALE', 0, 'SUNDAY', 
-    3, 5, 11, 38, 1, 
-    1);
+    4, 5, 11, 38, 1, 
+    2);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -273,7 +275,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '39', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Jomila Khatun', 'FEMALE', 0, 'SUNDAY', 
-    3, 12, 3, 39, 1, 
+    4, 1, 3, 39, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -283,7 +285,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '40', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Bilkis Khanom', 'FEMALE', 0, 'SUNDAY', 
-    3, 12, 17, 40, 1, 
+    4, 117, 16, 40, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -303,7 +305,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '42', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Md Shirajul Islam', 'MALE', 0, 'SUNDAY', 
-    3, 12, 42, 42, 1, 
+    4, 19, 42, 42, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -313,7 +315,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '43', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Amal Krishno Haldar', 'MALE', 0, 'SUNDAY', 
-    3, 12, 30, 43, 1, 
+    4, 118, 30, 43, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -323,7 +325,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '44', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Shahida Akter', 'FEMALE', 0, 'SUNDAY', 
-    3, 12, 17, 44, 1, 
+    4, 117, 16, 44, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -333,7 +335,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '45', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Md Noor Hossain', 'MALE', 0, 'SUNDAY', 
-    3, 12, 42, 45, 1, 
+    4, 19, 42, 45, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -353,7 +355,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '47', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Maya Rani Das', 'FEMALE', 0, 'SUNDAY', 
-    3, 22, 51, 47, 1, 
+    4, 23, 54, 47, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -363,8 +365,8 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '48', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Md. Abdur Jabber', 'MALE', 0, 'SUNDAY', 
-    3, 9, 22, 48, 1, 
-    1);
+    4, 9, 22, 48, 1, 
+    2);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -413,7 +415,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '53', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Hosneara Haque', 'FEMALE', 0, 'SUNDAY', 
-    3, 12, 3, 53, 1, 
+    4, 1, 3, 53, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -503,8 +505,8 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '62', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Syeda Taslima Begum', 'MALE', 0, 'SUNDAY', 
-    3, 15, 34, 62, 1, 
-    1);
+    4, 15, 34, 62, 1, 
+    2);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -563,7 +565,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '68', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Aleya Ferdousi', 'FEMALE', 0, 'SUNDAY', 
-    4, 4, 21, 68, 1, 
+    3, 15, 34, 68, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -573,7 +575,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '69', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Sultana Ferdous', 'FEMALE', 0, 'SUNDAY', 
-    4, 1, 1, 69, 1, 
+    3, 15, 34, 69, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -583,8 +585,8 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '70', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Tahmina Parveen', 'FEMALE', 0, 'SUNDAY', 
-    3, 15, 34, 70, 1, 
-    1);
+    4, 15, 34, 70, 1, 
+    3);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -596,15 +598,13 @@ Insert into PROC_OUT_EMP
     3, 15, 34, 71, 1, 
     1);
 Insert into PROC_OUT_EMP
-   (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
-    EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
-    VERSION, DEPARTMENT_ID, DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, 
-    SHIFT_ID)
+   (CODE, DOB, DOJ, EMP_GROUP, FULL_NAME, 
+    GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, VERSION, DEPARTMENT_ID, 
+    DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, SHIFT_ID)
  Values
-   ('n/a', 'n/a', '72', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'ACTIVE', 'Sabita rani', 'FEMALE', 0, 'SUNDAY', 
-    2, 1, 3, 72, 1, 
-    1);
+   ('72', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'ACTIVE', 'Sabita Rani', 
+    'FEMALE', 0, 'SUNDAY', 3, 1, 
+    3, 72, 1, 1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -613,8 +613,8 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '73', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Nazrina Begum', 'FEMALE', 0, 'SUNDAY', 
-    3, 15, 34, 73, 1, 
-    1);
+    4, 15, 34, 73, 1, 
+    2);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -623,8 +623,8 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '74', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Salma Akter', 'FEMALE', 0, 'SUNDAY', 
-    3, 28, 34, 74, 1, 
-    1);
+    5, 15, 34, 74, 1, 
+    2);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -633,8 +633,8 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '75', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Shaida Akter', 'FEMALE', 0, 'SUNDAY', 
-    3, 28, 34, 75, 1, 
-    1);
+    5, 15, 34, 75, 1, 
+    2);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -643,7 +643,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '76', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Akhi Moni', 'FEMALE', 0, 'SUNDAY', 
-    3, 12, 1, 76, 1, 
+    4, 120, 1, 76, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -653,7 +653,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '78', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Masuda Parvin', 'FEMALE', 0, 'SUNDAY', 
-    3, 12, 37, 78, 1, 
+    4, 121, 37, 78, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -663,8 +663,8 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '79', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Shilpy Akter', 'FEMALE', 0, 'SUNDAY', 
-    2, 1, 3, 79, 1, 
-    1);
+    3, 1, 3, 79, 1, 
+    2);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -686,25 +686,21 @@ Insert into PROC_OUT_EMP
     3, 5, 11, 81, 1, 
     1);
 Insert into PROC_OUT_EMP
-   (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
-    EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
-    VERSION, DEPARTMENT_ID, DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, 
-    SHIFT_ID)
+   (CODE, DOB, DOJ, EMP_GROUP, FULL_NAME, 
+    GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, VERSION, DEPARTMENT_ID, 
+    DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, SHIFT_ID)
  Values
-   ('n/a', 'n/a', '82', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'ACTIVE', 'Hayatur Nesa', 'FEMALE', 0, 'SUNDAY', 
-    2, 1, 3, 82, 1, 
-    1);
+   ('82', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'ACTIVE', 'Hayatun Nesa', 
+    'FEMALE', 0, 'SUNDAY', 3, 1, 
+    3, 82, 1, 1);
 Insert into PROC_OUT_EMP
-   (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
-    EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
-    VERSION, DEPARTMENT_ID, DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, 
-    SHIFT_ID)
+   (CODE, DOB, DOJ, EMP_GROUP, FULL_NAME, 
+    GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, VERSION, DEPARTMENT_ID, 
+    DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, SHIFT_ID)
  Values
-   ('n/a', 'n/a', '84', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'ACTIVE', 'Md. Rahdul Islam', 'MALE', 0, 'SUNDAY', 
-    3, 12, 2, 84, 1, 
-    1);
+   ('84', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'ACTIVE', 'Md. Rahidul Islam', 
+    'MALE', 0, 'SUNDAY', 4, 122, 
+    2, 84, 1, 1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -753,7 +749,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '90', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Kaniz Fatema Begum', 'FEMALE', 0, 'SUNDAY', 
-    3, 12, 15, 90, 1, 
+    4, 124, 15, 90, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -763,7 +759,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '91', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Shahana Akter Rina', 'FEMALE', 0, 'SUNDAY', 
-    3, 12, 16, 91, 1, 
+    4, 117, 16, 91, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -773,7 +769,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '92', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Beauty Khanom', 'FEMALE', 0, 'SUNDAY', 
-    3, 8, 19, 92, 1, 
+    4, 125, 19, 92, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -842,9 +838,9 @@ Insert into PROC_OUT_EMP
     SHIFT_ID)
  Values
    ('n/a', 'n/a', '100', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'TERMINATED', 'Mariam Kata', 'FEMALE', 0, 'SUNDAY', 
-    4, 17, 37, 100, 1, 
-    1);
+    'ACTIVE', 'Mariam Kata', 'FEMALE', 0, 'SUNDAY', 
+    5, 23, 51, 100, 1, 
+    2);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -873,7 +869,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '103', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Rashida Akter', 'FEMALE', 0, 'SUNDAY', 
-    3, 12, 16, 103, 1, 
+    4, 117, 16, 103, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -913,7 +909,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '107', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Most. Hosne Ara', 'FEMALE', 0, 'SUNDAY', 
-    3, 12, 24, 107, 1, 
+    4, 127, 24, 107, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -923,7 +919,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '108', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Monju Ara Khanom', 'FEMALE', 0, 'SUNDAY', 
-    3, 12, 12, 108, 1, 
+    4, 128, 12, 108, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -933,8 +929,8 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '109', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Ratna Majumder', 'FEMALE', 0, 'SUNDAY', 
-    3, 28, 13, 109, 1, 
-    1);
+    5, 11, 25, 109, 1, 
+    2);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -943,8 +939,8 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '110', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Tandra Rani Shadhu', 'FEMALE', 0, 'SUNDAY', 
-    3, 28, 5, 110, 1, 
-    1);
+    5, 15, 34, 110, 1, 
+    2);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -953,7 +949,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '111', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Afroza Khanom', 'FEMALE', 0, 'SUNDAY', 
-    3, 12, 49, 111, 1, 
+    5, 23, 54, 111, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -963,7 +959,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '112', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Dr. Nasima Begum', 'FEMALE', 0, 'SUNDAY', 
-    3, 28, 26, 112, 1, 
+    4, 11, 26, 112, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -973,7 +969,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '113', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Delower Hossain', 'FEMALE', 0, 'SUNDAY', 
-    3, 12, 48, 113, 1, 
+    4, 130, 48, 113, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -993,7 +989,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '115', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Nasrin Begum', 'FEMALE', 0, 'SUNDAY', 
-    3, 28, 34, 115, 1, 
+    4, 15, 34, 115, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -1013,8 +1009,8 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '117', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Mst Rabeya Khatun', 'FEMALE', 0, 'SUNDAY', 
-    3, 28, 34, 117, 1, 
-    1);
+    5, 15, 34, 117, 1, 
+    2);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -1033,8 +1029,8 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '119', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Shah Tahmina Islam', 'FEMALE', 0, 'SUNDAY', 
-    3, 28, 34, 119, 1, 
-    1);
+    5, 15, 34, 119, 1, 
+    2);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -1053,7 +1049,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '121', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Md. Ataur Rahman', 'MALE', 0, 'SUNDAY', 
-    3, 12, 40, 121, 1, 
+    4, 19, 43, 121, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -1076,15 +1072,13 @@ Insert into PROC_OUT_EMP
     3, 8, 21, 123, 1, 
     1);
 Insert into PROC_OUT_EMP
-   (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
-    EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
-    VERSION, DEPARTMENT_ID, DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, 
-    SHIFT_ID)
+   (CODE, DOB, DOJ, EMP_GROUP, FULL_NAME, 
+    GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, VERSION, DEPARTMENT_ID, 
+    DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, SHIFT_ID)
  Values
-   ('n/a', 'n/a', '124', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'ACTIVE', 'Chauna rani', 'FEMALE', 0, 'SUNDAY', 
-    3, 12, 50, 124, 1, 
-    1);
+   ('124', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'ACTIVE', 'Chanu Rani', 
+    'FEMALE', 0, 'SUNDAY', 4, 23, 
+    52, 124, 1, 1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -1163,7 +1157,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '132', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Md. Murad Hossain', 'MALE', 0, 'SUNDAY', 
-    3, 28, 31, 132, 1, 
+    4, 118, 31, 132, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -1173,7 +1167,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '133', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Pervin Akther', 'FEMALE', 0, 'SUNDAY', 
-    3, 12, 36, 133, 1, 
+    4, 13, 36, 133, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -1206,15 +1200,13 @@ Insert into PROC_OUT_EMP
     3, 23, 51, 137, 1, 
     1);
 Insert into PROC_OUT_EMP
-   (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
-    EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
-    VERSION, DEPARTMENT_ID, DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, 
-    SHIFT_ID)
+   (CODE, DOB, DOJ, EMP_GROUP, FULL_NAME, 
+    GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, VERSION, DEPARTMENT_ID, 
+    DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, SHIFT_ID)
  Values
-   ('n/a', 'n/a', '138', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'ACTIVE', 'Orpona Rani Das', 'FEMALE', 0, 'SUNDAY', 
-    3, 8, 19, 138, 1, 
-    1);
+   ('138', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'ACTIVE', 'Aporna Rani Das', 
+    'FEMALE', 0, 'SUNDAY', 4, 8, 
+    19, 138, 1, 1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -1223,8 +1215,8 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '139', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Md. Lokman Hossain', 'MALE', 0, 'SUNDAY', 
-    3, 9, 22, 139, 1, 
-    1);
+    4, 9, 22, 139, 1, 
+    2);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -1253,7 +1245,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '143', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Monowara Khatun', 'FEMALE', 0, 'SUNDAY', 
-    3, 12, 45, 143, 1, 
+    4, 21, 45, 143, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -1303,8 +1295,8 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '149', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Beauty Rani Halder', 'FEMALE', 0, 'SUNDAY', 
-    3, 23, 51, 149, 1, 
-    1);
+    4, 23, 51, 149, 1, 
+    2);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -1323,7 +1315,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '151', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Mahbuba Nargis', 'FEMALE', 0, 'SUNDAY', 
-    3, 28, 27, 151, 1, 
+    4, 11, 27, 151, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -1473,8 +1465,8 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '169', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Binota Bala Paul', 'FEMALE', 0, 'SUNDAY', 
-    3, 8, 19, 169, 1, 
-    1);
+    4, 8, 19, 169, 1, 
+    2);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -1526,15 +1518,13 @@ Insert into PROC_OUT_EMP
     3, 5, 11, 176, 1, 
     1);
 Insert into PROC_OUT_EMP
-   (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
-    EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
-    VERSION, DEPARTMENT_ID, DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, 
-    SHIFT_ID)
+   (CODE, DOB, DOJ, EMP_GROUP, FULL_NAME, 
+    GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, VERSION, DEPARTMENT_ID, 
+    DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, SHIFT_ID)
  Values
-   ('n/a', 'n/a', '177', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'ACTIVE', 'Most. momtaz Begum', 'FEMALE', 0, 'SUNDAY', 
-    2, 1, 3, 177, 1, 
-    1);
+   ('177', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'ACTIVE', 'Most. Momtaz Begum', 
+    'FEMALE', 0, 'SUNDAY', 3, 1, 
+    3, 177, 1, 1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -1543,7 +1533,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '178', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Md. Ruhul Amin', 'MALE', 0, 'SUNDAY', 
-    3, 28, 32, 178, 1, 
+    4, 118, 30, 178, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -1553,7 +1543,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '180', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Shahin Akter', 'FEMALE', 0, 'SUNDAY', 
-    3, 28, 34, 180, 1, 
+    4, 15, 34, 180, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -1563,7 +1553,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '181', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Nahid Sultana', 'FEMALE', 0, 'SUNDAY', 
-    3, 28, 34, 181, 1, 
+    4, 15, 34, 181, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -1573,7 +1563,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '183', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Md. Delshad Ali', 'MALE', 0, 'SUNDAY', 
-    3, 28, 32, 183, 1, 
+    4, 28, 60, 183, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -1586,25 +1576,21 @@ Insert into PROC_OUT_EMP
     3, 23, 51, 184, 1, 
     1);
 Insert into PROC_OUT_EMP
-   (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
-    EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
-    VERSION, DEPARTMENT_ID, DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, 
-    SHIFT_ID)
+   (CODE, DOB, DOJ, EMP_GROUP, FULL_NAME, 
+    GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, VERSION, DEPARTMENT_ID, 
+    DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, SHIFT_ID)
  Values
-   ('n/a', 'n/a', '185', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'ACTIVE', 'Missis Sufia Begum', 'FEMALE', 0, 'SUNDAY', 
-    3, 5, 11, 185, 1, 
-    1);
+   ('185', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'ACTIVE', 'Mst Sufia Begum', 
+    'FEMALE', 0, 'SUNDAY', 4, 5, 
+    11, 185, 1, 1);
 Insert into PROC_OUT_EMP
-   (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
-    EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
-    VERSION, DEPARTMENT_ID, DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, 
-    SHIFT_ID)
+   (CODE, DOB, DOJ, EMP_GROUP, FULL_NAME, 
+    GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, VERSION, DEPARTMENT_ID, 
+    DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, SHIFT_ID)
  Values
-   ('n/a', 'n/a', '186', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'ACTIVE', 'Misses Forida Easmin', 'FEMALE', 0, 'SUNDAY', 
-    3, 12, 16, 186, 1, 
-    1);
+   ('186', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'ACTIVE', 'Mst Forida Easmin', 
+    'FEMALE', 0, 'SUNDAY', 4, 117, 
+    16, 186, 1, 1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -1703,7 +1689,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '200', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Md. Samsul Haque', 'MALE', 0, 'SUNDAY', 
-    3, 28, 34, 200, 1, 
+    4, 15, 34, 200, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -1723,7 +1709,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '202', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Mahfuz Dilara Akter', 'FEMALE', 0, 'SUNDAY', 
-    3, 28, 34, 202, 1, 
+    4, 15, 34, 202, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -1753,7 +1739,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '205', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Md. Shahjahan Miah', 'MALE', 0, 'SUNDAY', 
-    3, 28, 34, 205, 1, 
+    4, 15, 34, 205, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -1773,7 +1759,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '207', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Kohinoor Akhter Khan', 'FEMALE', 0, 'SUNDAY', 
-    3, 28, 34, 207, 1, 
+    4, 15, 34, 207, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -1793,7 +1779,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '209', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Rokeya Khaton', 'FEMALE', 0, 'SUNDAY', 
-    3, 28, 34, 209, 1, 
+    4, 15, 34, 209, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -1803,7 +1789,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '210', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Mahmuda Akhter', 'FEMALE', 0, 'SUNDAY', 
-    3, 28, 34, 210, 1, 
+    4, 15, 34, 210, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -1813,7 +1799,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '211', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Fahmida Naz Mustafa', 'FEMALE', 0, 'SUNDAY', 
-    3, 28, 13, 211, 1, 
+    4, 11, 25, 211, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -1823,7 +1809,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '212', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Fahmida Shahnaz', 'FEMALE', 0, 'SUNDAY', 
-    3, 28, 34, 212, 1, 
+    4, 15, 34, 212, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -1833,7 +1819,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '213', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Selina Begum', 'FEMALE', 0, 'SUNDAY', 
-    3, 28, 34, 213, 1, 
+    4, 15, 34, 213, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -1843,7 +1829,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '214', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Md. Mohasin Alam', 'MALE', 0, 'SUNDAY', 
-    3, 28, 34, 214, 1, 
+    4, 15, 34, 214, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -1853,18 +1839,16 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '215', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Md. Rashidul Hoq', 'MALE', 0, 'SUNDAY', 
-    3, 28, 27, 215, 1, 
+    4, 11, 27, 215, 1, 
     1);
 Insert into PROC_OUT_EMP
-   (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
-    EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
-    VERSION, DEPARTMENT_ID, DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, 
-    SHIFT_ID)
+   (CODE, DOB, DOJ, EMP_GROUP, FULL_NAME, 
+    GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, VERSION, DEPARTMENT_ID, 
+    DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, SHIFT_ID)
  Values
-   ('n/a', 'n/a', '216', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'ACTIVE', 'Dr. Khodiya Parvin', 'FEMALE', 0, 'SUNDAY', 
-    3, 28, 34, 216, 1, 
-    1);
+   ('216', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'ACTIVE', 'Dr. Khodeza Parvin', 
+    'FEMALE', 0, 'SUNDAY', 4, 15, 
+    34, 216, 1, 1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -1883,18 +1867,16 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '218', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Quamrul Hasan', 'MALE', 0, 'SUNDAY', 
-    3, 28, 34, 218, 1, 
+    4, 15, 34, 218, 1, 
     1);
 Insert into PROC_OUT_EMP
-   (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
-    EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
-    VERSION, DEPARTMENT_ID, DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, 
-    SHIFT_ID)
+   (CODE, DOB, DOJ, EMP_GROUP, FULL_NAME, 
+    GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, VERSION, DEPARTMENT_ID, 
+    DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, SHIFT_ID)
  Values
-   ('n/a', 'n/a', '219', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'ACTIVE', 'Dr. Halim Khanom', 'FEMALE', 0, 'SUNDAY', 
-    3, 28, 34, 219, 1, 
-    1);
+   ('219', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'ACTIVE', 'Dr. Halima Khanom', 
+    'FEMALE', 0, 'SUNDAY', 4, 15, 
+    34, 219, 1, 1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -1913,18 +1895,16 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '221', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Shamim Akhtar', 'FEMALE', 0, 'SUNDAY', 
-    3, 15, 34, 221, 1, 
-    1);
+    4, 15, 34, 221, 1, 
+    2);
 Insert into PROC_OUT_EMP
-   (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
-    EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
-    VERSION, DEPARTMENT_ID, DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, 
-    SHIFT_ID)
+   (CODE, DOB, DOJ, EMP_GROUP, FULL_NAME, 
+    GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, VERSION, DEPARTMENT_ID, 
+    DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, SHIFT_ID)
  Values
-   ('n/a', 'n/a', '222', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'ACTIVE', 'Mahmuda Khanem', 'FEMALE', 0, 'SUNDAY', 
-    3, 8, 19, 222, 1, 
-    1);
+   ('222', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'ACTIVE', 'Mahmuda Khanam', 
+    'FEMALE', 0, 'SUNDAY', 4, 8, 
+    19, 222, 1, 1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -1933,7 +1913,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '223', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Ishrat Jahan', 'MALE', 0, 'SUNDAY', 
-    3, 12, 26, 223, 1, 
+    4, 11, 26, 223, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -1943,7 +1923,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '224', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Parvin Akter', 'MALE', 0, 'SUNDAY', 
-    3, 12, 17, 224, 1, 
+    4, 117, 17, 224, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -1953,7 +1933,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '225', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr.Merina Sultana', 'FEMALE', 0, 'SUNDAY', 
-    3, 12, 25, 225, 1, 
+    4, 11, 25, 225, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -1963,18 +1943,16 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '226', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr.Md. Lutfur Kabir Khan', 'MALE', 0, 'SUNDAY', 
-    3, 12, 34, 226, 1, 
+    4, 15, 34, 226, 1, 
     1);
 Insert into PROC_OUT_EMP
-   (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
-    EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
-    VERSION, DEPARTMENT_ID, DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, 
-    SHIFT_ID)
+   (CODE, DOB, DOJ, EMP_GROUP, FULL_NAME, 
+    GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, VERSION, DEPARTMENT_ID, 
+    DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, SHIFT_ID)
  Values
-   ('n/a', 'n/a', '227', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'ACTIVE', 'Md.Md.Lutful Kabir Khan', 'MALE', 0, 'SUNDAY', 
-    3, 12, 6, 227, 1, 
-    1);
+   ('227', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'ACTIVE', 'Dr.Md.Lutful Kabir Khan', 
+    'MALE', 0, 'SUNDAY', 5, 131, 
+    6, 227, 1, 1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -1983,7 +1961,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '228', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Napal Chandra', 'MALE', 0, 'SUNDAY', 
-    3, 12, 18, 228, 1, 
+    4, 7, 18, 228, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -1993,7 +1971,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '229', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr.Md. Mustafizur', 'MALE', 0, 'SUNDAY', 
-    3, 12, 34, 229, 1, 
+    4, 15, 34, 229, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -2013,8 +1991,8 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '83', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Md.Abdul Kashem', 'MALE', 0, 'SUNDAY', 
-    3, 9, 22, 83, 1, 
-    1);
+    4, 9, 22, 83, 1, 
+    2);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -2023,7 +2001,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '89', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Md. Nazrul islam', 'MALE', 0, 'SUNDAY', 
-    3, 12, 28, 89, 1, 
+    4, 123, 28, 89, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -2033,7 +2011,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '96', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Jahanara Akter', 'FEMALE', 0, 'SUNDAY', 
-    3, 12, 53, 96, 1, 
+    4, 126, 53, 96, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -2053,7 +2031,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '182', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Nahida Najnin', 'FEMALE', 0, 'SUNDAY', 
-    3, 28, 34, 182, 1, 
+    4, 15, 34, 182, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -2123,7 +2101,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '11', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Md. Abdur Rauf', 'MALE', 0, 'SUNDAY', 
-    1, 6, 14, 11, 1, 
+    2, 28, 60, 11, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -2142,8 +2120,8 @@ Insert into PROC_OUT_EMP
     SHIFT_ID)
  Values
    ('n/a', 'n/a', '13', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'ACTIVE', 'Md. Abdur Based', 'MALE', 0, 'SUNDAY', 
-    1, 28, 60, 13, 1, 
+    'ACTIVE', 'Md. Abdul Based', 'MALE', 0, 'SUNDAY', 
+    2, 28, 60, 13, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -2153,7 +2131,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '14', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Longkashwar Roy', 'MALE', 0, 'SUNDAY', 
-    1, 12, 60, 14, 1, 
+    2, 118, 60, 14, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -2248,21 +2226,21 @@ Insert into PROC_OUT_EMP
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
-    VERSION, DEPARTMENT_ID, EMPLOYEE_ID, ROSTER_ID, SHIFT_ID)
- Values
-   ('n/a', 'n/a', '179', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'ACTIVE', 'Dr. Bikash Chondro Shaha', 'MALE', 0, 'SUNDAY', 
-    3, 28, 179, 1, 1);
-Insert into PROC_OUT_EMP
-   (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
-    EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
     VERSION, DEPARTMENT_ID, DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, 
     SHIFT_ID)
  Values
-   ('n/a', 'n/a', '187', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
-    'ACTIVE', 'Misses Jahanara Begum', 'FEMALE', 0, 'SUNDAY', 
-    3, 5, 11, 187, 1, 
+   ('n/a', 'n/a', '179', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
+    'ACTIVE', 'Dr. Bikash Chondro Shaha', 'MALE', 0, 'SUNDAY', 
+    4, 15, 34, 179, 1, 
     1);
+Insert into PROC_OUT_EMP
+   (CODE, DOB, DOJ, EMP_GROUP, FULL_NAME, 
+    GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, VERSION, DEPARTMENT_ID, 
+    DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, SHIFT_ID)
+ Values
+   ('187', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'ACTIVE', 'Mrs Jahanara Begum', 
+    'FEMALE', 0, 'SUNDAY', 4, 5, 
+    11, 187, 1, 1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
     EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
@@ -2271,7 +2249,7 @@ Insert into PROC_OUT_EMP
  Values
    ('n/a', 'n/a', '196', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
     'ACTIVE', 'Dr. Robayet Ana Lubna', 'FEMALE', 0, 'SUNDAY', 
-    3, 28, 34, 196, 1, 
+    4, 15, 34, 196, 1, 
     1);
 Insert into PROC_OUT_EMP
    (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
@@ -2284,17 +2262,13 @@ Insert into PROC_OUT_EMP
     0, 4, 8, 30, 1, 
     1);
 Insert into PROC_OUT_EMP
-   (CODE, DOB, DOJ, EMAIL, FULL_NAME, 
-    GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, VERSION, EMPLOYEE_ID, 
-    ROSTER_ID, SHIFT_ID)
+   (LINE_ONE, LINE_TWO, CODE, DOB, DOJ, 
+    EMP_GROUP, FULL_NAME, GENDER, IS_OVERTIME, WEEKEND_SHIFT_OFF_DAY, 
+    VERSION, DEPARTMENT_ID, DESIGNATION_ID, EMPLOYEE_ID, ROSTER_ID, 
+    SHIFT_ID)
  Values
-   ('ff', TO_DATE('12/28/1990 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('04/09/2013 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'fdsfsd@hh.com', 'gdfgdfg', 
-    'FEMALE', 0, 'SUNDAY', 1, 57273, 
-    1, 1);
-Insert into PROC_OUT_EMP
-   (CODE, DOB, DOJ, EMAIL, FULL_NAME, 
-    GENDER, PIC_FILE, VERSION, EMPLOYEE_ID)
- Values
-   ('5345', TO_DATE('06/01/2010 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'manikmonirs@gmail.com', 'Mohammad Badiuzzaman Manik55', 
-    'MALE', '61c373a1-275e-4d93-8e43-407f004fd7a4.jpg', 0, 57274);
+   ('n/a', 'n/a', '230', TO_DATE('01/01/1998 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('01/01/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 
+    'ACTIVE', 'Kaniza Ferdous', 'FEMALE', 0, 'SUNDAY', 
+    2, 132, 34, 57273, 1, 
+    1);
 COMMIT;

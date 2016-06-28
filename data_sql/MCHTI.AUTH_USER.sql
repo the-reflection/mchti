@@ -9,26 +9,28 @@ Insert into AUTH_USER
     'aaaa.jpg', 'mac');
 Insert into AUTH_USER
    (ID, ACCOUNT_NON_EXPIRED, ACCOUNT_NON_LOCKED, CREDENTIALS_NON_EXPIRED, DISPLAY_NAME, 
-    DOB, EMAIL, ENABLED, FULL_NAME, GENDER, 
-    PASSWORD, PIC_FILE, USERNAME)
+    EMAIL, ENABLED, FULL_NAME, GENDER, PASSWORD, 
+    PIC_FILE, USERNAME)
  Values
-   (43407, 1, 1, 1, 'Saif', 
-    TO_DATE('04/04/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'saif_hmk@live.com', 1, 'MD. HOSHEN MAHMUD KHAN', 'MALE', 
-    '123', 'bbbb.jpg', 'saif');
+   (43407, 0, 0, 0, 'Saif', 
+    'saif_hmk@live.com', 1, 'MD. HOSHEN MAHMUD KHAN', 'MALE', '123', 
+    'bbbb.jpg', 'saif_hmk');
 Insert into AUTH_USER
    (ID, ACCOUNT_NON_EXPIRED, ACCOUNT_NON_LOCKED, CREDENTIALS_NON_EXPIRED, DISPLAY_NAME, 
-    DOB, DOJ, EMAIL, ENABLED, FULL_NAME, 
-    GENDER, PASSWORD, PIC_FILE, USERNAME)
+    EMAIL, ENABLED, FULL_NAME, GENDER, PASSWORD, 
+    PIC_FILE, USERNAME)
  Values
-   (43408, 1, 1, 1, 'Anis', 
-    TO_DATE('05/29/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), TO_DATE('05/30/2016 00:00:00', 'MM/DD/YYYY HH24:MI:SS'), 'anis.object@gmail.com', 1, 'Mohammad Anisur Rahman Khan', 
-    'MALE', '123', 'cccc.jpg', 'anis');
+   (43408, 0, 0, 0, 'Anis', 
+    'anis.object@gmail.com', 1, 'Mohammad Anisur Rahman Khan', 'MALE', '123', 
+    'cccc.jpg', 'anis');
 Insert into AUTH_USER
    (ID, ACCOUNT_NON_EXPIRED, ACCOUNT_NON_LOCKED, CREDENTIALS_NON_EXPIRED, DISPLAY_NAME, 
-    ENABLED, FULL_NAME, GENDER, PASSWORD, USERNAME)
+    ENABLED, FULL_NAME, GENDER, PASSWORD, PIC_FILE, 
+    USERNAME)
  Values
    (1, 0, 0, 0, 'Ishrat', 
-    1, 'Dr. Ishrat Jahan', 'FEMALE', '123', '1');
+    1, 'Dr. Ishrat Jahan', 'FEMALE', '123', 'abcd.jpg', 
+    '1');
 Insert into AUTH_USER
    (ID, ACCOUNT_NON_EXPIRED, ACCOUNT_NON_LOCKED, CREDENTIALS_NON_EXPIRED, DISPLAY_NAME, 
     EMAIL, ENABLED, FULL_NAME, GENDER, PASSWORD, 

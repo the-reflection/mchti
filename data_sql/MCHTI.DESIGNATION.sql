@@ -10,7 +10,7 @@ Insert into DESIGNATION
 Insert into DESIGNATION
    (ID, CODE, IS_ACTIVE, TITLE, VERSION)
  Values
-   (3, '3', 1, 'Aaya', 1);
+   (3, '3', 1, 'Aya', 2);
 Insert into DESIGNATION
    (ID, CODE, IS_ACTIVE, TITLE, VERSION)
  Values
@@ -22,7 +22,7 @@ Insert into DESIGNATION
 Insert into DESIGNATION
    (ID, CODE, IS_ACTIVE, TITLE, VERSION)
  Values
-   (6, '6', 1, 'Assist Co-Ordinator', 1);
+   (6, '6', 1, 'Assistant Coordinator', 2);
 Insert into DESIGNATION
    (ID, CODE, IS_ACTIVE, TITLE, VERSION)
  Values
@@ -38,7 +38,7 @@ Insert into DESIGNATION
 Insert into DESIGNATION
    (ID, CODE, IS_ACTIVE, TITLE, VERSION)
  Values
-   (10, '10', 1, 'Claner', 1);
+   (10, '10', 1, 'Cleaner', 2);
 Insert into DESIGNATION
    (ID, CODE, IS_ACTIVE, TITLE, VERSION)
  Values
@@ -58,7 +58,7 @@ Insert into DESIGNATION
 Insert into DESIGNATION
    (ID, CODE, IS_ACTIVE, TITLE, VERSION)
  Values
-   (15, '15', 1, 'Counsillor', 1);
+   (15, '15', 1, 'Counselor', 2);
 Insert into DESIGNATION
    (ID, CODE, IS_ACTIVE, TITLE, VERSION)
  Values
@@ -66,7 +66,7 @@ Insert into DESIGNATION
 Insert into DESIGNATION
    (ID, CODE, IS_ACTIVE, TITLE, VERSION)
  Values
-   (17, '17', 1, 'Dia Nurse', 1);
+   (17, '17', 1, 'Dai ', 2);
 Insert into DESIGNATION
    (ID, CODE, IS_ACTIVE, TITLE, VERSION)
  Values
@@ -118,7 +118,7 @@ Insert into DESIGNATION
 Insert into DESIGNATION
    (ID, CODE, IS_ACTIVE, TITLE, VERSION)
  Values
-   (30, '30', 1, 'Mail Attadent', 1);
+   (30, '30', 1, 'Mail Attandent', 2);
 Insert into DESIGNATION
    (ID, CODE, IS_ACTIVE, TITLE, VERSION)
  Values
@@ -158,7 +158,7 @@ Insert into DESIGNATION
 Insert into DESIGNATION
    (ID, CODE, IS_ACTIVE, TITLE, VERSION)
  Values
-   (40, '40', 1, 'Office Assistance', 1);
+   (40, '40', 1, 'Office Assistant', 2);
 Insert into DESIGNATION
    (ID, CODE, IS_ACTIVE, TITLE, VERSION)
  Values
@@ -226,7 +226,7 @@ Insert into DESIGNATION
 Insert into DESIGNATION
    (ID, CODE, IS_ACTIVE, TITLE, VERSION)
  Values
-   (57, '57', 1, 'Stono Grapher', 1);
+   (57, '57', 1, 'Stenographer', 2);
 Insert into DESIGNATION
    (ID, CODE, IS_ACTIVE, TITLE, VERSION)
  Values

@@ -2,7 +2,7 @@
 Insert into DEPARTMENT
    (ID, VERSION, CODE, IS_ACTIVE, TITLE)
  Values
-   (1, 1, '1', 1, 'Aaya');
+   (1, 2, '1', 1, 'Aya');
 Insert into DEPARTMENT
    (ID, VERSION, CODE, IS_ACTIVE, TITLE)
  Values
@@ -46,10 +46,6 @@ Insert into DEPARTMENT
 Insert into DEPARTMENT
    (ID, VERSION, CODE, IS_ACTIVE, TITLE)
  Values
-   (12, 1, '12', 1, 'MCHTI');
-Insert into DEPARTMENT
-   (ID, VERSION, CODE, IS_ACTIVE, TITLE)
- Values
    (13, 1, '13', 1, 'MWF');
 Insert into DEPARTMENT
    (ID, VERSION, CODE, IS_ACTIVE, TITLE)
@@ -70,7 +66,7 @@ Insert into DEPARTMENT
 Insert into DEPARTMENT
    (ID, VERSION, CODE, IS_ACTIVE, TITLE)
  Values
-   (18, 1, '18', 1, 'Office Assistance');
+   (18, 2, '18', 1, 'Office Assistant');
 Insert into DEPARTMENT
    (ID, VERSION, CODE, IS_ACTIVE, TITLE)
  Values
@@ -98,7 +94,7 @@ Insert into DEPARTMENT
 Insert into DEPARTMENT
    (ID, VERSION, CODE, IS_ACTIVE, TITLE)
  Values
-   (25, 1, '25', 1, 'Stono Grapher');
+   (25, 2, '25', 1, 'Stenographer');
 Insert into DEPARTMENT
    (ID, VERSION, CODE, IS_ACTIVE, TITLE)
  Values

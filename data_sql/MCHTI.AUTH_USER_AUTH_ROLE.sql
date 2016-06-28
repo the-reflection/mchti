@@ -19,8 +19,4 @@ Insert into AUTH_USER_AUTH_ROLE
    (AUTH_USER_ID, AUTH_ROLE_ID)
  Values
    (43408, 43405);
-Insert into AUTH_USER_AUTH_ROLE
-   (AUTH_USER_ID, AUTH_ROLE_ID)
- Values
-   (43408, 58405);
 COMMIT;
