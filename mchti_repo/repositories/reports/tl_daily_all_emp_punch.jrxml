@@ -36,7 +36,7 @@ AND E.EMPLOYEE_ID=X.EMPLOYEE_ID
 AND D.ID=E.DEPARTMENT_ID
 AND TRUNC(X.TRANSACTION_TIME)=$P{P_ATTN_DATE}
 GROUP BY X.EMPLOYEE_ID,E.CODE,FULL_NAME,D.TITLE,TRUNC(X.TRANSACTION_TIME)
-ORDER BY (MAX(X.TRANSACTION_TIME) - MIN(X.TRANSACTION_TIME)) desc,1, 2, 3]]>
+ORDER BY 1, 2, 3]]>
 	</queryString>
 	<field name="EMPLOYEE_ID" class="java.math.BigDecimal"/>
 	<field name="CODE" class="java.lang.String"/>
@@ -54,7 +54,7 @@ ORDER BY (MAX(X.TRANSACTION_TIME) - MIN(X.TRANSACTION_TIME)) desc,1, 2, 3]]>
 	<title>
 		<band height="63" splitType="Stretch">
 			<image hAlign="Center">
-				<reportElement uuid="158ef226-f19e-486e-9067-14ff1c84f843" x="0" y="0" width="555" height="63"/>
+				<reportElement x="0" y="0" width="555" height="63" uuid="158ef226-f19e-486e-9067-14ff1c84f843"/>
 				<imageExpression><![CDATA[$P{REPORT_PATH}+"logo.jpg"]]></imageExpression>
 			</image>
 		</band>
@@ -62,7 +62,7 @@ ORDER BY (MAX(X.TRANSACTION_TIME) - MIN(X.TRANSACTION_TIME)) desc,1, 2, 3]]>
 	<pageHeader>
 		<band height="20" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="66caef13-0d23-4246-9eed-7d476c9dad1c" x="0" y="0" width="90" height="20"/>
+				<reportElement x="0" y="0" width="90" height="20" uuid="66caef13-0d23-4246-9eed-7d476c9dad1c"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -76,7 +76,7 @@ ORDER BY (MAX(X.TRANSACTION_TIME) - MIN(X.TRANSACTION_TIME)) desc,1, 2, 3]]>
 				<text><![CDATA[Finger Punch on ]]></text>
 			</staticText>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement uuid="e00d6987-db5f-47af-b6c8-7b44f2489507" x="90" y="0" width="172" height="20"/>
+				<reportElement x="90" y="0" width="172" height="20" uuid="e00d6987-db5f-47af-b6c8-7b44f2489507"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -94,7 +94,7 @@ ORDER BY (MAX(X.TRANSACTION_TIME) - MIN(X.TRANSACTION_TIME)) desc,1, 2, 3]]>
 	<columnHeader>
 		<band height="20">
 			<staticText>
-				<reportElement uuid="4cb2919a-a1dd-4787-8837-76c155e6dbec" mode="Opaque" x="33" y="0" width="50" height="20" backcolor="#C0C0C0"/>
+				<reportElement mode="Opaque" x="33" y="0" width="50" height="20" backcolor="#C0C0C0" uuid="4cb2919a-a1dd-4787-8837-76c155e6dbec"/>
 				<box leftPadding="2" rightPadding="2">
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -108,7 +108,7 @@ ORDER BY (MAX(X.TRANSACTION_TIME) - MIN(X.TRANSACTION_TIME)) desc,1, 2, 3]]>
 				<text><![CDATA[Emp No]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="492ec116-b1d1-4e8a-bc5f-441893a8d3f3" mode="Opaque" x="83" y="0" width="152" height="20" backcolor="#C0C0C0"/>
+				<reportElement mode="Opaque" x="83" y="0" width="152" height="20" backcolor="#C0C0C0" uuid="492ec116-b1d1-4e8a-bc5f-441893a8d3f3"/>
 				<box leftPadding="2" rightPadding="2">
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -122,7 +122,7 @@ ORDER BY (MAX(X.TRANSACTION_TIME) - MIN(X.TRANSACTION_TIME)) desc,1, 2, 3]]>
 				<text><![CDATA[Employee Name]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="9eaf76e2-e054-4838-90c4-5e0d385940ff" mode="Opaque" x="322" y="0" width="50" height="20" backcolor="#C0C0C0"/>
+				<reportElement mode="Opaque" x="322" y="0" width="50" height="20" backcolor="#C0C0C0" uuid="9eaf76e2-e054-4838-90c4-5e0d385940ff"/>
 				<box leftPadding="2" rightPadding="2">
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -136,7 +136,7 @@ ORDER BY (MAX(X.TRANSACTION_TIME) - MIN(X.TRANSACTION_TIME)) desc,1, 2, 3]]>
 				<text><![CDATA[IN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="4775175d-2e40-4995-adfb-8a21b6c112ed" mode="Opaque" x="372" y="0" width="50" height="20" backcolor="#C0C0C0"/>
+				<reportElement mode="Opaque" x="372" y="0" width="50" height="20" backcolor="#C0C0C0" uuid="4775175d-2e40-4995-adfb-8a21b6c112ed"/>
 				<box leftPadding="2" rightPadding="2">
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -150,7 +150,7 @@ ORDER BY (MAX(X.TRANSACTION_TIME) - MIN(X.TRANSACTION_TIME)) desc,1, 2, 3]]>
 				<text><![CDATA[OUT]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="4775175d-2e40-4995-adfb-8a21b6c112ed" mode="Opaque" x="472" y="0" width="83" height="20" backcolor="#C0C0C0"/>
+				<reportElement mode="Opaque" x="472" y="0" width="83" height="20" backcolor="#C0C0C0" uuid="4775175d-2e40-4995-adfb-8a21b6c112ed"/>
 				<box leftPadding="2" rightPadding="2">
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -164,7 +164,7 @@ ORDER BY (MAX(X.TRANSACTION_TIME) - MIN(X.TRANSACTION_TIME)) desc,1, 2, 3]]>
 				<text><![CDATA[Status]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="b313a50d-2054-4218-82c9-abb597179b0f" mode="Opaque" x="422" y="0" width="50" height="20" backcolor="#C0C0C0"/>
+				<reportElement mode="Opaque" x="422" y="0" width="50" height="20" backcolor="#C0C0C0" uuid="b313a50d-2054-4218-82c9-abb597179b0f"/>
 				<box leftPadding="2" rightPadding="2">
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -178,7 +178,7 @@ ORDER BY (MAX(X.TRANSACTION_TIME) - MIN(X.TRANSACTION_TIME)) desc,1, 2, 3]]>
 				<text><![CDATA[Punch(s)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="492ec116-b1d1-4e8a-bc5f-441893a8d3f3" mode="Opaque" x="235" y="0" width="87" height="20" backcolor="#C0C0C0"/>
+				<reportElement mode="Opaque" x="235" y="0" width="87" height="20" backcolor="#C0C0C0" uuid="492ec116-b1d1-4e8a-bc5f-441893a8d3f3"/>
 				<box leftPadding="2" rightPadding="2">
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -192,7 +192,7 @@ ORDER BY (MAX(X.TRANSACTION_TIME) - MIN(X.TRANSACTION_TIME)) desc,1, 2, 3]]>
 				<text><![CDATA[Department]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="4cb2919a-a1dd-4787-8837-76c155e6dbec" mode="Opaque" x="0" y="0" width="33" height="20" backcolor="#C0C0C0"/>
+				<reportElement mode="Opaque" x="0" y="0" width="33" height="20" backcolor="#C0C0C0" uuid="4cb2919a-a1dd-4787-8837-76c155e6dbec"/>
 				<box leftPadding="2" rightPadding="2">
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -210,7 +210,7 @@ ORDER BY (MAX(X.TRANSACTION_TIME) - MIN(X.TRANSACTION_TIME)) desc,1, 2, 3]]>
 	<detail>
 		<band height="17" splitType="Stretch">
 			<textField>
-				<reportElement uuid="3b2e113c-b3bf-4c7b-887b-357f17f46c8b" x="33" y="0" width="50" height="17"/>
+				<reportElement x="33" y="0" width="50" height="17" uuid="3b2e113c-b3bf-4c7b-887b-357f17f46c8b"/>
 				<box leftPadding="2" rightPadding="2">
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -224,7 +224,7 @@ ORDER BY (MAX(X.TRANSACTION_TIME) - MIN(X.TRANSACTION_TIME)) desc,1, 2, 3]]>
 				<textFieldExpression><![CDATA[$F{CODE}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="85bbfd72-8784-4f42-a830-43c9bffcc538" x="83" y="0" width="152" height="17"/>
+				<reportElement x="83" y="0" width="152" height="17" uuid="85bbfd72-8784-4f42-a830-43c9bffcc538"/>
 				<box leftPadding="2" rightPadding="2">
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -238,7 +238,7 @@ ORDER BY (MAX(X.TRANSACTION_TIME) - MIN(X.TRANSACTION_TIME)) desc,1, 2, 3]]>
 				<textFieldExpression><![CDATA[$F{FULL_NAME}]]></textFieldExpression>
 			</textField>
 			<textField pattern="hh.mm a">
-				<reportElement uuid="e00d6987-db5f-47af-b6c8-7b44f2489507" x="322" y="0" width="50" height="17"/>
+				<reportElement x="322" y="0" width="50" height="17" uuid="e00d6987-db5f-47af-b6c8-7b44f2489507"/>
 				<box leftPadding="2" rightPadding="2">
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -252,7 +252,7 @@ ORDER BY (MAX(X.TRANSACTION_TIME) - MIN(X.TRANSACTION_TIME)) desc,1, 2, 3]]>
 				<textFieldExpression><![CDATA[$F{IN_TIME}]]></textFieldExpression>
 			</textField>
 			<textField pattern="hh.mm a">
-				<reportElement uuid="9b203e34-6ac5-4a38-9021-fae03a309706" x="372" y="0" width="50" height="17"/>
+				<reportElement x="372" y="0" width="50" height="17" uuid="9b203e34-6ac5-4a38-9021-fae03a309706"/>
 				<box leftPadding="2" rightPadding="2">
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -266,7 +266,7 @@ ORDER BY (MAX(X.TRANSACTION_TIME) - MIN(X.TRANSACTION_TIME)) desc,1, 2, 3]]>
 				<textFieldExpression><![CDATA[$F{NUMBER_OF_PUNCH}==1 ? "" : $F{OUT_TIME}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
-				<reportElement uuid="9b203e34-6ac5-4a38-9021-fae03a309706" x="472" y="0" width="83" height="17"/>
+				<reportElement x="472" y="0" width="83" height="17" uuid="9b203e34-6ac5-4a38-9021-fae03a309706"/>
 				<box leftPadding="2" rightPadding="2">
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -280,7 +280,7 @@ ORDER BY (MAX(X.TRANSACTION_TIME) - MIN(X.TRANSACTION_TIME)) desc,1, 2, 3]]>
 				<textFieldExpression><![CDATA[$F{NUMBER_OF_PUNCH}==1 ? "UNDEFINED" : $F{WORKING_HOURS} +"H "+ $F{WORKING_MINUTES}+"M"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="aef24e1e-c33c-45cf-9296-4b3ce86fb420" x="422" y="0" width="50" height="17"/>
+				<reportElement x="422" y="0" width="50" height="17" uuid="aef24e1e-c33c-45cf-9296-4b3ce86fb420"/>
 				<box leftPadding="2" rightPadding="2">
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -294,7 +294,7 @@ ORDER BY (MAX(X.TRANSACTION_TIME) - MIN(X.TRANSACTION_TIME)) desc,1, 2, 3]]>
 				<textFieldExpression><![CDATA[$F{NUMBER_OF_PUNCH}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="85bbfd72-8784-4f42-a830-43c9bffcc538" x="235" y="0" width="87" height="17"/>
+				<reportElement x="235" y="0" width="87" height="17" uuid="85bbfd72-8784-4f42-a830-43c9bffcc538"/>
 				<box leftPadding="2" rightPadding="2">
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -308,7 +308,7 @@ ORDER BY (MAX(X.TRANSACTION_TIME) - MIN(X.TRANSACTION_TIME)) desc,1, 2, 3]]>
 				<textFieldExpression><![CDATA[$F{DEPT_NAME}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="3b2e113c-b3bf-4c7b-887b-357f17f46c8b" x="0" y="0" width="33" height="17"/>
+				<reportElement x="0" y="0" width="33" height="17" uuid="3b2e113c-b3bf-4c7b-887b-357f17f46c8b"/>
 				<box leftPadding="2" rightPadding="2">
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -326,21 +326,21 @@ ORDER BY (MAX(X.TRANSACTION_TIME) - MIN(X.TRANSACTION_TIME)) desc,1, 2, 3]]>
 	<pageFooter>
 		<band height="20" splitType="Stretch">
 			<textField evaluationTime="Report">
-				<reportElement uuid="1f7292b3-1a6e-40c8-b7a2-44b25d2c358d" style="Column header" x="515" y="0" width="40" height="20" forecolor="#000000"/>
+				<reportElement style="Column header" x="515" y="0" width="40" height="20" forecolor="#000000" uuid="1f7292b3-1a6e-40c8-b7a2-44b25d2c358d"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="SansSerif" size="8" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="e2ded4a0-baee-48c6-8a73-c58bbdb71287" style="Column header" x="435" y="0" width="80" height="20" forecolor="#000000"/>
+				<reportElement style="Column header" x="435" y="0" width="80" height="20" forecolor="#000000" uuid="e2ded4a0-baee-48c6-8a73-c58bbdb71287"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="SansSerif" size="8" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="192a3c54-cb40-4f97-ba1f-f52c0b216cad" x="0" y="0" width="222" height="20"/>
+				<reportElement x="0" y="0" width="222" height="20" uuid="192a3c54-cb40-4f97-ba1f-f52c0b216cad"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="SansSerif" size="8" isItalic="true"/>
 				</textElement>
