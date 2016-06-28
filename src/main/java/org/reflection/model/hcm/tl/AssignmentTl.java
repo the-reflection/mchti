@@ -21,6 +21,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
@@ -39,6 +40,7 @@ public class AssignmentTl implements Serializable {
     @Basic(optional = false)
     @Column(name = "CODE", length = 20, nullable = false)
     private String code;
+    @NotNull
     @JoinColumn(name = "EMPLOYEE_ID", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Employee employee;
@@ -54,7 +56,8 @@ public class AssignmentTl implements Serializable {
     //@DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date endDate;
     @Enumerated(EnumType.STRING)
-    @Column(name = "WEEKEND_SHIFT_OFF_DAY", length = 9)
+    @NotNull
+    @Column(name = "WEEKEND_SHIFT_OFF_DAY", length = 9, nullable = false)
     private Day weekendShiftOffDay;
     @JoinColumn(name = "SHIFT_ID", nullable = true)
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
