@@ -31,8 +31,6 @@ public class ProcOutAttnDtPK implements Serializable {
         this.employee = employee;
     }
 
-   
-
     public Employee getEmployee() {
         return employee;
     }
@@ -47,6 +45,11 @@ public class ProcOutAttnDtPK implements Serializable {
 
     public void setAttnDate(Date attnDate) {
         this.attnDate = attnDate;
+    }
+
+    @Override
+    public String toString() {
+        return "ProcOutAttnDtPK{" + "employee=" + employee + ", attnDate=" + attnDate + '}';
     }
 
 }

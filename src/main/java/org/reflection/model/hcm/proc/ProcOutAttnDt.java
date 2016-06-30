@@ -108,4 +108,9 @@ public class ProcOutAttnDt implements Serializable {
         this.procOutAttnDtPK = procOutAttnDtPK;
     }
 
+    @Override
+    public String toString() {
+        return "ProcOutAttnDt{" + "procOutAttnDtPK=" + procOutAttnDtPK + ", dtAttnType=" + dtAttnType + ", shift=" + shift + ", inTime=" + inTime + ", outTime=" + outTime + ", ot=" + ot + ", remarks=" + remarks + '}';
+    }
+
 }

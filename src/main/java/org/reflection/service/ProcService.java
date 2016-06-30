@@ -1,7 +1,6 @@
 package org.reflection.service;
 
-import java.io.InputStream;
-import java.util.Map;
+import java.util.Date;
 
 /**
  *
@@ -9,7 +8,13 @@ import java.util.Map;
  */
 public interface ProcService {
 
+    public void empCascadeDeleteWithCode(String empCode);
+
+    public void genCalender(Date fromDate, Date toDate);
+
     public void refresh();
 
-    public void daily(String attnDateStr);
+    public void daily(Date fromDate, Date toDate);
+
+    public void daily(Date attnDate);
 }

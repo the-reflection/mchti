@@ -1,27 +1,15 @@
 package org.reflection.model.hcm.tl;
 
-import org.reflection.model.com.Employee;
-import org.reflection.model.hcm.enums.LeaveType;
 import com.oith.annotation.MacSearchable;
-import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import java.math.BigInteger;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Version;
-import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.reflection.model.com.AbstractEntity;
 import org.reflection.model.hcm.enums.HolidayType;

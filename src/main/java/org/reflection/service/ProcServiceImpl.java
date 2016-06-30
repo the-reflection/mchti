@@ -1,5 +1,8 @@
 package org.reflection.service;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import org.reflection.model.hcm.cr.AssignmentHr;
 import org.reflection.model.com.Employee;
 import org.reflection.model.hcm.enums.DtAttnType;
@@ -13,13 +16,15 @@ import org.reflection.model.hcm.tl.Shift;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Objects;
 import javax.persistence.TemporalType;
+import org.reflection.model.hcm.prl.AssignmentPrl;
 import org.reflection.model.hcm.proc.ProcOutCalender;
+import org.reflection.model.hcm.proc.ProcOutCalenderPK;
 import org.reflection.model.hcm.proc.ProcOutRoster;
+import org.reflection.model.hcm.tl.CustomizedHolidayApp;
+import org.reflection.model.hcm.tl.GeneralHoliday;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,7 +33,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(readOnly = true)
 public class ProcServiceImpl implements ProcService {
 
-    private final static SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
+    private static final Format FORMAT_DAY = new SimpleDateFormat("EEEE");
 
     @Autowired
     private EntityManagerFactory entityManagerFactory;
@@ -41,13 +46,14 @@ public class ProcServiceImpl implements ProcService {
         List<Employee> emps = em.createQuery("SELECT c FROM " + Employee.class.getName() + " c ", Employee.class).getResultList();
 
         for (Employee emp : emps) {
+
             ProcOutEmp pp;
             try {
 
-                pp = (ProcOutEmp) em.createQuery(
-                        "SELECT m FROM " + ProcOutEmp.class.getName() + " m WHERE m.employee=:employee")
+                pp = em.createQuery(
+                        "SELECT m FROM " + ProcOutEmp.class.getName() + " m WHERE m.employee=:employee", ProcOutEmp.class)
                         .setParameter("employee", emp)
-                        .getResultList().get(0);
+                        .getSingleResult();
 
             } catch (Exception e) {
                 pp = null;
@@ -69,8 +75,7 @@ public class ProcServiceImpl implements ProcService {
             pp.setFullName(emp.getFullName());
 
             try {
-                AssignmentHr assignmentHr = em.createQuery("FROM " + AssignmentHr.class.getName() + " m WHERE m.employee=:employee", AssignmentHr.class).setParameter("employee", emp).getSingleResult();//uniqueResult();//list().get(0);
-                //  AssignmentHr assignmentHr = (AssignmentHr) session.createQuery("FROM " + AssignmentHr.class.getName() + " m WHERE m.employee=:employee").setParameter("employee", emp).uniqueResult();//list().get(0);
+                AssignmentHr assignmentHr = em.createQuery("FROM " + AssignmentHr.class.getName() + " m WHERE m.employee=:employee", AssignmentHr.class).setParameter("employee", emp).getSingleResult();
 
                 if (assignmentHr != null) {
 
@@ -79,11 +84,11 @@ public class ProcServiceImpl implements ProcService {
                     pp.setEmpGroup(assignmentHr.getEmpGroup() == null ? EmpGroup.ACTIVE : assignmentHr.getEmpGroup());
                 }
             } catch (Exception e) {
-                System.out.println("uuuuuuuuuuuu36545:" + e);
+                System.out.println("err refsh assignmentHr:" + e);
             }
 
             try {
-                AssignmentTl assignmentTl = em.createQuery("FROM " + AssignmentTl.class.getName() + " m WHERE m.employee=:employee", AssignmentTl.class).setParameter("employee", emp).getSingleResult();//list().get(0);
+                AssignmentTl assignmentTl = em.createQuery("FROM " + AssignmentTl.class.getName() + " m WHERE m.employee=:employee", AssignmentTl.class).setParameter("employee", emp).getSingleResult();
 
                 if (assignmentTl != null) {
                     pp.setRoster(assignmentTl.getRoster());
@@ -92,35 +97,41 @@ public class ProcServiceImpl implements ProcService {
                     pp.setIsOvertime(assignmentTl.getIsOvertime());
                 }
             } catch (Exception e) {
+                System.out.println("err refsh assignmentTl:" + e);
             }
 
-            EntityTransaction tx = null;
             try {
-                tx = em.getTransaction();
-                tx.begin();
-                em.merge(pp);
-                tx.commit();
+                em.getTransaction().begin();
+                em.persist(pp);
+                em.getTransaction().commit();
             } catch (Exception e) {
                 System.out.println("errr too 76544: " + e);
-                if (tx != null) {
-                    tx.rollback();
+                if (em.getTransaction().isActive()) {
+                    em.getTransaction().rollback();
                 }
             }
 
-            System.out.println("Manik too 2345: " + pp);
+            System.out.println("Manik too 2345 agn: " + pp);
         }
         em.close();
     }
 
     @Override
-    public void daily(String attnDateStr) {
-
-        Date attnDate = null;
+    public void daily(Date fromDate, Date toDate) {
+        long diff = Math.abs(toDate.getTime() - fromDate.getTime());
+        long diffDays = diff / (24 * 60 * 60 * 1000);
         try {
-            //attnDate = SIMPLE_DATE_FORMAT.parse("09/05/2016");
-            attnDate = SIMPLE_DATE_FORMAT.parse(attnDateStr);
+            for (int i = 0; i < diffDays + 1; i++) {
+                Date xDate = addDays(fromDate, i);
+                daily(xDate);
+            }
         } catch (Exception e) {
+
         }
+    }
+
+    @Override
+    public void daily(Date attnDate) {
 
         EntityManager em = entityManagerFactory.createEntityManager();
 
@@ -167,7 +178,7 @@ public class ProcServiceImpl implements ProcService {
 
             DtAttnType dtAttnType;
             if (inTime == null && outTime == null) {
-                dtAttnType = getDtAttnTypeOnNoPunch(em, poe.getEmployee(), attnDate);// DtAttnType.ABSENT;
+                dtAttnType = getDtAttnTypeOnNoPunch(em, poe, attnDate);// DtAttnType.ABSENT;
             } else if (punchCount == 1) {//inTime.equals(outTime)
                 dtAttnType = DtAttnType.UNDEFINED;
             } else {
@@ -177,7 +188,7 @@ public class ProcServiceImpl implements ProcService {
             ProcOutAttnDt pp;
             try {
                 pp = em
-                        .createQuery("FROM " + ProcOutAttnDt.class.getName() + " m WHERE m.employee=:employee AND m.attnDate=:attnDate", ProcOutAttnDt.class)
+                        .createQuery("FROM " + ProcOutAttnDt.class.getName() + " m WHERE m.procOutAttnDtPK.employee=:employee AND m.procOutAttnDtPK.attnDate=:attnDate", ProcOutAttnDt.class)
                         .setParameter("employee", poe.getEmployee())
                         .setParameter("attnDate", attnDate, TemporalType.DATE)
                         .getSingleResult();
@@ -194,31 +205,42 @@ public class ProcServiceImpl implements ProcService {
             pp.setOutTime(outTime);
             pp.setShift(shift);
 
-            EntityTransaction tx = null;
             try {
-                tx = em.getTransaction();
-                tx.begin();
-                em.merge(pp);
-                tx.commit();
+                em.getTransaction().begin();
+                em.persist(pp);
+                em.getTransaction().commit();
             } catch (Exception e) {
-                System.out.println(" err db 8345: " + e);
-                if (tx != null) {
-                    tx.rollback();
+                System.out.println(" err db 8345: " + e + " hhh: " + pp);
+                if (em.getTransaction().isActive()) {
+                    em.getTransaction().rollback();
                 }
             }
         }
         em.close();
     }
 
-    private DtAttnType getDtAttnTypeOnNoPunch(EntityManager em, Employee employee, Date attnDate) {
+    private DtAttnType getDtAttnTypeOnNoPunch(EntityManager em, ProcOutEmp procOutEmp, Date attnDate) {
+
+        try {
+
+            String s = FORMAT_DAY.format(attnDate).trim().toUpperCase();
+
+            System.out.println("yyyyyyyyyyyyyyyyyy>>" + s + "< OOOOOO: >" + procOutEmp.getWeekendShiftOffDay().toString() + "<");
+
+            if (procOutEmp.getWeekendShiftOffDay().toString().equals(s)) {
+                return DtAttnType.OFF_DAY;
+            }
+        } catch (Exception e) {
+            System.out.println("err self weekend or offday: " + e);
+        }
 
         try {
             ProcOutCalender pp = em
-                    .createQuery("FROM " + ProcOutCalender.class.getName() + " m WHERE trunc(m.procOutCalenderPK.calDate)=:calDate", ProcOutCalender.class)
+                    .createQuery("SELECT m FROM " + ProcOutCalender.class.getName() + " m WHERE m.isApplicable=true AND trunc(m.procOutCalenderPK.calDate)=:calDate", ProcOutCalender.class)
                     .setParameter("calDate", attnDate, TemporalType.DATE)
                     .getSingleResult();
 
-            if (pp != null && pp.getIsApplicable() != null && Objects.equals(pp.getIsApplicable(), Boolean.TRUE)) {
+            if (pp != null) {
                 return DtAttnType.OFF_DAY;
             }
         } catch (Exception e) {
@@ -227,8 +249,8 @@ public class ProcServiceImpl implements ProcService {
 
         try {
             List<LeaveApp> pp = em
-                    .createQuery("FROM " + LeaveApp.class.getName() + " m WHERE m.employee=:employee AND :attnDate BETWEEN trunc(m.startDate) AND trunc(m.endDate)", LeaveApp.class)
-                    .setParameter("employee", employee)
+                    .createQuery("SELECT m FROM " + LeaveApp.class.getName() + " m WHERE m.employee=:employee AND :attnDate BETWEEN trunc(m.startDate) AND trunc(m.endDate)", LeaveApp.class)
+                    .setParameter("employee", procOutEmp.getEmployee())
                     .setParameter("attnDate", attnDate, TemporalType.DATE)
                     .getResultList();
 
@@ -273,6 +295,123 @@ public class ProcServiceImpl implements ProcService {
         }
 
         return ret;
+    }
+
+    @Override
+    public void empCascadeDeleteWithCode(String empCode) {
+
+        if (empCode == null || empCode.isEmpty()) {
+            return;
+        }
+
+        EntityManager em = entityManagerFactory.createEntityManager();
+
+        try {
+            em.getTransaction().begin();
+            Employee emp = em.createQuery("SELECT x FROM " + Employee.class.getName() + " x WHERE x.code=:code", Employee.class).setParameter("code", empCode).getSingleResult();
+
+            int deletedCount1 = em.createQuery("DELETE FROM " + AssignmentTl.class.getName() + " x WHERE x.employee=:employee").setParameter("employee", emp).executeUpdate();
+            int deletedCount2 = em.createQuery("DELETE FROM " + AssignmentPrl.class.getName() + " x WHERE x.employee=:employee").setParameter("employee", emp).executeUpdate();
+            int deletedCount3 = em.createQuery("DELETE FROM " + AssignmentHr.class.getName() + " x WHERE x.employee=:employee").setParameter("employee", emp).executeUpdate();
+            int deletedCount4 = em.createQuery("DELETE FROM " + ProcOutRoster.class.getName() + " x WHERE x.procOutRosterPK.employee=:employee").setParameter("employee", emp).executeUpdate();
+            int deletedCount5 = em.createQuery("DELETE FROM " + ProcOutAttnDaily.class.getName() + " x WHERE x.procOutAttnDailyPK.employee=:employee").setParameter("employee", emp).executeUpdate();
+            int deletedCount6 = em.createQuery("DELETE FROM " + ProcOutAttnDt.class.getName() + " x WHERE x.procOutAttnDtPK.employee=:employee").setParameter("employee", emp).executeUpdate();
+            int deletedCount7 = em.createQuery("DELETE FROM " + ProcOutEmp.class.getName() + " x WHERE x.employee=:employee").setParameter("employee", emp).executeUpdate();
+
+            //7 table del
+            //AssignmentTl, AssignmentPrl, AssignmentHr, ProcOutRoster, ProcOutEmp, ProcOutAttnDt, ProcOutAttnDaily
+            em.remove(emp);
+
+            em.getTransaction().commit();
+
+            System.out.println("emp del ok: " + empCode);
+        } catch (Exception e) {
+            System.out.println("err del emp: " + e);
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+        } finally {
+            em.close();
+        }
+
+    }
+
+    public static Date addDays(Date date, int days) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.DATE, days); //minus number would decrement the days
+        return cal.getTime();
+    }
+
+    @Override
+    public void genCalender(Date fromDate, Date toDate) {
+
+        EntityManager em = entityManagerFactory.createEntityManager();
+
+        long diff = Math.abs(toDate.getTime() - fromDate.getTime());
+        long diffDays = diff / (24 * 60 * 60 * 1000);
+        try {
+            em.getTransaction().begin();
+            for (int i = 0; i < diffDays + 1; i++) {
+                Date xDate = addDays(fromDate, i);
+
+                ProcOutCalender mm;
+                try {
+                    mm = em.createQuery(
+                            "SELECT m FROM " + ProcOutCalender.class.getName() + " m WHERE m.procOutCalenderPK.calDate=:xDate", ProcOutCalender.class)
+                            .setParameter("xDate", xDate)
+                            .getSingleResult();
+                } catch (Exception e) {
+                    mm = null;
+                }
+
+                if (mm == null) {
+                    mm = new ProcOutCalender(new ProcOutCalenderPK(xDate));
+                }
+
+                try {
+                    CustomizedHolidayApp ccc = em
+                            .createQuery("SELECT x FROM " + CustomizedHolidayApp.class.getName() + " x WHERE :xDate BETWEEN x.startDate AND x.endDate", CustomizedHolidayApp.class)
+                            .setParameter("xDate", xDate)
+                            .getSingleResult();
+                    System.out.println("in date lopp ccc " + ccc + " kkk " + ccc);
+                    if (ccc != null) {
+                        mm.setHolidayType(ccc.getHolidayType());
+                        mm.setIsApplicable(Boolean.TRUE);
+                    }
+                } catch (Exception e) {
+                }
+
+                if (mm.getIsApplicable() == null) {
+                    try {
+                        Calendar cal = Calendar.getInstance();
+                        cal.setTime(xDate);
+                        int onDay = cal.get(Calendar.DAY_OF_MONTH);
+                        int onMonth = cal.get(Calendar.MONTH) + 1;
+                        GeneralHoliday gh = em
+                                .createQuery("SELECT x FROM " + GeneralHoliday.class.getName() + " x WHERE x.onDay=:onDay AND x.onMonth=:onMonth AND x.isActive=true", GeneralHoliday.class)
+                                .setParameter("onDay", onDay)
+                                .setParameter("onMonth", onMonth)
+                                .getSingleResult();
+                        if (gh != null) {
+                            mm.setHolidayType(gh.getHolidayType());
+                            mm.setIsApplicable(Boolean.TRUE);
+                        }
+                    } catch (Exception e) {
+                    }
+                }
+                em.persist(mm);
+            }
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println("err genCalender: " + e);
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+        } finally {
+            em.close();
+        }
+
     }
 
 }

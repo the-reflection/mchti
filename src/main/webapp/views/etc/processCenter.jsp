@@ -35,7 +35,10 @@
                                     <label><spring:message code="process.processName.label" text="Process Name"/>:</label>
                                     <form:select class="form-control" path="title" name="title" id="title" >
                                         <form:option value="daily" label="Daily Status Process"/>
+                                        <form:option value="dailyRange" label="Daily Status Range Process"/>
                                         <form:option value="refresh" label="Employee Refresh Process"/>
+                                        <form:option value="delEmp" label="Employee Full info Delete"/>
+                                        <form:option value="genCal" label="Generate Calender"/>
                                     </form:select>
                                 </div>
                             </div>
@@ -50,6 +53,37 @@
                                 </div><!-- /.form-group -->
                             </div><!-- /.col-xs-12 col-sm-6 col-md-6 col-lg-6-->
 
+
+
+
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label><spring:message code="default.datew.label" text="From Date"/>:</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                                        <input name="P_FROM_DATE" class="form-control dtp-date"/>
+                                    </div><!-- /.input group -->
+                                </div><!-- /.form-group -->
+                            </div><!-- /.col-xs-12 col-sm-6 col-md-6 col-lg-6-->
+
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label><spring:message code="default.datew.label" text="To Date"/>:</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                                        <input name="P_TO_DATE" class="form-control dtp-date"/>
+                                    </div><!-- /.input group -->
+                                </div><!-- /.form-group -->
+                            </div><!-- /.col-xs-12 col-sm-6 col-md-6 col-lg-6-->
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label><spring:message code="default.datex.label" text="Emp Code"/>:</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                                        <input name="P_EMP_CODE" class="form-control"/>
+                                    </div><!-- /.input group -->
+                                </div><!-- /.form-group -->
+                            </div>
                             <%--
                                 <c:url value="/reportCenter/all" var="downloadXls"/>
                                 <a href="${downloadXls}">Download All</a>
