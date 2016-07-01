@@ -259,59 +259,59 @@ public class ProcServiceImpl implements ProcService {
     }
 
     private DtAttnType getDtAttnTypeOnNoPunch(EntityManager em, ProcOutEmp procOutEmp, Date attnDate) {
-
+        String sss = null;
         try {
-            String s = FORMAT_DAY.format(attnDate).trim().toUpperCase();
-
-            if (procOutEmp.getWeekendShiftOffDay().toString().equals(s)) {
-                return DtAttnType.WEEKEND;
-            }
-            if (procOutEmp.getWeekendShiftOffDay().toString().equals(s)) {
-                //  mmm   return DtAttnType.SHIFT_OFF_DAY;
-            }
+            sss = FORMAT_DAY.format(attnDate).trim().toUpperCase();
         } catch (Exception e) {
             System.out.println("err self weekend or offday: " + e);
         }
 
+        if (sss != null && procOutEmp.getWeekendShiftOffDay().toString().equals(sss)) {
+            return DtAttnType.WEEKEND;
+        }
+//        if (procOutEmp.getWeekendShiftOffDay().toString().equals(sss)) {
+//            //  mmm   return DtAttnType.SHIFT_OFF_DAY;
+//        }
+
+        ProcOutCalender pp = null;
         try {
-            ProcOutCalender pp = em
+            pp = em
                     .createQuery("SELECT m FROM " + ProcOutCalender.class.getName() + " m WHERE m.isApplicable=true AND trunc(m.procOutCalenderPK.calDate)=:calDate", ProcOutCalender.class)
                     .setParameter("calDate", attnDate, TemporalType.DATE)
                     .getSingleResult();
-
-            if (pp != null) {
-
-                if (null != pp.getHolidayType()) {
-                    switch (pp.getHolidayType()) {
-                        case GOVERNMENT:
-                            return DtAttnType.GOVERNMENT_HOLIDAY;
-                        case INTERNATIONAL:
-                            return DtAttnType.INTERNATIONAL_HOLIDAY;
-                        case OFFICIAL:
-                            return DtAttnType.OFFICIAL_HOLIDAY;
-                        default:
-                            break;
-                    }
-                }
-            }
         } catch (Exception e) {
             System.out.println("err in calender: " + e);
         }
+        if (pp != null) {
 
+            if (null != pp.getHolidayType()) {
+                switch (pp.getHolidayType()) {
+                    case GOVERNMENT:
+                        return DtAttnType.GOVERNMENT_HOLIDAY;
+                    case INTERNATIONAL:
+                        return DtAttnType.INTERNATIONAL_HOLIDAY;
+                    case OFFICIAL:
+                        return DtAttnType.OFFICIAL_HOLIDAY;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        List<LeaveApp> ppx = null;
         try {
-            List<LeaveApp> pp = em
+            ppx = em
                     .createQuery("SELECT m FROM " + LeaveApp.class.getName() + " m WHERE m.employee=:employee AND :attnDate BETWEEN trunc(m.startDate) AND trunc(m.endDate)", LeaveApp.class)
                     .setParameter("employee", procOutEmp.getEmployee())
                     .setParameter("attnDate", attnDate, TemporalType.DATE)
                     .getResultList();
-
-            if (pp != null && !pp.isEmpty()) {
-                return DtAttnType.LEAVE;
-            }
         } catch (Exception e) {
             System.out.println("err in leave app: " + e);
         }
 
+        if (ppx != null && !ppx.isEmpty()) {
+            return DtAttnType.LEAVE;
+        }
         return DtAttnType.ABSENT;
     }
 
