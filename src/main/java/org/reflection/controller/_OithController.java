@@ -91,6 +91,7 @@ public abstract class _OithController {
             bindingResult.addError(yyyy);
         } else {
             System.out.println("errr 1116: " + e);
+            System.out.println("errr class 1116: " + e.getClass().getSimpleName());
             ObjectError yyyy = new ObjectError(bindingResult.getObjectName(), "Info: " + e.getMessage() + "");
             bindingResult.addError(yyyy);
         }

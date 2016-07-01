@@ -19,12 +19,15 @@ import javax.persistence.EntityTransaction;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.TemporalType;
+import org.apache.commons.lang.time.DateUtils;
+import org.reflection.model.hcm.enums.HolidayType;
 import org.reflection.model.hcm.prl.AssignmentPrl;
 import org.reflection.model.hcm.proc.ProcOutCalender;
 import org.reflection.model.hcm.proc.ProcOutCalenderPK;
 import org.reflection.model.hcm.proc.ProcOutRoster;
 import org.reflection.model.hcm.tl.CustomizedHolidayApp;
 import org.reflection.model.hcm.tl.GeneralHoliday;
+import org.reflection.model.hcm.tl.ManualAttnDaily;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -139,9 +142,6 @@ public class ProcServiceImpl implements ProcService {
 
         for (ProcOutEmp poe : emps) {
 
-            Date inTime = null;
-            Date outTime = null;
-            Long punchCount = null;
             Shift shift = poe.getShift();//(Shift) session.get(Shift.class, new BigInteger("1"));
 
             try {
@@ -160,26 +160,64 @@ public class ProcServiceImpl implements ProcService {
                 continue;
             }
 
+            Date inTime = null;
+            Date outTime = null;
+
+            String remarks = "";
+            ManualAttnDaily manualAttnDaily = null;
             try {
 
-                Object[] ppx = (Object[]) em
-                        .createQuery("SELECT MIN(m.procOutAttnDailyPK.transactionTime), MAX(m.procOutAttnDailyPK.transactionTime), COUNT(m.procOutAttnDailyPK.transactionTime) FROM "
-                                + ProcOutAttnDaily.class.getName()
-                                + " m WHERE m.procOutAttnDailyPK.employee=:employee AND TRUNC(m.procOutAttnDailyPK.transactionTime)=:transactionTime")
+                manualAttnDaily = em
+                        .createQuery("SELECT m FROM "
+                                + ManualAttnDaily.class.getName()
+                                + " m WHERE m.employee=:employee AND TRUNC(m.attnDate)=:attnDate", ManualAttnDaily.class)
                         .setParameter("employee", poe.getEmployee())
-                        .setParameter("transactionTime", attnDate, TemporalType.DATE)
+                        .setParameter("attnDate", attnDate, TemporalType.DATE)
                         .getSingleResult();
-                inTime = (Date) ppx[0];
-                outTime = (Date) ppx[1];
-                punchCount = (Long) ppx[2];
+
+                inTime = new Date(attnDate.getTime() + manualAttnDaily.getInTime().getTime() + 6 * 60 * 60 * 1000);
+                outTime = new Date(attnDate.getTime() + manualAttnDaily.getOutTime().getTime() + 6 * 60 * 60 * 1000);
+
             } catch (Exception e) {
-                System.out.println("show mac err: " + e);
+                System.out.println("show manual entry err: " + e);
+            }
+
+            Long punchCount = null;
+
+            if (manualAttnDaily != null && inTime != null && outTime != null) {
+                remarks += "Manual IN/OUT given By " + manualAttnDaily.getEntryBy();
+            } else {
+
+                try {
+
+                    Object[] ppx = (Object[]) em
+                            .createQuery("SELECT MIN(m.procOutAttnDailyPK.transactionTime), MAX(m.procOutAttnDailyPK.transactionTime), COUNT(m.procOutAttnDailyPK.transactionTime) FROM "
+                                    + ProcOutAttnDaily.class.getName()
+                                    + " m WHERE m.procOutAttnDailyPK.employee=:employee AND TRUNC(m.procOutAttnDailyPK.transactionTime)=:transactionTime")
+                            .setParameter("employee", poe.getEmployee())
+                            .setParameter("transactionTime", attnDate, TemporalType.DATE)
+                            .getSingleResult();
+
+                    if (inTime == null) {
+                        inTime = (Date) ppx[0];
+                    } else {
+                        remarks += "Manual IN given By " + manualAttnDaily.getEntryBy();
+                    }
+                    if (outTime == null) {
+                        outTime = (Date) ppx[1];
+                    } else {
+                        remarks += "Manual OUT given By " + manualAttnDaily.getEntryBy();
+                    }
+                    punchCount = (Long) ppx[2];
+                } catch (Exception e) {
+                    System.out.println("show mac err: " + e);
+                }
             }
 
             DtAttnType dtAttnType;
             if (inTime == null && outTime == null) {
                 dtAttnType = getDtAttnTypeOnNoPunch(em, poe, attnDate);// DtAttnType.ABSENT;
-            } else if (punchCount == 1) {//inTime.equals(outTime)
+            } else if (punchCount != null && punchCount == 1) {//inTime.equals(outTime)
                 dtAttnType = DtAttnType.UNDEFINED;
             } else {
                 dtAttnType = getDtAttnTypeAnyOn(shift, attnDate, inTime, outTime);// DtAttnType.ABSENT;
@@ -204,6 +242,7 @@ public class ProcServiceImpl implements ProcService {
             pp.setInTime(inTime);
             pp.setOutTime(outTime);
             pp.setShift(shift);
+            pp.setRemarks(remarks);
 
             try {
                 em.getTransaction().begin();
@@ -222,13 +261,13 @@ public class ProcServiceImpl implements ProcService {
     private DtAttnType getDtAttnTypeOnNoPunch(EntityManager em, ProcOutEmp procOutEmp, Date attnDate) {
 
         try {
-
             String s = FORMAT_DAY.format(attnDate).trim().toUpperCase();
 
-            System.out.println("yyyyyyyyyyyyyyyyyy>>" + s + "< OOOOOO: >" + procOutEmp.getWeekendShiftOffDay().toString() + "<");
-
             if (procOutEmp.getWeekendShiftOffDay().toString().equals(s)) {
-                return DtAttnType.OFF_DAY;
+                return DtAttnType.WEEKEND;
+            }
+            if (procOutEmp.getWeekendShiftOffDay().toString().equals(s)) {
+                //  mmm   return DtAttnType.SHIFT_OFF_DAY;
             }
         } catch (Exception e) {
             System.out.println("err self weekend or offday: " + e);
@@ -241,7 +280,19 @@ public class ProcServiceImpl implements ProcService {
                     .getSingleResult();
 
             if (pp != null) {
-                return DtAttnType.OFF_DAY;
+
+                if (null != pp.getHolidayType()) {
+                    switch (pp.getHolidayType()) {
+                        case GOVERNMENT:
+                            return DtAttnType.GOVERNMENT_HOLIDAY;
+                        case INTERNATIONAL:
+                            return DtAttnType.INTERNATIONAL_HOLIDAY;
+                        case OFFICIAL:
+                            return DtAttnType.OFFICIAL_HOLIDAY;
+                        default:
+                            break;
+                    }
+                }
             }
         } catch (Exception e) {
             System.out.println("err in calender: " + e);
