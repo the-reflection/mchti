@@ -1,6 +1,6 @@
-﻿SET DEFINE OFF;
-Insert into HIBERNATE_SEQUENCES
+SET DEFINE OFF;
+Insert into MCHTI.HIBERNATE_SEQUENCES
    (SEQUENCE_NAME, NEXT_VAL)
  Values
-   ('default', 57440);
+   ('default', 57943);
 COMMIT;

@@ -1,11 +1,11 @@
-﻿SET DEFINE OFF;
-Insert into ZX_LOOKUP
+SET DEFINE OFF;
+Insert into MCHTI.ZX_LOOKUP
    (ID, CODE, IS_ACTIVE, REMARKS, SL_NO, 
     TITLE, TITLE_BNG, ZX_LOOKUP_KEYWORD)
  Values
    (1, 'gdfg', 1, 'gdfg', 34, 
     'dgd', 'gdfg', 'PROFESSION');
-Insert into ZX_LOOKUP
+Insert into MCHTI.ZX_LOOKUP
    (ID, CODE, IS_ACTIVE, REMARKS, SL_NO, 
     TITLE, TITLE_BNG, ZX_LOOKUP_KEYWORD)
  Values

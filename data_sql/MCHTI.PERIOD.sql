@@ -1,5 +1,5 @@
-﻿SET DEFINE OFF;
-Insert into PERIOD
+SET DEFINE OFF;
+Insert into MCHTI.PERIOD
    (ID, CODE, END_DATE, START_DATE, TITLE, 
     VERSION)
  Values

@@ -1,5 +1,5 @@
-﻿SET DEFINE OFF;
-Insert into AUTH_USER
+SET DEFINE OFF;
+Insert into MCHTI.AUTH_USER
    (ID, ACCOUNT_NON_EXPIRED, ACCOUNT_NON_LOCKED, CREDENTIALS_NON_EXPIRED, DISPLAY_NAME, 
     EMAIL, ENABLED, FULL_NAME, GENDER, PASSWORD, 
     PIC_FILE, USERNAME)
@@ -7,7 +7,7 @@ Insert into AUTH_USER
    (43406, 0, 0, 0, 'Manik', 
     'manikmonir@gmail.com', 1, 'Mohammad Badiuzzaman', 'MALE', '123', 
     'aaaa.jpg', 'mac');
-Insert into AUTH_USER
+Insert into MCHTI.AUTH_USER
    (ID, ACCOUNT_NON_EXPIRED, ACCOUNT_NON_LOCKED, CREDENTIALS_NON_EXPIRED, DISPLAY_NAME, 
     EMAIL, ENABLED, FULL_NAME, GENDER, PASSWORD, 
     PIC_FILE, USERNAME)
@@ -15,7 +15,7 @@ Insert into AUTH_USER
    (43407, 0, 0, 0, 'Saif', 
     'saif_hmk@live.com', 1, 'MD. HOSHEN MAHMUD KHAN', 'MALE', '123', 
     'bbbb.jpg', 'saif_hmk');
-Insert into AUTH_USER
+Insert into MCHTI.AUTH_USER
    (ID, ACCOUNT_NON_EXPIRED, ACCOUNT_NON_LOCKED, CREDENTIALS_NON_EXPIRED, DISPLAY_NAME, 
     EMAIL, ENABLED, FULL_NAME, GENDER, PASSWORD, 
     PIC_FILE, USERNAME)
@@ -23,7 +23,7 @@ Insert into AUTH_USER
    (43408, 0, 0, 0, 'Anis', 
     'anis.object@gmail.com', 1, 'Mohammad Anisur Rahman Khan', 'MALE', '123', 
     'cccc.jpg', 'anis');
-Insert into AUTH_USER
+Insert into MCHTI.AUTH_USER
    (ID, ACCOUNT_NON_EXPIRED, ACCOUNT_NON_LOCKED, CREDENTIALS_NON_EXPIRED, DISPLAY_NAME, 
     ENABLED, FULL_NAME, GENDER, PASSWORD, PIC_FILE, 
     USERNAME)
@@ -31,7 +31,7 @@ Insert into AUTH_USER
    (1, 0, 0, 0, 'Ishrat', 
     1, 'Dr. Ishrat Jahan', 'FEMALE', '123', 'abcd.jpg', 
     '1');
-Insert into AUTH_USER
+Insert into MCHTI.AUTH_USER
    (ID, ACCOUNT_NON_EXPIRED, ACCOUNT_NON_LOCKED, CREDENTIALS_NON_EXPIRED, DISPLAY_NAME, 
     EMAIL, ENABLED, FULL_NAME, GENDER, PASSWORD, 
     PIC_FILE, USERNAME)

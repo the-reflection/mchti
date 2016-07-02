@@ -1,8 +1,8 @@
-﻿SET DEFINE OFF;
-Insert into GENERAL_HOLIDAY
-   (ID, CODE, HOLIDAY_TYPE, IS_ACTIVE, ONDAY, 
-    ONMONTH, REMARKS, TITLE, VERSION)
+SET DEFINE OFF;
+Insert into MCHTI.GENERAL_HOLIDAY
+   (ID, CODE, IS_ACTIVE, REMARKS, TITLE, 
+    VERSION, ON_DAY, ON_MONTH, HOLIDAY_TYPE)
  Values
-   (43689, '01', 2, 1, 1, 
-    5, 'na', 'First May', 0);
+   (1, '1', 1, 'may day', 'mayday', 
+    0, 1, 5, 'INTERNATIONAL');
 COMMIT;
