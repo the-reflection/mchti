@@ -20,14 +20,11 @@ import org.reflection.model.security.AuthUser;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class AbstractAuditableEntity extends AbstractEntity implements IAuditable {
 
-    //@NotNull
     @JoinColumn(name = "ENTRY_BY_ID", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private AuthUser entryBy;
 
-    //@NotNull
     @Column(name = "ENTRY_DATE", nullable = false)
-    //@DateTimeFormat(pattern = "dd/MM/yyyy")
     @Temporal(TemporalType.TIMESTAMP)
     private Date entryDate;
 
