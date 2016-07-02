@@ -15,12 +15,9 @@ import org.reflection.model.hcm.tl.LeaveApp;
 import org.reflection.model.hcm.tl.Shift;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.TemporalType;
-import org.apache.commons.lang.time.DateUtils;
-import org.reflection.model.hcm.enums.HolidayType;
 import org.reflection.model.hcm.prl.AssignmentPrl;
 import org.reflection.model.hcm.proc.ProcOutCalender;
 import org.reflection.model.hcm.proc.ProcOutCalenderPK;
@@ -419,36 +416,40 @@ public class ProcServiceImpl implements ProcService {
                 if (mm == null) {
                     mm = new ProcOutCalender(new ProcOutCalenderPK(xDate));
                 }
-
+                CustomizedHolidayApp ccc = null;
                 try {
-                    CustomizedHolidayApp ccc = em
+                    ccc = em
                             .createQuery("SELECT x FROM " + CustomizedHolidayApp.class.getName() + " x WHERE :xDate BETWEEN x.startDate AND x.endDate", CustomizedHolidayApp.class)
                             .setParameter("xDate", xDate)
                             .getSingleResult();
                     System.out.println("in date lopp ccc " + ccc + " kkk " + ccc);
-                    if (ccc != null) {
-                        mm.setHolidayType(ccc.getHolidayType());
-                        mm.setIsApplicable(Boolean.TRUE);
-                    }
+
                 } catch (Exception e) {
                 }
 
+                if (ccc != null) {
+                    mm.setHolidayType(ccc.getHolidayType());
+                    mm.setIsApplicable(Boolean.TRUE);
+                }
+
                 if (mm.getIsApplicable() == null) {
+                    GeneralHoliday gh = null;
                     try {
                         Calendar cal = Calendar.getInstance();
                         cal.setTime(xDate);
                         int onDay = cal.get(Calendar.DAY_OF_MONTH);
                         int onMonth = cal.get(Calendar.MONTH) + 1;
-                        GeneralHoliday gh = em
+                        gh = em
                                 .createQuery("SELECT x FROM " + GeneralHoliday.class.getName() + " x WHERE x.onDay=:onDay AND x.onMonth=:onMonth AND x.isActive=true", GeneralHoliday.class)
                                 .setParameter("onDay", onDay)
                                 .setParameter("onMonth", onMonth)
                                 .getSingleResult();
-                        if (gh != null) {
-                            mm.setHolidayType(gh.getHolidayType());
-                            mm.setIsApplicable(Boolean.TRUE);
-                        }
+
                     } catch (Exception e) {
+                    }
+                    if (gh != null) {
+                        mm.setHolidayType(gh.getHolidayType());
+                        mm.setIsApplicable(Boolean.TRUE);
                     }
                 }
                 em.persist(mm);
@@ -462,7 +463,5 @@ public class ProcServiceImpl implements ProcService {
         } finally {
             em.close();
         }
-
     }
-
 }

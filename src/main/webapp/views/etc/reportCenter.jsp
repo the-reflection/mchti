@@ -85,7 +85,7 @@
                                     <div class="input-group">
 
                                         <select class="form-control" name="P_DEPARTMENT_ID" id="P_DEPARTMENT_ID">
-                                            <option value='${null}' label='--- Select ---'/>
+                                            <option value='${null}' >--- Select ---</option>
                                             <c:forEach items='${departments}' var='department'  varStatus='loopStatus'>
                                                 <option value='${department.id}' >${department}</option>
                                             </c:forEach>
