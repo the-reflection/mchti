@@ -23,46 +23,46 @@
 
 <form:errors path='*' cssClass='errorblock' element='div' />
 <form:hidden path='id'/>
-<div>  
-    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
-        <div class='form-group'>
-            <form:label class='required' path='code'><spring:message code='code' text='Code'/></form:label>
-            <form:textarea class='form-control' path='code' type='text' required='true' size='30' maxlength='255'/>
-            <form:errors path='code' cssClass='error' element='div'/>
-        </div>
-    </div>
-    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+<div>
+    <div class='col-xs-12 col-sm-6 col-md-3 col-lg-3'>
         <div class='form-group'>
             <form:label class='required' path='title'><spring:message code='title' text='Title'/></form:label>
             <form:input class='form-control' path='title' type='text' required='true' size='30' maxlength='100'/>
             <form:errors path='title' cssClass='error' element='div'/>
         </div>
     </div>
-    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+    <div class='col-xs-12 col-sm-6 col-md-3 col-lg-3'>
         <div class='form-group'>
             <form:label class='required' path='cmd'><spring:message code='cmd' text='Cmd'/></form:label>
             <form:input class='form-control' path='cmd' type='text' required='true' size='30' maxlength='100'/>
             <form:errors path='cmd' cssClass='error' element='div'/>
         </div>
     </div>
-    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
-        <div class='form-group'>
-            <form:label path='isActive'><spring:message code='isActive' text='Is Active'/></form:label>
-            <br><form:checkbox class='cb' path='isActive'/>
-            <form:errors path='isActive' cssClass='error' element='div'/>
-        </div>
-    </div>
-    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+    <div class='col-xs-6 col-sm-6 col-md-3 col-lg-3'>
         <div class='form-group'>
             <form:label path='slNo'><spring:message code='slNo' text='Sl No'/></form:label>
             <form:input class='form-control' path='slNo' type='number' size='15' maxlength='15'/>
             <form:errors path='slNo' cssClass='error' element='div'/>
         </div>
     </div>
-    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+    <div class='col-xs-6 col-sm-6 col-md-3 col-lg-3'>
+        <div class='form-group'>
+            <form:label path='isActive'><spring:message code='isActive' text='Is Active'/></form:label>
+            <br><form:checkbox class='cb' path='isActive'/>
+            <form:errors path='isActive' cssClass='error' element='div'/>
+        </div>
+    </div>
+    <div class='col-xs-12 col-sm-6 col-md-6 col-lg-6'>
+        <div class='form-group'>
+            <form:label class='required' path='code'><spring:message code='code' text='Code'/></form:label>
+            <form:textarea class='form-control' path='code' type='text' required='true' size='30' maxlength='255'/>
+            <form:errors path='code' cssClass='error' element='div'/>
+        </div>
+    </div>
+    <div class='col-xs-12 col-sm-6 col-md-6 col-lg-6'>
         <div class='form-group'>
             <form:label path='remarks'><spring:message code='remarks' text='Remarks'/></form:label>
-            <form:input class='form-control' path='remarks' type='text' size='30' maxlength='100'/>
+            <form:textarea class='form-control' path='remarks' type='text' size='30' maxlength='100'/>
             <form:errors path='remarks' cssClass='error' element='div'/>
         </div>
     </div>

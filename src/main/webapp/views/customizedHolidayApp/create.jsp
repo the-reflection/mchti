@@ -35,7 +35,7 @@
                             <jsp:include page='_form.jsp' />
           </div><!-- /.box-body -->
                                 <div class='box-footer'>
-                                    <button type='reset' class='btn btn-danger'>
+                                    <button type='reset' class='btn btn-danger pull-right' onclick="return confirm('Are you sure...? you want to reset all value...!');">
                                         <i class='fa fa-refresh'></i> <spring:message code='default.button.reset.label' text='Reset'/>
                                     </button>
                                     <sec:access url='/customizedHolidayApp/create'>

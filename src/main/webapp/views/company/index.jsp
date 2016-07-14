@@ -86,7 +86,7 @@
                             </sec:access>
                             <sec:access url='/company/delete'>
                                 <li>
-                                <a class='btn btn-block btn-danger btn-xs' href='${pageContext.request.contextPath}/company/delete/${company.id}' onclick='return confirm('Are you sure to delete?');'>
+                                <a class='btn btn-block btn-danger btn-xs' href='${pageContext.request.contextPath}/company/delete/${company.id}' onclick="return confirm('Are you sure...? you want to delete this record...!');">
                                     <i class='fa fa-remove'></i> <spring:message code='delete.link.label'/>
                                 </a>
                                 </li>

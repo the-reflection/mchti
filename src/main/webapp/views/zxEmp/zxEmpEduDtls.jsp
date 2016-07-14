@@ -40,7 +40,7 @@
                         <td><c:out value='${zxEmpEduDtls.zxEmpWhoCheckedBy!=null ? zxEmpEduDtls.zxEmpWhoCheckedBy :"N/A"}'/></td>
 
                         <td><a href='${pageContext.request.contextPath}/zxEmpEduDtl/edit/<c:out value='${zxEmpEduDtls.id}'/>'><spring:message code='edit.link.label'/></a></td>
-                        <td><a href='${pageContext.request.contextPath}/zxEmpEduDtl/delete/<c:out value='${zxEmpEduDtls.id}'/>' onclick='return confirm('Are you sure to delete?');' ><spring:message code='delete.link.label'/></a></td>
+                        <td><a href='${pageContext.request.contextPath}/zxEmpEduDtl/delete/<c:out value='${zxEmpEduDtls.id}'/>' onclick="return confirm('Are you sure...? you want to delete this record...!');" ><spring:message code='delete.link.label'/></a></td>
                     </tr>
                     
                 </c:forEach>

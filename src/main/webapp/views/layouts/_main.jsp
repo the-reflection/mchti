@@ -26,81 +26,20 @@
                 <tiles:insertAttribute name="header"/>
             </div>
 
-            <%--<jsp:include page="layouts/_header.jsp"/>--%>
-
             <div class="sideBarLeft">
                 <tiles:insertAttribute name="sideBarLeft"/>
             </div>
-
-
-
-
+            
             <!-- Content Wrapper. Contains page content -->
-
-
             <div class="body">
                 <tiles:insertAttribute name="body"/>
+                <div id="spinner" class="spinner" style="display:none;"><g:message code="default.message.loading" default="Loading&hellip;"/></div>
             </div>
-
-            <%-- 
-                      <div class="content-wrapper">
-                          <!-- Content Header (Page header) -->
-                          <section class="content-header">
-                              <h1>
-                                  <!-- Page Header -->
-                                  Available Controllers
-                                  <!-- Optional description-->
-                                  <small>(Consist's in your project)</small>
-                              </h1>
-                              <ol class="breadcrumb">
-                                  <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-                                  <li class="active">Here</li>
-                              </ol>
-                          </section>
-                          
-
-                <!-- Main content -->
-                <section class="content">
-                  
-                    <!-- Your Page Content Here -->
-                        
-                        <div class="box box-primary">
-                           
-                           <div class="box-header">
-                               <div class="bold center">
-                                   <!--<h1>Available Controllers</h1>-->
-                               </div>
-                           </div>
-                        
-                           <div class="box-body">
-                           
-                              <div class="box-body no-padding">
-                            
-                                <table class="table table-bordered table-striped table-hover table-condensed dt-responsive display nowrap">
-                                    <c:forEach items="${controllerList}" var="controllerName">
-                                        <tr>
-                                            <th style="width: 30%">${controllerName}</th>
-                                            <td style="width: 70%"><a href="${pageContext.request.contextPath}${controllerName}">${controllerName}</a></td>
-                                        </tr>
-
-                                    </c:forEach>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="box-footer">
-
-                        </div>
-                    </div>
-                </section>
-                <!-- /.content -->
-            </div>
-            --%>
-
-
+                
             <div class="sideBarRight">
                 <tiles:insertAttribute name="sideBarRight"/>
             </div>
-
+            
             <div class="control-sidebar-bg"></div>
         </div>
         <!-- ./wrapper -->

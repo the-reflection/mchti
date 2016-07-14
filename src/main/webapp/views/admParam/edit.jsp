@@ -39,22 +39,22 @@
                 <div class='box box-primary'>
                     <form:form action='${pageContext.request.contextPath}/admParam/edit'  commandName='admParam' method='POST'>
                         <div class='box-body'>
-        <jsp:include page='_form.jsp' />
-         </div>
-                                <div class='box-footer'>
-                                    <sec:access url='/admParam/show'>
-                                        <a href='${pageContext.request.contextPath}/admParam/show/${admParam.id}' class='btn btn-primary'><i class='fa fa-info-circle'></i> <spring:message code='default.button.show.label' text='Show'/></a> 
-                                    </sec:access>
-                                    <sec:access url='/admParam/edit'>
-                                        <button type='submit' class='btn btn-warning' >
-                                            <i class='fa fa-save'></i> <spring:message code='default.button.update.label' text='Update'/>
-                                        </button>
-                                    </sec:access>
-                                </div>
-                            </form:form>
+                            <jsp:include page='_form.jsp' />
                         </div>
-                    </section><!-- /.content -->
-                </div><!-- /.content-wrapper -->
-            </tiles:putAttribute>
-        
+                        <div class='box-footer'>
+                            <sec:access url='/admParam/show'>
+                                <a href='${pageContext.request.contextPath}/admParam/show/${admParam.id}' class='btn btn-primary'><i class='fa fa-info-circle'></i> <spring:message code='default.button.show.label' text='Show'/></a> 
+                            </sec:access>
+                            <sec:access url='/admParam/edit'>
+                                <button type='submit' class='btn btn-warning' >
+                                    <i class='fa fa-save'></i> <spring:message code='default.button.update.label' text='Update'/>
+                                </button>
+                            </sec:access>
+                        </div>
+                    </form:form>
+                </div>
+            </section><!-- /.content -->
+        </div><!-- /.content-wrapper -->
+    </tiles:putAttribute>
+
 </tiles:insertDefinition>

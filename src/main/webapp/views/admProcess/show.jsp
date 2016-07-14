@@ -10,7 +10,7 @@
 <tiles:insertDefinition name='main' >
 
     <tiles:putAttribute name='body'>
-        
+
         <div class='content-wrapper'><!-- Content Wrapper. Contains page content -->
             <section class='content-header'><!-- Content Header (Page header) -->
                 <h1><spring:message code='default.button.show.label' text='Show'/> Adm Process</h1>
@@ -36,89 +36,89 @@
                 <div class='box box-primary'>
                     <div class='box-body'>
                         <fieldset class='show-page'>
-                             <form:hidden path='id'/>
-        <ol class='property-list'>
+                            <form:hidden path='id'/>
+                            <ol class='property-list'>
 
-        <c:if test='${admProcess.code!=null && !admProcess.code.isEmpty()}'>
-            <li class='fieldcontain first_item'>
-                <span id='title' class='property-label'>
-                    <spring:message code='code' text='Code'/>: 
-                </span>
-                <span class='property-value' aria-labelledby='code'>
-                    <c:out value='${admProcess.code}'/>
-                </span>
-            </li>
-        </c:if>
+                                <c:if test='${admProcess.code!=null && !admProcess.code.isEmpty()}'>
+                                    <li class='fieldcontain first_item'>
+                                        <span id='title' class='property-label'>
+                                            <spring:message code='code' text='Code'/>: 
+                                        </span>
+                                        <span class='property-value' aria-labelledby='code'>
+                                            <c:out value='${admProcess.code}'/>
+                                        </span>
+                                    </li>
+                                </c:if>
 
-        <c:if test='${admProcess.title!=null && !admProcess.title.isEmpty()}'>
-            <li class='fieldcontain first_item'>
-                <span id='title' class='property-label'>
-                    <spring:message code='title' text='Title'/>: 
-                </span>
-                <span class='property-value' aria-labelledby='title'>
-                    <c:out value='${admProcess.title}'/>
-                </span>
-            </li>
-        </c:if>
+                                <c:if test='${admProcess.title!=null && !admProcess.title.isEmpty()}'>
+                                    <li class='fieldcontain first_item'>
+                                        <span id='title' class='property-label'>
+                                            <spring:message code='title' text='Title'/>: 
+                                        </span>
+                                        <span class='property-value' aria-labelledby='title'>
+                                            <c:out value='${admProcess.title}'/>
+                                        </span>
+                                    </li>
+                                </c:if>
 
-        <c:if test='${admProcess.cmd!=null && !admProcess.cmd.isEmpty()}'>
-            <li class='fieldcontain first_item'>
-                <span id='title' class='property-label'>
-                    <spring:message code='cmd' text='Cmd'/>: 
-                </span>
-                <span class='property-value' aria-labelledby='cmd'>
-                    <c:out value='${admProcess.cmd}'/>
-                </span>
-            </li>
-        </c:if>
+                                <c:if test='${admProcess.cmd!=null && !admProcess.cmd.isEmpty()}'>
+                                    <li class='fieldcontain first_item'>
+                                        <span id='title' class='property-label'>
+                                            <spring:message code='cmd' text='Cmd'/>: 
+                                        </span>
+                                        <span class='property-value' aria-labelledby='cmd'>
+                                            <c:out value='${admProcess.cmd}'/>
+                                        </span>
+                                    </li>
+                                </c:if>
 
-        <c:if test='${admProcess.isActive!=null}'>
-            <li class='fieldcontain first_item'>
-                <span id='title' class='property-label'>
-                    <spring:message code='isActive' text='Is Active'/>: 
-                </span>
-                <span class='property-value' aria-labelledby='isActive'>
-                    <c:if test='${admProcess.isActive}'><spring:message code='default.boolean.true' text='YES'/></c:if><c:if test='${!admProcess.isActive}'><spring:message code='default.boolean.false' text='NO'/></c:if>
-                </span>
-            </li>
-        </c:if>
+                                <c:if test='${admProcess.isActive!=null}'>
+                                    <li class='fieldcontain first_item'>
+                                        <span id='title' class='property-label'>
+                                            <spring:message code='isActive' text='Is Active'/>: 
+                                        </span>
+                                        <span class='property-value' aria-labelledby='isActive'>
+                                            <c:if test='${admProcess.isActive}'><spring:message code='default.boolean.true' text='YES'/></c:if><c:if test='${!admProcess.isActive}'><spring:message code='default.boolean.false' text='NO'/></c:if>
+                                            </span>
+                                        </li>
+                                </c:if>
 
-        <c:if test='${admProcess.slNo!=null}'>
-            <li class='fieldcontain first_item'>
-                <span id='title' class='property-label'>
-                    <spring:message code='slNo' text='Sl No'/>: 
-                </span>
-                <span class='property-value' aria-labelledby='slNo'>
-                    <c:out value='${admProcess.slNo}'/>
-                </span>
-            </li>
-        </c:if>
+                                <c:if test='${admProcess.slNo!=null}'>
+                                    <li class='fieldcontain first_item'>
+                                        <span id='title' class='property-label'>
+                                            <spring:message code='slNo' text='Sl No'/>: 
+                                        </span>
+                                        <span class='property-value' aria-labelledby='slNo'>
+                                            <c:out value='${admProcess.slNo}'/>
+                                        </span>
+                                    </li>
+                                </c:if>
 
-        <c:if test='${admProcess.remarks!=null && !admProcess.remarks.isEmpty()}'>
-            <li class='fieldcontain first_item'>
-                <span id='title' class='property-label'>
-                    <spring:message code='remarks' text='Remarks'/>: 
-                </span>
-                <span class='property-value' aria-labelledby='remarks'>
-                    <c:out value='${admProcess.remarks}'/>
-                </span>
-            </li>
-        </c:if>
+                                <c:if test='${admProcess.remarks!=null && !admProcess.remarks.isEmpty()}'>
+                                    <li class='fieldcontain first_item'>
+                                        <span id='title' class='property-label'>
+                                            <spring:message code='remarks' text='Remarks'/>: 
+                                        </span>
+                                        <span class='property-value' aria-labelledby='remarks'>
+                                            <c:out value='${admProcess.remarks}'/>
+                                        </span>
+                                    </li>
+                                </c:if>
 
-        </ol>
-    <div><jsp:include page='admProcessDetails.jsp' /></div>
+                            </ol>
+                            <div><jsp:include page='admProcessDetails.jsp' /></div>
 
-    
-      </fieldset>     <!--.show-page-->
-                        </div>      <!--.box-body-->
-    
-                        <div class='box-footer'>
-                            <a href='${pageContext.request.contextPath}/admProcess/edit/${admProcess.id}' class='btn btn-primary'><i class='fa fa-edit'></i> <spring:message code='edit.link.label'/></a> 
-                            <a href='${pageContext.request.contextPath}/admProcess/copy/${admProcess.id}' class='btn btn-warning'><i class='fa fa-clone'></i> <spring:message code='default.button.copy.label'/></a>             
-                            <a href='${pageContext.request.contextPath}/admProcess/delete/${admProcess.id}' class='btn btn-danger' onclick='return confirm('Are you sure to delete?');'><i class='fa fa-remove'></i> <spring:message code='delete.link.label'/></a>
-                        </div>      <!--.box-footer-->
-                    </div>      <!--.box .box-primary-->
-                </section>      <!--.content-->
-            </div>      <!--.content-wrapper-->
-        </tiles:putAttribute>
+
+                        </fieldset>     <!--.show-page-->
+                    </div>      <!--.box-body-->
+
+                    <div class='box-footer'>
+                        <a href='${pageContext.request.contextPath}/admProcess/edit/${admProcess.id}' class='btn btn-primary'><i class='fa fa-edit'></i> <spring:message code='edit.link.label'/></a> 
+                        <a href='${pageContext.request.contextPath}/admProcess/copy/${admProcess.id}' class='btn btn-warning' onclick="return alert('Unique field should not contain same value...!');"><i class='fa fa-clone'></i> <spring:message code='default.button.copy.label'/></a>             
+                        <a href='${pageContext.request.contextPath}/admProcess/delete/${admProcess.id}' class='btn btn-danger pull-right' onclick="return confirm('Are you sure...? you want to delete this record...!');"><i class='fa fa-remove'></i> <spring:message code='delete.link.label'/></a>
+                    </div>      <!--.box-footer-->
+                </div>      <!--.box .box-primary-->
+            </section>      <!--.content-->
+        </div>      <!--.content-wrapper-->
+    </tiles:putAttribute>
 </tiles:insertDefinition>

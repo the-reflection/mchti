@@ -44,7 +44,7 @@
                         <td><c:if test='${childs.isActive}'><spring:message code='default.boolean.true' text='YES'/></c:if><c:if test='${!childs.isActive}'><spring:message code='default.boolean.false' text='NO'/></c:if></td>
 
                         <td><a href='${pageContext.request.contextPath}/authMenu/edit/<c:out value='${childs.id}'/>'><spring:message code='edit.link.label'/></a></td>
-                        <td><a href='${pageContext.request.contextPath}/authMenu/delete/<c:out value='${childs.id}'/>' onclick='return confirm('Are you sure to delete?');' ><spring:message code='delete.link.label'/></a></td>
+                        <td><a href='${pageContext.request.contextPath}/authMenu/delete/<c:out value='${childs.id}'/>' onclick="return confirm('Are you sure...? you want to delete this record...!');" ><spring:message code='delete.link.label'/></a></td>
                     </tr>
                     
                 </c:forEach>

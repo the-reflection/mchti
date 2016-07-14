@@ -33,21 +33,21 @@
                     <form:form action='${pageContext.request.contextPath}/admParam/create'  commandName='admParam' method='POST'>
                         <div class='box-body'>
                             <jsp:include page='_form.jsp' />
-          </div><!-- /.box-body -->
-                                <div class='box-footer'>
-                                    <button type='reset' class='btn btn-danger'>
-                                        <i class='fa fa-refresh'></i> <spring:message code='default.button.reset.label' text='Reset'/>
-                                    </button>
-                                    <sec:access url='/admParam/create'>
-                                        <button type='submit' class='btn btn-primary'>
-                                            <i class='fa fa-save'></i> <spring:message code='default.button.save.label' text='Save'/>
-                                        </button>
-                                    </sec:access>
-                                </div><!-- /.box-footer -->
-                            </form:form>
-                        </div><!-- /.create-admParam -->
-                    </section><!-- /.content -->
-                </div><!-- /.content-wrapper -->
-            </tiles:putAttribute>
-        
+                        </div><!-- /.box-body -->
+                        <div class='box-footer'>
+                            <sec:access url='/admParam/create'>
+                                <button type='submit' class='btn btn-primary'>
+                                    <i class='fa fa-save'></i> <spring:message code='default.button.save.label' text='Save'/>
+                                </button>
+                            </sec:access>
+                                <button type='reset' class='btn btn-danger pull-right' onclick="return confirm('Are you sure...? you want to reset all value...!');">
+                                <i class='fa fa-refresh'></i> <spring:message code='default.button.reset.label' text='Reset'/>
+                            </button>
+                        </div><!-- /.box-footer -->
+                    </form:form>
+                </div><!-- /.create-admParam -->
+            </section><!-- /.content -->
+        </div><!-- /.content-wrapper -->
+    </tiles:putAttribute>
+
 </tiles:insertDefinition>

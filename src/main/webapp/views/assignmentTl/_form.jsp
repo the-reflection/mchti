@@ -18,18 +18,18 @@
 </style>
 
 <script type='text/javascript'>
-    function getCodableDTOEmployee(code, lblCaption){
+    function getCodableDTOEmployee(code, lblCaption) {
         $.ajax({
-            type : 'GET',
+            type: 'GET',
             url: '${pageContext.request.contextPath}/employee/getCodableDTO',
             data: {code: code},
-            success: function(d) {
+            success: function (d) {
                 //alert('ok:'+d)
-                $('#'+lblCaption).text(d)
+                $('#' + lblCaption).text(d)
             },
-            error: function(err) {
+            error: function (err) {
                 //alert('err mac:'+err)
-                $('#'+lblCaption).text(err)
+                $('#' + lblCaption).text(err)
             }
         });
     }
@@ -48,35 +48,16 @@
     <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
         <div class='form-group'>
             <form:label class='required' path='employee'><spring:message code='employee' text='Employee'/></form:label>
+            <label id='employee_caption' class="pull-right c-gray">(${assignmentTl.employee.fullName})</label>
             <form:input class='form-control' path='employee.code' required='true' onkeyup='getCodableDTOEmployee(this.value,"employee_caption")' type='text' size='8'/>
-            <label id='employee_caption'>${assignmentTl.employee.fullName}</label>
             <form:errors path='employee' cssClass='error' element='div'/>
-        </div>
-    </div>
-    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
-        <div class='form-group'>
-            <form:label class='required' path='startDate'><spring:message code='startDate' text='Start Date'/></form:label>
-            <div class='input-group'>
-                <div class='input-group-addon'><i class='fa fa-calendar'></i></div>
-                <form:input class='form-control dtp-date' path='startDate' required='true'  />
-             </div>
-            <form:errors path='startDate' cssClass='error' element='div'/>
-        </div>
-    </div>
-    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
-        <div class='form-group'>
-            <form:label path='endDate'><spring:message code='endDate' text='End Date'/></form:label>
-            <div class='input-group'>
-                <div class='input-group-addon'><i class='fa fa-calendar'></i></div>
-                <form:input class='form-control dtp-date' path='endDate'  />
-             </div>
-            <form:errors path='endDate' cssClass='error' element='div'/>
         </div>
     </div>
     <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
         <div class='form-group'>
             <form:label path='weekendShiftOffDay'><spring:message code='weekendShiftOffDay' text='Weekend Shift Off Day'/></form:label>
             <form:select class='form-control' path='weekendShiftOffDay' name='weekendShiftOffDay' id='weekendShiftOffDay' >
+                <form:option value='${null}' label='Select One'/>
                 <form:option value='FRIDAY' label='FRIDAY'/>
                 <form:option value='SATURDAY' label='SATURDAY'/>
                 <form:option value='SUNDAY' label='SUNDAY'/>
@@ -92,7 +73,7 @@
         <div class='form-group'>
             <form:label path='shift'><spring:message code='shift' text='Shift'/></form:label>
             <form:select class='form-control' path='shift.id' name='shift' id='shift' >
-                <form:option value='${null}' label='--- Select ---'/>
+                <form:option value='${null}' label='Select One'/>
                 <form:options items='${shifts}' itemValue='id'/>
             </form:select>
             <form:errors path='shift' cssClass='error' element='div'/>
@@ -102,10 +83,30 @@
         <div class='form-group'>
             <form:label path='roster'><spring:message code='roster' text='Roster'/></form:label>
             <form:select class='form-control' path='roster.id' name='roster' id='roster' >
-                <form:option value='${null}' label='--- Select ---'/>
+                <form:option value='${null}' label='Select One'/>
                 <form:options items='${rosters}' itemValue='id'/>
             </form:select>
             <form:errors path='roster' cssClass='error' element='div'/>
+        </div>
+    </div>
+    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+        <div class='form-group'>
+            <form:label class='required' path='startDate'><spring:message code='startDate' text='Start Date'/></form:label>
+                <div class='input-group'>
+                    <div class='input-group-addon'><i class='fa fa-calendar'></i></div>
+                    <form:input class='form-control dtp-date' path='startDate' required='true'  />
+            </div>
+            <form:errors path='startDate' cssClass='error' element='div'/>
+        </div>
+    </div>
+    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+        <div class='form-group'>
+            <form:label path='endDate'><spring:message code='endDate' text='End Date'/></form:label>
+                <div class='input-group'>
+                    <div class='input-group-addon'><i class='fa fa-calendar'></i></div>
+                    <form:input class='form-control dtp-date' path='endDate'  />
+            </div>
+            <form:errors path='endDate' cssClass='error' element='div'/>
         </div>
     </div>
     <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
@@ -115,5 +116,4 @@
             <form:errors path='isOvertime' cssClass='error' element='div'/>
         </div>
     </div>
-
 </div>   

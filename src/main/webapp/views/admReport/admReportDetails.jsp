@@ -28,7 +28,7 @@
                         <td><c:out value='${admReportDetails.admParam}'/></td>
 
                         <td><a href='${pageContext.request.contextPath}/admReportDetail/edit/<c:out value='${admReportDetails.id}'/>'><spring:message code='edit.link.label'/></a></td>
-                        <td><a href='${pageContext.request.contextPath}/admReportDetail/delete/<c:out value='${admReportDetails.id}'/>' onclick='return confirm('Are you sure to delete?');' ><spring:message code='delete.link.label'/></a></td>
+                        <td><a href='${pageContext.request.contextPath}/admReportDetail/delete/<c:out value='${admReportDetails.id}'/>' onclick="return confirm('Are you sure...? you want to delete this record...!');" ><spring:message code='delete.link.label'/></a></td>
                     </tr>
                     
                 </c:forEach>

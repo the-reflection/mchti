@@ -68,7 +68,7 @@
 
 
                 <div class="item active">
-                    <div class="container">
+<!--                    <div class="container">
                         <div class="carousel-caption">
                             <h1>We craft<br/>
                                 brands, web apps,<br/>
@@ -81,39 +81,39 @@
                             </p>
                         </div>
                         <div class="carousel-image wow zoomIn">
-                            <!--<img src="${pageContext.request.contextPath}/resources/site/img/landing/laptop.png" alt="laptop"/>-->
+                            <img src="${pageContext.request.contextPath}/resources/site/img/landing/laptop.png" alt="laptop"/>
                         </div>
-                    </div>
+                    </div>-->
                     <!-- Set background for slide in css -->
                     <div class="header-back one"></div>
                 </div>
 
                 <div class="item">
-                    <div class="container">
+<!--                    <div class="container">
                         <div class="carousel-caption blank">
                             <h1>We create meaningful <br/> interfaces that inspire.</h1>
                             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
                             <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
                         </div>
-                    </div>
+                    </div>-->
                     <!-- Set background for slide in css -->
                     <div class="header-back two"></div>
                 </div>
 
                 <div class="item">
-                    <div class="container">
+<!--                    <div class="container">
                         <div class="carousel-caption blank">
                             <h1>We create meaningful <br/> interfaces that inspire.</h1>
                             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
                             <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
                         </div>
-                    </div>
+                    </div>-->
                     <!-- Set background for slide in css -->
                     <div class="header-back three"></div>
                 </div>
 
                 <div class="item">
-                    <div class="container">
+<!--                    <div class="container">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div class="carousel-caption blank">
                                 <h1>We create meaningful <br/> interfaces that inspire.</h1>
@@ -121,7 +121,7 @@
                                 <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                     <!-- Set background for slide in css -->
                     <div class="header-back four"></div>
                 </div>
@@ -625,9 +625,9 @@
                 <div class="row m-b-lg">
                     <div class="col-lg-3 col-lg-offset-3">
                         <address>
-                            <strong><span class="navy">Company name, Inc.</span></strong><br/>
-                            795 Folsom Ave, Suite 600<br/>
-                            San Francisco, CA 94107<br/>
+                            <strong><span class="navy">Maternal and Child Health Training Institute</span></strong><br/>
+                            Azimpur Road<br/>
+                            Dhaka-1205, Bangladesh<br/>
                             <abbr title="Phone">P:</abbr> (123) 456-7890
                         </address>
                     </div>
@@ -655,7 +655,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
-                        <p><strong>&copy; 2015 Company Name</strong><br/> consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+                        <p><strong>&copy; 2016 Maternal and Child Health Training Institute</strong><br/> consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
                     </div>
                 </div>
             </div>

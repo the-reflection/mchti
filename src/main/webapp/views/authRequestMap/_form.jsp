@@ -24,17 +24,25 @@
 <form:errors path='*' cssClass='errorblock' element='div' />
 <form:hidden path='id'/>
 <div>  
-    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+    <div class='col-xs-12 col-sm-6 col-md-6 col-lg-6'>
         <div class='form-group'>
             <form:label path='configAttribute'><spring:message code='configAttribute' text='Config Attribute'/></form:label>
             <form:textarea class='form-control' path='configAttribute' type='text' size='30' maxlength='255'/>
             <form:errors path='configAttribute' cssClass='error' element='div'/>
         </div>
     </div>
-    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+    <div class='col-xs-12 col-sm-6 col-md-6 col-lg-6'>
+        <div class='form-group'>
+            <form:label path='url'><spring:message code='url' text='Url'/></form:label>
+            <form:textarea class='form-control' path='url' type='text' size='30' maxlength='255'/>
+            <form:errors path='url' cssClass='error' element='div'/>
+        </div>
+    </div>
+    <div class='col-xs-12 col-sm-6 col-md-6 col-lg-6'>
         <div class='form-group'>
             <form:label path='httpMethod'><spring:message code='httpMethod' text='Http Method'/></form:label>
             <form:select class='form-control' path='httpMethod' name='httpMethod' id='httpMethod' >
+                <form:option value='${null}' label='Select One'/>
                 <form:option value='GET' label='GET'/>
                 <form:option value='HEAD' label='HEAD'/>
                 <form:option value='POST' label='POST'/>
@@ -47,12 +55,4 @@
             <form:errors path='httpMethod' cssClass='error' element='div'/>
         </div>
     </div>
-    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
-        <div class='form-group'>
-            <form:label path='url'><spring:message code='url' text='Url'/></form:label>
-            <form:textarea class='form-control' path='url' type='text' size='30' maxlength='255'/>
-            <form:errors path='url' cssClass='error' element='div'/>
-        </div>
-    </div>
-
 </div>   

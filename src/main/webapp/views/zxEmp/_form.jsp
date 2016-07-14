@@ -143,7 +143,7 @@
         <div class='form-group'>
             <form:label path='zxDept'><spring:message code='zxDept' text='Zx Dept'/></form:label>
             <form:select class='form-control' path='zxDept.id' name='zxDept' id='zxDept' >
-                <form:option value='${null}' label='--- Select ---'/>
+                <form:option value='${null}' label='Select One'/>
                 <form:options items='${zxDepts}' itemValue='id'/>
             </form:select>
             <form:errors path='zxDept' cssClass='error' element='div'/>
@@ -153,7 +153,7 @@
         <div class='form-group'>
             <form:label path='zxDesg'><spring:message code='zxDesg' text='Zx Desg'/></form:label>
             <form:select class='form-control' path='zxDesg.id' name='zxDesg' id='zxDesg' >
-                <form:option value='${null}' label='--- Select ---'/>
+                <form:option value='${null}' label='Select One'/>
                 <form:options items='${zxDesgs}' itemValue='id'/>
             </form:select>
             <form:errors path='zxDesg' cssClass='error' element='div'/>
@@ -163,7 +163,7 @@
         <div class='form-group'>
             <form:label path='zxLookupBloodGroup'><spring:message code='zxLookupBloodGroup' text='Zx Lookup Blood Group'/></form:label>
             <form:select class='form-control' path='zxLookupBloodGroup.id' name='zxLookupBloodGroup' id='zxLookupBloodGroup' >
-                <form:option value='${null}' label='--- Select ---'/>
+                <form:option value='${null}' label='Select One'/>
                 <form:options items='${zxLookupBloodGroups}' itemValue='id'/>
             </form:select>
             <form:errors path='zxLookupBloodGroup' cssClass='error' element='div'/>

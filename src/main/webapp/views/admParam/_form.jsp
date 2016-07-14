@@ -23,25 +23,33 @@
 
 <form:errors path='*' cssClass='errorblock' element='div' />
 <form:hidden path='id'/>
-<div>  
-    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+<div>
+    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-4'>
+        <div class='form-group'>
+            <form:label path='slNo'><spring:message code='slNo' text='Sl No'/></form:label>
+            <form:input class='form-control' path='slNo' type='number' size='15' maxlength='15'/>
+            <form:errors path='slNo' cssClass='error' element='div'/>
+        </div>
+    </div>
+    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-4'>
         <div class='form-group'>
             <form:label class='required' path='title'><spring:message code='title' text='Title'/></form:label>
             <form:input class='form-control' path='title' type='text' required='true' size='30' maxlength='30'/>
             <form:errors path='title' cssClass='error' element='div'/>
         </div>
     </div>
-    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-4'>
         <div class='form-group'>
             <form:label class='required' path='paramName'><spring:message code='paramName' text='Param Name'/></form:label>
             <form:input class='form-control' path='paramName' type='text' required='true' size='30' maxlength='30'/>
             <form:errors path='paramName' cssClass='error' element='div'/>
         </div>
     </div>
-    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-4'>
         <div class='form-group'>
             <form:label class='required' path='admWidgetType'><spring:message code='admWidgetType' text='Adm Widget Type'/></form:label>
             <form:select class='form-control' path='admWidgetType' name='admWidgetType' id='admWidgetType' required='true' >
+                <form:option value='${null}' label='Select One'/>
                 <form:option value='TEXT' label='TEXT'/>
                 <form:option value='PASSWORD' label='PASSWORD'/>
                 <form:option value='NUMBER' label='NUMBER'/>
@@ -57,42 +65,35 @@
             <form:errors path='admWidgetType' cssClass='error' element='div'/>
         </div>
     </div>
-    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
-        <div class='form-group'>
-            <form:label path='isActive'><spring:message code='isActive' text='Is Active'/></form:label>
-            <br><form:checkbox class='cb' path='isActive'/>
-            <form:errors path='isActive' cssClass='error' element='div'/>
-        </div>
-    </div>
-    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
-        <div class='form-group'>
-            <form:label path='isMandatory'><spring:message code='isMandatory' text='Is Mandatory'/></form:label>
-            <br><form:checkbox class='cb' path='isMandatory'/>
-            <form:errors path='isMandatory' cssClass='error' element='div'/>
-        </div>
-    </div>
-    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
-        <div class='form-group'>
-            <form:label path='slNo'><spring:message code='slNo' text='Sl No'/></form:label>
-            <form:input class='form-control' path='slNo' type='number' size='15' maxlength='15'/>
-            <form:errors path='slNo' cssClass='error' element='div'/>
-        </div>
-    </div>
-    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-4'>
         <div class='form-group'>
             <form:label path='cmd'><spring:message code='cmd' text='Cmd'/></form:label>
             <form:input class='form-control' path='cmd' type='text' size='30' maxlength='100'/>
             <form:errors path='cmd' cssClass='error' element='div'/>
         </div>
     </div>
-    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+    <div class='col-xs-6 col-sm-3 col-md-2 col-lg-2'>
+        <div class='form-group'>
+            <form:label path='isActive'><spring:message code='isActive' text='Is Active'/></form:label>
+            <br><form:checkbox class='cb' path='isActive'/>
+            <form:errors path='isActive' cssClass='error' element='div'/>
+        </div>
+    </div>
+    <div class='col-xs-6 col-sm-3 col-md-2 col-lg-2'>
+        <div class='form-group'>
+            <form:label path='isMandatory'><spring:message code='isMandatory' text='Is Mandatory'/></form:label>
+            <br><form:checkbox class='cb' path='isMandatory'/>
+            <form:errors path='isMandatory' cssClass='error' element='div'/>
+        </div>
+    </div>
+    <div class='col-xs-12 col-sm-6 col-md-6 col-lg-6'>
         <div class='form-group'>
             <form:label path='defaultVal'><spring:message code='defaultVal' text='Default Val'/></form:label>
             <form:textarea class='form-control' path='defaultVal' type='text' size='30' maxlength='255'/>
             <form:errors path='defaultVal' cssClass='error' element='div'/>
         </div>
     </div>
-    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+    <div class='col-xs-12 col-sm-6 col-md-6 col-lg-6'>
         <div class='form-group'>
             <form:label path='helpText'><spring:message code='helpText' text='Help Text'/></form:label>
             <form:textarea class='form-control' path='helpText' type='text' size='30' maxlength='255'/>

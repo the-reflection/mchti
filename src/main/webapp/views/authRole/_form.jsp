@@ -24,10 +24,10 @@
 <form:errors path='*' cssClass='errorblock' element='div' />
 <form:hidden path='id'/>
 <div>  
-    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-4'>
         <div class='form-group'>
             <form:label path='authority'><spring:message code='authority' text='Authority'/></form:label>
-            <form:textarea class='form-control' path='authority' type='text' size='30' maxlength='128'/>
+            <form:input class='form-control' path='authority' type='text' size='30' maxlength='128'/>
             <form:errors path='authority' cssClass='error' element='div'/>
         </div>
     </div>

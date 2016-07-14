@@ -16,7 +16,7 @@
                     <td><spring:message code='slNo' text='Sl No'/></td>
                     <td><spring:message code='admParam' text='Adm Param'/></td>
                     <td><spring:message code='admZoneType' text='Adm Zone Type'/></td>
- 
+
                 </tr>
             </thead>
             <tbody>
@@ -30,9 +30,9 @@
                         <td><c:out value='${admProcessDetails.admZoneType}'/></td>
 
                         <td><a href='${pageContext.request.contextPath}/admProcessDetail/edit/<c:out value='${admProcessDetails.id}'/>'><spring:message code='edit.link.label'/></a></td>
-                        <td><a href='${pageContext.request.contextPath}/admProcessDetail/delete/<c:out value='${admProcessDetails.id}'/>' onclick='return confirm('Are you sure to delete?');' ><spring:message code='delete.link.label'/></a></td>
+                        <td><a href='${pageContext.request.contextPath}/admProcessDetail/delete/<c:out value='${admProcessDetails.id}'/>' onclick="return confirm('Are you sure...? you want to delete this record...!');" ><spring:message code='delete.link.label'/></a></td>
                     </tr>
-                    
+
                 </c:forEach>
             </tbody>
         </table>

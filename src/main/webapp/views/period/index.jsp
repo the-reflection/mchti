@@ -77,7 +77,7 @@
                             </sec:access>
                             <sec:access url='/period/delete'>
                                 <li>
-                                <a class='btn btn-block btn-danger btn-xs' href='${pageContext.request.contextPath}/period/delete/${period.id}' onclick='return confirm('Are you sure to delete?');'>
+                                <a class='btn btn-block btn-danger btn-xs' href='${pageContext.request.contextPath}/period/delete/${period.id}' onclick="return confirm('Are you sure...? you want to delete this record...!');">
                                     <i class='fa fa-remove'></i> <spring:message code='delete.link.label'/>
                                 </a>
                                 </li>

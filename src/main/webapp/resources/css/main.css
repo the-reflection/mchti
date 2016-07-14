@@ -3,6 +3,19 @@
  * Created on : May 24, 2016, 9:55:17 AM
  * Author     : hoshen.mahmud
 */
+/*============================================================================================================================*/
+/*                                                           Spinner                                                          */
+/*============================================================================================================================*/
+.spinner {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 50%;
+    z-index: 9999;
+    background: url('../images/spinner.gif') 50% 50% no-repeat rgb(249,249,249);
+    background-color: transparent;
+}
 /*----------------------------------------------------------------------------------------------------------------------------*/
 
 .show-page .form-gorup div{
@@ -48,15 +61,14 @@ label.required:after {
     overflow: hidden;
 }
 
-.ri {
-    color: red;
-    font-weight: bold;
+.table thead th {
+    /*text-align: center;*/
+    background-color: rgba(255, 241, 232, 0.65);
+    color: #191970;
 }
 
-.table thead th {
+.table thead .th-center {
     text-align: center;
-    background-color: #ADD8E6;
-    color: #191970;
 }
 
 .transparent {background-color: transparent;}
@@ -97,6 +109,7 @@ label.required:after {
 .c-black       {color:#000000 !important;}
 .c-navy        {color:#001f3f !important;}
 .c-navy-deep   {color:#191970 !important;}
+.c-white       {color:white   !important;}
 /*----------------------------------------------------------------------------------------------------------------------------------------------*/
 /*                  Background Color                                                                                                            */
 /*----------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -131,6 +144,7 @@ label.required:after {
 .b-c-black       {background-color:#000000 !important;}
 .b-c-navy        {background-color:#001f3f !important;}
 .b-c-navy-deep   {background-color:#191970 !important;}
+.b-c-white       {background-color:white   !important;}
 /*----------------------------------------------------------------------------------------------------------------------------------------------*/
 /*      Margin                                                                                                                      */
 /*----------------------------------------------------------------------------------------------------------------------------------------------*/

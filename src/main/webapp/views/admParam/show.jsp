@@ -10,7 +10,7 @@
 <tiles:insertDefinition name='main' >
 
     <tiles:putAttribute name='body'>
-        
+
         <div class='content-wrapper'><!-- Content Wrapper. Contains page content -->
             <section class='content-header'><!-- Content Header (Page header) -->
                 <h1><spring:message code='default.button.show.label' text='Show'/> Adm Param</h1>
@@ -36,121 +36,118 @@
                 <div class='box box-primary'>
                     <div class='box-body'>
                         <fieldset class='show-page'>
-                             <form:hidden path='id'/>
-        <ol class='property-list'>
+                            <form:hidden path='id'/>
+                            <ol class='property-list'>
 
-        <c:if test='${admParam.title!=null && !admParam.title.isEmpty()}'>
-            <li class='fieldcontain first_item'>
-                <span id='title' class='property-label'>
-                    <spring:message code='title' text='Title'/>: 
-                </span>
-                <span class='property-value' aria-labelledby='title'>
-                    <c:out value='${admParam.title}'/>
-                </span>
-            </li>
-        </c:if>
+                                <c:if test='${admParam.title!=null && !admParam.title.isEmpty()}'>
+                                    <li class='fieldcontain first_item'>
+                                        <span id='title' class='property-label'>
+                                            <spring:message code='title' text='Title'/>: 
+                                        </span>
+                                        <span class='property-value' aria-labelledby='title'>
+                                            <c:out value='${admParam.title}'/>
+                                        </span>
+                                    </li>
+                                </c:if>
 
-        <c:if test='${admParam.paramName!=null && !admParam.paramName.isEmpty()}'>
-            <li class='fieldcontain first_item'>
-                <span id='title' class='property-label'>
-                    <spring:message code='paramName' text='Param Name'/>: 
-                </span>
-                <span class='property-value' aria-labelledby='paramName'>
-                    <c:out value='${admParam.paramName}'/>
-                </span>
-            </li>
-        </c:if>
+                                <c:if test='${admParam.paramName!=null && !admParam.paramName.isEmpty()}'>
+                                    <li class='fieldcontain first_item'>
+                                        <span id='title' class='property-label'>
+                                            <spring:message code='paramName' text='Param Name'/>: 
+                                        </span>
+                                        <span class='property-value' aria-labelledby='paramName'>
+                                            <c:out value='${admParam.paramName}'/>
+                                        </span>
+                                    </li>
+                                </c:if>
 
-        <c:if test='${admParam.admWidgetType!=null}'>
-            <li class='fieldcontain first_item'>
-                <span id='title' class='property-label'>
-                    <spring:message code='admWidgetType' text='Adm Widget Type'/>: 
-                </span>
-                <span class='property-value' aria-labelledby='admWidgetType'>
-                    <c:out value='${admParam.admWidgetType}'/>
-                </span>
-            </li>
-        </c:if>
+                                <c:if test='${admParam.admWidgetType!=null}'>
+                                    <li class='fieldcontain first_item'>
+                                        <span id='title' class='property-label'>
+                                            <spring:message code='admWidgetType' text='Adm Widget Type'/>: 
+                                        </span>
+                                        <span class='property-value' aria-labelledby='admWidgetType'>
+                                            <c:out value='${admParam.admWidgetType}'/>
+                                        </span>
+                                    </li>
+                                </c:if>
 
-        <c:if test='${admParam.isActive!=null}'>
-            <li class='fieldcontain first_item'>
-                <span id='title' class='property-label'>
-                    <spring:message code='isActive' text='Is Active'/>: 
-                </span>
-                <span class='property-value' aria-labelledby='isActive'>
-                    <c:if test='${admParam.isActive}'><spring:message code='default.boolean.true' text='YES'/></c:if><c:if test='${!admParam.isActive}'><spring:message code='default.boolean.false' text='NO'/></c:if>
-                </span>
-            </li>
-        </c:if>
+                                <c:if test='${admParam.isActive!=null}'>
+                                    <li class='fieldcontain first_item'>
+                                        <span id='title' class='property-label'>
+                                            <spring:message code='isActive' text='Is Active'/>: 
+                                        </span>
+                                        <span class='property-value' aria-labelledby='isActive'>
+                                            <c:if test='${admParam.isActive}'><spring:message code='default.boolean.true' text='YES'/></c:if><c:if test='${!admParam.isActive}'><spring:message code='default.boolean.false' text='NO'/></c:if>
+                                            </span>
+                                        </li>
+                                </c:if>
 
-        <c:if test='${admParam.isMandatory!=null}'>
-            <li class='fieldcontain first_item'>
-                <span id='title' class='property-label'>
-                    <spring:message code='isMandatory' text='Is Mandatory'/>: 
-                </span>
-                <span class='property-value' aria-labelledby='isMandatory'>
-                    <c:if test='${admParam.isMandatory}'><spring:message code='default.boolean.true' text='YES'/></c:if><c:if test='${!admParam.isMandatory}'><spring:message code='default.boolean.false' text='NO'/></c:if>
-                </span>
-            </li>
-        </c:if>
+                                <c:if test='${admParam.isMandatory!=null}'>
+                                    <li class='fieldcontain first_item'>
+                                        <span id='title' class='property-label'>
+                                            <spring:message code='isMandatory' text='Is Mandatory'/>: 
+                                        </span>
+                                        <span class='property-value' aria-labelledby='isMandatory'>
+                                            <c:if test='${admParam.isMandatory}'><spring:message code='default.boolean.true' text='YES'/></c:if><c:if test='${!admParam.isMandatory}'><spring:message code='default.boolean.false' text='NO'/></c:if>
+                                            </span>
+                                        </li>
+                                </c:if>
 
-        <c:if test='${admParam.slNo!=null}'>
-            <li class='fieldcontain first_item'>
-                <span id='title' class='property-label'>
-                    <spring:message code='slNo' text='Sl No'/>: 
-                </span>
-                <span class='property-value' aria-labelledby='slNo'>
-                    <c:out value='${admParam.slNo}'/>
-                </span>
-            </li>
-        </c:if>
+                                <c:if test='${admParam.slNo!=null}'>
+                                    <li class='fieldcontain first_item'>
+                                        <span id='title' class='property-label'>
+                                            <spring:message code='slNo' text='Sl No'/>: 
+                                        </span>
+                                        <span class='property-value' aria-labelledby='slNo'>
+                                            <c:out value='${admParam.slNo}'/>
+                                        </span>
+                                    </li>
+                                </c:if>
 
-        <c:if test='${admParam.cmd!=null && !admParam.cmd.isEmpty()}'>
-            <li class='fieldcontain first_item'>
-                <span id='title' class='property-label'>
-                    <spring:message code='cmd' text='Cmd'/>: 
-                </span>
-                <span class='property-value' aria-labelledby='cmd'>
-                    <c:out value='${admParam.cmd}'/>
-                </span>
-            </li>
-        </c:if>
+                                <c:if test='${admParam.cmd!=null && !admParam.cmd.isEmpty()}'>
+                                    <li class='fieldcontain first_item'>
+                                        <span id='title' class='property-label'>
+                                            <spring:message code='cmd' text='Cmd'/>: 
+                                        </span>
+                                        <span class='property-value' aria-labelledby='cmd'>
+                                            <c:out value='${admParam.cmd}'/>
+                                        </span>
+                                    </li>
+                                </c:if>
 
-        <c:if test='${admParam.defaultVal!=null && !admParam.defaultVal.isEmpty()}'>
-            <li class='fieldcontain first_item'>
-                <span id='title' class='property-label'>
-                    <spring:message code='defaultVal' text='Default Val'/>: 
-                </span>
-                <span class='property-value' aria-labelledby='defaultVal'>
-                    <c:out value='${admParam.defaultVal}'/>
-                </span>
-            </li>
-        </c:if>
+                                <c:if test='${admParam.defaultVal!=null && !admParam.defaultVal.isEmpty()}'>
+                                    <li class='fieldcontain first_item'>
+                                        <span id='title' class='property-label'>
+                                            <spring:message code='defaultVal' text='Default Val'/>: 
+                                        </span>
+                                        <span class='property-value' aria-labelledby='defaultVal'>
+                                            <c:out value='${admParam.defaultVal}'/>
+                                        </span>
+                                    </li>
+                                </c:if>
 
-        <c:if test='${admParam.helpText!=null && !admParam.helpText.isEmpty()}'>
-            <li class='fieldcontain first_item'>
-                <span id='title' class='property-label'>
-                    <spring:message code='helpText' text='Help Text'/>: 
-                </span>
-                <span class='property-value' aria-labelledby='helpText'>
-                    <c:out value='${admParam.helpText}'/>
-                </span>
-            </li>
-        </c:if>
+                                <c:if test='${admParam.helpText!=null && !admParam.helpText.isEmpty()}'>
+                                    <li class='fieldcontain first_item'>
+                                        <span id='title' class='property-label'>
+                                            <spring:message code='helpText' text='Help Text'/>: 
+                                        </span>
+                                        <span class='property-value' aria-labelledby='helpText'>
+                                            <c:out value='${admParam.helpText}'/>
+                                        </span>
+                                    </li>
+                                </c:if>
+                            </ol>
+                        </fieldset>     <!--.show-page-->
+                    </div>      <!--.box-body-->
 
-        </ol>
-
-    
-      </fieldset>     <!--.show-page-->
-                        </div>      <!--.box-body-->
-    
-                        <div class='box-footer'>
-                            <a href='${pageContext.request.contextPath}/admParam/edit/${admParam.id}' class='btn btn-primary'><i class='fa fa-edit'></i> <spring:message code='edit.link.label'/></a> 
-                            <a href='${pageContext.request.contextPath}/admParam/copy/${admParam.id}' class='btn btn-warning'><i class='fa fa-clone'></i> <spring:message code='default.button.copy.label'/></a>             
-                            <a href='${pageContext.request.contextPath}/admParam/delete/${admParam.id}' class='btn btn-danger' onclick='return confirm('Are you sure to delete?');'><i class='fa fa-remove'></i> <spring:message code='delete.link.label'/></a>
-                        </div>      <!--.box-footer-->
-                    </div>      <!--.box .box-primary-->
-                </section>      <!--.content-->
-            </div>      <!--.content-wrapper-->
-        </tiles:putAttribute>
+                    <div class='box-footer'>
+                        <a href='${pageContext.request.contextPath}/admParam/edit/${admParam.id}' class='btn btn-primary'><i class='fa fa-edit'></i> <spring:message code='edit.link.label'/></a> 
+                        <a href='${pageContext.request.contextPath}/admParam/copy/${admParam.id}' class='btn btn-warning' onclick="return alert('Unique field should not contain same value...!');"><i class='fa fa-clone'></i> <spring:message code='default.button.copy.label'/></a>             
+                        <a href='${pageContext.request.contextPath}/admParam/delete/${admParam.id}' class='btn btn-danger pull-right' onclick="return confirm('Are you sure...? you want to delete this record...!');"><i class='fa fa-remove'></i> <spring:message code='delete.link.label'/></a>
+                    </div>      <!--.box-footer-->
+                </div>      <!--.box .box-primary-->
+            </section>      <!--.content-->
+        </div>      <!--.content-wrapper-->
+    </tiles:putAttribute>
 </tiles:insertDefinition>

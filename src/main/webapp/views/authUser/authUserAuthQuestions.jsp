@@ -26,7 +26,7 @@
                         <td><c:out value='${authUserAuthQuestions.answer}'/></td>
 
                         <td><a href='${pageContext.request.contextPath}/authUserAuthQuestion/edit/<c:out value='${authUserAuthQuestions.id}'/>'><spring:message code='edit.link.label'/></a></td>
-                        <td><a href='${pageContext.request.contextPath}/authUserAuthQuestion/delete/<c:out value='${authUserAuthQuestions.id}'/>' onclick='return confirm('Are you sure to delete?');' ><spring:message code='delete.link.label'/></a></td>
+                        <td><a href='${pageContext.request.contextPath}/authUserAuthQuestion/delete/<c:out value='${authUserAuthQuestions.id}'/>' onclick="return confirm('Are you sure...? you want to delete this record...!');" ><spring:message code='delete.link.label'/></a></td>
                     </tr>
                     
                 </c:forEach>

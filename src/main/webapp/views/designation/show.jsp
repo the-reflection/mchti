@@ -113,8 +113,8 @@
     
                         <div class='box-footer'>
                             <a href='${pageContext.request.contextPath}/designation/edit/${designation.id}' class='btn btn-primary'><i class='fa fa-edit'></i> <spring:message code='edit.link.label'/></a> 
-                            <a href='${pageContext.request.contextPath}/designation/copy/${designation.id}' class='btn btn-warning'><i class='fa fa-clone'></i> <spring:message code='default.button.copy.label'/></a>             
-                            <a href='${pageContext.request.contextPath}/designation/delete/${designation.id}' class='btn btn-danger' onclick='return confirm('Are you sure to delete?');'><i class='fa fa-remove'></i> <spring:message code='delete.link.label'/></a>
+                            <a href='${pageContext.request.contextPath}/designation/copy/${designation.id}' class='btn btn-warning' onclick="return alert('Unique field should not contain same value...!');"><i class='fa fa-clone'></i> <spring:message code='default.button.copy.label'/></a>             
+                            <a href='${pageContext.request.contextPath}/designation/delete/${designation.id}' class='btn btn-danger pull-right' onclick="return confirm('Are you sure...? you want to delete this record...!');"><i class='fa fa-remove'></i> <spring:message code='delete.link.label'/></a>
                         </div>      <!--.box-footer-->
                     </div>      <!--.box .box-primary-->
                 </section>      <!--.content-->

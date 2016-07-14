@@ -24,7 +24,9 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body class="hold-transition login-page">
+    <!--<body class="hold-transition" style="background-color: red">-->
+    <!--<body class="hold-transition" style="background-image: url(../../../webapp/resources/site/hms/images/l1.jpg)">-->
+    <body class="hold-transition" style="background: url(../../../webapp/resources/site/hms/images/l1.jpg)">
         <div class="login-box">
             <div class="login-logo">
                 <!--<a href="../../samplePages/home/index2.jsp"><b>Reflection</b></a>-->
