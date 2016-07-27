@@ -8,6 +8,8 @@ import java.util.Date;
  */
 public interface ProcService {
 
+    public void timerSingleton();
+
     public void empCascadeDeleteWithCode(String empCode);
 
     public void genCalender(Date fromDate, Date toDate);
@@ -17,4 +19,5 @@ public interface ProcService {
     public void daily(Date fromDate, Date toDate);
 
     public void daily(Date attnDate);
+
 }

@@ -17,6 +17,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import java.util.Date;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 import javax.persistence.TemporalType;
 import org.reflection.model.hcm.prl.AssignmentPrl;
 import org.reflection.model.hcm.proc.ProcOutCalender;
@@ -37,6 +39,53 @@ public class ProcServiceImpl implements ProcService {
 
     @Autowired
     private EntityManagerFactory entityManagerFactory;
+
+    private Timer timerRefresh;
+    private Timer timerDailyRange;
+
+    @Override
+    public void timerSingleton() {
+
+        if (timerRefresh == null) {
+            System.out.println("mac say: this line 'timerRefresh' should never print many time, it is singleton.");
+            timerRefresh = new Timer();
+
+            timerRefresh.scheduleAtFixedRate(new TimerTask() {
+                @Override
+                public void run() {
+                    Date curr = new Date();
+                    System.out.println("schedule calling timerRefresh on " + curr);
+                    refresh();
+                }
+            }, 30 * 60 * 1000, 1 * 60 * 60 * 1000);//30mins, 1 hour
+        }
+        if (timerDailyRange == null) {
+            System.out.println("mac say: this line 'timerDailyRange' should never print many time, it is singleton.");
+            timerDailyRange = new Timer();
+
+            timerDailyRange.scheduleAtFixedRate(new TimerTask() {
+                @Override
+                public void run() {
+                    Date curr = new Date();
+                    System.out.println("schedule calling timerDailyRange on " + curr);
+
+                    Calendar calx = Calendar.getInstance(); // locale-specific
+                    calx.setTime(curr);
+                    calx.set(Calendar.HOUR_OF_DAY, 0);
+                    calx.set(Calendar.MINUTE, 0);
+                    calx.set(Calendar.SECOND, 0);
+                    calx.set(Calendar.MILLISECOND, 0);
+                    Date toDate = calx.getTime();
+
+                    Calendar cal = Calendar.getInstance();
+                    cal.add(Calendar.DATE, -3);
+
+                    Date fromDate = cal.getTime();
+                    daily(fromDate, toDate);
+                }
+            }, 1000L, 1 * 60 * 60 * 1000); //1 hour
+        }
+    }
 
     @Override
     public void refresh() {

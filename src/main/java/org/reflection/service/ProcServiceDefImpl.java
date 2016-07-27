@@ -14,6 +14,8 @@ import org.reflection.model.security.AuthRole;
 import org.reflection.model.security.AuthUser;
 import java.util.SortedSet;
 import java.util.StringTokenizer;
+import java.util.Timer;
+import java.util.TimerTask;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -36,6 +38,8 @@ public class ProcServiceDefImpl implements ProcServiceDef {
 
     @Autowired
     private EntityManagerFactory entityManagerFactory;
+
+    
 
     @Override
     public void fastMenuGen(SortedSet<String> list) {
