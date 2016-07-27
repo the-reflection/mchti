@@ -37,6 +37,12 @@ public class _OithHomeController {
     private ProcServiceDef procServiceDef;
 
     private final SortedSet<String> list = new TreeSet<>();
+    
+        @RequestMapping(value = {"/proc-timerSingleton"}, method = RequestMethod.GET)
+    public String procTimerSingleton(ModelMap model) {
+        procService.timerSingleton();
+        return "redirect:homeSecure";
+    }
 
     @RequestMapping(value = {"/proc-refresh"}, method = RequestMethod.GET)
     public String procRefresh(ModelMap model) {
