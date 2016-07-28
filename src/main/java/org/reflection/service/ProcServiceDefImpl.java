@@ -14,8 +14,6 @@ import org.reflection.model.security.AuthRole;
 import org.reflection.model.security.AuthUser;
 import java.util.SortedSet;
 import java.util.StringTokenizer;
-import java.util.Timer;
-import java.util.TimerTask;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -23,8 +21,6 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.reflection.model.com.Employee;
 import org.reflection.model.hcm.enums.AttnMode;
 import org.reflection.model.hcm.proc.ProcOutAttnDaily;
@@ -38,8 +34,6 @@ public class ProcServiceDefImpl implements ProcServiceDef {
 
     @Autowired
     private EntityManagerFactory entityManagerFactory;
-
-    
 
     @Override
     public void fastMenuGen(SortedSet<String> list) {
@@ -78,7 +72,6 @@ public class ProcServiceDefImpl implements ProcServiceDef {
         } finally {
             em.close();
         }
-
     }
 
     @Override

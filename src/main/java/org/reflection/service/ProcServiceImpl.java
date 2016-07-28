@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.persistence.TemporalType;
+import org.reflection.model.hcm.enums.ShiftType;
 import org.reflection.model.hcm.prl.AssignmentPrl;
 import org.reflection.model.hcm.proc.ProcOutCalender;
 import org.reflection.model.hcm.proc.ProcOutCalenderPK;
@@ -27,6 +28,7 @@ import org.reflection.model.hcm.proc.ProcOutRoster;
 import org.reflection.model.hcm.tl.CustomizedHolidayApp;
 import org.reflection.model.hcm.tl.GeneralHoliday;
 import org.reflection.model.hcm.tl.ManualAttnDaily;
+import org.reflection.model.hcm.tl.TlOverride;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -83,7 +85,7 @@ public class ProcServiceImpl implements ProcService {
                     Date fromDate = cal.getTime();
                     daily(fromDate, toDate);
                 }
-            }, 1000L, 1 * 60 * 60 * 1000); //1 hour
+            }, 15 * 60 * 1000, 1 * 60 * 60 * 1000); //15 mins, 1 hour
         }
     }
 
@@ -186,19 +188,36 @@ public class ProcServiceImpl implements ProcService {
 
         List<ProcOutEmp> emps = em.createQuery("FROM " + ProcOutEmp.class.getName() + " m", ProcOutEmp.class).getResultList();
 
+        TlOverride tlOverride = null;
+
+        try {
+            tlOverride = em.createQuery("FROM " + TlOverride.class.getName() + " m WHERE m.endDate is null OR :onDate BETWEEN TRUNC(m.startDate) AND TRUNC(m.endDate)", TlOverride.class)
+                    .setParameter("onDate", attnDate, TemporalType.DATE)
+                    .getSingleResult();
+
+        } catch (Exception e) {
+            System.out.println("baaaaaaaaaaallllll"+e);
+        }
+
         for (ProcOutEmp poe : emps) {
 
-            Shift shift = poe.getShift();//(Shift) session.get(Shift.class, new BigInteger("1"));
+            Shift shift = poe.getShift();
 
-            try {
-                ProcOutRoster hh = em.createQuery("FROM " + ProcOutRoster.class.getName() + " m WHERE m.procOutRosterPK.employee=:employee AND TRUNC(m.procOutRosterPK.calcDate)=:calcDate", ProcOutRoster.class)
-                        .setParameter("employee", poe.getEmployee())
-                        .setParameter("calcDate", attnDate, TemporalType.DATE)
-                        .getSingleResult();
-                shift = hh.getShift();//(Shift) session.get(Shift.class, new BigInteger("1"));
+            if (tlOverride != null) {
+                shift = tlOverride.getShift();
+            }
 
-            } catch (Exception e) {
-                System.out.println("err roster shift: " + e);
+            if (shift.getShiftType() == ShiftType.ROSTER) {
+                try {
+                    ProcOutRoster hh = em.createQuery("FROM " + ProcOutRoster.class.getName() + " m WHERE m.procOutRosterPK.employee=:employee AND TRUNC(m.procOutRosterPK.calcDate)=:calcDate", ProcOutRoster.class)
+                            .setParameter("employee", poe.getEmployee())
+                            .setParameter("calcDate", attnDate, TemporalType.DATE)
+                            .getSingleResult();
+                    shift = hh.getShift();//(Shift) session.get(Shift.class, new BigInteger("1"));
+
+                } catch (Exception e) {
+                    System.out.println("err roster shift: " + e);
+                }
             }
 
             if (shift == null) {
