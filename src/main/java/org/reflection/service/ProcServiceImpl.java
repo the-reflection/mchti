@@ -100,7 +100,6 @@ public class ProcServiceImpl implements ProcService {
 
             ProcOutEmp pp;
             try {
-
                 pp = em.createQuery(
                         "SELECT m FROM " + ProcOutEmp.class.getName() + " m WHERE m.employee=:employee", ProcOutEmp.class)
                         .setParameter("employee", emp)
@@ -196,7 +195,7 @@ public class ProcServiceImpl implements ProcService {
                     .getSingleResult();
 
         } catch (Exception e) {
-            System.out.println("baaaaaaaaaaallllll"+e);
+            System.out.println("baaaaaaaaaaallllll" + e);
         }
 
         for (ProcOutEmp poe : emps) {
@@ -209,11 +208,11 @@ public class ProcServiceImpl implements ProcService {
 
             if (shift.getShiftType() == ShiftType.ROSTER) {
                 try {
-                    ProcOutRoster hh = em.createQuery("FROM " + ProcOutRoster.class.getName() + " m WHERE m.procOutRosterPK.employee=:employee AND TRUNC(m.procOutRosterPK.calcDate)=:calcDate", ProcOutRoster.class)
+                    ProcOutRoster hh = em.createQuery("SELECT m FROM " + ProcOutRoster.class.getName() + " m WHERE m.procOutRosterPK.employee=:employee AND TRUNC(m.procOutRosterPK.calcDate)=:calcDate", ProcOutRoster.class)
                             .setParameter("employee", poe.getEmployee())
                             .setParameter("calcDate", attnDate, TemporalType.DATE)
                             .getSingleResult();
-                    shift = hh.getShift();//(Shift) session.get(Shift.class, new BigInteger("1"));
+                    shift = hh.getShift();
 
                 } catch (Exception e) {
                     System.out.println("err roster shift: " + e);
