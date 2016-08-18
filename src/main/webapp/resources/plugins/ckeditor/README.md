@@ -32,8 +32,8 @@ installation proceeded properly. Take a look at the `samples` directory.
 
 To test your installation, just call the following page at your website:
 
-	http://<your site>/<CKEditor installation path>/samples/index.gsp
+	http://<your site>/<CKEditor installation path>/samples/index.html
 
 For example:
 
-	http://www.example.com/ckeditor/samples/index.gsp
+	http://www.example.com/ckeditor/samples/index.html
