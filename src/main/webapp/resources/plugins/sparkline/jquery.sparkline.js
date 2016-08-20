@@ -999,7 +999,7 @@
                     mhandler.registerSparkline(sp);
                 }
             };
-            if (($(this).jsp() && !options.get('disableHiddenCheck') && $(this).is(':hidden')) || !$(this).parents('body').length) {
+            if (($(this).html() && !options.get('disableHiddenCheck') && $(this).is(':hidden')) || !$(this).parents('body').length) {
                 if (!options.get('composite') && $.data(this, '_jqs_pending')) {
                     // remove any existing references to the element
                     for (i = pending.length; i; i--) {
@@ -2618,7 +2618,7 @@
         },
 
         _insert: function (el, target) {
-            $(target).jsp(el);
+            $(target).html(el);
         },
 
         /**
