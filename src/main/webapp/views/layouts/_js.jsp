@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!-- jQuery 2.2.0 -->
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/plugins/jQuery/jQuery-2.2.0.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/plugins/jQuery/jquery.min.js"></script>
 
 <!-- Bootstrap 3.3.6 -->
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/plugins/bootstrap/js/bootstrap.min.js"></script>
@@ -66,18 +66,18 @@
 <!--<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/plugins/select2/select2.full.min.js"/>-->
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/plugins/select2/select2.min.js"/>
 
-<!--<script type="text/javascript" src="<%=request.getContextPath()%>/resources/plugins/jquery-confirm/jquery-confirm.min.js"></script>-->
-<!--<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/custom-confirm.js"></script>-->
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/plugins/jquery-confirm/jquery-confirm.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/plugins/reflection/custom-confirm.js"></script>
 
 <!-- Reflection -->
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/main.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/plugins/reflection/reflection.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/plugins/reflection/slideToTop.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/plugins/reflection/skinSwitcher.js"></script>
-<!-- <script type="text/javascript" src="<%=request.getContextPath()%>/resources/plugins/reflection/customInput.js"></script> -->
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/plugins/reflection/customDataTable.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/plugins/reflection/customMasterDetails.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/plugins/reflection/customFileUpload.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/plugins/reflection/slide-to-top.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/plugins/reflection/skin-switcher.js"></script>
+<!-- <script type="text/javascript" src="<%=request.getContextPath()%>/resources/plugins/reflection/custom-input.js"></script> -->
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/plugins/reflection/custom-data-table.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/plugins/reflection/custom-master-details.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/plugins/reflection/custom-file-pload.js"></script>
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
