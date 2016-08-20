@@ -10,33 +10,31 @@
 //==================================================================================================================================
 //  Spinner Icon (Window.onLoad(), AJAX Request fire)
 //----------------------------------------------------------------------------------------------------------------------------------
-    $(window).load(function () {
-        //$(".spinner").fadeIn("slow");
-        $(".spinner").fadeOut("slow");
-    });
-    if (typeof jQuery !== 'undefined') {
-        (function ($) {
-            $(document).ajaxStart(function () {
-//                alert("This is an AJAX Request...!")
-                //$(".spinner").fadeIn("slow");
-                $(".spinner").show();
-            }).ajaxStop(function () {
-                $(".spinner").fadeOut("slow");
-            });
-        })(jQuery);
-    }
+//    $(window).load(function () {/*$(".spinner").fadeIn("slow");*/ $(".spinner").fadeOut("slow");});
+//    $(window).load(function () { Pace.restart();});
+
+//[ "ajaxStart", "ajaxStop", "ajaxComplete", "ajaxError", "ajaxSuccess", "ajaxSend" ]
+$(document).ajaxStart(function () {
+    Pace.restart();
+}).ajaxStop(function () {
+    Pace.stop();
+});
+
+//$(document)
+//    .ajaxStart(function () {/*$(".spinner").fadeIn("slow");*/ $(".spinner").show();})
+//    .ajaxStop(function () {$(".spinner").fadeOut("slow");});
 //==================================================================================================================================
 //  iCheck (Checkbox & Radio Button)
 //----------------------------------------------------------------------------------------------------------------------------------
-    $('.cb, .rb').iCheck({
-        checkboxClass: 'icheckbox_square-green',
-        radioClass: 'iradio_square-green',
-    });
+//    $('.cb, .rb').iCheck({
+//        checkboxClass: 'icheckbox_square-green',
+//        radioClass: 'iradio_square-green',
+//    });
 //==================================================================================================================================
-//  Select
+//  Select      //todo-check: select2 plugin not working properly
 //----------------------------------------------------------------------------------------------------------------------------------
-//    $(".select-multiple").select2();      //todo-check: select2 not working properly
-//    $(".select-with-search").select2();
+$(".select-with-search").select2();
+//    $(".select-multiple").select2();
 //    $(".select-multiple").select2({
 //        tags        : "true",
 //        placeholder : "Select One",
@@ -45,9 +43,10 @@
 //==================================================================================================================================
 //  Date picker
 //----------------------------------------------------------------------------------------------------------------------------------
-    var fd = "dd/mm/yyyy";
-    $('.dtp-date').datepicker({format: fd, autoclose: true}).prop('placeholder', fd);
-    //var ft = "";
+var fd = "dd/mm/yyyy";
+//dtp-date, dtp-time, dtp-range
+$('.dtp-date').datepicker({format: fd, autoclose: true}).prop('placeholder', fd);
+//var ft = "";
 //==================================================================================================================================
 //alert("main2");
 //});
