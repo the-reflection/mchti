@@ -1,6 +1,6 @@
 package org.reflection.repositories;
 
-import org.reflection.model.com.Department;
+import org.reflection.model.hcm.cr.Department;
 import java.math.BigInteger;
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -15,8 +15,8 @@ import org.reflection.model.com.Employee;
 
 @MacCareless
 @Entity
-@Table(name = "PROC_OUT_ATTN_DAILY")
-//@Table(name = "PROC_OUT_ATTN_DAILY", uniqueConstraints = {
+@Table(catalog = "MCHTI", name = "PROC_OUT_ATTN_DAILY")
+//@Table(catalog = "MCHTI", name = "PROC_OUT_ATTN_DAILY", uniqueConstraints = {
 //    @UniqueConstraint(name = "emp_transaction_time_uq", columnNames = {"EMPLOYEE_ID", "TRANSACTION_TIME"})})
 @XmlRootElement
 public class ProcOutAttnDaily implements Serializable {

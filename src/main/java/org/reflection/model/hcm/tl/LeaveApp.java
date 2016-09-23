@@ -25,14 +25,12 @@ import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name = "LEAVE_APP")
+@Table(catalog = "MCHTI", name = "LEAVE_APP")
 @XmlRootElement
 public class LeaveApp implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    //@SequenceGenerator(name="HIBERNATE_SEQUENCE", sequenceName="HIBERNATE_SEQUENCE")
-    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "HIBERNATE_SEQUENCE")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Basic(optional = false)
     private BigInteger id;
     @Version

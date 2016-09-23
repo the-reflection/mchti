@@ -30,7 +30,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @RequestMapping(value = "/admProcessDetail")
 @SessionAttributes({"admProcesss","admParams"}) 
-public class AdmProcessDetailController extends _OithController {
+public class AdmProcessDetailController extends _BaseController {
 
     protected static final String MODEL = "admProcessDetail";
     

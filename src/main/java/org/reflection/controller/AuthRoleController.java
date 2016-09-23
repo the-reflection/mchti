@@ -26,7 +26,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @RequestMapping(value = "/authRole")
  
-public class AuthRoleController extends _OithController {
+public class AuthRoleController extends _BaseController {
 
     protected static final String MODEL = "authRole";
     

@@ -25,13 +25,13 @@ import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name = "ASSIGNMENT_TL")
+@Table(catalog = "MCHTI", name = "ASSIGNMENT_TL")
 @XmlRootElement
 public class AssignmentTl implements Serializable {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Basic(optional = false)
     private BigInteger id;
     @Version

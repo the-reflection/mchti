@@ -25,7 +25,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @RequestMapping(value = "/authUser")
 @SessionAttributes({"authRoles"})
-public class AuthUserController extends _OithController {
+public class AuthUserController extends _BaseController {
 
     protected static final String MODEL = "authUser";
 

@@ -20,7 +20,7 @@ import org.reflection.model.com.Employee;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "MANUAL_ATTN_DAILY", uniqueConstraints = {
+@Table(catalog = "MCHTI", name = "MANUAL_ATTN_DAILY", uniqueConstraints = {
     @UniqueConstraint(columnNames = {"EMPLOYEE_ID", "ATTN_DATE"})})
 @XmlRootElement
 public class ManualAttnDaily extends AbstractAuditableEntity { //AbstractEntity implements IAuditable{

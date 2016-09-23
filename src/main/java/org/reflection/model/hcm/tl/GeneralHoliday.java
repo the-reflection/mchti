@@ -15,7 +15,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.reflection.model.com.AbstractEntity;
 
 @Entity
-@Table(name = "GENERAL_HOLIDAY")
+@Table(catalog = "MCHTI", name = "GENERAL_HOLIDAY")
 @XmlRootElement
 public class GeneralHoliday extends AbstractEntity {
 

@@ -1,4 +1,4 @@
-package org.reflection.model.com;
+package org.reflection.model.hcm.cr;
 
 import com.oith.annotation.MacSearchable;
 import java.io.Serializable;
@@ -12,20 +12,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name = "DEPARTMENT")
+@Table(catalog = "MCHTI", name = "DEPARTMENT")
 @XmlRootElement
 public class Department implements Serializable {
 
     @Id
-    // @SequenceGenerator(name = "HIBERNATE_SEQUENCE", sequenceName = "HIBERNATE_SEQUENCE")
-    // @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "HIBERNATE_SEQUENCE")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private BigInteger id;
     @Version
     private Integer version;
@@ -51,6 +48,7 @@ public class Department implements Serializable {
 
     public Department() {
     }
+
     public BigInteger getId() {
         return id;
     }
@@ -106,6 +104,7 @@ public class Department implements Serializable {
     public void setRemarks(String remarks) {
         this.remarks = remarks;
     }
+
     public Integer getVersion() {
         return version;
     }
@@ -113,6 +112,7 @@ public class Department implements Serializable {
     public void setVersion(Integer version) {
         this.version = version;
     }
+
     @Override
     public String toString() {
         return title;

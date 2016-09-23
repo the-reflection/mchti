@@ -1,6 +1,6 @@
 package org.reflection.service;
 
-import org.reflection.model.com.Department;
+import org.reflection.model.hcm.cr.Department;
 import org.reflection.dto._SearchDTO;
 import org.reflection.exception.DepartmentNotFoundException;
 import org.reflection.repositories.DepartmentRepository;

@@ -7,7 +7,7 @@ import org.reflection.service.AssignmentHrService;
 import org.reflection.service.EmployeeService;
 import org.reflection.model.com.Employee;
 import org.reflection.service.DepartmentService;
-import org.reflection.model.com.Department;
+import org.reflection.model.hcm.cr.Department;
 import org.reflection.service.DesignationService;
 import org.reflection.model.hcm.cr.Designation;
 
@@ -32,7 +32,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @RequestMapping(value = "/assignmentHr")
 @SessionAttributes({"departments","designations"}) 
-public class AssignmentHrController extends _OithController {
+public class AssignmentHrController extends _BaseController {
 
     protected static final String MODEL = "assignmentHr";
     

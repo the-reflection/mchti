@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.reflection.model.security.AuthUser;
 
 @Entity
-@Table(name = "ABSTRACT_AUDITABLE_ENTITY")
+@Table(catalog = "MCHTI", name = "ABSTRACT_AUDITABLE_ENTITY")
 @XmlRootElement
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class AbstractAuditableEntity extends AbstractEntity implements IAuditable {

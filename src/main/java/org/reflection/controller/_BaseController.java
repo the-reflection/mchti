@@ -15,6 +15,7 @@ import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -36,7 +37,11 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-public abstract class _OithController {
+public abstract class _BaseController {
+
+    protected static final SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    @Autowired
+    protected MessageSource messageSource;
 
     protected BigInteger faker(BigInteger id) {
 
@@ -56,8 +61,6 @@ public abstract class _OithController {
     protected static final String FEEDBACK_MESSAGE_KEY_CREATED = "feedback.message.created";
     protected static final String FEEDBACK_MESSAGE_KEY_DELETED = "feedback.message.deleted";
     protected static final String FEEDBACK_MESSAGE_KEY_EDITED = "feedback.message.edited";
-    @Resource
-    private MessageSource messageSource;
 
     @InitBinder
     public void initBinder(WebDataBinder webDataBinder) {

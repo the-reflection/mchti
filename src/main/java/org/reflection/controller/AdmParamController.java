@@ -26,7 +26,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @RequestMapping(value = "/admParam")
  
-public class AdmParamController extends _OithController {
+public class AdmParamController extends _BaseController {
 
     protected static final String MODEL = "admParam";
     

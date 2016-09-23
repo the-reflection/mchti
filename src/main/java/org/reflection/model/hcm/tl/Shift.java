@@ -22,20 +22,14 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
 
 @Entity
-@Table(name = "SHIFT")
+@Table(catalog = "MCHTI", name = "SHIFT")
 @XmlRootElement
 public class Shift implements Serializable {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Basic(optional = false)
-    //    @SequenceGenerator(name = "HIBERNATE_SEQUENCE", sequenceName = "HIBERNATE_SEQUENCE")
-    //    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "HIBERNATE_SEQUENCE")
-    //    @GeneratedValue(strategy = GenerationType.TABLE)
-    //    @GeneratedValue(strategy = GenerationType.AUTO)
-    //    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private BigInteger id;
     @Version
     private Integer version;

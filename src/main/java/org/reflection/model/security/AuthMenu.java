@@ -13,7 +13,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.reflection.model.com.AbstractEntity;
 
 @Entity
-@Table(name = "AUTH_MENU")
+@Table(catalog = "MCHTI", name = "AUTH_MENU")
 public class AuthMenu extends AbstractEntity {
 
     @NotEmpty

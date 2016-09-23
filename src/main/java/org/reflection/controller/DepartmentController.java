@@ -1,6 +1,6 @@
 package org.reflection.controller;
 
-import org.reflection.model.com.Department;
+import org.reflection.model.hcm.cr.Department;
 import org.reflection.dto._SearchDTO;
 import org.reflection.exception.DepartmentNotFoundException;
 import org.reflection.service.DepartmentService;
@@ -26,7 +26,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @RequestMapping(value = "/department")
  
-public class DepartmentController extends _OithController {
+public class DepartmentController extends _BaseController {
 
     protected static final String MODEL = "department";
     

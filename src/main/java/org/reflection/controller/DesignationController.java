@@ -26,7 +26,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @RequestMapping(value = "/designation")
  
-public class DesignationController extends _OithController {
+public class DesignationController extends _BaseController {
 
     protected static final String MODEL = "designation";
     

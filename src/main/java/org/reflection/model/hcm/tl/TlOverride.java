@@ -27,13 +27,13 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "TL_OVERRIDE")
+@Table(catalog = "MCHTI", name = "TL_OVERRIDE")
 @XmlRootElement
 public class TlOverride implements Serializable {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Basic(optional = false)
     private BigInteger id;
     @Version

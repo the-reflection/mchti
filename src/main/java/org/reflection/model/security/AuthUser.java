@@ -29,12 +29,12 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
 @Entity
-@Table(name = "AUTH_USER")
+@Table(catalog = "MCHTI", name = "AUTH_USER")
 public class AuthUser extends User {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private BigInteger id;
     @NotEmpty
     @Column(name = "USERNAME", length = 30, unique = true, nullable = false)
@@ -67,24 +67,21 @@ public class AuthUser extends User {
 
     @NotEmpty
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "AUTH_USER_AUTH_ROLE",
+    @JoinTable(catalog = "MCHTI", name = "AUTH_USER_AUTH_ROLE",
             joinColumns = {
                 @JoinColumn(name = "AUTH_USER_ID")},
             inverseJoinColumns = {
                 @JoinColumn(name = "AUTH_ROLE_ID")})
     private Set<AuthRole> authRoles = new LinkedHashSet<>();
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "id.authUser")
-    private Set<AuthUserAuthQuestion> authUserAuthQuestions = new LinkedHashSet<>();
-
     @Column(name = "ENABLED")
-    private Boolean enabled=Boolean.TRUE;
+    private Boolean enabled = Boolean.TRUE;
     @Column(name = "ACCOUNT_NON_EXPIRED")
-    private Boolean accountNonExpired=Boolean.FALSE;
+    private Boolean accountNonExpired = Boolean.FALSE;
     @Column(name = "ACCOUNT_NON_LOCKED")
-    private Boolean accountNonLocked=Boolean.FALSE;
+    private Boolean accountNonLocked = Boolean.FALSE;
     @Column(name = "CREDENTIALS_NON_EXPIRED")
-    private Boolean credentialsNonExpired=Boolean.FALSE;
+    private Boolean credentialsNonExpired = Boolean.FALSE;
 
     @Transient
     private Set<GrantedAuthority> authorities;
@@ -241,14 +238,6 @@ public class AuthUser extends User {
     @Transient
     public void setAuthorities(Set<GrantedAuthority> authorities) {
         this.authorities = authorities;
-    }
-
-    public Set<AuthUserAuthQuestion> getAuthUserAuthQuestions() {
-        return authUserAuthQuestions;
-    }
-
-    public void setAuthUserAuthQuestions(Set<AuthUserAuthQuestion> authUserAuthQuestions) {
-        this.authUserAuthQuestions = authUserAuthQuestions;
     }
 
     public String getCompleteMenu() {

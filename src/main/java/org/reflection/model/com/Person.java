@@ -21,24 +21,14 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name = "PERSON")
+@Table(catalog = "MCHTI", name = "PERSON")
 @XmlRootElement
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class Person extends AbstractEntity {
+public abstract class Person extends AbstractCodeableEntity {
 
-    @MacSearchable
-    @Basic(optional = false)
-    @Column(name = "CODE", unique = true, length = 20, nullable = false)
-    private String code;
     @MacImagable
     @Column(name = "PIC_FILE", length = 255)
     private String picFile;
-    @MacSearchable
-    @Basic(optional = false)
-    @Column(name = "FULL_NAME", length = 100, nullable = false)
-    @NotEmpty
-    @Size(min = 2, max = 100)
-    private String fullName;
     @MacSearchable
     @Enumerated(EnumType.STRING)
     @Column(name = "GENDER", length = 6)
@@ -89,14 +79,6 @@ public abstract class Person extends AbstractEntity {
         this.email = email;
     }
 
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
     public Address getAddress() {
         return address;
     }
@@ -105,17 +87,9 @@ public abstract class Person extends AbstractEntity {
         this.address = address;
     }
 
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
     @Override
     public String toString() {
         //return ToStringBuilder.reflectionToString(this);
-        return code + "-" + fullName;
+        return getCode() + "-" + getFullName();
     }
 }

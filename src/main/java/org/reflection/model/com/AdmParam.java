@@ -8,7 +8,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "ADM_PARAM")
+@Table(catalog = "MCHTI", name = "ADM_PARAM")
 public class AdmParam extends AbstractEntity {
 
     @NotNull
@@ -123,7 +123,7 @@ public class AdmParam extends AbstractEntity {
 
     @Override
     public String toString() {
-        return "AdmParam{" + "title=" + title + ", paramName=" + paramName + ", widgetType=" + admWidgetType + '}';
+        return title;
     }
 
 }

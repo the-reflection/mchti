@@ -195,7 +195,7 @@ public class ProcServiceImpl implements ProcService {
                     .getSingleResult();
 
         } catch (Exception e) {
-            System.out.println("baaaaaaaaaaallllll" + e);
+            System.out.println("err 6193:" + e);
         }
 
         for (ProcOutEmp poe : emps) {

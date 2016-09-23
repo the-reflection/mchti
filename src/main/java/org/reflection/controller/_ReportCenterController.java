@@ -1,17 +1,26 @@
 package org.reflection.controller;
 
+import org.reflection.dto._DualDTO;
+import org.reflection.model.com.AdmReport;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import org.reflection.service.AdmModuleService;
+import org.reflection.service.AdmReportService;
+import org.reflection.service.AdmUtilReport;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.math.BigInteger;
-import org.reflection.model.sample.ZxLookup;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
-import net.sf.jasperreports.engine.JRAbstractExporter;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -19,86 +28,166 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
+import net.sf.jasperreports.engine.export.JRXlsExporter;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
-import org.reflection.model.com.AdmReport;
-import org.reflection.service.AdmReportService;
-import org.reflection.service.DepartmentService;
-import org.reflection.service.DesignationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 @Controller
-public class _ReportCenterController extends _OithController {
+@RequestMapping(value = "/reportCenter")
+public class _ReportCenterController extends _BaseController {
 
-    @Autowired
-    private DataSource dataSource;
+
     private static final String REPORT_ROOT_DIR = "reports";
 
     @Autowired
-    AdmReportService admReportService;
+    private DataSource dataSource;
 
     @Autowired
-    DepartmentService departmentService;
+    private AdmReportService admReportService;
+
     @Autowired
-    DesignationService designationService;
+    private AdmModuleService admModuleService;
 
-    @RequestMapping(value = "/reportCenter", method = RequestMethod.GET)
-    public String reportCenter(ModelMap model) {
+    @GetMapping("/{code}")
+    public String indexCode(@PathVariable("code") String code, ModelMap model) {
+        AdmReport bbb = admReportService.findByCode(code);
+        model.addAttribute("reportFullName", bbb.getFullName());
+        model.addAttribute("reportId", bbb.getId());
+        return "etc/dynamicFormReport";
+    }
 
-        model.addAttribute("rrr", new ZxLookup());
-        // Map<String, String> jjj = new LinkedHashMap<>();
-        // jjj.put("title", "");
-        model.addAttribute("admReports", admReportService.findAll());
-        model.addAttribute("departments", departmentService.findAll());
-        model.addAttribute("designations", designationService.findAll());
-        // model.addAttribute("reportName", "");
+    @GetMapping(value = "/getReport", produces = "text/html;charset=utf-8")
+    public @ResponseBody
+    ResponseEntity<String> getReport(@RequestParam(value = "module") BigInteger moduleId, final Locale locale) {
+
+        System.out.println("finding getReport: code: >" + moduleId + "<");
+
+        StringBuilder sb = new StringBuilder();
+        String uuuu = messageSource.getMessage("default.select.null", null, locale);
+
+        sb.append("<option value='${null}'>").append(uuuu).append("</option>");
+
+        if (moduleId == null) {
+            for (AdmReport bbb : admReportService.findAll()) {
+                sb.append("<option value='").append(bbb.getId()).append("'>").append(bbb.getAdmModule()).append('-').append(bbb).append("</option>");
+            }
+        } else {
+            for (AdmReport bbb : admReportService.findAll()) {
+                if (bbb.getAdmModule().getId().equals(moduleId)) {
+                    sb.append("<option value='").append(bbb.getId()).append("'>").append(bbb).append("</option>");
+                }
+            }
+        }
+        //final HttpHeaders headers = new HttpHeaders();
+        //headers.setContentType(MediaType.APPLICATION_JSON);
+        return new ResponseEntity<>(sb.toString(), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/getDynamicContent")
+    public @ResponseBody
+    ResponseEntity<String> getDynamicContent(@RequestParam(value = "reportId") BigInteger reportId) {
+
+        System.out.println("finding getDynamicContent: code: >" + reportId + "<");
+
+        Map<String, String> allMap;
+
+        allMap = AdmUtilReport.getReportPageMap(admReportService.findById(reportId));
+
+        final HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            return new ResponseEntity<>(objectMapper.writeValueAsString(allMap), headers, HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @GetMapping("")
+    public String index(ModelMap model) {
+
+        List<_DualDTO> kk = new ArrayList();
+        for (AdmReport bbb : admReportService.findAll()) {
+            _DualDTO bbbm = new _DualDTO(bbb.getId(), bbb.getAdmModule() + "-" + bbb);
+            kk.add(bbbm);
+        }
+
+        model.addAttribute("admModules", admModuleService.findAll());
+        model.addAttribute("admReports", kk);
         return "etc/reportCenter";
     }
 
-    @RequestMapping(value = "/reportCenter", method = RequestMethod.POST)
-    public void doReportPdf(@RequestParam(value = "title") String title,
-            @RequestParam(value = "P_ATTN_DATE") String P_ATTN_DATE,
-            @RequestParam(value = "P_FROM_DATE") String P_FROM_DATE,
-            @RequestParam(value = "P_TO_DATE") String P_TO_DATE,
-            @RequestParam(value = "P_MONTH_DATE") String P_MONTH_DATE,
-            @RequestParam(value = "P_DEPARTMENT_ID") String P_DEPARTMENT_ID,
-            @RequestParam(value = "P_DESIGNATION_ID") String P_DESIGNATION_ID,
-            @RequestParam(value = "P_EMPLOYEE_CODE") String P_EMPLOYEE_CODE,
+    @RequestMapping(value = "/executeReport", method = RequestMethod.GET)
+    public void executeReport(
+            @RequestParam(value = "reportFormat") String reportFormat,
+            @RequestParam(value = "reportParams") String reportParams,
+            @RequestParam(value = "reportId") BigInteger reportId,
             HttpServletRequest request, HttpServletResponse response) {
 
-        //JRDataSource ds = new JRBeanCollectionDataSource(collDS);
-        //params is used for passing extra parameters
-        //File file = new File(request.getServletContext().getRealPath("/"));
-        AdmReport admReport = admReportService.findById(new BigInteger(title));
+        System.out.println("ppppp453 reportParams: " + reportParams + " reportFormat: " + reportFormat + " reportId: " + reportId);
+
+        Map<String, String> realMap = new HashMap();
+        try {
+            realMap
+                    = new ObjectMapper().readValue(reportParams, HashMap.class);
+        } catch (Exception e) {
+            System.out.println("err never show :" + e);
+        }
+
+        AdmReport admReport = admReportService.findById(reportId);
+
         String parent = getOuterParentPath(request);
         File file = new File(parent + "\\repositories\\" + REPORT_ROOT_DIR + "\\" + admReport.getFileName() + ".jrxml");
+
+        if (!file.exists()) {
+            return;
+        }
+
+        List kkk = getAutoReportDetails(file);
+
+        System.out.println("getAutoReportDetails : " + kkk);
 
         Map params = new HashMap();
 
         params.put("REPORT_PATH", file.getParent() + "\\");
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        if (reportFormat.equals("XLS")) {
+            params.put("IS_DETECT_CELL_TYPE", Boolean.FALSE);
+            params.put("IS_IGNORE_PAGINATION", Boolean.TRUE);
+            params.put("net.sf.jasperreports.export.xls.ignore.graphics", Boolean.TRUE);
+        }
 
-        try {
-            params.put("P_ATTN_DATE", dateFormat.parse(P_ATTN_DATE));
-            params.put("P_FROM_DATE", dateFormat.parse(P_FROM_DATE));
-            params.put("P_TO_DATE", dateFormat.parse(P_TO_DATE));
-            params.put("P_MONTH_DATE", dateFormat.parse(P_MONTH_DATE));
-        } catch (Exception e) {
-            System.out.println("err in report calling date format : " + e);
+        for (String object : realMap.keySet()) {
+            if (object.endsWith("DATE")) {
+                try {
+                    params.put(object, dateFormat.parse(realMap.get(object)));
+                } catch (Exception e) {
+                    System.out.println("err in report calling date format : " + e);
+                }
+            } else {
+                params.put(object, realMap.get(object));
+            }
         }
-        if (P_DEPARTMENT_ID != null && !P_DEPARTMENT_ID.isEmpty()) {
-            params.put("P_DEPARTMENT_ID", new BigInteger(P_DEPARTMENT_ID));
-        }
-        if (P_DESIGNATION_ID != null && !P_DESIGNATION_ID.isEmpty()) {
-            params.put("P_DESIGNATION_ID", new BigInteger(P_DESIGNATION_ID));
-        }
-        params.put("P_EMPLOYEE_CODE", P_EMPLOYEE_CODE);
 
-        System.out.println("macsay: Report path: " + file + " id: " + title + " file name: " + admReport.getFileName());
+        System.out.println("macsay: Report path: " + file + " name:" + admReport.getFileName());
 
         ByteArrayOutputStream baos = null;
         try {
@@ -122,28 +211,41 @@ public class _ReportCenterController extends _OithController {
             // We delegate the exporting  to a custom Exporter instance
             // The Exporter is a wrapper class I made. Feel free to remove or modify it
             // Create a JRXlsExporter instance
-            JRAbstractExporter exporter = new JRPdfExporter();
+            if (reportFormat.equals("PDF")) {
+                JRPdfExporter exporter = new JRPdfExporter();
 
-            // Here we assign the parameters jp and baos to the exporter
-            exporter.setParameter(JRExporterParameter.JASPER_PRINT, jp);
-            exporter.setParameter(JRExporterParameter.OUTPUT_STREAM, baos);
+                // Here we assign the parameters jp and baos to the exporter
+                exporter.setParameter(JRExporterParameter.JASPER_PRINT, jp);
+                exporter.setParameter(JRExporterParameter.OUTPUT_STREAM, baos);
 
-            // Retrieve the exported report in XLS format
-            exporter.exportReport();
+                // Retrieve the exported report in XLS format
+                exporter.exportReport();
 
-            response.setHeader("Content-disposition", "attachment; filename=" + title + ".pdf");
-            // Make sure to set the correct content type
-            // Each format has its own content type
-            //response.setContentType("application/pdf");
-            response.setContentType("application/x-download");
+                response.setHeader("Content-disposition", "attachment; filename=" + admReport.getFullName() + ".pdf");
+                response.setContentType("application/pdf");
+            } else if (reportFormat.equals("XLS")) {
 
-            response.setContentLength(baos.size());
+                JRXlsExporter exporter = new JRXlsExporter();
+
+                // Here we assign the parameters jp and baos to the exporter
+                exporter.setParameter(JRExporterParameter.JASPER_PRINT, jp);
+                exporter.setParameter(JRExporterParameter.OUTPUT_STREAM, baos);
+
+                // Retrieve the exported report in XLS format
+                exporter.exportReport();
+
+                response.setHeader("Content-disposition", "attachment; filename=" + admReport.getFullName() + ".xls");
+                response.setContentType("application/vnd.ms-excel");
+
+            }
+
         } catch (Exception e) {
             System.out.println("err report gen: " + e);
         }
 
         if (baos != null) {
             try {
+                response.setContentLength(baos.size());
                 // Write to reponse stream
                 ServletOutputStream outputStream = response.getOutputStream();
                 baos.writeTo(outputStream);
@@ -152,5 +254,62 @@ public class _ReportCenterController extends _OithController {
                 System.out.println("err report write to: " + e);
             }
         }
+    }
+
+    List getAutoReportDetails(File fXmlFile) {
+        List hhh = new ArrayList();
+        try {
+            //File fXmlFile = new File("D:\\HRMS\\web-app\\reports\\payroll_register.jrxml");
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(fXmlFile);
+
+            doc.getDocumentElement().normalize();
+
+            System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
+
+            NodeList nList = doc.getElementsByTagName("parameter");
+
+            for (int temp = 0; temp < nList.getLength(); temp++) {
+
+                Node nNode = nList.item(temp);
+
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+
+                    Element eElement = (Element) nNode;
+
+                    String isOk = eElement.getAttribute("isForPrompting");
+
+                    if (isOk.equals("true") || isOk.equals("")) {
+                        System.out.println("name id : " + eElement.getAttribute("name"));
+                        System.out.println("class id : " + eElement.getAttribute("class"));
+
+                        hhh.add(eElement.getAttribute("name"));
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("err: " + e);
+        }
+        return hhh;
+    }
+
+    @RequestMapping(value = "/loadReport", method = RequestMethod.GET)
+    public void loadReport(HttpServletRequest request) {
+        Iterable<AdmReport> admReports = admReportService.findAll();
+        String parent = getOuterParentPath(request);
+        
+        for (AdmReport admReport : admReports) {
+            File file = new File(parent + "\\repositories\\" + REPORT_ROOT_DIR + "\\" + admReport.getFileName() + ".jrxml");
+
+            if (!file.exists()) {
+                return;
+            }
+
+            List kkk = getAutoReportDetails(file);
+            System.out.println(admReport.getFileName()+" aaaaaaaaaaa: "+kkk);
+        }
+    
+
     }
 }

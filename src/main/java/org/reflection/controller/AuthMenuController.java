@@ -26,7 +26,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @RequestMapping(value = "/authMenu")
 @SessionAttributes({"parentAuthMenus"}) 
-public class AuthMenuController extends _OithController {
+public class AuthMenuController extends _BaseController {
 
     protected static final String MODEL = "authMenu";
     

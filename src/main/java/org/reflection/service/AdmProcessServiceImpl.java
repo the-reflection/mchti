@@ -18,7 +18,11 @@ public class AdmProcessServiceImpl implements AdmProcessService {
     @Autowired
     private AdmProcessRepository admProcessRepository;
 
-
+    @Transactional
+    @Override
+    public AdmProcess findByCode(String code) {
+        return admProcessRepository.findByCode(code);
+    }
 
     @Transactional
     @Override
@@ -29,7 +33,7 @@ public class AdmProcessServiceImpl implements AdmProcessService {
     @Override
     @Transactional
     public AdmProcess findById(BigInteger id) {
-        AdmProcess admProcess=admProcessRepository.findOne(id);
+        AdmProcess admProcess = admProcessRepository.findOne(id);
 
         //Hibernate.initialize(lookup.getPersonEduDtlList());
         return admProcess;
@@ -51,14 +55,14 @@ public class AdmProcessServiceImpl implements AdmProcessService {
     @Override
     @Transactional
     public Iterable<AdmProcess> findAll() {
-        Iterable<AdmProcess> admProcesss=admProcessRepository.findAll();
-        
+        Iterable<AdmProcess> admProcesss = admProcessRepository.findAll();
+
         for (AdmProcess admProcess : admProcesss) {
 
-        //Hibernate.initialize(admProcess.getA());
-        //Hibernate.initialize(admProcess.getZs());
+            //Hibernate.initialize(admProcess.getA());
+            //Hibernate.initialize(admProcess.getZs());
         }
-        
+
         return admProcesss;
     }
 

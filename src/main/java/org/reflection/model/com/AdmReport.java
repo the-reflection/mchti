@@ -1,11 +1,18 @@
 package org.reflection.model.com;
 
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
@@ -13,23 +20,17 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "ADM_REPORT")
+@Table(catalog = "MCHTI", name = "ADM_REPORT")
 //@CompoundIndexes({
 //    @CompoundIndex(unique = true, name = "client_code_idx", def = "{'client': 1, 'code': 1}"),
 //    @CompoundIndex(unique = true, name = "client_fileName_idx", def = "{'client': 1, 'fileName': 1}"),
 //    @CompoundIndex(unique = true, name = "client_module_title_idx", def = "{'client': 1, 'module': 1, 'title': 1}")
 //})
-public class AdmReport extends AbstractEntity {
+public class AdmReport extends AbstractCodeableEntity {
 
-    @NotNull
-    @Size(min = 2, max = 4)
-    @Column(name = "code", unique = true)
-    private String code;
-//    @NotNull
-//    private Module module;
-    @NotNull
-    @Size(min = 3, max = 50)
-    private String title;
+    @JoinColumn(name = "ADM_MODULE_ID", nullable = false)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    private AdmModule admModule;
     @NotNull
     @Size(min = 3, max = 30)
     @Column(name = "FILE_NAME", unique = true)
@@ -39,31 +40,22 @@ public class AdmReport extends AbstractEntity {
     @Column(name = "SL_NO")
     private Integer slNo;
 
-//    private Set<ReportFormat> supportFormats;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "admReport", fetch = FetchType.EAGER)
-    @OrderBy(value = "slNo DESC")
-    private Set<AdmReportDetail> admReportDetails;
+    @OrderBy(value = "slNo ASC")
+    private Set<AdmReportDetail> admReportDetails = new LinkedHashSet<>();
+
+    @ElementCollection(targetClass = AdmReportFormat.class, fetch = FetchType.EAGER)
+    @JoinTable(catalog = "MCHTI",
+            name = "ADM_REPORT_SUPPORT_FORMAT",
+            joinColumns = @JoinColumn(name = "ADM_REPORT_ID"))
+    @Column(name = "SUPPORT_FORMAT", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Set<AdmReportFormat> supportFormats;
 
     @Size(max = 500)
     private String remarks;
 
     public AdmReport() {
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public Boolean getIsActive() {
@@ -106,9 +98,20 @@ public class AdmReport extends AbstractEntity {
         this.admReportDetails = admReportDetails;
     }
 
-    @Override
-    public String toString() {
-        //return ToStringBuilder.reflectionToString(this);
-        return title;
+    public Set<AdmReportFormat> getSupportFormats() {
+        return supportFormats;
     }
+
+    public void setSupportFormats(Set<AdmReportFormat> supportFormats) {
+        this.supportFormats = supportFormats;
+    }
+
+    public AdmModule getAdmModule() {
+        return admModule;
+    }
+
+    public void setAdmModule(AdmModule admModule) {
+        this.admModule = admModule;
+    }
+
 }

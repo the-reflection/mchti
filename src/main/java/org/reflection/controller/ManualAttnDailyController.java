@@ -26,7 +26,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping(value = "/manualAttnDaily")
-public class ManualAttnDailyController extends _OithController {
+public class ManualAttnDailyController extends _BaseController {
 
     protected static final String MODEL = "manualAttnDaily";
 

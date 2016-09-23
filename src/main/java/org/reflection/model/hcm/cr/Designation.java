@@ -18,14 +18,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name = "DESIGNATION")
+@Table(catalog = "MCHTI", name = "DESIGNATION")
 @XmlRootElement
 public class Designation implements Serializable {
 
     @Id
-    // @SequenceGenerator(name = "HIBERNATE_SEQUENCE", sequenceName = "HIBERNATE_SEQUENCE")
-    // @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "HIBERNATE_SEQUENCE")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private BigInteger id;
     @Version
     private Integer version;

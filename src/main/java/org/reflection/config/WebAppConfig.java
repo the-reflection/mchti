@@ -96,6 +96,7 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
         messageSource.setBasename("/i18n/messages");
         messageSource.setDefaultEncoding("UTF-8");
         messageSource.setFallbackToSystemLocale(false);
+        messageSource.setUseCodeAsDefaultMessage(true);
         return messageSource;
     }
 

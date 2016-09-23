@@ -2,7 +2,7 @@ package org.reflection.model.hcm.proc;
 
 import com.oith.annotation.MacCareless;
 import org.reflection.model.com.Employee;
-import org.reflection.model.com.Department;
+import org.reflection.model.hcm.cr.Department;
 import org.reflection.model.hcm.enums.Day;
 import org.reflection.model.hcm.enums.EmpGroup;
 import org.reflection.model.com.Gender;
@@ -39,7 +39,7 @@ import org.reflection.model.hcm.cr.Designation;
 
 @MacCareless
 @Entity
-@Table(name = "PROC_OUT_EMP")
+@Table(catalog = "MCHTI", name = "PROC_OUT_EMP")
 @XmlRootElement
 public class ProcOutEmp implements Serializable {
 

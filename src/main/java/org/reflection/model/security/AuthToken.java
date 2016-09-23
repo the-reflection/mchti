@@ -12,7 +12,7 @@ import javax.persistence.TemporalType;
 
 @MacCareless
 @Entity
-@Table(name = "PERSISTENT_LOGINS")
+@Table(catalog = "MCHTI", name = "PERSISTENT_LOGINS")
 public class AuthToken implements Serializable {
 
     @Id

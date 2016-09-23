@@ -12,7 +12,7 @@ import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "ADM_PROCESS_DETAIL", uniqueConstraints = {
+@Table(catalog = "MCHTI", name = "ADM_PROCESS_DETAIL", uniqueConstraints = {
     @UniqueConstraint(columnNames = {"ADM_PROCESS_ID", "ADM_PARAM_ID", "ADM_ZONE_TYPE"})})
 public class AdmProcessDetail extends AbstractEntity {
 
@@ -20,17 +20,26 @@ public class AdmProcessDetail extends AbstractEntity {
     private Integer slNo;
 
     @JoinColumn(name = "ADM_PROCESS_ID", nullable = false)
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private AdmProcess admProcess;
 
     @JoinColumn(name = "ADM_PARAM_ID", nullable = false)
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private AdmParam admParam;
 
     @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "ADM_ZONE_TYPE", length = 30)
     private AdmZoneType admZoneType;
+
+    @Column(name = "IS_ACTIVE")
+    private Boolean isActive;
+    @Column(name = "IS_MANDATORY")
+    private Boolean isMandatory;
+    @Column(name = "DEFAULT_VAL")
+    private String defaultVal;
+    @Column(name = "HELP_TEXT")
+    private String helpText;
 
     public AdmProcessDetail() {
     }
@@ -70,5 +79,37 @@ public class AdmProcessDetail extends AbstractEntity {
 
     public void setAdmProcess(AdmProcess admProcess) {
         this.admProcess = admProcess;
+    }
+
+    public Boolean getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(Boolean isActive) {
+        this.isActive = isActive;
+    }
+
+    public Boolean getIsMandatory() {
+        return isMandatory;
+    }
+
+    public void setIsMandatory(Boolean isMandatory) {
+        this.isMandatory = isMandatory;
+    }
+
+    public String getDefaultVal() {
+        return defaultVal;
+    }
+
+    public void setDefaultVal(String defaultVal) {
+        this.defaultVal = defaultVal;
+    }
+
+    public String getHelpText() {
+        return helpText;
+    }
+
+    public void setHelpText(String helpText) {
+        this.helpText = helpText;
     }
 }

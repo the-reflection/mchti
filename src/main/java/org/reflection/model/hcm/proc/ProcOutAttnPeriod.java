@@ -20,14 +20,12 @@ import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name = "PROC_OUT_ATTN_PERIOD")
+@Table(catalog = "MCHTI", name = "PROC_OUT_ATTN_PERIOD")
 @XmlRootElement
 public class ProcOutAttnPeriod implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    //@SequenceGenerator(name="HIBERNATE_SEQUENCE", sequenceName="HIBERNATE_SEQUENCE")
-    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "HIBERNATE_SEQUENCE")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Basic(optional = false)
     private BigInteger id;
     @NotNull

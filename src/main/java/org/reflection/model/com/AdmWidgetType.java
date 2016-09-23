@@ -11,6 +11,6 @@ package org.reflection.model.com;
  */
 public enum AdmWidgetType {
     //SUPER,
-    TEXT, PASSWORD, NUMBER, DATE, LIST, LIST_FIXED,
-    HIDE, INPUT, MODAL, UUID, BUTTON
+    TEXT, PASSWORD, DATE, LIST, LIST_MULTI_SELECT,
+    HIDE, INPUT, MODAL, UUID
 }

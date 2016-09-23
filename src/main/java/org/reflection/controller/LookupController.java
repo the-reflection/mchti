@@ -26,7 +26,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @RequestMapping(value = "/lookup")
  
-public class LookupController extends _OithController {
+public class LookupController extends _BaseController {
 
     protected static final String MODEL = "lookup";
     

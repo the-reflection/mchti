@@ -1,30 +1,22 @@
 package org.reflection.model.security;
 
-import java.io.Serializable;
-import java.math.BigInteger;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import java.math.BigInteger;
-import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.reflection.model.com.AbstractEntity;
 import org.springframework.http.HttpMethod;
 
 @Entity
-@Table(name = "AUTH_REQUEST_MAP")
+@Table(catalog = "MCHTI", name = "AUTH_REQUEST_MAP")
 @XmlRootElement
 public class AuthRequestMap extends AbstractEntity {
-    
-    @Column(name = "CONFIG_ATTRIBUTE")
+
+    @Column(name = "CONFIG_ATTRIBUTE", nullable = false)
     private String configAttribute;
     @Column(name = "HTTP_METHOD")
     private HttpMethod httpMethod;
-    @Column(name = "URL")
+    @Column(name = "URL", unique = true, nullable = false)
     private String url;
 
     public AuthRequestMap() {

@@ -15,7 +15,7 @@ import org.reflection.model.com.AbstractEntity;
 import org.reflection.model.hcm.enums.HolidayType;
 
 @Entity
-@Table(name = "CUSTOMIZED_HOLIDAY_APP")
+@Table(catalog = "MCHTI", name = "CUSTOMIZED_HOLIDAY_APP")
 @XmlRootElement
 public class CustomizedHolidayApp extends AbstractEntity {
 

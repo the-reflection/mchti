@@ -30,7 +30,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @RequestMapping(value = "/procOutAttnPeriod")
 @SessionAttributes({"periods"}) 
-public class ProcOutAttnPeriodController extends _OithController {
+public class ProcOutAttnPeriodController extends _BaseController {
 
     protected static final String MODEL = "procOutAttnPeriod";
     

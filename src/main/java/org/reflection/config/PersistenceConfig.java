@@ -13,6 +13,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
@@ -41,7 +42,7 @@ public class PersistenceConfig {
 
     private Properties hibernateProperties() {
         Properties hibernate = new Properties();
-
+//        org.hibernate.ejb.HibernatePersistence kk;
         hibernate.put("cache.use_second_level_cache", "true");
         hibernate.put("cache.use_query_cache", "false");
         hibernate.put("cache.region.factory_class", "org.hibernate.cache.ehcache.EhCacheRegionFactory");
@@ -61,33 +62,23 @@ public class PersistenceConfig {
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-        LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
-        entityManagerFactoryBean.setDataSource(dataSource());
-        entityManagerFactoryBean.setPersistenceProviderClass(HibernatePersistenceProvider.class);
+        LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean();
+        //entityManagerFactoryBean.setDataSource(dataSource());
+        entityManagerFactoryBean.setPersistenceUnitName("mchti_PU");
+        //entityManagerFactoryBean.setPersistenceProviderClass(HibernatePersistenceProvider.class);
         entityManagerFactoryBean.setPackagesToScan(environment.getRequiredProperty("entitymanager.packages.to.scan"));
-        entityManagerFactoryBean.setJpaProperties(hibernateProperties());
+        //entityManagerFactoryBean.setJpaProperties(hibernateProperties());
+        //HibernateJpaVendorAdapter hhh = new org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter();
+        //hhh.setDatabasePlatform(environment.getRequiredProperty("hibernate.dialect"));
+        //hhh.setShowSql(true);
+        //entityManagerFactoryBean.setJpaVendorAdapter(hhh);
         return entityManagerFactoryBean;
     }
 
     @Bean
     public JpaTransactionManager transactionManager() {
-        JpaTransactionManager transactionManager = new JpaTransactionManager();
+        org.springframework.orm.jpa.JpaTransactionManager transactionManager = new org.springframework.orm.jpa.JpaTransactionManager();
         transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
         return transactionManager;
     }
-
-//    @Autowired
-//    @Bean
-//    public SessionFactory sessionFactory() {
-//        LocalSessionFactoryBuilder localSessionFactoryBuilder = new LocalSessionFactoryBuilder(dataSource());
-//        localSessionFactoryBuilder.scanPackages(new String[]{"org.reflection.model"});
-//        localSessionFactoryBuilder.addProperties(hibernateProperties());
-//        return localSessionFactoryBuilder.buildSessionFactory();
-//    }
-//
-//    @Bean
-//    @Autowired
-//    public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
-//        return new HibernateTransactionManager(sessionFactory);
-//    }
 }

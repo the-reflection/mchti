@@ -18,7 +18,14 @@ public class AdmReportServiceImpl implements AdmReportService {
     @Autowired
     private AdmReportRepository admReportRepository;
 
+    @Override
+    @Transactional
+    public AdmReport findByCode(String code) {
+        AdmReport admReport = admReportRepository.findByCode(code);
 
+        //Hibernate.initialize(lookup.getPersonEduDtlList());
+        return admReport;
+    }
 
     @Transactional
     @Override
@@ -29,7 +36,7 @@ public class AdmReportServiceImpl implements AdmReportService {
     @Override
     @Transactional
     public AdmReport findById(BigInteger id) {
-        AdmReport admReport=admReportRepository.findOne(id);
+        AdmReport admReport = admReportRepository.findOne(id);
 
         //Hibernate.initialize(lookup.getPersonEduDtlList());
         return admReport;
@@ -51,19 +58,12 @@ public class AdmReportServiceImpl implements AdmReportService {
     @Override
     @Transactional
     public Iterable<AdmReport> findAll() {
-        Iterable<AdmReport> admReports=admReportRepository.findAll();
-        
-        for (AdmReport admReport : admReports) {
-
-        //Hibernate.initialize(admReport.getA());
-        //Hibernate.initialize(admReport.getZs());
-        }
-        
+        Iterable<AdmReport> admReports = admReportRepository.findAll();
         return admReports;
     }
 
-    @Transactional(rollbackFor = AdmReportNotFoundException.class)
     @Override
+    @Transactional(rollbackFor = AdmReportNotFoundException.class)
     public AdmReport update(AdmReport updated) throws AdmReportNotFoundException {
 
         AdmReport admReport = admReportRepository.findOne(updated.getId());
@@ -76,8 +76,8 @@ public class AdmReportServiceImpl implements AdmReportService {
         return admReportRepository.save(admReport);
     }
 
-    @Transactional(rollbackFor = AdmReportNotFoundException.class)
     @Override
+    @Transactional(rollbackFor = AdmReportNotFoundException.class)
     public AdmReport copy(final AdmReport copied) {
 
         AdmReport admReport = new AdmReport();
@@ -87,14 +87,14 @@ public class AdmReportServiceImpl implements AdmReportService {
         return admReportRepository.save(admReport);
     }
 
-    @Transactional
     @Override
+    @Transactional
     public Iterable<AdmReport> findAll(_SearchDTO pageable) {
         return findAll();
     }
 
-    @Transactional
     @Override
+    @Transactional
     public Iterable<AdmReport> search(_SearchDTO pageable) {
         return findAll();
     }

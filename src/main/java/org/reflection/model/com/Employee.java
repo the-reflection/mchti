@@ -9,9 +9,10 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Past;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "EMPLOYEE")
+@Table(catalog = "MCHTI", name = "EMPLOYEE")
 @XmlRootElement
 @MacCodable(id = "id", code = "code", caption = "fullName")
 public class Employee extends Person {
@@ -19,7 +20,7 @@ public class Employee extends Person {
     @MacSearchable
     @Temporal(TemporalType.DATE)
     @Past
-    //@DateTimeFormat(pattern = "dd/MM/yyyy")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date doj;
 
     public Employee() {

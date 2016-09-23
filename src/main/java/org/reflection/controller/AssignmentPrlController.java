@@ -28,7 +28,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @RequestMapping(value = "/assignmentPrl")
  
-public class AssignmentPrlController extends _OithController {
+public class AssignmentPrlController extends _BaseController {
 
     protected static final String MODEL = "assignmentPrl";
     

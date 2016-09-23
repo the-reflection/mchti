@@ -26,7 +26,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @RequestMapping(value = "/shift")
  
-public class ShiftController extends _OithController {
+public class ShiftController extends _BaseController {
 
     protected static final String MODEL = "shift";
     

@@ -22,7 +22,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @MacCareless
 @Entity
-@Table(name = "PROC_OUT_ATTN_DT")
+@Table(catalog = "MCHTI", name = "PROC_OUT_ATTN_DT")
 @XmlRootElement
 public class ProcOutAttnDt implements Serializable {
 

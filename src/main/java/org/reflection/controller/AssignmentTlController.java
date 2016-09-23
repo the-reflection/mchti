@@ -32,7 +32,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @RequestMapping(value = "/assignmentTl")
 @SessionAttributes({"shifts","rosters"}) 
-public class AssignmentTlController extends _OithController {
+public class AssignmentTlController extends _BaseController {
 
     protected static final String MODEL = "assignmentTl";
     

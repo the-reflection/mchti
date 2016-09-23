@@ -1,7 +1,6 @@
 package org.reflection.model.hcm.cr;
 
 import org.reflection.model.com.Employee;
-import org.reflection.model.com.Department;
 import org.reflection.model.hcm.enums.EmpGroup;
 import com.oith.annotation.MacSearchable;
 import java.io.Serializable;
@@ -23,22 +22,17 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "ASSIGNMENT_HR")
+@Table(catalog = "MCHTI", name = "ASSIGNMENT_HR")
 @XmlRootElement
 public class AssignmentHr implements Serializable {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Basic(optional = false)
-    //    @SequenceGenerator(name = "HIBERNATE_SEQUENCE", sequenceName = "HIBERNATE_SEQUENCE")
-    //    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "HIBERNATE_SEQUENCE")
-    //    @GeneratedValue(strategy = GenerationType.TABLE)
-    //    @GeneratedValue(strategy = GenerationType.AUTO)
-    //    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private BigInteger id;
     @Version
     private Integer version;
@@ -53,12 +47,12 @@ public class AssignmentHr implements Serializable {
     @MacSearchable
     @Column(name = "START_DATE", nullable = false)
     @Temporal(TemporalType.DATE)
-    //@DateTimeFormat(pattern = "dd/MM/yyyy")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date startDate;
     @MacSearchable
     @Column(name = "END_DATE")
     @Temporal(TemporalType.DATE)
-    //@DateTimeFormat(pattern = "dd/MM/yyyy")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date endDate;
     @JoinColumn(name = "DEPARTMENT_ID", nullable = true)
     @ManyToOne(fetch = FetchType.EAGER, optional = true)

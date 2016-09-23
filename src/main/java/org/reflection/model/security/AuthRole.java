@@ -11,11 +11,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.reflection.model.com.AbstractEntity;
 
 @Entity
-@Table(name = "AUTH_ROLE")
+@Table(catalog = "MCHTI", name = "AUTH_ROLE")
 @XmlRootElement
 public class AuthRole extends AbstractEntity {
 
-    @Column(name = "authority", length = 128, unique = true)
+    @Column(name = "AUTHORITY", length = 128, unique = true)
     private String authority;
     @MacCareless
     @ManyToMany(mappedBy = "authRoles")

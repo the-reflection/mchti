@@ -28,7 +28,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @RequestMapping(value = "/leaveApp")
  
-public class LeaveAppController extends _OithController {
+public class LeaveAppController extends _BaseController {
 
     protected static final String MODEL = "leaveApp";
     

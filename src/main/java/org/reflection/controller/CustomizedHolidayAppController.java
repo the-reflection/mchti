@@ -26,7 +26,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @RequestMapping(value = "/customizedHolidayApp")
  
-public class CustomizedHolidayAppController extends _OithController {
+public class CustomizedHolidayAppController extends _BaseController {
 
     protected static final String MODEL = "customizedHolidayApp";
     

@@ -18,8 +18,6 @@ public class CustomizedHolidayAppServiceImpl implements CustomizedHolidayAppServ
     @Autowired
     private CustomizedHolidayAppRepository customizedHolidayAppRepository;
 
-
-
     @Transactional
     @Override
     public CustomizedHolidayApp create(CustomizedHolidayApp lookup) {
@@ -29,7 +27,7 @@ public class CustomizedHolidayAppServiceImpl implements CustomizedHolidayAppServ
     @Override
     @Transactional
     public CustomizedHolidayApp findById(BigInteger id) {
-        CustomizedHolidayApp customizedHolidayApp=customizedHolidayAppRepository.findOne(id);
+        CustomizedHolidayApp customizedHolidayApp = customizedHolidayAppRepository.findOne(id);
 
         //Hibernate.initialize(lookup.getPersonEduDtlList());
         return customizedHolidayApp;
@@ -51,14 +49,14 @@ public class CustomizedHolidayAppServiceImpl implements CustomizedHolidayAppServ
     @Override
     @Transactional
     public Iterable<CustomizedHolidayApp> findAll() {
-        Iterable<CustomizedHolidayApp> customizedHolidayApps=customizedHolidayAppRepository.findAll();
-        
+        Iterable<CustomizedHolidayApp> customizedHolidayApps = customizedHolidayAppRepository.findAll();
+
         for (CustomizedHolidayApp customizedHolidayApp : customizedHolidayApps) {
 
-        //Hibernate.initialize(customizedHolidayApp.getA());
-        //Hibernate.initialize(customizedHolidayApp.getZs());
+            //Hibernate.initialize(customizedHolidayApp.getA());
+            //Hibernate.initialize(customizedHolidayApp.getZs());
         }
-        
+
         return customizedHolidayApps;
     }
 

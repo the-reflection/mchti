@@ -23,13 +23,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name = "PERIOD")
+@Table(catalog = "MCHTI", name = "PERIOD")
 @XmlRootElement
 public class Period implements Serializable {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Basic(optional = false)
     private BigInteger id;
     @Version

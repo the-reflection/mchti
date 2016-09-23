@@ -23,14 +23,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.validator.constraints.Range;
 
 @Entity
-@Table(name = "ASSIGNMENT_PRL")
+@Table(catalog = "MCHTI", name = "ASSIGNMENT_PRL")
 @XmlRootElement
 public class AssignmentPrl implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    //@SequenceGenerator(name="HIBERNATE_SEQUENCE", sequenceName="HIBERNATE_SEQUENCE")
-    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "HIBERNATE_SEQUENCE")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Basic(optional = false)
     private BigInteger id;
     @Version
