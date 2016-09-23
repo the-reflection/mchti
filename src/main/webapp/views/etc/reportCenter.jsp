@@ -10,125 +10,109 @@
 <tiles:insertDefinition name="main" >
 
     <tiles:putAttribute name="body">
-
+        <title>
+            <spring:message code='default.button.report.label' text='Report'/>
+        </title>
+        
         <div class="content-wrapper"><!-- Content Wrapper. Contains page content -->
-            <section class="content-header"><!-- Content Header (Page header) -->
-                <h1><spring:message code="default.button.report.label" text="Report"/></h1>
+            <section class='content-header'><!-- Content Header (Page header) -->
+                <h1><spring:message code='default.button.report.label' text='Report'/></h1>
             </section><!-- /.content-header -->
 
-            <section class="content-messages">
-                <%--<jsp:include page="../layouts/_flashMessage.jsp"/>--%>
+            <section class='content-messages'>
+                <%--<jsp:include page='../layouts/_flashMessage.jsp'/>--%>
             </section><!-- /.flesh-message -->
 
-            <section class="content"><!-- Main content -->
-                <div class="box box-primary">
-                    <form:form action="${pageContext.request.contextPath}/reportCenter" commandName="rrr" method="POST">
-                        <div class="box-body">
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <label><spring:message code="report.reportName.label" text="Report Name"/>:</label>
-                                    <form:select class="form-control" path="title">
-                                        <form:options items="${admReports}" itemValue="id"/>
-                                    </form:select>
+            <section class='content'><!-- Main content -->
+                <div class='box box-primary'>
 
+                    <div class='box-body'>
+                        <div class='col-xs-12 col-sm-6 col-md-6 col-lg-6'>
+                            <div class='form-group'>
+                                <label for='module'>
+                                    <span><spring:message code='module' text='Module'/></span>
+                                </label>
+                                <select name='module' 
+                                        id='module'
+                                        onchange='getReport()' 
+                                        class='form-control'>
+                                    <option value='${null}'><spring:message code='default.select.null' text='Select One'/></option>
+                                    <c:forEach items='${admModules}' var='sss' varStatus='loopStatus'>
+                                        <option value='${sss.id}' >${sss}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                        </div>
 
-                                </div><!-- /.form-group -->
-                            </div><!-- /.col-xs-12 col-sm-6 col-md-6 col-lg-6-->
+                        <div class='col-xs-12 col-sm-6 col-md-6 col-lg-6'>
+                            <div class='form-group'>
+                                <label class='required' for='reportId'>
+                                    <span><spring:message code='report' text='Report'/></span>
+                                </label>
+                                <select name='reportId' 
+                                        id='reportId'  
+                                        required='required'
+                                        onchange='getDynamicContent()' 
+                                        class='form-control'>
+                                    <option value='${null}'><spring:message code='default.select.null' text='Select One'/></option>
+                                    <c:forEach items='${admReports}' var='sss' varStatus='loopStatus'>
+                                        <option value='${sss.id}' >${sss}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                        </div>
 
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <label><spring:message code="default.date.labeln" text="Attendance Date"/>:</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                                        <input name="P_ATTN_DATE" class="form-control dtp-date"/>
-                                    </div><!-- /.input group -->
-                                </div><!-- /.form-group -->
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <label><spring:message code="default.date.labelx" text="From Date"/>:</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                                        <input name="P_FROM_DATE" class="form-control dtp-date"/>
-                                    </div><!-- /.input group -->
-                                </div><!-- /.form-group -->
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <label><spring:message code="default.date.labelx" text="To Date"/>:</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                                        <input name="P_TO_DATE" class="form-control dtp-date"/>
-                                    </div><!-- /.input group -->
-                                </div><!-- /.form-group -->
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <label><spring:message code="default.date.labelx" text="Month Date"/>:</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                                        <input name="P_MONTH_DATE" class="form-control dtp-date"/>
-                                    </div><!-- /.input group -->
-                                </div><!-- /.form-group -->
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <label><spring:message code="default.date.labelx" text="Employee ID"/>:</label>
-                                    <div class="input-group">
-                                        <input name="P_EMPLOYEE_CODE" class="form-control"/>
-                                    </div><!-- /.input group -->
-                                </div><!-- /.form-group -->
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <label><spring:message code="default.date.labelx" text="Department"/>:</label>
-                                    <div class="input-group">
+                        <jsp:include page='_dynamicReport.jsp' />
 
-                                        <select class="form-control" name="P_DEPARTMENT_ID" id="P_DEPARTMENT_ID">
-                                            <option value='${null}' >--- Select ---</option>
-                                            <c:forEach items='${departments}' var='department'  varStatus='loopStatus'>
-                                                <option value='${department.id}' >${department}</option>
-                                            </c:forEach>
-                                        </select>
-                                    </div><!-- /.input group -->
-                                </div><!-- /.form-group -->
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <label><spring:message code="default.date.labelx" text="Designation"/>:</label>
-                                    <div class="input-group">
+                    </div><!-- /.box-body -->
 
-                                        <select class="form-control" name="P_DESIGNATION_ID" id="P_DESIGNATION_ID">
-                                            <option value='${null}' >--- Select ---</option>
-                                            <c:forEach items='${designations}' var='designation'  varStatus='loopStatus'>
-                                                <option value='${designation.id}' >${designation}</option>
-                                            </c:forEach>
-                                        </select>
-                                    </div><!-- /.input group -->
-                                </div><!-- /.form-group -->
-                            </div>
-                            <%--
-                                <c:url value="/reportCenter/all" var="downloadXls"/>
-                                <a href="${downloadXls}">Download All</a>
-                                <br/>
-                                <c:url value="/reportCenter/all" var="downloadPdf"/>
-                                <a href="${downloadPdf}">Download Monthly</a>
-                                <br/>
-                                <c:url value="/reportCenter/all" var="downloadCsv"/>
-                                <a href="${downloadCsv}">Download Daily</a>
-                            --%>
-                        </div><!-- /.box-body -->
-
-                        <div class="box-footer">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <!--<sec:access url="/reportCenter">-->
-                                <button type="submit" class="btn btn-primary"><i class="fa fa-info"></i> <spring:message code="default.button.report.label" text="Report"/></button>
-                                <!--</sec:access>-->
-                            </div>
-                        </div><!-- /.box-footer -->
-                    </form:form>
-                </div><!-- /.create-zxLookup -->
+                </div><!-- /.box box-primary -->
             </section><!-- /.content -->
+
+            <script type='text/javascript'>
+
+                function hideAjaxLoadingImageProc() {
+                    $('#LoadingImageSrch').hide();
+                    $('#LoadingImageLoadReport').hide();
+                    $('#LoadingImageExecuteReport').hide();
+                }
+
+                function getReport() {
+                    hideAjaxLoadingImageProc();
+                    $('#LoadingImageLoadReport').show();
+                    $('#buttonContent').empty();
+                    $('#errMsg').empty();
+                    $('#error').empty();
+                    $('#fixedParam').empty();
+                    $('#fixedParameterHeader').empty();
+                    $('#outputMsg').empty();
+                    $('#qparams').empty();
+                    $('#searchButton').empty();
+                    $('#searchButtonContent').empty();
+                    $('#searchContent').empty();
+                    $('#searchParameterHeader').empty();
+                    $('#tableContent').empty();
+                    $('#totalRecordDiv').empty();
+
+                    $.ajax({
+                        type: 'GET',
+                        url: '${pageContext.request.contextPath}/reportCenter/getReport',
+                        data: {
+                            module: $('#module').val()
+                        },
+                        async: false,
+                        success: function (data) {
+                            hideAjaxLoadingImageProc();
+                            $('#reportId').empty();
+                            $('#reportId').append(data);
+                        },
+                        error: function (err) {
+                            alert('err getReport: ' + err);
+                            hideAjaxLoadingImageProc();
+                        }
+                    });
+                }
+            </script>  
         </div><!-- /.content-wrapper -->
     </tiles:putAttribute>
 

@@ -1,4 +1,4 @@
-<page language='java' contentType='text/html; charset=UTF-8' pageEncoding='UTF-8'%>
+<%@ page language='java' contentType='text/html; charset=UTF-8' pageEncoding='UTF-8'%>
 
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/fmt' prefix='fmt'%>
@@ -34,70 +34,70 @@
 
                             <!--<table class='table table-bordered table-striped table-hover table-condensed dt-responsive display nowrap th-center'>-->
                             <thead>
-                        <th class='center bold'><spring:message code='code' text='Code'/></th>
-                    <th class='center bold'><spring:message code='title' text='Title'/></th>
-                    <th class='center bold'><spring:message code='titleBng' text='Title Bng'/></th>
-                    <th class='center bold'><spring:message code='remarks' text='Remarks'/></th>
-                    <th class='center bold'><spring:message code='isActive' text='Is Active'/></th>
-                    <th class='center bold'><spring:message code='slNo' text='Sl No'/></th>
+                            <th class='center bold'><spring:message code='code' text='Code'/></th>
+                            <th class='center bold'><spring:message code='title' text='Title'/></th>
+                            <th class='center bold'><spring:message code='titleBng' text='Title Bng'/></th>
+                            <th class='center bold'><spring:message code='remarks' text='Remarks'/></th>
+                            <th class='center bold'><spring:message code='isActive' text='Is Active'/></th>
+                            <th class='center bold'><spring:message code='slNo' text='Sl No'/></th>
 
-    <th class='center bold'><spring:message code='default.button.action.label' text='Action'/></th> 
-            </thead>
-            <tbody>
-            <c:if test='${not empty departments}'>
-                <c:forEach items='${departments}' var='department'  varStatus='loopStatus'>
-                    <tr class='${loopStatus.index % 2 == 0 ? 'odd' : 'even'}'>
-                        <td><c:out value='${department.code}'/></td>
-                        <td><c:out value='${department.title}'/></td>
-                        <td><c:out value='${department.titleBng}'/></td>
-                        <td><c:out value='${department.remarks}'/></td>
-                        <td><c:if test='${department.isActive}'><spring:message code='default.boolean.true' text='YES'/></c:if><c:if test='${!department.isActive}'><spring:message code='default.boolean.false' text='NO'/></c:if></td>
-                        <td><c:out value='${department.slNo}'/></td>
+                            <th class='center bold'><spring:message code='default.button.action.label' text='Action'/></th> 
+                            </thead>
+                            <tbody>
+                                <c:if test='${not empty departments}'>
+                                    <c:forEach items='${departments}' var='department'  varStatus='loopStatus'>
+                                        <tr class='${loopStatus.index % 2 == 0 ? 'odd' : 'even'}'>
+                                            <td><c:out value='${department.code}'/></td>
+                                            <td><c:out value='${department.title}'/></td>
+                                            <td><c:out value='${department.titleBng}'/></td>
+                                            <td><c:out value='${department.remarks}'/></td>
+                                            <td><c:if test='${department.isActive}'><spring:message code='default.boolean.true' text='YES'/></c:if><c:if test='${!department.isActive}'><spring:message code='default.boolean.false' text='NO'/></c:if></td>
+                                            <td><c:out value='${department.slNo}'/></td>
 
-                           <td class='center action'>
-                            <ul class='top-links'>
-                            <sec:access url='/department/show'>
-                                <li>
-                                <a class='btn btn-block btn-info btn-xs' href='${pageContext.request.contextPath}/department/show/${department.id}'>
-                                    <i class='fa fa-info-circle'></i> <spring:message code='show.link.label'/>
-                                </a>
-                                </li>
-                            </sec:access>
-                            <sec:access url='/department/edit'>
-                                <li>
-                                <a class='btn btn-block btn-primary btn-xs' href='${pageContext.request.contextPath}/department/edit/${department.id}'>
-                                    <i class='fa fa-edit'></i> <spring:message code='edit.link.label'/>
-                                </a>
-                                </li>
-                            </sec:access>
-                            <sec:access url='/department/copy'>
-                                <li>
-                                <a class='btn btn-block btn-warning btn-xs' href='${pageContext.request.contextPath}/department/copy/${department.id}'>
-                                    <i class='fa fa-clone' aria-hidden='true'></i> <spring:message code='default.button.copy.label'/>
-                                </a>
-                                </li>
-                            </sec:access>
-                            <sec:access url='/department/delete'>
-                                <li>
-                                <a class='btn btn-block btn-danger btn-xs' href='${pageContext.request.contextPath}/department/delete/${department.id}' onclick="return confirm('Are you sure...? you want to delete this record...!');">
-                                    <i class='fa fa-remove'></i> <spring:message code='delete.link.label'/>
-                                </a>
-                                </li>
-                            </sec:access>
-                            </ul>
-                        </td>
-                        </tr>
-                    </c:forEach>
-                    </c:if> 
-                </tbody>
-            </table>
-            <div class='pagination'>
-                <!--<g:paginate total='{testInstanceCount ?: 0}'/>-->
-            </div>
-            </div><!-- /.box-body table-responsive no-padding -->
-        </div><!-- /.box box-primary -->
-        </section><!-- /.content -->
-    </div><!-- /.content-wrapper -->
+                                            <td class='center action'>
+                                                <ul class='top-links'>
+                                                    <sec:access url='/department/show'>
+                                                        <li>
+                                                            <a class='btn btn-block btn-info btn-xs' href='${pageContext.request.contextPath}/department/show/${department.id}'>
+                                                                <i class='fa fa-info-circle'></i> <spring:message code='show.link.label'/>
+                                                            </a>
+                                                        </li>
+                                                    </sec:access>
+                                                    <sec:access url='/department/edit'>
+                                                        <li>
+                                                            <a class='btn btn-block btn-primary btn-xs' href='${pageContext.request.contextPath}/department/edit/${department.id}'>
+                                                                <i class='fa fa-edit'></i> <spring:message code='edit.link.label'/>
+                                                            </a>
+                                                        </li>
+                                                    </sec:access>
+                                                    <sec:access url='/department/copy'>
+                                                        <li>
+                                                            <a class='btn btn-block btn-warning btn-xs' href='${pageContext.request.contextPath}/department/copy/${department.id}'>
+                                                                <i class='fa fa-clone' aria-hidden='true'></i> <spring:message code='default.button.copy.label'/>
+                                                            </a>
+                                                        </li>
+                                                    </sec:access>
+                                                    <sec:access url='/department/delete'>
+                                                        <li>
+                                                            <a class='btn btn-block btn-danger btn-xs' href='${pageContext.request.contextPath}/department/delete/${department.id}' onclick="return confirm('Are you sure...? you want to delete this record...!');">
+                                                                <i class='fa fa-remove'></i> <spring:message code='delete.link.label'/>
+                                                            </a>
+                                                        </li>
+                                                    </sec:access>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                </c:if> 
+                            </tbody>
+                        </table>
+                        <div class='pagination'>
+                            <!--<g:paginate total='{testInstanceCount ?: 0}'/>-->
+                        </div>
+                    </div><!-- /.box-body table-responsive no-padding -->
+                </div><!-- /.box box-primary -->
+            </section><!-- /.content -->
+        </div><!-- /.content-wrapper -->
     </tiles:putAttribute>
-                
+
 </tiles:insertDefinition>

@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 
-<%@ taglib uri='http://www.springframework.org/security/tags' prefix='sec'%>
+<%@ taglib prefix='spring' uri='http://www.springframework.org/tags'%>
+<%@ taglib prefix='sec' uri='http://www.springframework.org/security/tags'%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +36,9 @@
                             <a class="navbar-brand" href="<%=request.getContextPath()%>/homeSecure">Dashboard - ${displayName}</a>
                         </sec:authorize>
                         <sec:authorize access='isAnonymous()'>
-                            <a class="navbar-brand" href="${pageContext.request.contextPath}/login">Login</a><br/>
+                            <a class="navbar-brand" href="${pageContext.request.contextPath}/login">
+                            <spring:message code='login' text='Login'/>
+                            </a><br/>
                         </sec:authorize>
 
                     </div>

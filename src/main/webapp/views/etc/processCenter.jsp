@@ -9,15 +9,13 @@
 
 <tiles:insertDefinition name="main" >
 
-    <%--
-    <tiles:putAttribute name="header">
-        <title><spring:message code="process.processCenter.label" text="Process Center"/></title>
-    </tiles:putAttribute>
-    --%>
-
     <tiles:putAttribute name="body">
-
+        <title>
+            <spring:message code="default.button.process.label" text="Process"/>
+        </title>
+        
         <div class="content-wrapper"><!-- Content Wrapper. Contains page content -->
+
             <section class="content-header"><!-- Content Header (Page header) -->
                 <h1><spring:message code="default.button.process.label" text="Process"/></h1>
             </section><!-- /.content-header -->
@@ -28,84 +26,98 @@
 
             <section class="content"><!-- Main content -->
                 <div class="box box-primary">
-                    <form:form action="${pageContext.request.contextPath}/processCenter" commandName="rrr" method="POST">
-                        <div class="box-body">
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <label><spring:message code="process.processName.label" text="Process Name"/>:</label>
-                                    <form:select class="form-control" path="title" name="title" id="title" >
-                                        <form:option value="daily" label="Daily Status Process"/>
-                                        <form:option value="dailyRange" label="Daily Status Range Process"/>
-                                        <form:option value="refresh" label="Employee Refresh Process"/>
-                                        <form:option value="delEmp" label="Employee Full info Delete"/>
-                                        <form:option value="genCal" label="Generate Calender"/>
-                                    </form:select>
-                                </div>
+
+                    <div class="box-body">
+                        <div class='col-xs-12 col-sm-6 col-md-6 col-lg-6'>
+                            <div class='form-group'>
+                                <label for='module'>
+                                    <span><spring:message code='module' text='Module'/></span>
+                                </label>
+                                <select name='module' 
+                                        id='module'
+                                        onchange='getProcess()' 
+                                        class='form-control'>
+                                    <option value='${null}'><spring:message code='default.select.null' text='Select One'/></option>
+                                    <c:forEach items='${admModules}' var='sss' varStatus='loopStatus'>
+                                        <option value='${sss.id}' >${sss}</option>
+                                    </c:forEach>
+                                </select>
                             </div>
+                        </div>
 
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <label><spring:message code="default.date.label" text="Date"/>:</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                                        <input name="P_ATTN_DATE" class="form-control dtp-date"/>
-                                    </div><!-- /.input group -->
-                                </div><!-- /.form-group -->
-                            </div><!-- /.col-xs-12 col-sm-6 col-md-6 col-lg-6-->
+                        <div class='col-xs-12 col-sm-6 col-md-6 col-lg-6'>
+                            <div class='form-group'>
+                                <label class='required' for='processId'>
+                                    <span><spring:message code='process' text='Process'/></span>
 
-
-
-
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <label><spring:message code="default.datew.label" text="From Date"/>:</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                                        <input name="P_FROM_DATE" class="form-control dtp-date"/>
-                                    </div><!-- /.input group -->
-                                </div><!-- /.form-group -->
-                            </div><!-- /.col-xs-12 col-sm-6 col-md-6 col-lg-6-->
-
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <label><spring:message code="default.datew.label" text="To Date"/>:</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                                        <input name="P_TO_DATE" class="form-control dtp-date"/>
-                                    </div><!-- /.input group -->
-                                </div><!-- /.form-group -->
-                            </div><!-- /.col-xs-12 col-sm-6 col-md-6 col-lg-6-->
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <label><spring:message code="default.datex.label" text="Emp Code"/>:</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                                        <input name="P_EMP_CODE" class="form-control"/>
-                                    </div><!-- /.input group -->
-                                </div><!-- /.form-group -->
+                                </label>
+                                <select name='processId' 
+                                        id='processId'  
+                                        required='required'
+                                        onchange='getDynamicContent()' 
+                                        class='form-control'>
+                                    <option value='${null}'><spring:message code='default.select.null' text='Select One'/></option>
+                                    <c:forEach items='${admProcesss}' var='sss' varStatus='loopStatus'>
+                                        <option value='${sss.id}' >${sss}</option>
+                                    </c:forEach>
+                                </select>
                             </div>
-                            <%--
-                                <c:url value="/reportCenter/all" var="downloadXls"/>
-                                <a href="${downloadXls}">Download All</a>
-                                <br/>
-                                <c:url value="/reportCenter/all" var="downloadPdf"/>
-                                <a href="${downloadPdf}">Download Monthly</a>
-                                <br/>
-                                <c:url value="/reportCenter/all" var="downloadCsv"/>
-                                <a href="${downloadCsv}">Download Daily</a>
-                            --%>
+                        </div>
 
-                        </div><!-- /.box-body -->
-                        <div class="box-footer">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <!--<sec:access url="/processCenter">-->
-                                <button type="submit" class="btn btn-primary"><i class="fa fa-gears"></i> <spring:message code="default.button.process.label" text="Process"/></button>
-                                <!--</sec:access>-->
-                            </div>
-                        </div><!-- /.box-footer -->
-                    </form:form>
+                        <jsp:include page='_dynamicProcess.jsp' />
+
+                    </div><!-- /.box-body -->
+
                 </div><!-- /.box box-primary -->
             </section><!-- /.content -->
+
+            <script type='text/javascript'>
+
+                function hideAjaxLoadingImageProc() {
+                    $('#LoadingImageSrch').hide();
+                    $('#LoadingImageLoadProcess').hide();
+                    $('#LoadingImageExecuteProcess').hide();
+                }
+
+                function getProcess() {
+                    hideAjaxLoadingImageProc();
+                    $('#LoadingImageLoadProcess').show();
+                    $('#buttonContent').empty();
+                    $('#errMsg').empty();
+                    $('#error').empty();
+                    $('#fixedParam').empty();
+                    $('#fixedParameterHeader').empty();
+                    $('#outputMsg').empty();
+                    $('#qparams').empty();
+                    $('#searchButton').empty();
+                    $('#searchButtonContent').empty();
+                    $('#searchContent').empty();
+                    $('#searchParameterHeader').empty();
+                    $('#tableContent').empty();
+                    $('#totalRecordDiv').empty();
+
+                    $.ajax({
+                        type: 'GET',
+                        url: '${pageContext.request.contextPath}/processCenter/getProcess',
+                        data: {
+                            module: $('#module').val()
+                        },
+                        async: false,
+                        success: function (data) {
+                            hideAjaxLoadingImageProc();
+                            $('#processId').empty();
+                            $('#processId').append(data);
+                        },
+                        error: function (err) {
+                            alert('err getProcess: ' + err);
+                            hideAjaxLoadingImageProc();
+                        }
+                    });
+                }
+            </script>
+
+
+
         </div><!-- /.content-wrapper -->
     </tiles:putAttribute>
 
