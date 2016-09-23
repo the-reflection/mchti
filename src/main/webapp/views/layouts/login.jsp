@@ -1,8 +1,4 @@
-<%-- 
-    Document   : login
-    Created on : May 22, 2016, 1:46:14 PM
-    Author     : hoshen.mahmud
---%>
+
 <%@ page language='java' contentType='text/html; charset=UTF-8' pageEncoding='UTF-8'%>
 <%@ page isELIgnored="false" %>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>

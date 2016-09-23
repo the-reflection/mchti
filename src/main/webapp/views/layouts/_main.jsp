@@ -21,34 +21,30 @@
             <div class="styleSheet">
                 <tiles:insertAttribute name="styleSheet"/>
             </div>
-
             <div class="header">
                 <tiles:insertAttribute name="header"/>
             </div>
-
             <div class="sideBarLeft">
                 <tiles:insertAttribute name="sideBarLeft"/>
             </div>
-            
+
             <!-- Content Wrapper. Contains page content -->
+
             <div class="body">
                 <tiles:insertAttribute name="body"/>
-                <div id="spinner" class="spinner" style="display:none;"><g:message code="default.message.loading" default="Loading&hellip;"/></div>
             </div>
-                
             <div class="sideBarRight">
                 <tiles:insertAttribute name="sideBarRight"/>
             </div>
-            
+
             <div class="control-sidebar-bg"></div>
         </div>
         <!-- ./wrapper -->
-
-        <div class="script">
-            <tiles:insertAttribute name="script"/>
-        </div>
         <div class="footer">
             <tiles:insertAttribute name="footer"/>
+        </div>
+        <div class="script">
+            <tiles:insertAttribute name="script"/>
         </div>
     </body>
 </html>
