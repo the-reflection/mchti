@@ -5,24 +5,24 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.reflection</groupId>
     <!--artifactId is used as context path of web project-->
-    <artifactId>mchtix</artifactId>
+    <artifactId>mchti</artifactId>
     <version>1.0.0</version>
     <packaging>war</packaging>
     <name>_mchti</name>
-    <description>Reflection Framework an Advanced in Intelligence</description>
+    <description>Reflection Framework - Advanced in Intelligence</description>
     <licenses>
         <license>
             <name>Reflection License 1.0</name>
-            <url>http://www.reflection.org/licenses/LICENSE-1.0</url>
+            <url>http://www.oith.org/licenses/LICENSE-1.0</url>
         </license>
     </licenses>
-    <url>http://www.reflection.org</url>
+    <url>http://www.oith.org</url>
     
     <properties>     
         <netbeans.hint.deploy.server>Tomcat</netbeans.hint.deploy.server>
         <org.apache.tomcat.version>7.0.50</org.apache.tomcat.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <springsecurity.version>4.1.0.RELEASE</springsecurity.version>
+        <springsecurity.version>4.1.3.RELEASE</springsecurity.version>
     </properties>
     
     <repositories>
@@ -39,7 +39,7 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-framework-bom</artifactId>
-                <version>4.2.6.RELEASE</version>
+                <version>4.3.2.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -115,66 +115,54 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <!--<version>~{spring.version}</version>-->
         </dependency>     
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-            <!--<version>~{spring.version}</version>-->
+            
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
-            <!--<version>~{spring.version}</version>-->
         </dependency>
         <!-- Needed for XML View (with JAXB2) -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-oxm</artifactId>
-            <!--<version>~{spring.version}</version>-->
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
-            <!--<version>~{spring.version}</version>-->
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
-            <!--<version>~{spring.version}</version>-->
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-expression</artifactId>
-            <!--<version>~{spring.version}</version>-->
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <!--<version>~{spring.version}</version>-->
             <type>jar</type>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
-            <!--<version>~{spring.version}</version>-->
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <!--<version>~{spring.version}</version>-->
         </dependency>
-       
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aspects</artifactId>
-            <!--<version>~{spring.version}</version>-->
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
-            <!--<version>~{spring.version}</version>-->
         </dependency>
        
         <!--spring end-->
@@ -253,34 +241,7 @@
             <artifactId>jandex</artifactId>
             <version>2.0.2.Final</version>
         </dependency>
-        <!-- Hibernate Validator -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>5.2.4.Final</version>
-        </dependency>
-        
-        <dependency>
-            <groupId>org.hibernate.javax.persistence</groupId>
-            <artifactId>hibernate-jpa-2.1-api</artifactId>
-            <version>1.0.0.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-ehcache</artifactId>
-            <version>5.1.0.Final</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>5.1.0.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate.common</groupId>
-            <artifactId>hibernate-commons-annotations</artifactId>
-            <version>5.0.1.Final</version>
-        </dependency>
+      
 
         <dependency>
             <groupId>com.google.code.gson</groupId>
@@ -309,6 +270,7 @@
             <groupId>dom4j</groupId>
             <artifactId>dom4j</artifactId>
             <version>1.6.1</version>
+            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>com.googlecode.concurrentlinkedhashmap</groupId>
@@ -464,41 +426,20 @@
             <scope>test</scope>
         </dependency>
         
-        <!--db conn support-->
-<!--        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>1.4.191</version>
-        </dependency>
-        
         <dependency>
-            <groupId>postgresql</groupId>
+            <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>9.1-901-1.jdbc4</version>
-        </dependency>-->
-        
-        <!--mvn install:install-file -Dfile=ojdbc6.jar -DgroupId=oracle -DartifactId=oracle -Dversion=6 -Dpackaging=jar-->
-        <!--        <dependency>
-            <groupId>oracle</groupId>
-            <artifactId>oracle</artifactId>
-            <version>6</version>
-        </dependency>-->
+            <version>9.4.1210.jre7</version>
+        </dependency>
 
-        <dependency>
-            <groupId>org.apache.derby</groupId>
-            <artifactId>derbyclient</artifactId>
-            <version>10.12.1.1</version>
-        </dependency>
-        
         <!--mvn install:install-file -Dfile=ojdbc6.jar -DgroupId=oracle -DartifactId=oracle -Dversion=6 -Dpackaging=jar-->
         <dependency>
             <groupId>oracle</groupId>
             <artifactId>oracle</artifactId>
             <version>6</version>
         </dependency>
-        
-        
-        <!--mvn install:install-file -Dfile=oith.jar -DgroupId=jcalendar-1.4 -DartifactId=jcalendar-1.4 -Dversion=1.4 -Dpackaging=jar-->
+  
+        <!--mvn install:install-file -Dfile=oith.jar -DgroupId=oith-1.0 -DartifactId=oith-1.0 -Dversion=1.0 -Dpackaging=jar-->
         <dependency>
             <artifactId>oith-1.0</artifactId>
             <groupId>oith-1.0</groupId>
@@ -530,19 +471,47 @@
             <type>jar</type>
         </dependency>
         
+        <!-- Hibernate Validator -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.2.4.Final</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
+            <version>1.0.0.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-ehcache</artifactId>
+            <version>5.2.2.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.2.2.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.common</groupId>
+            <artifactId>hibernate-commons-annotations</artifactId>
+            <version>5.0.1.Final</version>
+        </dependency>
         <!-- JPA Provider (Hibernate) -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-            <version>5.1.0.Final</version>
-            <type>jar</type>
+            <version>5.1.1.Final</version>
+<!--            <type>jar</type>-->
         </dependency>
 
         <!-- Spring Data JPA -->
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>
-            <version>1.10.1.RELEASE</version>
+            <version>1.10.2.RELEASE</version>
         </dependency>
     </dependencies>
 
@@ -551,15 +520,23 @@
         <finalName>mchti</finalName>
         
         <plugins>  
-           
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <failOnError>false</failOnError>
+                </configuration>
+            </plugin>
+            
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>2.6</version>
+                <version>3.0.0</version>
                 <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
                     <warSourceDirectory>src/main/webapp</warSourceDirectory>
                     <warName>${project.build.finalName}</warName>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
           
@@ -573,19 +550,14 @@
                     <path>/${project.build.finalName}</path>
                 </configuration>
             </plugin>
+           
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-site-plugin</artifactId>
+                <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.5.1</version>
                 <configuration>
-                    <reportPlugins>
-                        <!-- Cobertura Plugin -->
-                        <plugin>
-                            <groupId>org.codehaus.mojo</groupId>
-                            <artifactId>cobertura-maven-plugin</artifactId>
-                            <version>2.5.1</version>
-                        </plugin>
-                    </reportPlugins>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
         </plugins>
@@ -604,8 +576,8 @@
                         <artifactId>maven-compiler-plugin</artifactId>
                         <version>3.5.1</version>
                         <configuration>
-                            <source>1.7</source>
-                            <target>1.7</target>
+                            <source>1.8</source>
+                            <target>1.8</target>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -623,8 +595,8 @@
                         <artifactId>maven-compiler-plugin</artifactId>
                         <version>3.5.1</version>
                         <configuration>
-                            <source>1.7</source>
-                            <target>1.7</target>
+                            <source>1.8</source>
+                            <target>1.8</target>
                             <includes>
                                 <include>org/reflection/model/**/*.java</include>
                             </includes>
