@@ -4,10 +4,6 @@ package org.reflection.model.com;
 import java.util.Date;
 import org.reflection.model.security.AuthUser;
 
-/**
- *
- * @author mbadiuzzaman
- */
 public interface IAuditable {
 
     public AuthUser getEntryBy();

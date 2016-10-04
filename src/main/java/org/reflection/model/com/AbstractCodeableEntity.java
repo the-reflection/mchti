@@ -28,10 +28,12 @@ public abstract class AbstractCodeableEntity extends AbstractEntity implements I
     public AbstractCodeableEntity() {
     }
 
+    @Override
     public String getCode() {
         return code;
     }
 
+    @Override
     public void setCode(String code) {
         this.code = code;
     }

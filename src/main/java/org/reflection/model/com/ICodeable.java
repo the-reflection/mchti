@@ -1,10 +1,6 @@
 
 package org.reflection.model.com;
 
-/**
- *
- * @author mbadiuzzaman
- */
 public interface ICodeable {
 
     public String getCode();
