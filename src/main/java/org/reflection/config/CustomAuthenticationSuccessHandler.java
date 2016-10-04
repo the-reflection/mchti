@@ -29,7 +29,6 @@ public class CustomAuthenticationSuccessHandler implements
 
         String contextPath = request.getContextPath();
 
-        /*Set some session variables*/
         AuthUser authUser = (AuthUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         // session.setAttribute("uname", authUser.getUsername());  
         // session.setAttribute("authorities", authentication.getAuthorities()); 
@@ -158,4 +157,4 @@ class MenuService {
         return session.removeAttribute(menuSession)
     }
 }
-*/
+ */

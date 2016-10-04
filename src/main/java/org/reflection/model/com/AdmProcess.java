@@ -15,14 +15,10 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(catalog = "MCHTI", name = "ADM_PROCESS")
-//@CompoundIndexes({
-//    @CompoundIndex(unique = true, name = "client_code_idx", def = "{'client': 1, 'code': 1}"),
-//    @CompoundIndex(unique = true, name = "client_module_title_idx", def = "{'client': 1, 'module': 1, 'title': 1}")
-//})
 public class AdmProcess extends AbstractCodeableEntity {
 
     @JoinColumn(name = "ADM_MODULE_ID", nullable = false)
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false)
     private AdmModule admModule;
     @NotNull
     @Size(min = 3, max = 2000)

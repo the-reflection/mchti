@@ -38,7 +38,7 @@ public class DataLoader {
     private static final String USER_SRC = System.getProperty("userSrc");
     private static final String PASSWORD_SRC = System.getProperty("passwordSrc");
 
-    public static void main(String[] args) {
+    public static void mainx(String[] args) {
         final DataLoader aa = new DataLoader();
 
         Thread th = new Thread(new Runnable() {

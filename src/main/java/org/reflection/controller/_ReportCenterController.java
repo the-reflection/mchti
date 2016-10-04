@@ -105,9 +105,7 @@ public class _ReportCenterController extends _BaseController {
 
         System.out.println("finding getDynamicContent: code: >" + reportId + "<");
 
-        Map<String, String> allMap;
-
-        allMap = AdmUtilReport.getReportPageMap(admReportService.findById(reportId));
+        Map<String, String> allMap = AdmUtilReport.getReportPageMap(admReportService.findById(reportId));
 
         final HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
